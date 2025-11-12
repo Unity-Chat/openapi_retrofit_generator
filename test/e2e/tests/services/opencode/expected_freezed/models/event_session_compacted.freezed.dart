@@ -1,0 +1,298 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'event_session_compacted.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+
+/// @nodoc
+mixin _$EventSessionCompacted {
+
+ String get type;@JsonKey(name: 'EventSessionCompactedProperties') EventSessionCompactedProperties get eventSessionCompactedProperties;
+/// Create a copy of EventSessionCompacted
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EventSessionCompactedCopyWith<EventSessionCompacted> get copyWith => _$EventSessionCompactedCopyWithImpl<EventSessionCompacted>(this as EventSessionCompacted, _$identity);
+
+  /// Serializes this EventSessionCompacted to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionCompacted&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionCompactedProperties, eventSessionCompactedProperties) || other.eventSessionCompactedProperties == eventSessionCompactedProperties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,eventSessionCompactedProperties);
+
+@override
+String toString() {
+  return 'EventSessionCompacted(type: $type, eventSessionCompactedProperties: $eventSessionCompactedProperties)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EventSessionCompactedCopyWith<$Res>  {
+  factory $EventSessionCompactedCopyWith(EventSessionCompacted value, $Res Function(EventSessionCompacted) _then) = _$EventSessionCompactedCopyWithImpl;
+@useResult
+$Res call({
+ String type,@JsonKey(name: 'EventSessionCompactedProperties') EventSessionCompactedProperties eventSessionCompactedProperties
+});
+
+
+$EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties;
+
+}
+/// @nodoc
+class _$EventSessionCompactedCopyWithImpl<$Res>
+    implements $EventSessionCompactedCopyWith<$Res> {
+  _$EventSessionCompactedCopyWithImpl(this._self, this._then);
+
+  final EventSessionCompacted _self;
+  final $Res Function(EventSessionCompacted) _then;
+
+/// Create a copy of EventSessionCompacted
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventSessionCompactedProperties = null,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,eventSessionCompactedProperties: null == eventSessionCompactedProperties ? _self.eventSessionCompactedProperties : eventSessionCompactedProperties // ignore: cast_nullable_to_non_nullable
+as EventSessionCompactedProperties,
+  ));
+}
+/// Create a copy of EventSessionCompacted
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties {
+  
+  return $EventSessionCompactedPropertiesCopyWith<$Res>(_self.eventSessionCompactedProperties, (value) {
+    return _then(_self.copyWith(eventSessionCompactedProperties: value));
+  });
+}
+}
+
+
+/// Adds pattern-matching-related methods to [EventSessionCompacted].
+extension EventSessionCompactedPatterns on EventSessionCompacted {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _EventSessionCompacted value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _EventSessionCompacted() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _EventSessionCompacted value)  $default,){
+final _that = this;
+switch (_that) {
+case _EventSessionCompacted():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _EventSessionCompacted value)?  $default,){
+final _that = this;
+switch (_that) {
+case _EventSessionCompacted() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionCompactedProperties')  EventSessionCompactedProperties eventSessionCompactedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _EventSessionCompacted() when $default != null:
+return $default(_that.type,_that.eventSessionCompactedProperties);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionCompactedProperties')  EventSessionCompactedProperties eventSessionCompactedProperties)  $default,) {final _that = this;
+switch (_that) {
+case _EventSessionCompacted():
+return $default(_that.type,_that.eventSessionCompactedProperties);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventSessionCompactedProperties')  EventSessionCompactedProperties eventSessionCompactedProperties)?  $default,) {final _that = this;
+switch (_that) {
+case _EventSessionCompacted() when $default != null:
+return $default(_that.type,_that.eventSessionCompactedProperties);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _EventSessionCompacted implements EventSessionCompacted {
+  const _EventSessionCompacted({required this.type, @JsonKey(name: 'EventSessionCompactedProperties') required this.eventSessionCompactedProperties});
+  factory _EventSessionCompacted.fromJson(Map<String, dynamic> json) => _$EventSessionCompactedFromJson(json);
+
+@override final  String type;
+@override@JsonKey(name: 'EventSessionCompactedProperties') final  EventSessionCompactedProperties eventSessionCompactedProperties;
+
+/// Create a copy of EventSessionCompacted
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EventSessionCompactedCopyWith<_EventSessionCompacted> get copyWith => __$EventSessionCompactedCopyWithImpl<_EventSessionCompacted>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$EventSessionCompactedToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionCompacted&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionCompactedProperties, eventSessionCompactedProperties) || other.eventSessionCompactedProperties == eventSessionCompactedProperties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,eventSessionCompactedProperties);
+
+@override
+String toString() {
+  return 'EventSessionCompacted(type: $type, eventSessionCompactedProperties: $eventSessionCompactedProperties)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EventSessionCompactedCopyWith<$Res> implements $EventSessionCompactedCopyWith<$Res> {
+  factory _$EventSessionCompactedCopyWith(_EventSessionCompacted value, $Res Function(_EventSessionCompacted) _then) = __$EventSessionCompactedCopyWithImpl;
+@override @useResult
+$Res call({
+ String type,@JsonKey(name: 'EventSessionCompactedProperties') EventSessionCompactedProperties eventSessionCompactedProperties
+});
+
+
+@override $EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties;
+
+}
+/// @nodoc
+class __$EventSessionCompactedCopyWithImpl<$Res>
+    implements _$EventSessionCompactedCopyWith<$Res> {
+  __$EventSessionCompactedCopyWithImpl(this._self, this._then);
+
+  final _EventSessionCompacted _self;
+  final $Res Function(_EventSessionCompacted) _then;
+
+/// Create a copy of EventSessionCompacted
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventSessionCompactedProperties = null,}) {
+  return _then(_EventSessionCompacted(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,eventSessionCompactedProperties: null == eventSessionCompactedProperties ? _self.eventSessionCompactedProperties : eventSessionCompactedProperties // ignore: cast_nullable_to_non_nullable
+as EventSessionCompactedProperties,
+  ));
+}
+
+/// Create a copy of EventSessionCompacted
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties {
+  
+  return $EventSessionCompactedPropertiesCopyWith<$Res>(_self.eventSessionCompactedProperties, (value) {
+    return _then(_self.copyWith(eventSessionCompactedProperties: value));
+  });
+}
+}
+
+// dart format on

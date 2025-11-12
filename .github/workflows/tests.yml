@@ -1,33 +1,36 @@
-name: tests
+name: Tests
 
 on:
   push:
     branches:
       - main
   pull_request:
-    types: [opened, reopened, review_requested]
+    types: [opened, reopened, review_requested, synchronize]
 
 jobs:
   test:
     name: "Tests"
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./swagger_parser
-    strategy:
-      matrix:
-        sdk:
-          - stable
     steps:
-      - uses: actions/checkout@v5.0.0
-      - uses: dart-lang/setup-dart@v1.7.1
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Delete example folder
+        run: rm -rf example
+      
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@v1
         with:
-          sdk: "${{ matrix.sdk }}"
+          sdk: stable
+      
       - name: Install dependencies
         run: dart pub get
-      - name: Format
-        run: dart format --set-exit-if-changed -o none lib/
-      - name: Analyze
-        run: dart analyze
-      - name: Run tests
-        run: dart run test
+      
+      - name: Verify formatting
+        run: dart format --set-exit-if-changed -o none .
+      
+      - name: Analyze project
+        run: dart analyze --fatal-infos
+      
+      - name: Run all tests
+        run: dart test --reporter=expanded

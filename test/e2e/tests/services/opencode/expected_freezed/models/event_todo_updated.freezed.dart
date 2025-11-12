@@ -1,0 +1,298 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'event_todo_updated.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+
+/// @nodoc
+mixin _$EventTodoUpdated {
+
+ String get type;@JsonKey(name: 'EventTodoUpdatedProperties') EventTodoUpdatedProperties get eventTodoUpdatedProperties;
+/// Create a copy of EventTodoUpdated
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EventTodoUpdatedCopyWith<EventTodoUpdated> get copyWith => _$EventTodoUpdatedCopyWithImpl<EventTodoUpdated>(this as EventTodoUpdated, _$identity);
+
+  /// Serializes this EventTodoUpdated to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventTodoUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventTodoUpdatedProperties, eventTodoUpdatedProperties) || other.eventTodoUpdatedProperties == eventTodoUpdatedProperties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,eventTodoUpdatedProperties);
+
+@override
+String toString() {
+  return 'EventTodoUpdated(type: $type, eventTodoUpdatedProperties: $eventTodoUpdatedProperties)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EventTodoUpdatedCopyWith<$Res>  {
+  factory $EventTodoUpdatedCopyWith(EventTodoUpdated value, $Res Function(EventTodoUpdated) _then) = _$EventTodoUpdatedCopyWithImpl;
+@useResult
+$Res call({
+ String type,@JsonKey(name: 'EventTodoUpdatedProperties') EventTodoUpdatedProperties eventTodoUpdatedProperties
+});
+
+
+$EventTodoUpdatedPropertiesCopyWith<$Res> get eventTodoUpdatedProperties;
+
+}
+/// @nodoc
+class _$EventTodoUpdatedCopyWithImpl<$Res>
+    implements $EventTodoUpdatedCopyWith<$Res> {
+  _$EventTodoUpdatedCopyWithImpl(this._self, this._then);
+
+  final EventTodoUpdated _self;
+  final $Res Function(EventTodoUpdated) _then;
+
+/// Create a copy of EventTodoUpdated
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventTodoUpdatedProperties = null,}) {
+  return _then(_self.copyWith(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,eventTodoUpdatedProperties: null == eventTodoUpdatedProperties ? _self.eventTodoUpdatedProperties : eventTodoUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as EventTodoUpdatedProperties,
+  ));
+}
+/// Create a copy of EventTodoUpdated
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EventTodoUpdatedPropertiesCopyWith<$Res> get eventTodoUpdatedProperties {
+  
+  return $EventTodoUpdatedPropertiesCopyWith<$Res>(_self.eventTodoUpdatedProperties, (value) {
+    return _then(_self.copyWith(eventTodoUpdatedProperties: value));
+  });
+}
+}
+
+
+/// Adds pattern-matching-related methods to [EventTodoUpdated].
+extension EventTodoUpdatedPatterns on EventTodoUpdated {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _EventTodoUpdated value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _EventTodoUpdated() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _EventTodoUpdated value)  $default,){
+final _that = this;
+switch (_that) {
+case _EventTodoUpdated():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _EventTodoUpdated value)?  $default,){
+final _that = this;
+switch (_that) {
+case _EventTodoUpdated() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventTodoUpdatedProperties')  EventTodoUpdatedProperties eventTodoUpdatedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _EventTodoUpdated() when $default != null:
+return $default(_that.type,_that.eventTodoUpdatedProperties);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventTodoUpdatedProperties')  EventTodoUpdatedProperties eventTodoUpdatedProperties)  $default,) {final _that = this;
+switch (_that) {
+case _EventTodoUpdated():
+return $default(_that.type,_that.eventTodoUpdatedProperties);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventTodoUpdatedProperties')  EventTodoUpdatedProperties eventTodoUpdatedProperties)?  $default,) {final _that = this;
+switch (_that) {
+case _EventTodoUpdated() when $default != null:
+return $default(_that.type,_that.eventTodoUpdatedProperties);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _EventTodoUpdated implements EventTodoUpdated {
+  const _EventTodoUpdated({required this.type, @JsonKey(name: 'EventTodoUpdatedProperties') required this.eventTodoUpdatedProperties});
+  factory _EventTodoUpdated.fromJson(Map<String, dynamic> json) => _$EventTodoUpdatedFromJson(json);
+
+@override final  String type;
+@override@JsonKey(name: 'EventTodoUpdatedProperties') final  EventTodoUpdatedProperties eventTodoUpdatedProperties;
+
+/// Create a copy of EventTodoUpdated
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EventTodoUpdatedCopyWith<_EventTodoUpdated> get copyWith => __$EventTodoUpdatedCopyWithImpl<_EventTodoUpdated>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$EventTodoUpdatedToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventTodoUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventTodoUpdatedProperties, eventTodoUpdatedProperties) || other.eventTodoUpdatedProperties == eventTodoUpdatedProperties));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,type,eventTodoUpdatedProperties);
+
+@override
+String toString() {
+  return 'EventTodoUpdated(type: $type, eventTodoUpdatedProperties: $eventTodoUpdatedProperties)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EventTodoUpdatedCopyWith<$Res> implements $EventTodoUpdatedCopyWith<$Res> {
+  factory _$EventTodoUpdatedCopyWith(_EventTodoUpdated value, $Res Function(_EventTodoUpdated) _then) = __$EventTodoUpdatedCopyWithImpl;
+@override @useResult
+$Res call({
+ String type,@JsonKey(name: 'EventTodoUpdatedProperties') EventTodoUpdatedProperties eventTodoUpdatedProperties
+});
+
+
+@override $EventTodoUpdatedPropertiesCopyWith<$Res> get eventTodoUpdatedProperties;
+
+}
+/// @nodoc
+class __$EventTodoUpdatedCopyWithImpl<$Res>
+    implements _$EventTodoUpdatedCopyWith<$Res> {
+  __$EventTodoUpdatedCopyWithImpl(this._self, this._then);
+
+  final _EventTodoUpdated _self;
+  final $Res Function(_EventTodoUpdated) _then;
+
+/// Create a copy of EventTodoUpdated
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventTodoUpdatedProperties = null,}) {
+  return _then(_EventTodoUpdated(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as String,eventTodoUpdatedProperties: null == eventTodoUpdatedProperties ? _self.eventTodoUpdatedProperties : eventTodoUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as EventTodoUpdatedProperties,
+  ));
+}
+
+/// Create a copy of EventTodoUpdated
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$EventTodoUpdatedPropertiesCopyWith<$Res> get eventTodoUpdatedProperties {
+  
+  return $EventTodoUpdatedPropertiesCopyWith<$Res>(_self.eventTodoUpdatedProperties, (value) {
+    return _then(_self.copyWith(eventTodoUpdatedProperties: value));
+  });
+}
+}
+
+// dart format on

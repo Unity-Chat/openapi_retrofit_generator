@@ -1,0 +1,280 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'event_session_error_properties.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+
+/// @nodoc
+mixin _$EventSessionErrorProperties {
+
+@JsonKey(name: 'sessionID') String? get sessionId; EventSessionErrorPropertiesErrorErrorUnion? get error;
+/// Create a copy of EventSessionErrorProperties
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$EventSessionErrorPropertiesCopyWith<EventSessionErrorProperties> get copyWith => _$EventSessionErrorPropertiesCopyWithImpl<EventSessionErrorProperties>(this as EventSessionErrorProperties, _$identity);
+
+  /// Serializes this EventSessionErrorProperties to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionErrorProperties&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.error, error) || other.error == error));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,sessionId,error);
+
+@override
+String toString() {
+  return 'EventSessionErrorProperties(sessionId: $sessionId, error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $EventSessionErrorPropertiesCopyWith<$Res>  {
+  factory $EventSessionErrorPropertiesCopyWith(EventSessionErrorProperties value, $Res Function(EventSessionErrorProperties) _then) = _$EventSessionErrorPropertiesCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'sessionID') String? sessionId, EventSessionErrorPropertiesErrorErrorUnion? error
+});
+
+
+
+
+}
+/// @nodoc
+class _$EventSessionErrorPropertiesCopyWithImpl<$Res>
+    implements $EventSessionErrorPropertiesCopyWith<$Res> {
+  _$EventSessionErrorPropertiesCopyWithImpl(this._self, this._then);
+
+  final EventSessionErrorProperties _self;
+  final $Res Function(EventSessionErrorProperties) _then;
+
+/// Create a copy of EventSessionErrorProperties
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? sessionId = freezed,Object? error = freezed,}) {
+  return _then(_self.copyWith(
+sessionId: freezed == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
+as String?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as EventSessionErrorPropertiesErrorErrorUnion?,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [EventSessionErrorProperties].
+extension EventSessionErrorPropertiesPatterns on EventSessionErrorProperties {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _EventSessionErrorProperties value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _EventSessionErrorProperties() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _EventSessionErrorProperties value)  $default,){
+final _that = this;
+switch (_that) {
+case _EventSessionErrorProperties():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _EventSessionErrorProperties value)?  $default,){
+final _that = this;
+switch (_that) {
+case _EventSessionErrorProperties() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'sessionID')  String? sessionId,  EventSessionErrorPropertiesErrorErrorUnion? error)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _EventSessionErrorProperties() when $default != null:
+return $default(_that.sessionId,_that.error);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'sessionID')  String? sessionId,  EventSessionErrorPropertiesErrorErrorUnion? error)  $default,) {final _that = this;
+switch (_that) {
+case _EventSessionErrorProperties():
+return $default(_that.sessionId,_that.error);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'sessionID')  String? sessionId,  EventSessionErrorPropertiesErrorErrorUnion? error)?  $default,) {final _that = this;
+switch (_that) {
+case _EventSessionErrorProperties() when $default != null:
+return $default(_that.sessionId,_that.error);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _EventSessionErrorProperties implements EventSessionErrorProperties {
+  const _EventSessionErrorProperties({@JsonKey(name: 'sessionID') this.sessionId, this.error});
+  factory _EventSessionErrorProperties.fromJson(Map<String, dynamic> json) => _$EventSessionErrorPropertiesFromJson(json);
+
+@override@JsonKey(name: 'sessionID') final  String? sessionId;
+@override final  EventSessionErrorPropertiesErrorErrorUnion? error;
+
+/// Create a copy of EventSessionErrorProperties
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$EventSessionErrorPropertiesCopyWith<_EventSessionErrorProperties> get copyWith => __$EventSessionErrorPropertiesCopyWithImpl<_EventSessionErrorProperties>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$EventSessionErrorPropertiesToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionErrorProperties&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.error, error) || other.error == error));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,sessionId,error);
+
+@override
+String toString() {
+  return 'EventSessionErrorProperties(sessionId: $sessionId, error: $error)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$EventSessionErrorPropertiesCopyWith<$Res> implements $EventSessionErrorPropertiesCopyWith<$Res> {
+  factory _$EventSessionErrorPropertiesCopyWith(_EventSessionErrorProperties value, $Res Function(_EventSessionErrorProperties) _then) = __$EventSessionErrorPropertiesCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'sessionID') String? sessionId, EventSessionErrorPropertiesErrorErrorUnion? error
+});
+
+
+
+
+}
+/// @nodoc
+class __$EventSessionErrorPropertiesCopyWithImpl<$Res>
+    implements _$EventSessionErrorPropertiesCopyWith<$Res> {
+  __$EventSessionErrorPropertiesCopyWithImpl(this._self, this._then);
+
+  final _EventSessionErrorProperties _self;
+  final $Res Function(_EventSessionErrorProperties) _then;
+
+/// Create a copy of EventSessionErrorProperties
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? sessionId = freezed,Object? error = freezed,}) {
+  return _then(_EventSessionErrorProperties(
+sessionId: freezed == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
+as String?,error: freezed == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as EventSessionErrorPropertiesErrorErrorUnion?,
+  ));
+}
+
+
+}
+
+// dart format on

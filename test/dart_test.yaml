@@ -1,0 +1,3 @@
+exclude:
+  - "**/generated_*/**"
+  - "e2e/tests/schemas/generated/**"

@@ -1,0 +1,22 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'step_start_part.freezed.dart';
+part 'step_start_part.g.dart';
+
+@Freezed()
+abstract class StepStartPart with _$StepStartPart {
+  const factory StepStartPart({
+    required String id,
+    @JsonKey(name: 'sessionID') required String sessionId,
+    @JsonKey(name: 'messageID') required String messageId,
+    required String type,
+    String? snapshot,
+  }) = _StepStartPart;
+
+  factory StepStartPart.fromJson(Map<String, Object?> json) =>
+      _$StepStartPartFromJson(json);
+}

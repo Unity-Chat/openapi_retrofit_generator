@@ -1,0 +1,68 @@
+openapi: 3.0.0
+servers:
+  - url: 'http://api.example.com/v1'
+info:
+  description: Test for reserved field names in root client
+  version: 1.0.0
+  title: Reserved Names API
+paths:
+  /enum:
+    get:
+      tags:
+        - enum
+      operationId: getEnum
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+  /class:
+    get:
+      tags:
+        - class
+      operationId: getClass
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+  /static:
+    get:
+      tags:
+        - static
+      operationId: getStatic
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+  /void:
+    get:
+      tags:
+        - void
+      operationId: getVoid
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+  /normal:
+    get:
+      tags:
+        - user
+      operationId: getUser
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string

@@ -1,0 +1,23 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'center.dart';
+
+part 'model53.freezed.dart';
+part 'model53.g.dart';
+
+@Freezed()
+abstract class Model53 with _$Model53 {
+  const factory Model53({
+    Center? center,
+    num? size,
+    num? score,
+    String? organ,
+  }) = _Model53;
+
+  factory Model53.fromJson(Map<String, Object?> json) =>
+      _$Model53FromJson(json);
+}

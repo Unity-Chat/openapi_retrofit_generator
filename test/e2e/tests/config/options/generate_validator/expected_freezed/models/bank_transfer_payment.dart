@@ -1,0 +1,40 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'bank_transfer_payment_payment_type_payment_type.dart';
+import 'payment_request.dart';
+
+part 'bank_transfer_payment.freezed.dart';
+part 'bank_transfer_payment.g.dart';
+
+@Freezed()
+abstract class BankTransferPayment with _$BankTransferPayment {
+  const factory BankTransferPayment({
+    required BankTransferPaymentPaymentTypePaymentType paymentType,
+    required String accountNumber,
+    required String routingNumber,
+    required double amount,
+    String? accountHolder,
+    String? reference,
+  }) = _BankTransferPayment;
+
+  factory BankTransferPayment.fromJson(Map<String, Object?> json) =>
+      _$BankTransferPaymentFromJson(json);
+  static const double amountMin = 0.01;
+}
+
+extension BankTransferPaymentValidationX on BankTransferPayment {
+  bool validate() {
+    try {
+      if (amount < BankTransferPayment.amountMin) {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+}

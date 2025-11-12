@@ -1,0 +1,36 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'category.dart';
+import 'post_status.dart';
+import 'user.dart';
+
+part 'post_model.freezed.dart';
+part 'post_model.g.dart';
+
+@Freezed()
+abstract class PostModel with _$PostModel {
+  const factory PostModel({
+    required String id,
+    required String title,
+    required String content,
+    required String authorId,
+    required PostStatus status,
+    required DateTime createdAt,
+    @Default(0) int viewCount,
+    @Default(0) int likeCount,
+    String? excerpt,
+    User? author,
+    List<String>? tags,
+    List<Category>? categories,
+    DateTime? publishedAt,
+    dynamic metadata,
+    DateTime? updatedAt,
+  }) = _PostModel;
+
+  factory PostModel.fromJson(Map<String, Object?> json) =>
+      _$PostModelFromJson(json);
+}

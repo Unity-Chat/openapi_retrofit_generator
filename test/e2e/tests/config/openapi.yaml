@@ -1,0 +1,1605 @@
+openapi: 3.0.3
+info:
+  title: Comprehensive API Test Schema
+  description: |
+    This schema covers ALL edge cases and features of openapi_retrofit_generator:
+    - Multiple tags for client separation
+    - Anonymous/inline classes
+    - Circular model dependencies
+    - Parameter references ($ref)
+    - Duplicated/conflicting names
+    - All HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)
+    - All parameter types (query, path, body, header, cookie)
+    - Arrays, objects, primitives, enums
+    - oneOf, anyOf, allOf compositions
+    - Discriminators (mapped and unmapped)
+    - Nullable and required fields
+    - Default values
+    - Deprecated endpoints and models
+    - Multipart file uploads
+    - Multiple response codes
+    - Nested objects (deep nesting)
+    - Date/DateTime types
+    - Validation (min, max, pattern, minLength, maxLength)
+    - Additional properties
+    - Empty objects
+    - Reference types ($ref)
+    - Wrapped collections
+    - x-nullable extension
+    - Circular dependencies
+    - Name conflicts and edge cases
+    - Different content types
+    - Headers in responses
+  version: 1.0.0
+
+servers:
+  - url: https://api.example.com/v1
+    description: Production server
+  - url: https://staging.api.example.com/v1
+    description: Staging server
+
+tags:
+  - name: users
+    description: User management operations
+  - name: posts
+    description: Post operations
+  - name: comments
+    description: Comment operations
+  - name: files
+    description: File upload/download operations
+  - name: advanced
+    description: Advanced features (oneOf, anyOf, allOf)
+  - name: deprecated
+    description: Deprecated endpoints
+  - name: admin
+    description: Admin operations (for tag filtering tests)
+  - name: internal
+    description: Internal endpoints (for exclusion tests)
+
+paths:
+  # ============================================================================
+  # BASIC CRUD WITH MULTIPLE TAGS
+  # ============================================================================
+  /users:
+    get:
+      operationId: listUsers
+      summary: List all users with pagination
+      tags: [users]
+      parameters:
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+        - name: sort
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: asc
+        - name: filter
+          in: query
+          description: Filter by name (regex pattern)
+          schema:
+            type: string
+            pattern: '^[a-zA-Z0-9_-]+$'
+        - name: X-Request-ID
+          in: header
+          description: Request tracking ID
+          required: false
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: User list retrieved successfully
+          headers:
+            X-Total-Count:
+              schema:
+                type: integer
+              description: Total number of users
+            X-Page-Count:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserListResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    
+    post:
+      operationId: createUser
+      summary: Create a new user
+      tags: [users]
+      parameters:
+        - name: X-Idempotency-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '409':
+          description: User already exists (duplicate)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /users/{userId}:
+    parameters:
+      - $ref: '#/components/parameters/UserIdParam'
+    
+    get:
+      operationId: getUser
+      summary: Get user by ID
+      tags: [users]
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    
+    put:
+      operationId: updateUser
+      summary: Update user (full replace)
+      tags: [users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+      responses:
+        '200':
+          description: User updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    
+    patch:
+      operationId: patchUser
+      summary: Partially update user
+      tags: [users]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchUserRequest'
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/PatchUserRequest'
+      responses:
+        '200':
+          description: User patched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    
+    delete:
+      operationId: deleteUser
+      summary: Delete user
+      tags: [users]
+      responses:
+        '204':
+          description: User deleted
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /users/{userId}/avatar:
+    parameters:
+      - $ref: '#/components/parameters/UserIdParam'
+    
+    post:
+      operationId: uploadAvatar
+      summary: Upload user avatar (multipart)
+      tags: [users, files]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Avatar image file
+                description:
+                  type: string
+                  maxLength: 200
+                metadata:
+                  $ref: '#/components/schemas/FileMetadata'
+      responses:
+        '200':
+          description: Avatar uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+
+  # ============================================================================
+  # CIRCULAR DEPENDENCIES
+  # ============================================================================
+  /users/{userId}/friends:
+    get:
+      operationId: getUserFriends
+      summary: Get user friends (circular User references)
+      tags: [users]
+      parameters:
+        - $ref: '#/components/parameters/UserIdParam'
+      responses:
+        '200':
+          description: Friend list (circular reference to User)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+
+  # ============================================================================
+  # POSTS WITH NESTED OBJECTS AND INLINE SCHEMAS
+  # ============================================================================
+  /posts:
+    get:
+      operationId: listPosts
+      summary: List posts with inline filter schema
+      tags: [posts]
+      parameters:
+        - name: filters
+          in: query
+          description: Complex filter object (inline schema)
+          style: deepObject
+          explode: true
+          schema:
+            type: object
+            properties:
+              authorId:
+                type: string
+                format: uuid
+              tags:
+                type: array
+                items:
+                  type: string
+              dateRange:
+                type: object
+                properties:
+                  from:
+                    type: string
+                    format: date-time
+                  to:
+                    type: string
+                    format: date-time
+      responses:
+        '200':
+          description: Posts list with inline response schema
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  posts:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Post'
+                  pagination:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                      total:
+                        type: integer
+                      hasNext:
+                        type: boolean
+                  metadata:
+                    type: object
+                    additionalProperties:
+                      type: string
+    
+    post:
+      operationId: createPost
+      summary: Create post with inline request schema
+      tags: [posts]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - content
+                - authorId
+              properties:
+                title:
+                  type: string
+                  minLength: 1
+                  maxLength: 200
+                content:
+                  type: string
+                  minLength: 1
+                authorId:
+                  type: string
+                  format: uuid
+                tags:
+                  type: array
+                  items:
+                    type: string
+                  minItems: 0
+                  maxItems: 10
+                publishAt:
+                  type: string
+                  format: date-time
+                  nullable: true
+                metadata:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: Post created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+
+  /posts/{postId}:
+    parameters:
+      - name: postId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    
+    get:
+      operationId: getPost
+      summary: Get post with nested comments
+      tags: [posts]
+      responses:
+        '200':
+          description: Post with embedded comments
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/Post'
+                  - type: object
+                    properties:
+                      comments:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/Comment'
+
+  # ============================================================================
+  # COMMENTS WITH CIRCULAR DEPENDENCIES
+  # ============================================================================
+  /comments:
+    post:
+      operationId: createComment
+      summary: Create comment (can have parent comment - circular)
+      tags: [comments]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCommentRequest'
+      responses:
+        '201':
+          description: Comment created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+
+  /comments/{commentId}/replies:
+    get:
+      operationId: getCommentReplies
+      summary: Get nested comment replies
+      tags: [comments]
+      parameters:
+        - name: commentId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: depth
+          in: query
+          description: Maximum nesting depth
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 10
+            default: 3
+      responses:
+        '200':
+          description: Nested replies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Comment'
+
+  # ============================================================================
+  # FILE OPERATIONS
+  # ============================================================================
+  /files/upload:
+    post:
+      operationId: uploadFile
+      summary: Upload file with metadata
+      tags: [files]
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MultipartUploadRequest'
+      responses:
+        '200':
+          description: File uploaded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileUploadResponse'
+
+  /files/{fileId}/download:
+    get:
+      operationId: downloadFile
+      summary: Download file
+      tags: [files]
+      parameters:
+        - name: fileId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+            image/*:
+              schema:
+                type: string
+                format: binary
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+
+  # ============================================================================
+  # ADVANCED: oneOf, anyOf, allOf
+  # ============================================================================
+  /payments:
+    post:
+      operationId: createPayment
+      summary: Create payment (oneOf for payment methods)
+      tags: [advanced]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PaymentRequest'
+      responses:
+        '200':
+          description: Payment processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentResponse'
+
+  /search:
+    post:
+      operationId: search
+      summary: Search with anyOf result types
+      tags: [advanced]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                filters:
+                  type: object
+                  additionalProperties:
+                    type: string
+      responses:
+        '200':
+          description: Search results (can be User, Post, or Comment)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+
+  /entities/{entityId}:
+    get:
+      operationId: getEntity
+      summary: Get polymorphic entity
+      tags: [advanced]
+      parameters:
+        - name: entityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Entity (discriminated union)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entity'
+
+  # ============================================================================
+  # DEPRECATED ENDPOINTS
+  # ============================================================================
+  /legacy/users:
+    get:
+      operationId: legacyListUsers
+      summary: Legacy user list endpoint
+      deprecated: true
+      tags: [deprecated]
+      responses:
+        '200':
+          description: Users (legacy format)
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LegacyUser'
+
+  # ============================================================================
+  # ADMIN ENDPOINTS (for tag filtering)
+  # ============================================================================
+  /admin/settings:
+    get:
+      operationId: getAdminSettings
+      summary: Get admin settings
+      tags: [admin]
+      responses:
+        '200':
+          description: Admin settings
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+
+  # ============================================================================
+  # INTERNAL ENDPOINTS (for exclusion tests)
+  # ============================================================================
+  /internal/health:
+    get:
+      operationId: internalHealthCheck
+      summary: Internal health check
+      tags: [internal]
+      responses:
+        '200':
+          description: Health status
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [healthy, degraded, unhealthy]
+
+  # ============================================================================
+  # ENDPOINT WITHOUT TAGS (fallback client test)
+  # ============================================================================
+  /ping:
+    get:
+      operationId: ping
+      summary: Ping endpoint (no tags - goes to fallback client)
+      responses:
+        '200':
+          description: Pong
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  # ============================================================================
+  # NAME CONFLICTS AND EDGE CASES
+  # ============================================================================
+  /conflicts/duplicate:
+    get:
+      operationId: getDuplicate
+      summary: Endpoint with potentially conflicting names
+      tags: [advanced]
+      responses:
+        '200':
+          description: Response with same-named nested types
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Data'
+                  metadata:
+                    type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                          value:
+                            type: integer
+
+  # ============================================================================
+  # EMPTY OBJECT AND ADDITIONAL PROPERTIES
+  # ============================================================================
+  /dynamic:
+    post:
+      operationId: createDynamic
+      summary: Create with dynamic properties
+      tags: [advanced]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DynamicObject'
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyObject'
+
+  # ============================================================================
+  # ALL HTTP METHODS
+  # ============================================================================
+  /methods:
+    head:
+      operationId: checkMethods
+      summary: Check if methods endpoint exists
+      tags: [advanced]
+      responses:
+        '200':
+          description: Exists
+    
+    options:
+      operationId: methodsOptions
+      summary: Get allowed methods
+      tags: [advanced]
+      responses:
+        '200':
+          description: CORS preflight
+          headers:
+            Allow:
+              schema:
+                type: string
+          content:
+            text/plain:
+              schema:
+                type: string
+
+components:
+  parameters:
+    PageParam:
+      name: page
+      in: query
+      description: Page number
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    
+    LimitParam:
+      name: limit
+      in: query
+      description: Items per page
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+    
+    UserIdParam:
+      name: userId
+      in: path
+      required: true
+      description: User ID
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+  schemas:
+    # ========================================================================
+    # USER MODELS (with circular dependencies)
+    # ========================================================================
+    User:
+      type: object
+      required:
+        - id
+        - email
+        - username
+        - role
+        - createdAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+          pattern: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        username:
+          type: string
+          minLength: 3
+          maxLength: 30
+          pattern: '^[a-zA-Z0-9_-]+$'
+        firstName:
+          type: string
+          nullable: true
+          maxLength: 50
+        lastName:
+          type: string
+          nullable: true
+          maxLength: 50
+        age:
+          type: integer
+          minimum: 18
+          maximum: 120
+          nullable: true
+        role:
+          $ref: '#/components/schemas/UserRole'
+        status:
+          $ref: '#/components/schemas/UserStatus'
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+        bio:
+          type: string
+          maxLength: 500
+          nullable: true
+        settings:
+          $ref: '#/components/schemas/UserSettings'
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+          nullable: true
+        friends:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          description: Circular reference to User
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+          x-nullable: true
+
+    CreateUserRequest:
+      type: object
+      required:
+        - email
+        - username
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+          minLength: 3
+          maxLength: 30
+        password:
+          type: string
+          minLength: 8
+          maxLength: 100
+          format: password
+        firstName:
+          type: string
+          maxLength: 50
+        lastName:
+          type: string
+          maxLength: 50
+        age:
+          type: integer
+          minimum: 18
+        role:
+          $ref: '#/components/schemas/UserRole'
+
+    UpdateUserRequest:
+      type: object
+      required:
+        - email
+        - username
+      properties:
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        age:
+          type: integer
+          nullable: true
+        bio:
+          type: string
+          nullable: true
+
+    PatchUserRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        age:
+          type: integer
+          nullable: true
+        bio:
+          type: string
+          nullable: true
+        settings:
+          $ref: '#/components/schemas/UserSettings'
+
+    UserRole:
+      type: string
+      enum:
+        - admin
+        - moderator
+        - user
+        - guest
+      default: user
+      description: User role enumeration
+
+    UserStatus:
+      type: string
+      enum:
+        - active
+        - inactive
+        - suspended
+        - banned
+      default: active
+
+    UserSettings:
+      type: object
+      properties:
+        theme:
+          type: string
+          enum: [light, dark, auto]
+          default: auto
+        notifications:
+          type: object
+          properties:
+            email:
+              type: boolean
+              default: true
+            push:
+              type: boolean
+              default: false
+            sms:
+              type: boolean
+              default: false
+        privacy:
+          type: object
+          properties:
+            profileVisibility:
+              type: string
+              enum: [public, friends, private]
+              default: public
+            showEmail:
+              type: boolean
+              default: false
+        language:
+          type: string
+          pattern: '^[a-z]{2}(-[A-Z]{2})?$'
+          default: en
+
+    UserListResponse:
+      type: object
+      required:
+        - users
+        - total
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+
+    LegacyUser:
+      deprecated: true
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+
+    # ========================================================================
+    # POST MODELS (with nested structures)
+    # ========================================================================
+    Post:
+      type: object
+      required:
+        - id
+        - title
+        - content
+        - authorId
+        - status
+        - createdAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        content:
+          type: string
+          minLength: 1
+        excerpt:
+          type: string
+          maxLength: 300
+          nullable: true
+        authorId:
+          type: string
+          format: uuid
+        author:
+          $ref: '#/components/schemas/User'
+          nullable: true
+        status:
+          $ref: '#/components/schemas/PostStatus'
+        tags:
+          type: array
+          items:
+            type: string
+          maxItems: 20
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+        publishedAt:
+          type: string
+          format: date-time
+          nullable: true
+        viewCount:
+          type: integer
+          minimum: 0
+          default: 0
+        likeCount:
+          type: integer
+          minimum: 0
+          default: 0
+        metadata:
+          type: object
+          additionalProperties: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+
+    PostStatus:
+      type: string
+      enum:
+        - draft
+        - published
+        - archived
+        - deleted
+
+    Category:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        slug:
+          type: string
+        parent:
+          $ref: '#/components/schemas/Category'
+          nullable: true
+          description: Circular reference for nested categories
+
+    # ========================================================================
+    # COMMENT MODELS (with deep circular dependencies)
+    # ========================================================================
+    Comment:
+      type: object
+      required:
+        - id
+        - content
+        - authorId
+        - createdAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        content:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        authorId:
+          type: string
+          format: uuid
+        author:
+          $ref: '#/components/schemas/User'
+          nullable: true
+        postId:
+          type: string
+          format: uuid
+          nullable: true
+        parentId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Parent comment ID (for nested replies)
+        parent:
+          $ref: '#/components/schemas/Comment'
+          nullable: true
+          description: Circular reference to parent comment
+        replies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Comment'
+          description: Nested replies (circular)
+          nullable: true
+        depth:
+          type: integer
+          minimum: 0
+          default: 0
+        likeCount:
+          type: integer
+          minimum: 0
+          default: 0
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        deletedAt:
+          type: string
+          format: date-time
+          nullable: true
+
+    CreateCommentRequest:
+      type: object
+      required:
+        - content
+        - authorId
+      properties:
+        content:
+          type: string
+          minLength: 1
+          maxLength: 2000
+        authorId:
+          type: string
+          format: uuid
+        postId:
+          type: string
+          format: uuid
+        parentId:
+          type: string
+          format: uuid
+          nullable: true
+
+    # ========================================================================
+    # FILE MODELS
+    # ========================================================================
+    FileMetadata:
+      type: object
+      properties:
+        filename:
+          type: string
+        mimeType:
+          type: string
+        size:
+          type: integer
+          format: int64
+        tags:
+          type: array
+          items:
+            type: string
+
+    MultipartUploadRequest:
+      type: object
+      required:
+        - files
+      properties:
+        files:
+          type: array
+          items:
+            type: string
+            format: binary
+        description:
+          type: string
+        category:
+          type: string
+          enum: [image, video, document, other]
+        metadata:
+          $ref: '#/components/schemas/FileMetadata'
+        isPublic:
+          type: boolean
+          default: false
+
+    FileUploadResponse:
+      type: object
+      required:
+        - id
+        - url
+        - filename
+        - size
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+          format: uri
+        filename:
+          type: string
+        mimeType:
+          type: string
+        size:
+          type: integer
+          format: int64
+        uploadedAt:
+          type: string
+          format: date-time
+
+    # ========================================================================
+    # ADVANCED: oneOf (Discriminated Union)
+    # ========================================================================
+    PaymentRequest:
+      oneOf:
+        - $ref: '#/components/schemas/CreditCardPayment'
+        - $ref: '#/components/schemas/BankTransferPayment'
+        - $ref: '#/components/schemas/CryptoPayment'
+      discriminator:
+        propertyName: paymentType
+        mapping:
+          credit_card: '#/components/schemas/CreditCardPayment'
+          bank_transfer: '#/components/schemas/BankTransferPayment'
+          crypto: '#/components/schemas/CryptoPayment'
+
+    CreditCardPayment:
+      type: object
+      required:
+        - paymentType
+        - cardNumber
+        - expiryMonth
+        - expiryYear
+        - cvv
+        - amount
+      properties:
+        paymentType:
+          type: string
+          enum: [credit_card]
+        cardNumber:
+          type: string
+          pattern: '^\d{16}$'
+        expiryMonth:
+          type: integer
+          minimum: 1
+          maximum: 12
+        expiryYear:
+          type: integer
+          minimum: 2024
+        cvv:
+          type: string
+          pattern: '^\d{3,4}$'
+        cardholderName:
+          type: string
+        amount:
+          type: number
+          format: double
+          minimum: 0.01
+
+    BankTransferPayment:
+      type: object
+      required:
+        - paymentType
+        - accountNumber
+        - routingNumber
+        - amount
+      properties:
+        paymentType:
+          type: string
+          enum: [bank_transfer]
+        accountNumber:
+          type: string
+        routingNumber:
+          type: string
+        accountHolder:
+          type: string
+        amount:
+          type: number
+          format: double
+          minimum: 0.01
+        reference:
+          type: string
+          nullable: true
+
+    CryptoPayment:
+      type: object
+      required:
+        - paymentType
+        - walletAddress
+        - cryptocurrency
+        - amount
+      properties:
+        paymentType:
+          type: string
+          enum: [crypto]
+        walletAddress:
+          type: string
+        cryptocurrency:
+          type: string
+          enum: [BTC, ETH, USDT, BNB]
+        amount:
+          type: number
+          format: double
+          minimum: 0.000001
+        transactionHash:
+          type: string
+          nullable: true
+
+    PaymentResponse:
+      type: object
+      required:
+        - transactionId
+        - status
+        - amount
+      properties:
+        transactionId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [pending, completed, failed, cancelled]
+        amount:
+          type: number
+          format: double
+        currency:
+          type: string
+          default: USD
+        processedAt:
+          type: string
+          format: date-time
+        details:
+          oneOf:
+            - $ref: '#/components/schemas/CreditCardPayment'
+            - $ref: '#/components/schemas/BankTransferPayment'
+            - $ref: '#/components/schemas/CryptoPayment'
+          discriminator:
+            propertyName: paymentType
+
+    # ========================================================================
+    # ADVANCED: anyOf (Non-discriminated Union)
+    # ========================================================================
+    SearchResult:
+      anyOf:
+        - $ref: '#/components/schemas/UserSearchResult'
+        - $ref: '#/components/schemas/PostSearchResult'
+        - $ref: '#/components/schemas/CommentSearchResult'
+
+    UserSearchResult:
+      type: object
+      required:
+        - type
+        - user
+      properties:
+        type:
+          type: string
+          enum: [user]
+        user:
+          $ref: '#/components/schemas/User'
+        score:
+          type: number
+          format: float
+
+    PostSearchResult:
+      type: object
+      required:
+        - type
+        - post
+      properties:
+        type:
+          type: string
+          enum: [post]
+        post:
+          $ref: '#/components/schemas/Post'
+        score:
+          type: number
+          format: float
+        highlights:
+          type: array
+          items:
+            type: string
+
+    CommentSearchResult:
+      type: object
+      required:
+        - type
+        - comment
+      properties:
+        type:
+          type: string
+          enum: [comment]
+        comment:
+          $ref: '#/components/schemas/Comment'
+        score:
+          type: number
+          format: float
+
+    # ========================================================================
+    # ADVANCED: allOf (Composition)
+    # ========================================================================
+    Entity:
+      oneOf:
+        - $ref: '#/components/schemas/PersonEntity'
+        - $ref: '#/components/schemas/OrganizationEntity'
+      discriminator:
+        propertyName: entityType
+        mapping:
+          person: '#/components/schemas/PersonEntity'
+          organization: '#/components/schemas/OrganizationEntity'
+
+    BaseEntity:
+      type: object
+      required:
+        - id
+        - entityType
+        - createdAt
+      properties:
+        id:
+          type: string
+          format: uuid
+        entityType:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+          nullable: true
+
+    PersonEntity:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          required:
+            - dateOfBirth
+          properties:
+            entityType:
+              type: string
+              enum: [person]
+            dateOfBirth:
+              type: string
+              format: date
+            nationality:
+              type: string
+              nullable: true
+            occupation:
+              type: string
+              nullable: true
+            socialProfiles:
+              type: object
+              additionalProperties:
+                type: string
+
+    OrganizationEntity:
+      allOf:
+        - $ref: '#/components/schemas/BaseEntity'
+        - type: object
+          required:
+            - registrationNumber
+          properties:
+            entityType:
+              type: string
+              enum: [organization]
+            registrationNumber:
+              type: string
+            foundedDate:
+              type: string
+              format: date
+              nullable: true
+            industry:
+              type: string
+              nullable: true
+            employeeCount:
+              type: integer
+              minimum: 0
+              nullable: true
+            revenue:
+              type: number
+              format: double
+              nullable: true
+
+    # ========================================================================
+    # ADDITIONAL PROPERTIES AND EMPTY OBJECTS
+    # ========================================================================
+    DynamicObject:
+      type: object
+      additionalProperties:
+        type: string
+      description: Object with arbitrary string properties
+
+    EmptyObject:
+      type: object
+      description: Empty object (no properties)
+
+    Data:
+      type: object
+      required:
+        - id
+        - value
+      properties:
+        id:
+          type: string
+        value:
+          type: string
+        nested:
+          type: object
+          properties:
+            data:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+
+    # ========================================================================
+    # ERROR MODELS
+    # ========================================================================
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+          nullable: true
+        timestamp:
+          type: string
+          format: date-time
+        requestId:
+          type: string
+          format: uuid
+          nullable: true
+
+    # ========================================================================
+    # EDGE CASES: Same-named types in different contexts
+    # ========================================================================
+    Status:
+      type: string
+      enum:
+        - active
+        - inactive
+      description: Generic status (conflicts with UserStatus)
+
+    Result:
+      type: object
+      properties:
+        success:
+          type: boolean
+        data:
+          type: object
+          additionalProperties: true
+        status:
+          $ref: '#/components/schemas/Status'

@@ -1,2 +1,13 @@
-.vscode
-.idea/
+.dart_tool/
+.packages
+build/
+.idea
+**/generated_files/**
+
+test_project/
+test/builder/.dart_tool/
+test/builder/lib/
+test/builder/.packages
+test/e2e/tests/schemas/generated/
+test/builders/
+test/generated/

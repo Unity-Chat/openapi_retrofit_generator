@@ -1,0 +1,25 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'category.dart';
+
+part 'category.freezed.dart';
+part 'category.g.dart';
+
+@Freezed()
+abstract class Category with _$Category {
+  const factory Category({
+    required String id,
+    required String name,
+    @JsonKey(includeIfNull: false) String? slug,
+
+    /// Circular reference for nested categories
+    @JsonKey(includeIfNull: false) Category? parent,
+  }) = _Category;
+
+  factory Category.fromJson(Map<String, Object?> json) =>
+      _$CategoryFromJson(json);
+}

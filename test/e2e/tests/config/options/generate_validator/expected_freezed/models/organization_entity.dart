@@ -1,0 +1,46 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'entity.dart';
+import 'organization_entity_entity_type_entity_type.dart';
+
+part 'organization_entity.freezed.dart';
+part 'organization_entity.g.dart';
+
+@Freezed()
+abstract class OrganizationEntity with _$OrganizationEntity {
+  const factory OrganizationEntity({
+    required String id,
+    required DateTime createdAt,
+    required String registrationNumber,
+    OrganizationEntityEntityTypeEntityType? entityType,
+    String? name,
+    String? description,
+    DateTime? updatedAt,
+    DateTime? foundedDate,
+    String? industry,
+    int? employeeCount,
+    double? revenue,
+  }) = _OrganizationEntity;
+
+  factory OrganizationEntity.fromJson(Map<String, Object?> json) =>
+      _$OrganizationEntityFromJson(json);
+  static const int employeeCountMin = 0;
+}
+
+extension OrganizationEntityValidationX on OrganizationEntity {
+  bool validate() {
+    try {
+      if (employeeCount != null &&
+          employeeCount! < OrganizationEntity.employeeCountMin) {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+    return true;
+  }
+}

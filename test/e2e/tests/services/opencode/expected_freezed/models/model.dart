@@ -1,0 +1,36 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, unused_import, invalid_annotation_target, unnecessary_import
+
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'model_cost.dart';
+import 'model_limit.dart';
+import 'model_modalities.dart';
+import 'model_provider.dart';
+import 'model_status_status.dart';
+
+part 'model.freezed.dart';
+part 'model.g.dart';
+
+@Freezed()
+abstract class Model with _$Model {
+  const factory Model({
+    required String id,
+    required String name,
+    @JsonKey(name: 'release_date') required String releaseDate,
+    required bool attachment,
+    required bool reasoning,
+    required bool temperature,
+    @JsonKey(name: 'tool_call') required bool toolCall,
+    @JsonKey(name: 'ModelCost') required ModelCost modelCost,
+    @JsonKey(name: 'ModelLimit') required ModelLimit modelLimit,
+    required Map<String, dynamic> options,
+    @JsonKey(name: 'ModelModalities') ModelModalities? modelModalities,
+    bool? experimental,
+    ModelStatusStatus? status,
+    @JsonKey(name: 'ModelProvider') ModelProvider? modelProvider,
+  }) = _Model;
+
+  factory Model.fromJson(Map<String, Object?> json) => _$ModelFromJson(json);
+}

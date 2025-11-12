@@ -1,0 +1,246 @@
+openapi_generator:
+  # ============================================================================
+  # SCHEMA SOURCE (Required - at least one must be provided)
+  # ============================================================================
+  
+  # Path to local OpenAPI schema file
+  # Supports both JSON (.json) and YAML (.yaml, .yml) formats
+  # Can be absolute or relative to this config file
+  # Example: schemes/openapi.json, ../shared/api.yaml
+  schema_path: schemes/openapi.yaml
+
+  # URL to remote OpenAPI schema
+  # Alternative to schema_path - fetches schema from a web endpoint
+  # Example: https://api.example.com/swagger.json
+  # schema_url: null
+
+  # ============================================================================
+  # OUTPUT CONFIGURATION (Required)
+  # ============================================================================
+
+  # Directory where all generated files will be placed
+  # Can be absolute or relative path
+  # All clients, models, and export files will be generated here
+  # Example: lib/api, lib/src/generated
+  output_directory: lib/api
+
+  # ============================================================================
+  # NAMING & IDENTIFICATION (Optional)
+  # ============================================================================
+
+  # API identifier used for naming folders and export files
+  # If not specified, extracted from schema file name (e.g., "openapi.json" -> "openapi")
+  # Used in:
+  #   - Export file name: <name>.dart
+  #   - Merged output file: <name>.dart (when merge_outputs: true)
+  #   - API folder organization
+  # Default: extracted from schema_path or schema_url
+  name: null
+
+  # ============================================================================
+  # SERIALIZATION (Optional)
+  # ============================================================================
+
+  # JSON serialization library to use for model generation
+  # Available options:
+  #   - json_serializable: Standard Dart JSON serialization (default)
+  #     Generates toJson/fromJson methods with @JsonSerializable annotation
+  #   - freezed: Immutable data classes with Freezed package
+  #     Generates union types, copyWith, equality, toString
+  #   - dart_mappable: Type-safe mapping with dart_mappable package
+  #     Fast, code-generated mapping with type safety
+  # Default: json_serializable
+  json_serializer: json_serializable
+
+  # Generate @JsonKey(includeIfNull: ...) annotations for nullable fields
+  # When true: Nullable fields include includeIfNull in @JsonKey annotation
+  # When false: includeIfNull annotations are not generated
+  # Affects JSON serialization behavior for null values
+  # Default: false
+  include_if_null: false
+
+  # ============================================================================
+  # HTTP CLIENT CONFIGURATION (Retrofit/Dio - Optional)
+  # ============================================================================
+
+  # Default Content-Type header for all requests
+  # When an endpoint's content type differs from this, a @Headers annotation is added
+  # Common values: "application/json", "application/x-www-form-urlencoded"
+  # Default: "application/json"
+  default_content_type: "application/json"
+
+  # Add @Extras() parameter to all generated methods
+  # Enables passing custom data through Dio interceptors
+  # Requires retrofit >=4.1.0
+  # Generated code: Future<T> method({@Extras() Map<String, dynamic>? extras})
+  # Use case: Pass request-specific metadata to interceptors
+  # Default: false
+  extras_parameter_by_default: false
+
+  # Add @DioOptions() parameter to all generated methods
+  # Allows per-request Dio configuration override
+  # Generated code: Future<T> method({@DioOptions() RequestOptions? options})
+  # Use case: Override timeout, headers, etc. per request
+  # Default: false
+  dio_options_parameter_by_default: false
+
+  # Wrap all response types with HttpResponse<T>
+  # When true: Returns HttpResponse<T> containing response + headers + status
+  # When false: Returns only the response body (T)
+  # Use case: Access response headers, status codes, etc.
+  # Example: HttpResponse<User> instead of User
+  # Default: false
+  original_http_response: false
+
+  # ============================================================================
+  # CLIENT GENERATION & ORGANIZATION (Optional)
+  # ============================================================================
+
+  # Generate a root client class that aggregates all API clients
+  # Creates an interface and implementation with all clients as properties
+  # Example: RestClient contains userClient, postClient, etc.
+  # Default: true
+  root_client: true
+
+  # Name for the generated root client class
+  # Only used when root_client is true
+  # Default: "RestClient"
+  root_client_name: RestClient
+
+  # Suffix appended to all client class names
+  # Example: "Client" -> UserClient, PostClient
+  #          "Api" -> UserApi, PostApi
+  #          null -> User, Post (no suffix)
+  # Default: null
+  client_postfix: Client
+
+  # Place all client files in a dedicated "clients/" subdirectory
+  # When true: output_directory/clients/user_client.dart
+  # When false: output_directory/user_client.dart
+  # Default: false
+  put_clients_in_folder: false
+
+  # ============================================================================
+  # METHOD NAMING (Optional)
+  # ============================================================================
+
+  # Determines how API method names are generated
+  # When true: Use endpoint path for method name (e.g., /users/{id} -> usersId)
+  # When false: Use operationId from OpenAPI spec
+  # Recommendation: false (operationId is more semantic)
+  # Default: false
+  path_method_name: false
+
+  # ============================================================================
+  # ENUM GENERATION (Optional)
+  # ============================================================================
+
+  # Add an "unknown" value to all generated enums
+  # Provides backwards compatibility when server adds new enum values
+  # Generated enum includes: ...<values>, unknown (for unmapped values)
+  # Use case: Prevents deserialization errors on unknown enum values
+  # Default: true
+  unknown_enum_value: true
+
+  # ============================================================================
+  # FILE ORGANIZATION (Optional)
+  # ============================================================================
+
+  # Combine all API clients into a single client class
+  # When true: All endpoints merged into one client (e.g., ApiClient)
+  # When false: Separate client per tag (e.g., UserClient, PostClient)
+  # Use case: Simple APIs or preference for monolithic client
+  # Default: false
+  merge_clients: false
+
+  # Generate a barrel export file (e.g., api.dart)
+  # Exports all generated clients and models from a single file
+  # Use case: Simplifies imports: import 'package:app/api.dart';
+  # Only applies when merge_outputs is false
+  # Default: false
+  export_file: false
+
+  # Merge all generated code into a single output file
+  # When true: All clients + models in one file (<name>.dart)
+  # When false: Separate files for each client and model
+  # Use case: Required for build_runner (1-to-1 input/output mapping)
+  # Default: false
+  merge_outputs: false
+
+  # ============================================================================
+  # CODE GENERATION METADATA (Optional)
+  # ============================================================================
+
+  # Add "// Generated code - do not modify" comment to generated files
+  # When true: Files start with generation timestamp comment
+  # When false: No generation comment added
+  # Default: true
+  mark_files_as_generated: true
+
+  # ============================================================================
+  # PARAMETER FILTERING (Optional)
+  # ============================================================================
+
+  # List of parameter names to exclude from generation
+  # Parameters with these exact names (case-sensitive) will be skipped
+  # Use case: Skip internal headers, auth tokens handled elsewhere
+  # Example: ['X-Request-ID', 'Authorization', 'X-Custom-Header']
+  skipped_parameters:
+    - 'X-Some-Token'
+
+  # ============================================================================
+  # TAG-BASED FILTERING (Optional)
+  # ============================================================================
+
+  # Exclude endpoints with specific OpenAPI tags
+  # Endpoints tagged with these values will NOT be generated
+  # Example: ['internal', 'deprecated', 'admin']
+  # Note: Overridden by include_tags if both are set
+  # Default: [] (no exclusions)
+  # exclude_tags:
+  #   - internal
+  #   - deprecated
+
+  # Include ONLY endpoints with specific OpenAPI tags
+  # When set, only endpoints with these tags are generated
+  # Example: ['public', 'v2']
+  # Note: This OVERRIDES exclude_tags - include_tags takes precedence
+  # Default: [] (include all)
+  # include_tags:
+  #   - public
+
+  # Default client name for endpoints without any tags
+  # When endpoints have no tags, they're grouped into this client
+  # Example: "api" -> ApiClient (with postfix) or Api (without), "misc" -> MiscClient
+  # Default: "api"
+  default_client: api
+
+  # ============================================================================
+  # ADVANCED TYPE HANDLING (Optional)
+  # ============================================================================
+
+  # Respect x-nullable OpenAPI extension
+  # When true: Fields marked with x-nullable: true become nullable (Type?)
+  # When false: x-nullable annotation is ignored
+  # Use case: OpenAPI 2.0 specs using x-nullable for nullability
+  # Default: true
+  use_x_nullable: true
+
+  # ============================================================================
+  # FREEZED-SPECIFIC OPTIONS (Optional - Only for json_serializer: freezed)
+  # ============================================================================
+
+  # Fallback constructor name for discriminated unions
+  # When set, adds fallbackUnion parameter to @Freezed annotation
+  # Handles unknown discriminator values in oneOf/anyOf unions
+  # Example values: "unknown", "undefined", "fallback"
+  # Generated: @Freezed(fallbackUnion: 'unknown')
+  # Use case: Graceful handling of new union variants from server
+  # Default: null (no fallback union)
+  fallback_union: null
+
+  # Generate validator function for Freezed classes
+  # When true: Adds validation logic to Freezed data classes
+  # Only applicable with json_serializer: freezed
+  # Default: false
+  generate_validator: false
