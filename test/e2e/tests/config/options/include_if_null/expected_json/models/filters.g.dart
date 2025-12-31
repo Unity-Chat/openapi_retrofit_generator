@@ -9,15 +9,13 @@ part of 'filters.dart';
 Filters _$FiltersFromJson(Map<String, dynamic> json) => Filters(
   authorId: json['authorId'] as String?,
   tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  filtersDateRange: json['FiltersDateRange'] == null
+  dateRange: json['dateRange'] == null
       ? null
-      : FiltersDateRange.fromJson(
-          json['FiltersDateRange'] as Map<String, dynamic>,
-        ),
+      : FiltersDateRange.fromJson(json['dateRange'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$FiltersToJson(Filters instance) => <String, dynamic>{
   'authorId': ?instance.authorId,
   'tags': ?instance.tags,
-  'FiltersDateRange': ?instance.filtersDateRange,
+  'dateRange': ?instance.dateRange,
 };

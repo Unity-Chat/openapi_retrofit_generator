@@ -23,13 +23,13 @@ abstract class Model with _$Model {
     required bool reasoning,
     required bool temperature,
     @JsonKey(name: 'tool_call') required bool toolCall,
-    @JsonKey(name: 'ModelCost') required ModelCost modelCost,
-    @JsonKey(name: 'ModelLimit') required ModelLimit modelLimit,
+    required ModelCost cost,
+    required ModelLimit limit,
     required Map<String, dynamic> options,
-    @JsonKey(name: 'ModelModalities') ModelModalities? modelModalities,
+    ModelModalities? modalities,
     bool? experimental,
     ModelStatusStatus? status,
-    @JsonKey(name: 'ModelProvider') ModelProvider? modelProvider,
+    ModelProvider? provider,
   }) = _Model;
 
   factory Model.fromJson(Map<String, Object?> json) => _$ModelFromJson(json);

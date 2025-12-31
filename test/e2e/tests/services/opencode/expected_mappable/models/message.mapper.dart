@@ -28,23 +28,25 @@ class MessageUserMessageMapper extends ClassMapperBase<MessageUserMessage> {
   static const Field<MessageUserMessage, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$role(MessageUserMessage v) => v.role;
   static const Field<MessageUserMessage, String> _f$role = Field(
     'role',
     _$role,
   );
-  static UserMessageTime _$userMessageTime(MessageUserMessage v) =>
-      v.userMessageTime;
-  static const Field<MessageUserMessage, UserMessageTime> _f$userMessageTime =
-      Field('userMessageTime', _$userMessageTime);
+  static UserMessageTime _$time(MessageUserMessage v) => v.time;
+  static const Field<MessageUserMessage, UserMessageTime> _f$time = Field(
+    'time',
+    _$time,
+  );
 
   @override
   final MappableFields<MessageUserMessage> fields = const {
     #id: _f$id,
     #sessionId: _f$sessionId,
     #role: _f$role,
-    #userMessageTime: _f$userMessageTime,
+    #time: _f$time,
   };
 
   static MessageUserMessage _instantiate(DecodingData data) {
@@ -52,7 +54,7 @@ class MessageUserMessageMapper extends ClassMapperBase<MessageUserMessage> {
       id: data.dec(_f$id),
       sessionId: data.dec(_f$sessionId),
       role: data.dec(_f$role),
-      userMessageTime: data.dec(_f$userMessageTime),
+      time: data.dec(_f$time),
     );
   }
 
@@ -127,14 +129,8 @@ abstract class MessageUserMessageCopyWith<
   $Out
 >
     implements ClassCopyWith<$R, $In, $Out> {
-  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime>
-  get userMessageTime;
-  $R call({
-    String? id,
-    String? sessionId,
-    String? role,
-    UserMessageTime? userMessageTime,
-  });
+  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime> get time;
+  $R call({String? id, String? sessionId, String? role, UserMessageTime? time});
   MessageUserMessageCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -149,21 +145,20 @@ class _MessageUserMessageCopyWithImpl<$R, $Out>
   late final ClassMapperBase<MessageUserMessage> $mapper =
       MessageUserMessageMapper.ensureInitialized();
   @override
-  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime>
-  get userMessageTime =>
-      $value.userMessageTime.copyWith.$chain((v) => call(userMessageTime: v));
+  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime> get time =>
+      $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? id,
     String? sessionId,
     String? role,
-    UserMessageTime? userMessageTime,
+    UserMessageTime? time,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (sessionId != null) #sessionId: sessionId,
       if (role != null) #role: role,
-      if (userMessageTime != null) #userMessageTime: userMessageTime,
+      if (time != null) #time: time,
     }),
   );
   @override
@@ -171,7 +166,7 @@ class _MessageUserMessageCopyWithImpl<$R, $Out>
     id: data.get(#id, or: $value.id),
     sessionId: data.get(#sessionId, or: $value.sessionId),
     role: data.get(#role, or: $value.role),
-    userMessageTime: data.get(#userMessageTime, or: $value.userMessageTime),
+    time: data.get(#time, or: $value.time),
   );
 
   @override
@@ -206,20 +201,16 @@ class MessageAssistantMessageMapper
   static const Field<MessageAssistantMessage, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$role(MessageAssistantMessage v) => v.role;
   static const Field<MessageAssistantMessage, String> _f$role = Field(
     'role',
     _$role,
   );
-  static AssistantMessageTime _$assistantMessageTime(
-    MessageAssistantMessage v,
-  ) => v.assistantMessageTime;
-  static const Field<MessageAssistantMessage, AssistantMessageTime>
-  _f$assistantMessageTime = Field(
-    'assistantMessageTime',
-    _$assistantMessageTime,
-  );
+  static AssistantMessageTime _$time(MessageAssistantMessage v) => v.time;
+  static const Field<MessageAssistantMessage, AssistantMessageTime> _f$time =
+      Field('time', _$time);
   static AssistantMessageErrorError? _$error(MessageAssistantMessage v) =>
       v.error;
   static const Field<MessageAssistantMessage, AssistantMessageErrorError>
@@ -233,25 +224,22 @@ class MessageAssistantMessageMapper
   static const Field<MessageAssistantMessage, String> _f$modelId = Field(
     'modelId',
     _$modelId,
+    key: r'modelID',
   );
   static String _$providerId(MessageAssistantMessage v) => v.providerId;
   static const Field<MessageAssistantMessage, String> _f$providerId = Field(
     'providerId',
     _$providerId,
+    key: r'providerID',
   );
   static String _$mode(MessageAssistantMessage v) => v.mode;
   static const Field<MessageAssistantMessage, String> _f$mode = Field(
     'mode',
     _$mode,
   );
-  static AssistantMessagePath _$assistantMessagePath(
-    MessageAssistantMessage v,
-  ) => v.assistantMessagePath;
-  static const Field<MessageAssistantMessage, AssistantMessagePath>
-  _f$assistantMessagePath = Field(
-    'assistantMessagePath',
-    _$assistantMessagePath,
-  );
+  static AssistantMessagePath _$path(MessageAssistantMessage v) => v.path;
+  static const Field<MessageAssistantMessage, AssistantMessagePath> _f$path =
+      Field('path', _$path);
   static bool? _$summary(MessageAssistantMessage v) => v.summary;
   static const Field<MessageAssistantMessage, bool> _f$summary = Field(
     'summary',
@@ -262,30 +250,25 @@ class MessageAssistantMessageMapper
     'cost',
     _$cost,
   );
-  static AssistantMessageTokens _$assistantMessageTokens(
-    MessageAssistantMessage v,
-  ) => v.assistantMessageTokens;
+  static AssistantMessageTokens _$tokens(MessageAssistantMessage v) => v.tokens;
   static const Field<MessageAssistantMessage, AssistantMessageTokens>
-  _f$assistantMessageTokens = Field(
-    'assistantMessageTokens',
-    _$assistantMessageTokens,
-  );
+  _f$tokens = Field('tokens', _$tokens);
 
   @override
   final MappableFields<MessageAssistantMessage> fields = const {
     #id: _f$id,
     #sessionId: _f$sessionId,
     #role: _f$role,
-    #assistantMessageTime: _f$assistantMessageTime,
+    #time: _f$time,
     #error: _f$error,
     #system: _f$system,
     #modelId: _f$modelId,
     #providerId: _f$providerId,
     #mode: _f$mode,
-    #assistantMessagePath: _f$assistantMessagePath,
+    #path: _f$path,
     #summary: _f$summary,
     #cost: _f$cost,
-    #assistantMessageTokens: _f$assistantMessageTokens,
+    #tokens: _f$tokens,
   };
 
   static MessageAssistantMessage _instantiate(DecodingData data) {
@@ -293,16 +276,16 @@ class MessageAssistantMessageMapper
       id: data.dec(_f$id),
       sessionId: data.dec(_f$sessionId),
       role: data.dec(_f$role),
-      assistantMessageTime: data.dec(_f$assistantMessageTime),
+      time: data.dec(_f$time),
       error: data.dec(_f$error),
       system: data.dec(_f$system),
       modelId: data.dec(_f$modelId),
       providerId: data.dec(_f$providerId),
       mode: data.dec(_f$mode),
-      assistantMessagePath: data.dec(_f$assistantMessagePath),
+      path: data.dec(_f$path),
       summary: data.dec(_f$summary),
       cost: data.dec(_f$cost),
-      assistantMessageTokens: data.dec(_f$assistantMessageTokens),
+      tokens: data.dec(_f$tokens),
     );
   }
 
@@ -377,30 +360,30 @@ abstract class MessageAssistantMessageCopyWith<
 >
     implements ClassCopyWith<$R, $In, $Out> {
   AssistantMessageTimeCopyWith<$R, AssistantMessageTime, AssistantMessageTime>
-  get assistantMessageTime;
+  get time;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get system;
   AssistantMessagePathCopyWith<$R, AssistantMessagePath, AssistantMessagePath>
-  get assistantMessagePath;
+  get path;
   AssistantMessageTokensCopyWith<
     $R,
     AssistantMessageTokens,
     AssistantMessageTokens
   >
-  get assistantMessageTokens;
+  get tokens;
   $R call({
     String? id,
     String? sessionId,
     String? role,
-    AssistantMessageTime? assistantMessageTime,
+    AssistantMessageTime? time,
     AssistantMessageErrorError? error,
     List<String>? system,
     String? modelId,
     String? providerId,
     String? mode,
-    AssistantMessagePath? assistantMessagePath,
+    AssistantMessagePath? path,
     bool? summary,
     num? cost,
-    AssistantMessageTokens? assistantMessageTokens,
+    AssistantMessageTokens? tokens,
   });
   MessageAssistantMessageCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -418,9 +401,7 @@ class _MessageAssistantMessageCopyWithImpl<$R, $Out>
       MessageAssistantMessageMapper.ensureInitialized();
   @override
   AssistantMessageTimeCopyWith<$R, AssistantMessageTime, AssistantMessageTime>
-  get assistantMessageTime => $value.assistantMessageTime.copyWith.$chain(
-    (v) => call(assistantMessageTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get system =>
       ListCopyWith(
@@ -430,51 +411,44 @@ class _MessageAssistantMessageCopyWithImpl<$R, $Out>
       );
   @override
   AssistantMessagePathCopyWith<$R, AssistantMessagePath, AssistantMessagePath>
-  get assistantMessagePath => $value.assistantMessagePath.copyWith.$chain(
-    (v) => call(assistantMessagePath: v),
-  );
+  get path => $value.path.copyWith.$chain((v) => call(path: v));
   @override
   AssistantMessageTokensCopyWith<
     $R,
     AssistantMessageTokens,
     AssistantMessageTokens
   >
-  get assistantMessageTokens => $value.assistantMessageTokens.copyWith.$chain(
-    (v) => call(assistantMessageTokens: v),
-  );
+  get tokens => $value.tokens.copyWith.$chain((v) => call(tokens: v));
   @override
   $R call({
     String? id,
     String? sessionId,
     String? role,
-    AssistantMessageTime? assistantMessageTime,
+    AssistantMessageTime? time,
     Object? error = $none,
     List<String>? system,
     String? modelId,
     String? providerId,
     String? mode,
-    AssistantMessagePath? assistantMessagePath,
+    AssistantMessagePath? path,
     Object? summary = $none,
     num? cost,
-    AssistantMessageTokens? assistantMessageTokens,
+    AssistantMessageTokens? tokens,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (sessionId != null) #sessionId: sessionId,
       if (role != null) #role: role,
-      if (assistantMessageTime != null)
-        #assistantMessageTime: assistantMessageTime,
+      if (time != null) #time: time,
       if (error != $none) #error: error,
       if (system != null) #system: system,
       if (modelId != null) #modelId: modelId,
       if (providerId != null) #providerId: providerId,
       if (mode != null) #mode: mode,
-      if (assistantMessagePath != null)
-        #assistantMessagePath: assistantMessagePath,
+      if (path != null) #path: path,
       if (summary != $none) #summary: summary,
       if (cost != null) #cost: cost,
-      if (assistantMessageTokens != null)
-        #assistantMessageTokens: assistantMessageTokens,
+      if (tokens != null) #tokens: tokens,
     }),
   );
   @override
@@ -482,25 +456,16 @@ class _MessageAssistantMessageCopyWithImpl<$R, $Out>
     id: data.get(#id, or: $value.id),
     sessionId: data.get(#sessionId, or: $value.sessionId),
     role: data.get(#role, or: $value.role),
-    assistantMessageTime: data.get(
-      #assistantMessageTime,
-      or: $value.assistantMessageTime,
-    ),
+    time: data.get(#time, or: $value.time),
     error: data.get(#error, or: $value.error),
     system: data.get(#system, or: $value.system),
     modelId: data.get(#modelId, or: $value.modelId),
     providerId: data.get(#providerId, or: $value.providerId),
     mode: data.get(#mode, or: $value.mode),
-    assistantMessagePath: data.get(
-      #assistantMessagePath,
-      or: $value.assistantMessagePath,
-    ),
+    path: data.get(#path, or: $value.path),
     summary: data.get(#summary, or: $value.summary),
     cost: data.get(#cost, or: $value.cost),
-    assistantMessageTokens: data.get(
-      #assistantMessageTokens,
-      or: $value.assistantMessageTokens,
-    ),
+    tokens: data.get(#tokens, or: $value.tokens),
   );
 
   @override

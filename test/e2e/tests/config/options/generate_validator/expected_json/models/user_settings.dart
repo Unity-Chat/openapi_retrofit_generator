@@ -13,8 +13,8 @@ part 'user_settings.g.dart';
 @JsonSerializable()
 class UserSettings {
   const UserSettings({
-    this.userSettingsNotifications,
-    this.userSettingsPrivacy,
+    this.notifications,
+    this.privacy,
     this.theme = UserSettingsThemeTheme.auto,
     this.language = 'en',
   });
@@ -23,10 +23,8 @@ class UserSettings {
       _$UserSettingsFromJson(json);
 
   final UserSettingsThemeTheme theme;
-  @JsonKey(name: 'UserSettingsNotifications')
-  final UserSettingsNotifications? userSettingsNotifications;
-  @JsonKey(name: 'UserSettingsPrivacy')
-  final UserSettingsPrivacy? userSettingsPrivacy;
+  final UserSettingsNotifications? notifications;
+  final UserSettingsPrivacy? privacy;
   final String language;
 
   Map<String, Object?> toJson() => _$UserSettingsToJson(this);

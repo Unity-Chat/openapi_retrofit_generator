@@ -14,7 +14,7 @@ class UserMessage {
     required this.id,
     required this.sessionId,
     required this.role,
-    required this.userMessageTime,
+    required this.time,
   });
 
   factory UserMessage.fromJson(Map<String, Object?> json) =>
@@ -24,8 +24,7 @@ class UserMessage {
   @JsonKey(name: 'sessionID')
   final String sessionId;
   final String role;
-  @JsonKey(name: 'UserMessageTime')
-  final UserMessageTime userMessageTime;
+  final UserMessageTime time;
 
   Map<String, Object?> toJson() => _$UserMessageToJson(this);
 }

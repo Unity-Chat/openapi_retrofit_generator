@@ -51,24 +51,18 @@ class ConfigMapper extends ClassMapperBase<Config> {
     _$keybinds,
     opt: true,
   );
-  static ConfigTui? _$configTui(Config v) => v.configTui;
-  static const Field<Config, ConfigTui> _f$configTui = Field(
-    'configTui',
-    _$configTui,
-    key: r'ConfigTui',
-    opt: true,
-  );
+  static ConfigTui? _$tui(Config v) => v.tui;
+  static const Field<Config, ConfigTui> _f$tui = Field('tui', _$tui, opt: true);
   static Map<String, Command>? _$command(Config v) => v.command;
   static const Field<Config, Map<String, Command>> _f$command = Field(
     'command',
     _$command,
     opt: true,
   );
-  static ConfigWatcher? _$configWatcher(Config v) => v.configWatcher;
-  static const Field<Config, ConfigWatcher> _f$configWatcher = Field(
-    'configWatcher',
-    _$configWatcher,
-    key: r'ConfigWatcher',
+  static ConfigWatcher? _$watcher(Config v) => v.watcher;
+  static const Field<Config, ConfigWatcher> _f$watcher = Field(
+    'watcher',
+    _$watcher,
     opt: true,
   );
   static List<String>? _$plugin(Config v) => v.plugin;
@@ -175,11 +169,10 @@ class ConfigMapper extends ClassMapperBase<Config> {
     _$layout,
     opt: true,
   );
-  static ConfigPermission? _$configPermission(Config v) => v.configPermission;
-  static const Field<Config, ConfigPermission> _f$configPermission = Field(
-    'configPermission',
-    _$configPermission,
-    key: r'ConfigPermission',
+  static ConfigPermission? _$permission(Config v) => v.permission;
+  static const Field<Config, ConfigPermission> _f$permission = Field(
+    'permission',
+    _$permission,
     opt: true,
   );
   static Map<String, bool>? _$tools(Config v) => v.tools;
@@ -188,12 +181,10 @@ class ConfigMapper extends ClassMapperBase<Config> {
     _$tools,
     opt: true,
   );
-  static ConfigExperimental? _$configExperimental(Config v) =>
-      v.configExperimental;
-  static const Field<Config, ConfigExperimental> _f$configExperimental = Field(
-    'configExperimental',
-    _$configExperimental,
-    key: r'ConfigExperimental',
+  static ConfigExperimental? _$experimental(Config v) => v.experimental;
+  static const Field<Config, ConfigExperimental> _f$experimental = Field(
+    'experimental',
+    _$experimental,
     opt: true,
   );
 
@@ -202,9 +193,9 @@ class ConfigMapper extends ClassMapperBase<Config> {
     #schema: _f$schema,
     #theme: _f$theme,
     #keybinds: _f$keybinds,
-    #configTui: _f$configTui,
+    #tui: _f$tui,
     #command: _f$command,
-    #configWatcher: _f$configWatcher,
+    #watcher: _f$watcher,
     #plugin: _f$plugin,
     #snapshot: _f$snapshot,
     #share: _f$share,
@@ -222,9 +213,9 @@ class ConfigMapper extends ClassMapperBase<Config> {
     #lsp: _f$lsp,
     #instructions: _f$instructions,
     #layout: _f$layout,
-    #configPermission: _f$configPermission,
+    #permission: _f$permission,
     #tools: _f$tools,
-    #configExperimental: _f$configExperimental,
+    #experimental: _f$experimental,
   };
 
   static Config _instantiate(DecodingData data) {
@@ -232,9 +223,9 @@ class ConfigMapper extends ClassMapperBase<Config> {
       schema: data.dec(_f$schema),
       theme: data.dec(_f$theme),
       keybinds: data.dec(_f$keybinds),
-      configTui: data.dec(_f$configTui),
+      tui: data.dec(_f$tui),
       command: data.dec(_f$command),
-      configWatcher: data.dec(_f$configWatcher),
+      watcher: data.dec(_f$watcher),
       plugin: data.dec(_f$plugin),
       snapshot: data.dec(_f$snapshot),
       share: data.dec(_f$share),
@@ -252,9 +243,9 @@ class ConfigMapper extends ClassMapperBase<Config> {
       lsp: data.dec(_f$lsp),
       instructions: data.dec(_f$instructions),
       layout: data.dec(_f$layout),
-      configPermission: data.dec(_f$configPermission),
+      permission: data.dec(_f$permission),
       tools: data.dec(_f$tools),
-      configExperimental: data.dec(_f$configExperimental),
+      experimental: data.dec(_f$experimental),
     );
   }
 
@@ -305,10 +296,10 @@ extension ConfigValueCopy<$R, $Out> on ObjectCopyWith<$R, Config, $Out> {
 abstract class ConfigCopyWith<$R, $In extends Config, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   KeybindsConfigCopyWith<$R, KeybindsConfig, KeybindsConfig>? get keybinds;
-  ConfigTuiCopyWith<$R, ConfigTui, ConfigTui>? get configTui;
+  ConfigTuiCopyWith<$R, ConfigTui, ConfigTui>? get tui;
   MapCopyWith<$R, String, Command, CommandCopyWith<$R, Command, Command>>?
   get command;
-  ConfigWatcherCopyWith<$R, ConfigWatcher, ConfigWatcher>? get configWatcher;
+  ConfigWatcherCopyWith<$R, ConfigWatcher, ConfigWatcher>? get watcher;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get plugin;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
   get disabledProviders;
@@ -340,17 +331,17 @@ abstract class ConfigCopyWith<$R, $In extends Config, $Out>
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
   get instructions;
   ConfigPermissionCopyWith<$R, ConfigPermission, ConfigPermission>?
-  get configPermission;
+  get permission;
   MapCopyWith<$R, String, bool, ObjectCopyWith<$R, bool, bool>>? get tools;
   ConfigExperimentalCopyWith<$R, ConfigExperimental, ConfigExperimental>?
-  get configExperimental;
+  get experimental;
   $R call({
     String? schema,
     String? theme,
     KeybindsConfig? keybinds,
-    ConfigTui? configTui,
+    ConfigTui? tui,
     Map<String, Command>? command,
-    ConfigWatcher? configWatcher,
+    ConfigWatcher? watcher,
     List<String>? plugin,
     bool? snapshot,
     ConfigShareShare? share,
@@ -368,9 +359,9 @@ abstract class ConfigCopyWith<$R, $In extends Config, $Out>
     Map<String, LspLsp>? lsp,
     List<String>? instructions,
     LayoutConfig? layout,
-    ConfigPermission? configPermission,
+    ConfigPermission? permission,
     Map<String, bool>? tools,
-    ConfigExperimental? configExperimental,
+    ConfigExperimental? experimental,
   });
   ConfigCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -385,8 +376,8 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
   KeybindsConfigCopyWith<$R, KeybindsConfig, KeybindsConfig>? get keybinds =>
       $value.keybinds?.copyWith.$chain((v) => call(keybinds: v));
   @override
-  ConfigTuiCopyWith<$R, ConfigTui, ConfigTui>? get configTui =>
-      $value.configTui?.copyWith.$chain((v) => call(configTui: v));
+  ConfigTuiCopyWith<$R, ConfigTui, ConfigTui>? get tui =>
+      $value.tui?.copyWith.$chain((v) => call(tui: v));
   @override
   MapCopyWith<$R, String, Command, CommandCopyWith<$R, Command, Command>>?
   get command => $value.command != null
@@ -397,8 +388,8 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
         )
       : null;
   @override
-  ConfigWatcherCopyWith<$R, ConfigWatcher, ConfigWatcher>? get configWatcher =>
-      $value.configWatcher?.copyWith.$chain((v) => call(configWatcher: v));
+  ConfigWatcherCopyWith<$R, ConfigWatcher, ConfigWatcher>? get watcher =>
+      $value.watcher?.copyWith.$chain((v) => call(watcher: v));
   @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get plugin =>
       $value.plugin != null
@@ -497,9 +488,8 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
       : null;
   @override
   ConfigPermissionCopyWith<$R, ConfigPermission, ConfigPermission>?
-  get configPermission => $value.configPermission?.copyWith.$chain(
-    (v) => call(configPermission: v),
-  );
+  get permission =>
+      $value.permission?.copyWith.$chain((v) => call(permission: v));
   @override
   MapCopyWith<$R, String, bool, ObjectCopyWith<$R, bool, bool>>? get tools =>
       $value.tools != null
@@ -511,17 +501,16 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
       : null;
   @override
   ConfigExperimentalCopyWith<$R, ConfigExperimental, ConfigExperimental>?
-  get configExperimental => $value.configExperimental?.copyWith.$chain(
-    (v) => call(configExperimental: v),
-  );
+  get experimental =>
+      $value.experimental?.copyWith.$chain((v) => call(experimental: v));
   @override
   $R call({
     Object? schema = $none,
     Object? theme = $none,
     Object? keybinds = $none,
-    Object? configTui = $none,
+    Object? tui = $none,
     Object? command = $none,
-    Object? configWatcher = $none,
+    Object? watcher = $none,
     Object? plugin = $none,
     Object? snapshot = $none,
     Object? share = $none,
@@ -539,17 +528,17 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
     Object? lsp = $none,
     Object? instructions = $none,
     Object? layout = $none,
-    Object? configPermission = $none,
+    Object? permission = $none,
     Object? tools = $none,
-    Object? configExperimental = $none,
+    Object? experimental = $none,
   }) => $apply(
     FieldCopyWithData({
       if (schema != $none) #schema: schema,
       if (theme != $none) #theme: theme,
       if (keybinds != $none) #keybinds: keybinds,
-      if (configTui != $none) #configTui: configTui,
+      if (tui != $none) #tui: tui,
       if (command != $none) #command: command,
-      if (configWatcher != $none) #configWatcher: configWatcher,
+      if (watcher != $none) #watcher: watcher,
       if (plugin != $none) #plugin: plugin,
       if (snapshot != $none) #snapshot: snapshot,
       if (share != $none) #share: share,
@@ -567,9 +556,9 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
       if (lsp != $none) #lsp: lsp,
       if (instructions != $none) #instructions: instructions,
       if (layout != $none) #layout: layout,
-      if (configPermission != $none) #configPermission: configPermission,
+      if (permission != $none) #permission: permission,
       if (tools != $none) #tools: tools,
-      if (configExperimental != $none) #configExperimental: configExperimental,
+      if (experimental != $none) #experimental: experimental,
     }),
   );
   @override
@@ -577,9 +566,9 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
     schema: data.get(#schema, or: $value.schema),
     theme: data.get(#theme, or: $value.theme),
     keybinds: data.get(#keybinds, or: $value.keybinds),
-    configTui: data.get(#configTui, or: $value.configTui),
+    tui: data.get(#tui, or: $value.tui),
     command: data.get(#command, or: $value.command),
-    configWatcher: data.get(#configWatcher, or: $value.configWatcher),
+    watcher: data.get(#watcher, or: $value.watcher),
     plugin: data.get(#plugin, or: $value.plugin),
     snapshot: data.get(#snapshot, or: $value.snapshot),
     share: data.get(#share, or: $value.share),
@@ -600,12 +589,9 @@ class _ConfigCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Config, $Out>
     lsp: data.get(#lsp, or: $value.lsp),
     instructions: data.get(#instructions, or: $value.instructions),
     layout: data.get(#layout, or: $value.layout),
-    configPermission: data.get(#configPermission, or: $value.configPermission),
+    permission: data.get(#permission, or: $value.permission),
     tools: data.get(#tools, or: $value.tools),
-    configExperimental: data.get(
-      #configExperimental,
-      or: $value.configExperimental,
-    ),
+    experimental: data.get(#experimental, or: $value.experimental),
   );
 
   @override

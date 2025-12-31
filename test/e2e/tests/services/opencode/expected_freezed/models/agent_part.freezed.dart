@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AgentPart {
 
- String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; String get name;@JsonKey(name: 'AgentPartSource') AgentPartSource? get agentPartSource;
+ String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; String get name; AgentPartSource? get source;
 /// Create a copy of AgentPart
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $AgentPartCopyWith<AgentPart> get copyWith => _$AgentPartCopyWithImpl<AgentPart>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgentPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.agentPartSource, agentPartSource) || other.agentPartSource == agentPartSource));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgentPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.source, source) || other.source == source));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,name,agentPartSource);
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,name,source);
 
 @override
 String toString() {
-  return 'AgentPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, name: $name, agentPartSource: $agentPartSource)';
+  return 'AgentPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, name: $name, source: $source)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $AgentPartCopyWith<$Res>  {
   factory $AgentPartCopyWith(AgentPart value, $Res Function(AgentPart) _then) = _$AgentPartCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String name,@JsonKey(name: 'AgentPartSource') AgentPartSource? agentPartSource
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String name, AgentPartSource? source
 });
 
 
-$AgentPartSourceCopyWith<$Res>? get agentPartSource;
+$AgentPartSourceCopyWith<$Res>? get source;
 
 }
 /// @nodoc
@@ -65,14 +65,14 @@ class _$AgentPartCopyWithImpl<$Res>
 
 /// Create a copy of AgentPart
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? name = null,Object? agentPartSource = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? name = null,Object? source = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,agentPartSource: freezed == agentPartSource ? _self.agentPartSource : agentPartSource // ignore: cast_nullable_to_non_nullable
+as String,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as AgentPartSource?,
   ));
 }
@@ -80,13 +80,13 @@ as AgentPartSource?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AgentPartSourceCopyWith<$Res>? get agentPartSource {
-    if (_self.agentPartSource == null) {
+$AgentPartSourceCopyWith<$Res>? get source {
+    if (_self.source == null) {
     return null;
   }
 
-  return $AgentPartSourceCopyWith<$Res>(_self.agentPartSource!, (value) {
-    return _then(_self.copyWith(agentPartSource: value));
+  return $AgentPartSourceCopyWith<$Res>(_self.source!, (value) {
+    return _then(_self.copyWith(source: value));
   });
 }
 }
@@ -170,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String name, @JsonKey(name: 'AgentPartSource')  AgentPartSource? agentPartSource)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String name,  AgentPartSource? source)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgentPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_that.agentPartSource);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_that.source);case _:
   return orElse();
 
 }
@@ -191,10 +191,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String name, @JsonKey(name: 'AgentPartSource')  AgentPartSource? agentPartSource)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String name,  AgentPartSource? source)  $default,) {final _that = this;
 switch (_that) {
 case _AgentPart():
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_that.agentPartSource);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_that.source);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -211,10 +211,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String name, @JsonKey(name: 'AgentPartSource')  AgentPartSource? agentPartSource)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String name,  AgentPartSource? source)?  $default,) {final _that = this;
 switch (_that) {
 case _AgentPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_that.agentPartSource);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_that.source);case _:
   return null;
 
 }
@@ -226,7 +226,7 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.name,_
 @JsonSerializable()
 
 class _AgentPart implements AgentPart {
-  const _AgentPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.name, @JsonKey(name: 'AgentPartSource') this.agentPartSource});
+  const _AgentPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.name, this.source});
   factory _AgentPart.fromJson(Map<String, dynamic> json) => _$AgentPartFromJson(json);
 
 @override final  String id;
@@ -234,7 +234,7 @@ class _AgentPart implements AgentPart {
 @override@JsonKey(name: 'messageID') final  String messageId;
 @override final  String type;
 @override final  String name;
-@override@JsonKey(name: 'AgentPartSource') final  AgentPartSource? agentPartSource;
+@override final  AgentPartSource? source;
 
 /// Create a copy of AgentPart
 /// with the given fields replaced by the non-null parameter values.
@@ -249,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgentPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.agentPartSource, agentPartSource) || other.agentPartSource == agentPartSource));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgentPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.source, source) || other.source == source));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,name,agentPartSource);
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,name,source);
 
 @override
 String toString() {
-  return 'AgentPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, name: $name, agentPartSource: $agentPartSource)';
+  return 'AgentPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, name: $name, source: $source)';
 }
 
 
@@ -269,11 +269,11 @@ abstract mixin class _$AgentPartCopyWith<$Res> implements $AgentPartCopyWith<$Re
   factory _$AgentPartCopyWith(_AgentPart value, $Res Function(_AgentPart) _then) = __$AgentPartCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String name,@JsonKey(name: 'AgentPartSource') AgentPartSource? agentPartSource
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String name, AgentPartSource? source
 });
 
 
-@override $AgentPartSourceCopyWith<$Res>? get agentPartSource;
+@override $AgentPartSourceCopyWith<$Res>? get source;
 
 }
 /// @nodoc
@@ -286,14 +286,14 @@ class __$AgentPartCopyWithImpl<$Res>
 
 /// Create a copy of AgentPart
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? name = null,Object? agentPartSource = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? name = null,Object? source = freezed,}) {
   return _then(_AgentPart(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,agentPartSource: freezed == agentPartSource ? _self.agentPartSource : agentPartSource // ignore: cast_nullable_to_non_nullable
+as String,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as AgentPartSource?,
   ));
 }
@@ -302,13 +302,13 @@ as AgentPartSource?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AgentPartSourceCopyWith<$Res>? get agentPartSource {
-    if (_self.agentPartSource == null) {
+$AgentPartSourceCopyWith<$Res>? get source {
+    if (_self.source == null) {
     return null;
   }
 
-  return $AgentPartSourceCopyWith<$Res>(_self.agentPartSource!, (value) {
-    return _then(_self.copyWith(agentPartSource: value));
+  return $AgentPartSourceCopyWith<$Res>(_self.source!, (value) {
+    return _then(_self.copyWith(source: value));
   });
 }
 }

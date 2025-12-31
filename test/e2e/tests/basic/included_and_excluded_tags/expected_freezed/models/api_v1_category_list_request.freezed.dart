@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$ApiV1CategoryListRequest {
 
 /// This field should be included (include tag wins)
- String get includedField;@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested') ApiV1CategoryListRequestIncludedNested? get apiV1CategoryListRequestIncludedNested;@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData') ApiV1CategoryListRequestAuditData? get apiV1CategoryListRequestAuditData;
+ String get includedField;@JsonKey(includeIfNull: false) ApiV1CategoryListRequestIncludedNested? get includedNested;@JsonKey(includeIfNull: false) ApiV1CategoryListRequestAuditData? get auditData;
 /// Create a copy of ApiV1CategoryListRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $ApiV1CategoryListRequestCopyWith<ApiV1CategoryListRequest> get copyWith => _$Ap
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiV1CategoryListRequest&&(identical(other.includedField, includedField) || other.includedField == includedField)&&(identical(other.apiV1CategoryListRequestIncludedNested, apiV1CategoryListRequestIncludedNested) || other.apiV1CategoryListRequestIncludedNested == apiV1CategoryListRequestIncludedNested)&&(identical(other.apiV1CategoryListRequestAuditData, apiV1CategoryListRequestAuditData) || other.apiV1CategoryListRequestAuditData == apiV1CategoryListRequestAuditData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiV1CategoryListRequest&&(identical(other.includedField, includedField) || other.includedField == includedField)&&(identical(other.includedNested, includedNested) || other.includedNested == includedNested)&&(identical(other.auditData, auditData) || other.auditData == auditData));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,includedField,apiV1CategoryListRequestIncludedNested,apiV1CategoryListRequestAuditData);
+int get hashCode => Object.hash(runtimeType,includedField,includedNested,auditData);
 
 @override
 String toString() {
-  return 'ApiV1CategoryListRequest(includedField: $includedField, apiV1CategoryListRequestIncludedNested: $apiV1CategoryListRequestIncludedNested, apiV1CategoryListRequestAuditData: $apiV1CategoryListRequestAuditData)';
+  return 'ApiV1CategoryListRequest(includedField: $includedField, includedNested: $includedNested, auditData: $auditData)';
 }
 
 
@@ -49,11 +49,11 @@ abstract mixin class $ApiV1CategoryListRequestCopyWith<$Res>  {
   factory $ApiV1CategoryListRequestCopyWith(ApiV1CategoryListRequest value, $Res Function(ApiV1CategoryListRequest) _then) = _$ApiV1CategoryListRequestCopyWithImpl;
 @useResult
 $Res call({
- String includedField,@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested') ApiV1CategoryListRequestIncludedNested? apiV1CategoryListRequestIncludedNested,@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData') ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData
+ String includedField,@JsonKey(includeIfNull: false) ApiV1CategoryListRequestIncludedNested? includedNested,@JsonKey(includeIfNull: false) ApiV1CategoryListRequestAuditData? auditData
 });
 
 
-$ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get apiV1CategoryListRequestIncludedNested;$ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get apiV1CategoryListRequestAuditData;
+$ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get includedNested;$ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get auditData;
 
 }
 /// @nodoc
@@ -66,11 +66,11 @@ class _$ApiV1CategoryListRequestCopyWithImpl<$Res>
 
 /// Create a copy of ApiV1CategoryListRequest
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? includedField = null,Object? apiV1CategoryListRequestIncludedNested = freezed,Object? apiV1CategoryListRequestAuditData = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? includedField = null,Object? includedNested = freezed,Object? auditData = freezed,}) {
   return _then(_self.copyWith(
 includedField: null == includedField ? _self.includedField : includedField // ignore: cast_nullable_to_non_nullable
-as String,apiV1CategoryListRequestIncludedNested: freezed == apiV1CategoryListRequestIncludedNested ? _self.apiV1CategoryListRequestIncludedNested : apiV1CategoryListRequestIncludedNested // ignore: cast_nullable_to_non_nullable
-as ApiV1CategoryListRequestIncludedNested?,apiV1CategoryListRequestAuditData: freezed == apiV1CategoryListRequestAuditData ? _self.apiV1CategoryListRequestAuditData : apiV1CategoryListRequestAuditData // ignore: cast_nullable_to_non_nullable
+as String,includedNested: freezed == includedNested ? _self.includedNested : includedNested // ignore: cast_nullable_to_non_nullable
+as ApiV1CategoryListRequestIncludedNested?,auditData: freezed == auditData ? _self.auditData : auditData // ignore: cast_nullable_to_non_nullable
 as ApiV1CategoryListRequestAuditData?,
   ));
 }
@@ -78,25 +78,25 @@ as ApiV1CategoryListRequestAuditData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get apiV1CategoryListRequestIncludedNested {
-    if (_self.apiV1CategoryListRequestIncludedNested == null) {
+$ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get includedNested {
+    if (_self.includedNested == null) {
     return null;
   }
 
-  return $ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>(_self.apiV1CategoryListRequestIncludedNested!, (value) {
-    return _then(_self.copyWith(apiV1CategoryListRequestIncludedNested: value));
+  return $ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>(_self.includedNested!, (value) {
+    return _then(_self.copyWith(includedNested: value));
   });
 }/// Create a copy of ApiV1CategoryListRequest
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get apiV1CategoryListRequestAuditData {
-    if (_self.apiV1CategoryListRequestAuditData == null) {
+$ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get auditData {
+    if (_self.auditData == null) {
     return null;
   }
 
-  return $ApiV1CategoryListRequestAuditDataCopyWith<$Res>(_self.apiV1CategoryListRequestAuditData!, (value) {
-    return _then(_self.copyWith(apiV1CategoryListRequestAuditData: value));
+  return $ApiV1CategoryListRequestAuditDataCopyWith<$Res>(_self.auditData!, (value) {
+    return _then(_self.copyWith(auditData: value));
   });
 }
 }
@@ -180,10 +180,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String includedField, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested')  ApiV1CategoryListRequestIncludedNested? apiV1CategoryListRequestIncludedNested, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData')  ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String includedField, @JsonKey(includeIfNull: false)  ApiV1CategoryListRequestIncludedNested? includedNested, @JsonKey(includeIfNull: false)  ApiV1CategoryListRequestAuditData? auditData)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ApiV1CategoryListRequest() when $default != null:
-return $default(_that.includedField,_that.apiV1CategoryListRequestIncludedNested,_that.apiV1CategoryListRequestAuditData);case _:
+return $default(_that.includedField,_that.includedNested,_that.auditData);case _:
   return orElse();
 
 }
@@ -201,10 +201,10 @@ return $default(_that.includedField,_that.apiV1CategoryListRequestIncludedNested
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String includedField, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested')  ApiV1CategoryListRequestIncludedNested? apiV1CategoryListRequestIncludedNested, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData')  ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String includedField, @JsonKey(includeIfNull: false)  ApiV1CategoryListRequestIncludedNested? includedNested, @JsonKey(includeIfNull: false)  ApiV1CategoryListRequestAuditData? auditData)  $default,) {final _that = this;
 switch (_that) {
 case _ApiV1CategoryListRequest():
-return $default(_that.includedField,_that.apiV1CategoryListRequestIncludedNested,_that.apiV1CategoryListRequestAuditData);case _:
+return $default(_that.includedField,_that.includedNested,_that.auditData);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -221,10 +221,10 @@ return $default(_that.includedField,_that.apiV1CategoryListRequestIncludedNested
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String includedField, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested')  ApiV1CategoryListRequestIncludedNested? apiV1CategoryListRequestIncludedNested, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData')  ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String includedField, @JsonKey(includeIfNull: false)  ApiV1CategoryListRequestIncludedNested? includedNested, @JsonKey(includeIfNull: false)  ApiV1CategoryListRequestAuditData? auditData)?  $default,) {final _that = this;
 switch (_that) {
 case _ApiV1CategoryListRequest() when $default != null:
-return $default(_that.includedField,_that.apiV1CategoryListRequestIncludedNested,_that.apiV1CategoryListRequestAuditData);case _:
+return $default(_that.includedField,_that.includedNested,_that.auditData);case _:
   return null;
 
 }
@@ -236,13 +236,13 @@ return $default(_that.includedField,_that.apiV1CategoryListRequestIncludedNested
 @JsonSerializable()
 
 class _ApiV1CategoryListRequest implements ApiV1CategoryListRequest {
-  const _ApiV1CategoryListRequest({required this.includedField, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested') this.apiV1CategoryListRequestIncludedNested, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData') this.apiV1CategoryListRequestAuditData});
+  const _ApiV1CategoryListRequest({required this.includedField, @JsonKey(includeIfNull: false) this.includedNested, @JsonKey(includeIfNull: false) this.auditData});
   factory _ApiV1CategoryListRequest.fromJson(Map<String, dynamic> json) => _$ApiV1CategoryListRequestFromJson(json);
 
 /// This field should be included (include tag wins)
 @override final  String includedField;
-@override@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested') final  ApiV1CategoryListRequestIncludedNested? apiV1CategoryListRequestIncludedNested;
-@override@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData') final  ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData;
+@override@JsonKey(includeIfNull: false) final  ApiV1CategoryListRequestIncludedNested? includedNested;
+@override@JsonKey(includeIfNull: false) final  ApiV1CategoryListRequestAuditData? auditData;
 
 /// Create a copy of ApiV1CategoryListRequest
 /// with the given fields replaced by the non-null parameter values.
@@ -257,16 +257,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiV1CategoryListRequest&&(identical(other.includedField, includedField) || other.includedField == includedField)&&(identical(other.apiV1CategoryListRequestIncludedNested, apiV1CategoryListRequestIncludedNested) || other.apiV1CategoryListRequestIncludedNested == apiV1CategoryListRequestIncludedNested)&&(identical(other.apiV1CategoryListRequestAuditData, apiV1CategoryListRequestAuditData) || other.apiV1CategoryListRequestAuditData == apiV1CategoryListRequestAuditData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiV1CategoryListRequest&&(identical(other.includedField, includedField) || other.includedField == includedField)&&(identical(other.includedNested, includedNested) || other.includedNested == includedNested)&&(identical(other.auditData, auditData) || other.auditData == auditData));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,includedField,apiV1CategoryListRequestIncludedNested,apiV1CategoryListRequestAuditData);
+int get hashCode => Object.hash(runtimeType,includedField,includedNested,auditData);
 
 @override
 String toString() {
-  return 'ApiV1CategoryListRequest(includedField: $includedField, apiV1CategoryListRequestIncludedNested: $apiV1CategoryListRequestIncludedNested, apiV1CategoryListRequestAuditData: $apiV1CategoryListRequestAuditData)';
+  return 'ApiV1CategoryListRequest(includedField: $includedField, includedNested: $includedNested, auditData: $auditData)';
 }
 
 
@@ -277,11 +277,11 @@ abstract mixin class _$ApiV1CategoryListRequestCopyWith<$Res> implements $ApiV1C
   factory _$ApiV1CategoryListRequestCopyWith(_ApiV1CategoryListRequest value, $Res Function(_ApiV1CategoryListRequest) _then) = __$ApiV1CategoryListRequestCopyWithImpl;
 @override @useResult
 $Res call({
- String includedField,@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested') ApiV1CategoryListRequestIncludedNested? apiV1CategoryListRequestIncludedNested,@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData') ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData
+ String includedField,@JsonKey(includeIfNull: false) ApiV1CategoryListRequestIncludedNested? includedNested,@JsonKey(includeIfNull: false) ApiV1CategoryListRequestAuditData? auditData
 });
 
 
-@override $ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get apiV1CategoryListRequestIncludedNested;@override $ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get apiV1CategoryListRequestAuditData;
+@override $ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get includedNested;@override $ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get auditData;
 
 }
 /// @nodoc
@@ -294,11 +294,11 @@ class __$ApiV1CategoryListRequestCopyWithImpl<$Res>
 
 /// Create a copy of ApiV1CategoryListRequest
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? includedField = null,Object? apiV1CategoryListRequestIncludedNested = freezed,Object? apiV1CategoryListRequestAuditData = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? includedField = null,Object? includedNested = freezed,Object? auditData = freezed,}) {
   return _then(_ApiV1CategoryListRequest(
 includedField: null == includedField ? _self.includedField : includedField // ignore: cast_nullable_to_non_nullable
-as String,apiV1CategoryListRequestIncludedNested: freezed == apiV1CategoryListRequestIncludedNested ? _self.apiV1CategoryListRequestIncludedNested : apiV1CategoryListRequestIncludedNested // ignore: cast_nullable_to_non_nullable
-as ApiV1CategoryListRequestIncludedNested?,apiV1CategoryListRequestAuditData: freezed == apiV1CategoryListRequestAuditData ? _self.apiV1CategoryListRequestAuditData : apiV1CategoryListRequestAuditData // ignore: cast_nullable_to_non_nullable
+as String,includedNested: freezed == includedNested ? _self.includedNested : includedNested // ignore: cast_nullable_to_non_nullable
+as ApiV1CategoryListRequestIncludedNested?,auditData: freezed == auditData ? _self.auditData : auditData // ignore: cast_nullable_to_non_nullable
 as ApiV1CategoryListRequestAuditData?,
   ));
 }
@@ -307,25 +307,25 @@ as ApiV1CategoryListRequestAuditData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get apiV1CategoryListRequestIncludedNested {
-    if (_self.apiV1CategoryListRequestIncludedNested == null) {
+$ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>? get includedNested {
+    if (_self.includedNested == null) {
     return null;
   }
 
-  return $ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>(_self.apiV1CategoryListRequestIncludedNested!, (value) {
-    return _then(_self.copyWith(apiV1CategoryListRequestIncludedNested: value));
+  return $ApiV1CategoryListRequestIncludedNestedCopyWith<$Res>(_self.includedNested!, (value) {
+    return _then(_self.copyWith(includedNested: value));
   });
 }/// Create a copy of ApiV1CategoryListRequest
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get apiV1CategoryListRequestAuditData {
-    if (_self.apiV1CategoryListRequestAuditData == null) {
+$ApiV1CategoryListRequestAuditDataCopyWith<$Res>? get auditData {
+    if (_self.auditData == null) {
     return null;
   }
 
-  return $ApiV1CategoryListRequestAuditDataCopyWith<$Res>(_self.apiV1CategoryListRequestAuditData!, (value) {
-    return _then(_self.copyWith(apiV1CategoryListRequestAuditData: value));
+  return $ApiV1CategoryListRequestAuditDataCopyWith<$Res>(_self.auditData!, (value) {
+    return _then(_self.copyWith(auditData: value));
   });
 }
 }

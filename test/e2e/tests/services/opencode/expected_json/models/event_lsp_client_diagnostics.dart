@@ -12,15 +12,14 @@ part 'event_lsp_client_diagnostics.g.dart';
 class EventLspClientDiagnostics {
   const EventLspClientDiagnostics({
     required this.type,
-    required this.eventLspClientDiagnosticsProperties,
+    required this.properties,
   });
 
   factory EventLspClientDiagnostics.fromJson(Map<String, Object?> json) =>
       _$EventLspClientDiagnosticsFromJson(json);
 
   final String type;
-  @JsonKey(name: 'EventLspClientDiagnosticsProperties')
-  final EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties;
+  final EventLspClientDiagnosticsProperties properties;
 
   Map<String, Object?> toJson() => _$EventLspClientDiagnosticsToJson(this);
 }

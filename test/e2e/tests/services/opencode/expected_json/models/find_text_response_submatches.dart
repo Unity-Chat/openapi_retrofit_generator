@@ -11,7 +11,7 @@ part 'find_text_response_submatches.g.dart';
 @JsonSerializable()
 class FindTextResponseSubmatches {
   const FindTextResponseSubmatches({
-    required this.findTextResponseSubmatchesMatch,
+    required this.match,
     required this.start,
     required this.end,
   });
@@ -19,8 +19,7 @@ class FindTextResponseSubmatches {
   factory FindTextResponseSubmatches.fromJson(Map<String, Object?> json) =>
       _$FindTextResponseSubmatchesFromJson(json);
 
-  @JsonKey(name: 'FindTextResponseSubmatchesMatch')
-  final FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch;
+  final FindTextResponseSubmatchesMatch match;
   final num start;
   final num end;
 

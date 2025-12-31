@@ -19,7 +19,7 @@ class AgentConfig with AgentConfigMappable {
     this.disable,
     this.description,
     this.mode,
-    this.agentConfigPermission,
+    this.permission,
   });
 
   final String? model;
@@ -31,8 +31,7 @@ class AgentConfig with AgentConfigMappable {
   final bool? disable;
   final String? description;
   final dynamic mode;
-  @MappableField(key: 'AgentConfigPermission')
-  final AgentConfigPermission? agentConfigPermission;
+  final AgentConfigPermission? permission;
 
   static AgentConfig fromJson(Map<String, dynamic> json) =>
       AgentConfigMapper.fromJson(json);

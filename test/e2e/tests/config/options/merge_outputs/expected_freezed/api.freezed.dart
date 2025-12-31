@@ -1230,7 +1230,7 @@ $UserSettingsCopyWith<$Res>? get settings {
 /// @nodoc
 mixin _$UserSettings {
 
-@JsonKey(name: 'UserSettingsNotifications') UserSettingsNotifications? get userSettingsNotifications;@JsonKey(name: 'UserSettingsPrivacy') UserSettingsPrivacy? get userSettingsPrivacy; UserSettingsThemeTheme get theme; String get language;
+ UserSettingsNotifications? get notifications; UserSettingsPrivacy? get privacy; UserSettingsThemeTheme get theme; String get language;
 /// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1243,16 +1243,16 @@ $UserSettingsCopyWith<UserSettings> get copyWith => _$UserSettingsCopyWithImpl<U
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserSettings&&(identical(other.userSettingsNotifications, userSettingsNotifications) || other.userSettingsNotifications == userSettingsNotifications)&&(identical(other.userSettingsPrivacy, userSettingsPrivacy) || other.userSettingsPrivacy == userSettingsPrivacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserSettings&&(identical(other.notifications, notifications) || other.notifications == notifications)&&(identical(other.privacy, privacy) || other.privacy == privacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userSettingsNotifications,userSettingsPrivacy,theme,language);
+int get hashCode => Object.hash(runtimeType,notifications,privacy,theme,language);
 
 @override
 String toString() {
-  return 'UserSettings(userSettingsNotifications: $userSettingsNotifications, userSettingsPrivacy: $userSettingsPrivacy, theme: $theme, language: $language)';
+  return 'UserSettings(notifications: $notifications, privacy: $privacy, theme: $theme, language: $language)';
 }
 
 
@@ -1263,11 +1263,11 @@ abstract mixin class $UserSettingsCopyWith<$Res>  {
   factory $UserSettingsCopyWith(UserSettings value, $Res Function(UserSettings) _then) = _$UserSettingsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'UserSettingsNotifications') UserSettingsNotifications? userSettingsNotifications,@JsonKey(name: 'UserSettingsPrivacy') UserSettingsPrivacy? userSettingsPrivacy, UserSettingsThemeTheme theme, String language
+ UserSettingsNotifications? notifications, UserSettingsPrivacy? privacy, UserSettingsThemeTheme theme, String language
 });
 
 
-$UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications;$UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy;
+$UserSettingsNotificationsCopyWith<$Res>? get notifications;$UserSettingsPrivacyCopyWith<$Res>? get privacy;
 
 }
 /// @nodoc
@@ -1280,10 +1280,10 @@ class _$UserSettingsCopyWithImpl<$Res>
 
 /// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userSettingsNotifications = freezed,Object? userSettingsPrivacy = freezed,Object? theme = null,Object? language = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? notifications = freezed,Object? privacy = freezed,Object? theme = null,Object? language = null,}) {
   return _then(_self.copyWith(
-userSettingsNotifications: freezed == userSettingsNotifications ? _self.userSettingsNotifications : userSettingsNotifications // ignore: cast_nullable_to_non_nullable
-as UserSettingsNotifications?,userSettingsPrivacy: freezed == userSettingsPrivacy ? _self.userSettingsPrivacy : userSettingsPrivacy // ignore: cast_nullable_to_non_nullable
+notifications: freezed == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
+as UserSettingsNotifications?,privacy: freezed == privacy ? _self.privacy : privacy // ignore: cast_nullable_to_non_nullable
 as UserSettingsPrivacy?,theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
 as UserSettingsThemeTheme,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
 as String,
@@ -1293,25 +1293,25 @@ as String,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications {
-    if (_self.userSettingsNotifications == null) {
+$UserSettingsNotificationsCopyWith<$Res>? get notifications {
+    if (_self.notifications == null) {
     return null;
   }
 
-  return $UserSettingsNotificationsCopyWith<$Res>(_self.userSettingsNotifications!, (value) {
-    return _then(_self.copyWith(userSettingsNotifications: value));
+  return $UserSettingsNotificationsCopyWith<$Res>(_self.notifications!, (value) {
+    return _then(_self.copyWith(notifications: value));
   });
 }/// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy {
-    if (_self.userSettingsPrivacy == null) {
+$UserSettingsPrivacyCopyWith<$Res>? get privacy {
+    if (_self.privacy == null) {
     return null;
   }
 
-  return $UserSettingsPrivacyCopyWith<$Res>(_self.userSettingsPrivacy!, (value) {
-    return _then(_self.copyWith(userSettingsPrivacy: value));
+  return $UserSettingsPrivacyCopyWith<$Res>(_self.privacy!, (value) {
+    return _then(_self.copyWith(privacy: value));
   });
 }
 }
@@ -1395,10 +1395,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'UserSettingsNotifications')  UserSettingsNotifications? userSettingsNotifications, @JsonKey(name: 'UserSettingsPrivacy')  UserSettingsPrivacy? userSettingsPrivacy,  UserSettingsThemeTheme theme,  String language)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( UserSettingsNotifications? notifications,  UserSettingsPrivacy? privacy,  UserSettingsThemeTheme theme,  String language)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserSettings() when $default != null:
-return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.theme,_that.language);case _:
+return $default(_that.notifications,_that.privacy,_that.theme,_that.language);case _:
   return orElse();
 
 }
@@ -1416,10 +1416,10 @@ return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'UserSettingsNotifications')  UserSettingsNotifications? userSettingsNotifications, @JsonKey(name: 'UserSettingsPrivacy')  UserSettingsPrivacy? userSettingsPrivacy,  UserSettingsThemeTheme theme,  String language)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( UserSettingsNotifications? notifications,  UserSettingsPrivacy? privacy,  UserSettingsThemeTheme theme,  String language)  $default,) {final _that = this;
 switch (_that) {
 case _UserSettings():
-return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.theme,_that.language);case _:
+return $default(_that.notifications,_that.privacy,_that.theme,_that.language);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -1436,10 +1436,10 @@ return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'UserSettingsNotifications')  UserSettingsNotifications? userSettingsNotifications, @JsonKey(name: 'UserSettingsPrivacy')  UserSettingsPrivacy? userSettingsPrivacy,  UserSettingsThemeTheme theme,  String language)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( UserSettingsNotifications? notifications,  UserSettingsPrivacy? privacy,  UserSettingsThemeTheme theme,  String language)?  $default,) {final _that = this;
 switch (_that) {
 case _UserSettings() when $default != null:
-return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.theme,_that.language);case _:
+return $default(_that.notifications,_that.privacy,_that.theme,_that.language);case _:
   return null;
 
 }
@@ -1451,11 +1451,11 @@ return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.
 @JsonSerializable()
 
 class _UserSettings implements UserSettings {
-  const _UserSettings({@JsonKey(name: 'UserSettingsNotifications') this.userSettingsNotifications, @JsonKey(name: 'UserSettingsPrivacy') this.userSettingsPrivacy, this.theme = UserSettingsThemeTheme.auto, this.language = 'en'});
+  const _UserSettings({this.notifications, this.privacy, this.theme = UserSettingsThemeTheme.auto, this.language = 'en'});
   factory _UserSettings.fromJson(Map<String, dynamic> json) => _$UserSettingsFromJson(json);
 
-@override@JsonKey(name: 'UserSettingsNotifications') final  UserSettingsNotifications? userSettingsNotifications;
-@override@JsonKey(name: 'UserSettingsPrivacy') final  UserSettingsPrivacy? userSettingsPrivacy;
+@override final  UserSettingsNotifications? notifications;
+@override final  UserSettingsPrivacy? privacy;
 @override@JsonKey() final  UserSettingsThemeTheme theme;
 @override@JsonKey() final  String language;
 
@@ -1472,16 +1472,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserSettings&&(identical(other.userSettingsNotifications, userSettingsNotifications) || other.userSettingsNotifications == userSettingsNotifications)&&(identical(other.userSettingsPrivacy, userSettingsPrivacy) || other.userSettingsPrivacy == userSettingsPrivacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserSettings&&(identical(other.notifications, notifications) || other.notifications == notifications)&&(identical(other.privacy, privacy) || other.privacy == privacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userSettingsNotifications,userSettingsPrivacy,theme,language);
+int get hashCode => Object.hash(runtimeType,notifications,privacy,theme,language);
 
 @override
 String toString() {
-  return 'UserSettings(userSettingsNotifications: $userSettingsNotifications, userSettingsPrivacy: $userSettingsPrivacy, theme: $theme, language: $language)';
+  return 'UserSettings(notifications: $notifications, privacy: $privacy, theme: $theme, language: $language)';
 }
 
 
@@ -1492,11 +1492,11 @@ abstract mixin class _$UserSettingsCopyWith<$Res> implements $UserSettingsCopyWi
   factory _$UserSettingsCopyWith(_UserSettings value, $Res Function(_UserSettings) _then) = __$UserSettingsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'UserSettingsNotifications') UserSettingsNotifications? userSettingsNotifications,@JsonKey(name: 'UserSettingsPrivacy') UserSettingsPrivacy? userSettingsPrivacy, UserSettingsThemeTheme theme, String language
+ UserSettingsNotifications? notifications, UserSettingsPrivacy? privacy, UserSettingsThemeTheme theme, String language
 });
 
 
-@override $UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications;@override $UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy;
+@override $UserSettingsNotificationsCopyWith<$Res>? get notifications;@override $UserSettingsPrivacyCopyWith<$Res>? get privacy;
 
 }
 /// @nodoc
@@ -1509,10 +1509,10 @@ class __$UserSettingsCopyWithImpl<$Res>
 
 /// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userSettingsNotifications = freezed,Object? userSettingsPrivacy = freezed,Object? theme = null,Object? language = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? notifications = freezed,Object? privacy = freezed,Object? theme = null,Object? language = null,}) {
   return _then(_UserSettings(
-userSettingsNotifications: freezed == userSettingsNotifications ? _self.userSettingsNotifications : userSettingsNotifications // ignore: cast_nullable_to_non_nullable
-as UserSettingsNotifications?,userSettingsPrivacy: freezed == userSettingsPrivacy ? _self.userSettingsPrivacy : userSettingsPrivacy // ignore: cast_nullable_to_non_nullable
+notifications: freezed == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
+as UserSettingsNotifications?,privacy: freezed == privacy ? _self.privacy : privacy // ignore: cast_nullable_to_non_nullable
 as UserSettingsPrivacy?,theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
 as UserSettingsThemeTheme,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
 as String,
@@ -1523,25 +1523,25 @@ as String,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications {
-    if (_self.userSettingsNotifications == null) {
+$UserSettingsNotificationsCopyWith<$Res>? get notifications {
+    if (_self.notifications == null) {
     return null;
   }
 
-  return $UserSettingsNotificationsCopyWith<$Res>(_self.userSettingsNotifications!, (value) {
-    return _then(_self.copyWith(userSettingsNotifications: value));
+  return $UserSettingsNotificationsCopyWith<$Res>(_self.notifications!, (value) {
+    return _then(_self.copyWith(notifications: value));
   });
 }/// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy {
-    if (_self.userSettingsPrivacy == null) {
+$UserSettingsPrivacyCopyWith<$Res>? get privacy {
+    if (_self.privacy == null) {
     return null;
   }
 
-  return $UserSettingsPrivacyCopyWith<$Res>(_self.userSettingsPrivacy!, (value) {
-    return _then(_self.copyWith(userSettingsPrivacy: value));
+  return $UserSettingsPrivacyCopyWith<$Res>(_self.privacy!, (value) {
+    return _then(_self.copyWith(privacy: value));
   });
 }
 }
@@ -8177,7 +8177,7 @@ as double?,
 /// @nodoc
 mixin _$Data {
 
- String get id; String get value;@JsonKey(name: 'DataNested') DataNested? get dataNested;
+ String get id; String get value; DataNested? get nested;
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -8190,16 +8190,16 @@ $DataCopyWith<Data> get copyWith => _$DataCopyWithImpl<Data>(this as Data, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.dataNested, dataNested) || other.dataNested == dataNested));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.nested, nested) || other.nested == nested));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,value,dataNested);
+int get hashCode => Object.hash(runtimeType,id,value,nested);
 
 @override
 String toString() {
-  return 'Data(id: $id, value: $value, dataNested: $dataNested)';
+  return 'Data(id: $id, value: $value, nested: $nested)';
 }
 
 
@@ -8210,11 +8210,11 @@ abstract mixin class $DataCopyWith<$Res>  {
   factory $DataCopyWith(Data value, $Res Function(Data) _then) = _$DataCopyWithImpl;
 @useResult
 $Res call({
- String id, String value,@JsonKey(name: 'DataNested') DataNested? dataNested
+ String id, String value, DataNested? nested
 });
 
 
-$DataNestedCopyWith<$Res>? get dataNested;
+$DataNestedCopyWith<$Res>? get nested;
 
 }
 /// @nodoc
@@ -8227,11 +8227,11 @@ class _$DataCopyWithImpl<$Res>
 
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? value = null,Object? dataNested = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? value = null,Object? nested = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,dataNested: freezed == dataNested ? _self.dataNested : dataNested // ignore: cast_nullable_to_non_nullable
+as String,nested: freezed == nested ? _self.nested : nested // ignore: cast_nullable_to_non_nullable
 as DataNested?,
   ));
 }
@@ -8239,13 +8239,13 @@ as DataNested?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DataNestedCopyWith<$Res>? get dataNested {
-    if (_self.dataNested == null) {
+$DataNestedCopyWith<$Res>? get nested {
+    if (_self.nested == null) {
     return null;
   }
 
-  return $DataNestedCopyWith<$Res>(_self.dataNested!, (value) {
-    return _then(_self.copyWith(dataNested: value));
+  return $DataNestedCopyWith<$Res>(_self.nested!, (value) {
+    return _then(_self.copyWith(nested: value));
   });
 }
 }
@@ -8329,10 +8329,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String value, @JsonKey(name: 'DataNested')  DataNested? dataNested)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String value,  DataNested? nested)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Data() when $default != null:
-return $default(_that.id,_that.value,_that.dataNested);case _:
+return $default(_that.id,_that.value,_that.nested);case _:
   return orElse();
 
 }
@@ -8350,10 +8350,10 @@ return $default(_that.id,_that.value,_that.dataNested);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String value, @JsonKey(name: 'DataNested')  DataNested? dataNested)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String value,  DataNested? nested)  $default,) {final _that = this;
 switch (_that) {
 case _Data():
-return $default(_that.id,_that.value,_that.dataNested);case _:
+return $default(_that.id,_that.value,_that.nested);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -8370,10 +8370,10 @@ return $default(_that.id,_that.value,_that.dataNested);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String value, @JsonKey(name: 'DataNested')  DataNested? dataNested)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String value,  DataNested? nested)?  $default,) {final _that = this;
 switch (_that) {
 case _Data() when $default != null:
-return $default(_that.id,_that.value,_that.dataNested);case _:
+return $default(_that.id,_that.value,_that.nested);case _:
   return null;
 
 }
@@ -8385,12 +8385,12 @@ return $default(_that.id,_that.value,_that.dataNested);case _:
 @JsonSerializable()
 
 class _Data implements Data {
-  const _Data({required this.id, required this.value, @JsonKey(name: 'DataNested') this.dataNested});
+  const _Data({required this.id, required this.value, this.nested});
   factory _Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 
 @override final  String id;
 @override final  String value;
-@override@JsonKey(name: 'DataNested') final  DataNested? dataNested;
+@override final  DataNested? nested;
 
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
@@ -8405,16 +8405,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.dataNested, dataNested) || other.dataNested == dataNested));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.nested, nested) || other.nested == nested));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,value,dataNested);
+int get hashCode => Object.hash(runtimeType,id,value,nested);
 
 @override
 String toString() {
-  return 'Data(id: $id, value: $value, dataNested: $dataNested)';
+  return 'Data(id: $id, value: $value, nested: $nested)';
 }
 
 
@@ -8425,11 +8425,11 @@ abstract mixin class _$DataCopyWith<$Res> implements $DataCopyWith<$Res> {
   factory _$DataCopyWith(_Data value, $Res Function(_Data) _then) = __$DataCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String value,@JsonKey(name: 'DataNested') DataNested? dataNested
+ String id, String value, DataNested? nested
 });
 
 
-@override $DataNestedCopyWith<$Res>? get dataNested;
+@override $DataNestedCopyWith<$Res>? get nested;
 
 }
 /// @nodoc
@@ -8442,11 +8442,11 @@ class __$DataCopyWithImpl<$Res>
 
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? value = null,Object? dataNested = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? value = null,Object? nested = freezed,}) {
   return _then(_Data(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,dataNested: freezed == dataNested ? _self.dataNested : dataNested // ignore: cast_nullable_to_non_nullable
+as String,nested: freezed == nested ? _self.nested : nested // ignore: cast_nullable_to_non_nullable
 as DataNested?,
   ));
 }
@@ -8455,13 +8455,13 @@ as DataNested?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DataNestedCopyWith<$Res>? get dataNested {
-    if (_self.dataNested == null) {
+$DataNestedCopyWith<$Res>? get nested {
+    if (_self.nested == null) {
     return null;
   }
 
-  return $DataNestedCopyWith<$Res>(_self.dataNested!, (value) {
-    return _then(_self.copyWith(dataNested: value));
+  return $DataNestedCopyWith<$Res>(_self.nested!, (value) {
+    return _then(_self.copyWith(nested: value));
   });
 }
 }
@@ -9291,7 +9291,7 @@ as bool?,
 /// @nodoc
 mixin _$ListPostsResponse {
 
- List<PostModel>? get posts;@JsonKey(name: 'ListPostsResponsePagination') ListPostsResponsePagination? get listPostsResponsePagination; Map<String, String>? get metadata;
+ List<PostModel>? get posts; ListPostsResponsePagination? get pagination; Map<String, String>? get metadata;
 /// Create a copy of ListPostsResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -9304,16 +9304,16 @@ $ListPostsResponseCopyWith<ListPostsResponse> get copyWith => _$ListPostsRespons
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPostsResponse&&const DeepCollectionEquality().equals(other.posts, posts)&&(identical(other.listPostsResponsePagination, listPostsResponsePagination) || other.listPostsResponsePagination == listPostsResponsePagination)&&const DeepCollectionEquality().equals(other.metadata, metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPostsResponse&&const DeepCollectionEquality().equals(other.posts, posts)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&const DeepCollectionEquality().equals(other.metadata, metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(posts),listPostsResponsePagination,const DeepCollectionEquality().hash(metadata));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(posts),pagination,const DeepCollectionEquality().hash(metadata));
 
 @override
 String toString() {
-  return 'ListPostsResponse(posts: $posts, listPostsResponsePagination: $listPostsResponsePagination, metadata: $metadata)';
+  return 'ListPostsResponse(posts: $posts, pagination: $pagination, metadata: $metadata)';
 }
 
 
@@ -9324,11 +9324,11 @@ abstract mixin class $ListPostsResponseCopyWith<$Res>  {
   factory $ListPostsResponseCopyWith(ListPostsResponse value, $Res Function(ListPostsResponse) _then) = _$ListPostsResponseCopyWithImpl;
 @useResult
 $Res call({
- List<PostModel>? posts,@JsonKey(name: 'ListPostsResponsePagination') ListPostsResponsePagination? listPostsResponsePagination, Map<String, String>? metadata
+ List<PostModel>? posts, ListPostsResponsePagination? pagination, Map<String, String>? metadata
 });
 
 
-$ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination;
+$ListPostsResponsePaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -9341,10 +9341,10 @@ class _$ListPostsResponseCopyWithImpl<$Res>
 
 /// Create a copy of ListPostsResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? posts = freezed,Object? listPostsResponsePagination = freezed,Object? metadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? posts = freezed,Object? pagination = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 posts: freezed == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
-as List<PostModel>?,listPostsResponsePagination: freezed == listPostsResponsePagination ? _self.listPostsResponsePagination : listPostsResponsePagination // ignore: cast_nullable_to_non_nullable
+as List<PostModel>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as ListPostsResponsePagination?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, String>?,
   ));
@@ -9353,13 +9353,13 @@ as Map<String, String>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination {
-    if (_self.listPostsResponsePagination == null) {
+$ListPostsResponsePaginationCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
     return null;
   }
 
-  return $ListPostsResponsePaginationCopyWith<$Res>(_self.listPostsResponsePagination!, (value) {
-    return _then(_self.copyWith(listPostsResponsePagination: value));
+  return $ListPostsResponsePaginationCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
   });
 }
 }
@@ -9443,10 +9443,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination')  ListPostsResponsePagination? listPostsResponsePagination,  Map<String, String>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PostModel>? posts,  ListPostsResponsePagination? pagination,  Map<String, String>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListPostsResponse() when $default != null:
-return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);case _:
+return $default(_that.posts,_that.pagination,_that.metadata);case _:
   return orElse();
 
 }
@@ -9464,10 +9464,10 @@ return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination')  ListPostsResponsePagination? listPostsResponsePagination,  Map<String, String>? metadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PostModel>? posts,  ListPostsResponsePagination? pagination,  Map<String, String>? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _ListPostsResponse():
-return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);case _:
+return $default(_that.posts,_that.pagination,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -9484,10 +9484,10 @@ return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination')  ListPostsResponsePagination? listPostsResponsePagination,  Map<String, String>? metadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PostModel>? posts,  ListPostsResponsePagination? pagination,  Map<String, String>? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _ListPostsResponse() when $default != null:
-return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);case _:
+return $default(_that.posts,_that.pagination,_that.metadata);case _:
   return null;
 
 }
@@ -9499,7 +9499,7 @@ return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);ca
 @JsonSerializable()
 
 class _ListPostsResponse implements ListPostsResponse {
-  const _ListPostsResponse({final  List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination') this.listPostsResponsePagination, final  Map<String, String>? metadata}): _posts = posts,_metadata = metadata;
+  const _ListPostsResponse({final  List<PostModel>? posts, this.pagination, final  Map<String, String>? metadata}): _posts = posts,_metadata = metadata;
   factory _ListPostsResponse.fromJson(Map<String, dynamic> json) => _$ListPostsResponseFromJson(json);
 
  final  List<PostModel>? _posts;
@@ -9511,7 +9511,7 @@ class _ListPostsResponse implements ListPostsResponse {
   return EqualUnmodifiableListView(value);
 }
 
-@override@JsonKey(name: 'ListPostsResponsePagination') final  ListPostsResponsePagination? listPostsResponsePagination;
+@override final  ListPostsResponsePagination? pagination;
  final  Map<String, String>? _metadata;
 @override Map<String, String>? get metadata {
   final value = _metadata;
@@ -9535,16 +9535,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListPostsResponse&&const DeepCollectionEquality().equals(other._posts, _posts)&&(identical(other.listPostsResponsePagination, listPostsResponsePagination) || other.listPostsResponsePagination == listPostsResponsePagination)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListPostsResponse&&const DeepCollectionEquality().equals(other._posts, _posts)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_posts),listPostsResponsePagination,const DeepCollectionEquality().hash(_metadata));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_posts),pagination,const DeepCollectionEquality().hash(_metadata));
 
 @override
 String toString() {
-  return 'ListPostsResponse(posts: $posts, listPostsResponsePagination: $listPostsResponsePagination, metadata: $metadata)';
+  return 'ListPostsResponse(posts: $posts, pagination: $pagination, metadata: $metadata)';
 }
 
 
@@ -9555,11 +9555,11 @@ abstract mixin class _$ListPostsResponseCopyWith<$Res> implements $ListPostsResp
   factory _$ListPostsResponseCopyWith(_ListPostsResponse value, $Res Function(_ListPostsResponse) _then) = __$ListPostsResponseCopyWithImpl;
 @override @useResult
 $Res call({
- List<PostModel>? posts,@JsonKey(name: 'ListPostsResponsePagination') ListPostsResponsePagination? listPostsResponsePagination, Map<String, String>? metadata
+ List<PostModel>? posts, ListPostsResponsePagination? pagination, Map<String, String>? metadata
 });
 
 
-@override $ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination;
+@override $ListPostsResponsePaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -9572,10 +9572,10 @@ class __$ListPostsResponseCopyWithImpl<$Res>
 
 /// Create a copy of ListPostsResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? posts = freezed,Object? listPostsResponsePagination = freezed,Object? metadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? posts = freezed,Object? pagination = freezed,Object? metadata = freezed,}) {
   return _then(_ListPostsResponse(
 posts: freezed == posts ? _self._posts : posts // ignore: cast_nullable_to_non_nullable
-as List<PostModel>?,listPostsResponsePagination: freezed == listPostsResponsePagination ? _self.listPostsResponsePagination : listPostsResponsePagination // ignore: cast_nullable_to_non_nullable
+as List<PostModel>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as ListPostsResponsePagination?,metadata: freezed == metadata ? _self._metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, String>?,
   ));
@@ -9585,13 +9585,13 @@ as Map<String, String>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination {
-    if (_self.listPostsResponsePagination == null) {
+$ListPostsResponsePaginationCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
     return null;
   }
 
-  return $ListPostsResponsePaginationCopyWith<$Res>(_self.listPostsResponsePagination!, (value) {
-    return _then(_self.copyWith(listPostsResponsePagination: value));
+  return $ListPostsResponsePaginationCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
   });
 }
 }
@@ -9866,7 +9866,7 @@ as DateTime?,
 /// @nodoc
 mixin _$Filters {
 
- String? get authorId; List<String>? get tags;@JsonKey(name: 'FiltersDateRange') FiltersDateRange? get filtersDateRange;
+ String? get authorId; List<String>? get tags; FiltersDateRange? get dateRange;
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -9879,16 +9879,16 @@ $FiltersCopyWith<Filters> get copyWith => _$FiltersCopyWithImpl<Filters>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.filtersDateRange, filtersDateRange) || other.filtersDateRange == filtersDateRange));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.dateRange, dateRange) || other.dateRange == dateRange));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(tags),filtersDateRange);
+int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(tags),dateRange);
 
 @override
 String toString() {
-  return 'Filters(authorId: $authorId, tags: $tags, filtersDateRange: $filtersDateRange)';
+  return 'Filters(authorId: $authorId, tags: $tags, dateRange: $dateRange)';
 }
 
 
@@ -9899,11 +9899,11 @@ abstract mixin class $FiltersCopyWith<$Res>  {
   factory $FiltersCopyWith(Filters value, $Res Function(Filters) _then) = _$FiltersCopyWithImpl;
 @useResult
 $Res call({
- String? authorId, List<String>? tags,@JsonKey(name: 'FiltersDateRange') FiltersDateRange? filtersDateRange
+ String? authorId, List<String>? tags, FiltersDateRange? dateRange
 });
 
 
-$FiltersDateRangeCopyWith<$Res>? get filtersDateRange;
+$FiltersDateRangeCopyWith<$Res>? get dateRange;
 
 }
 /// @nodoc
@@ -9916,11 +9916,11 @@ class _$FiltersCopyWithImpl<$Res>
 
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? authorId = freezed,Object? tags = freezed,Object? filtersDateRange = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? authorId = freezed,Object? tags = freezed,Object? dateRange = freezed,}) {
   return _then(_self.copyWith(
 authorId: freezed == authorId ? _self.authorId : authorId // ignore: cast_nullable_to_non_nullable
 as String?,tags: freezed == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>?,filtersDateRange: freezed == filtersDateRange ? _self.filtersDateRange : filtersDateRange // ignore: cast_nullable_to_non_nullable
+as List<String>?,dateRange: freezed == dateRange ? _self.dateRange : dateRange // ignore: cast_nullable_to_non_nullable
 as FiltersDateRange?,
   ));
 }
@@ -9928,13 +9928,13 @@ as FiltersDateRange?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FiltersDateRangeCopyWith<$Res>? get filtersDateRange {
-    if (_self.filtersDateRange == null) {
+$FiltersDateRangeCopyWith<$Res>? get dateRange {
+    if (_self.dateRange == null) {
     return null;
   }
 
-  return $FiltersDateRangeCopyWith<$Res>(_self.filtersDateRange!, (value) {
-    return _then(_self.copyWith(filtersDateRange: value));
+  return $FiltersDateRangeCopyWith<$Res>(_self.dateRange!, (value) {
+    return _then(_self.copyWith(dateRange: value));
   });
 }
 }
@@ -10018,10 +10018,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags, @JsonKey(name: 'FiltersDateRange')  FiltersDateRange? filtersDateRange)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags,  FiltersDateRange? dateRange)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Filters() when $default != null:
-return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
+return $default(_that.authorId,_that.tags,_that.dateRange);case _:
   return orElse();
 
 }
@@ -10039,10 +10039,10 @@ return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags, @JsonKey(name: 'FiltersDateRange')  FiltersDateRange? filtersDateRange)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags,  FiltersDateRange? dateRange)  $default,) {final _that = this;
 switch (_that) {
 case _Filters():
-return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
+return $default(_that.authorId,_that.tags,_that.dateRange);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -10059,10 +10059,10 @@ return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? authorId,  List<String>? tags, @JsonKey(name: 'FiltersDateRange')  FiltersDateRange? filtersDateRange)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? authorId,  List<String>? tags,  FiltersDateRange? dateRange)?  $default,) {final _that = this;
 switch (_that) {
 case _Filters() when $default != null:
-return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
+return $default(_that.authorId,_that.tags,_that.dateRange);case _:
   return null;
 
 }
@@ -10074,7 +10074,7 @@ return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
 @JsonSerializable()
 
 class _Filters implements Filters {
-  const _Filters({this.authorId, final  List<String>? tags, @JsonKey(name: 'FiltersDateRange') this.filtersDateRange}): _tags = tags;
+  const _Filters({this.authorId, final  List<String>? tags, this.dateRange}): _tags = tags;
   factory _Filters.fromJson(Map<String, dynamic> json) => _$FiltersFromJson(json);
 
 @override final  String? authorId;
@@ -10087,7 +10087,7 @@ class _Filters implements Filters {
   return EqualUnmodifiableListView(value);
 }
 
-@override@JsonKey(name: 'FiltersDateRange') final  FiltersDateRange? filtersDateRange;
+@override final  FiltersDateRange? dateRange;
 
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
@@ -10102,16 +10102,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.filtersDateRange, filtersDateRange) || other.filtersDateRange == filtersDateRange));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.dateRange, dateRange) || other.dateRange == dateRange));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(_tags),filtersDateRange);
+int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(_tags),dateRange);
 
 @override
 String toString() {
-  return 'Filters(authorId: $authorId, tags: $tags, filtersDateRange: $filtersDateRange)';
+  return 'Filters(authorId: $authorId, tags: $tags, dateRange: $dateRange)';
 }
 
 
@@ -10122,11 +10122,11 @@ abstract mixin class _$FiltersCopyWith<$Res> implements $FiltersCopyWith<$Res> {
   factory _$FiltersCopyWith(_Filters value, $Res Function(_Filters) _then) = __$FiltersCopyWithImpl;
 @override @useResult
 $Res call({
- String? authorId, List<String>? tags,@JsonKey(name: 'FiltersDateRange') FiltersDateRange? filtersDateRange
+ String? authorId, List<String>? tags, FiltersDateRange? dateRange
 });
 
 
-@override $FiltersDateRangeCopyWith<$Res>? get filtersDateRange;
+@override $FiltersDateRangeCopyWith<$Res>? get dateRange;
 
 }
 /// @nodoc
@@ -10139,11 +10139,11 @@ class __$FiltersCopyWithImpl<$Res>
 
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? authorId = freezed,Object? tags = freezed,Object? filtersDateRange = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? authorId = freezed,Object? tags = freezed,Object? dateRange = freezed,}) {
   return _then(_Filters(
 authorId: freezed == authorId ? _self.authorId : authorId // ignore: cast_nullable_to_non_nullable
 as String?,tags: freezed == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>?,filtersDateRange: freezed == filtersDateRange ? _self.filtersDateRange : filtersDateRange // ignore: cast_nullable_to_non_nullable
+as List<String>?,dateRange: freezed == dateRange ? _self.dateRange : dateRange // ignore: cast_nullable_to_non_nullable
 as FiltersDateRange?,
   ));
 }
@@ -10152,13 +10152,13 @@ as FiltersDateRange?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FiltersDateRangeCopyWith<$Res>? get filtersDateRange {
-    if (_self.filtersDateRange == null) {
+$FiltersDateRangeCopyWith<$Res>? get dateRange {
+    if (_self.dateRange == null) {
     return null;
   }
 
-  return $FiltersDateRangeCopyWith<$Res>(_self.filtersDateRange!, (value) {
-    return _then(_self.copyWith(filtersDateRange: value));
+  return $FiltersDateRangeCopyWith<$Res>(_self.dateRange!, (value) {
+    return _then(_self.copyWith(dateRange: value));
   });
 }
 }
@@ -11883,7 +11883,7 @@ as int?,
 /// @nodoc
 mixin _$GetDuplicateResponseMetadata {
 
-@JsonKey(name: 'GetDuplicateResponseMetadataData') GetDuplicateResponseMetadataData? get getDuplicateResponseMetadataData;
+ GetDuplicateResponseMetadataData? get data;
 /// Create a copy of GetDuplicateResponseMetadata
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -11896,16 +11896,16 @@ $GetDuplicateResponseMetadataCopyWith<GetDuplicateResponseMetadata> get copyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetDuplicateResponseMetadata&&(identical(other.getDuplicateResponseMetadataData, getDuplicateResponseMetadataData) || other.getDuplicateResponseMetadataData == getDuplicateResponseMetadataData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetDuplicateResponseMetadata&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,getDuplicateResponseMetadataData);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'GetDuplicateResponseMetadata(getDuplicateResponseMetadataData: $getDuplicateResponseMetadataData)';
+  return 'GetDuplicateResponseMetadata(data: $data)';
 }
 
 
@@ -11916,11 +11916,11 @@ abstract mixin class $GetDuplicateResponseMetadataCopyWith<$Res>  {
   factory $GetDuplicateResponseMetadataCopyWith(GetDuplicateResponseMetadata value, $Res Function(GetDuplicateResponseMetadata) _then) = _$GetDuplicateResponseMetadataCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'GetDuplicateResponseMetadataData') GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData
+ GetDuplicateResponseMetadataData? data
 });
 
 
-$GetDuplicateResponseMetadataDataCopyWith<$Res>? get getDuplicateResponseMetadataData;
+$GetDuplicateResponseMetadataDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -11933,9 +11933,9 @@ class _$GetDuplicateResponseMetadataCopyWithImpl<$Res>
 
 /// Create a copy of GetDuplicateResponseMetadata
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? getDuplicateResponseMetadataData = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,}) {
   return _then(_self.copyWith(
-getDuplicateResponseMetadataData: freezed == getDuplicateResponseMetadataData ? _self.getDuplicateResponseMetadataData : getDuplicateResponseMetadataData // ignore: cast_nullable_to_non_nullable
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as GetDuplicateResponseMetadataData?,
   ));
 }
@@ -11943,13 +11943,13 @@ as GetDuplicateResponseMetadataData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GetDuplicateResponseMetadataDataCopyWith<$Res>? get getDuplicateResponseMetadataData {
-    if (_self.getDuplicateResponseMetadataData == null) {
+$GetDuplicateResponseMetadataDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
     return null;
   }
 
-  return $GetDuplicateResponseMetadataDataCopyWith<$Res>(_self.getDuplicateResponseMetadataData!, (value) {
-    return _then(_self.copyWith(getDuplicateResponseMetadataData: value));
+  return $GetDuplicateResponseMetadataDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -12033,10 +12033,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'GetDuplicateResponseMetadataData')  GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( GetDuplicateResponseMetadataData? data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponseMetadata() when $default != null:
-return $default(_that.getDuplicateResponseMetadataData);case _:
+return $default(_that.data);case _:
   return orElse();
 
 }
@@ -12054,10 +12054,10 @@ return $default(_that.getDuplicateResponseMetadataData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'GetDuplicateResponseMetadataData')  GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( GetDuplicateResponseMetadataData? data)  $default,) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponseMetadata():
-return $default(_that.getDuplicateResponseMetadataData);case _:
+return $default(_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -12074,10 +12074,10 @@ return $default(_that.getDuplicateResponseMetadataData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'GetDuplicateResponseMetadataData')  GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( GetDuplicateResponseMetadataData? data)?  $default,) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponseMetadata() when $default != null:
-return $default(_that.getDuplicateResponseMetadataData);case _:
+return $default(_that.data);case _:
   return null;
 
 }
@@ -12089,10 +12089,10 @@ return $default(_that.getDuplicateResponseMetadataData);case _:
 @JsonSerializable()
 
 class _GetDuplicateResponseMetadata implements GetDuplicateResponseMetadata {
-  const _GetDuplicateResponseMetadata({@JsonKey(name: 'GetDuplicateResponseMetadataData') this.getDuplicateResponseMetadataData});
+  const _GetDuplicateResponseMetadata({this.data});
   factory _GetDuplicateResponseMetadata.fromJson(Map<String, dynamic> json) => _$GetDuplicateResponseMetadataFromJson(json);
 
-@override@JsonKey(name: 'GetDuplicateResponseMetadataData') final  GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData;
+@override final  GetDuplicateResponseMetadataData? data;
 
 /// Create a copy of GetDuplicateResponseMetadata
 /// with the given fields replaced by the non-null parameter values.
@@ -12107,16 +12107,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDuplicateResponseMetadata&&(identical(other.getDuplicateResponseMetadataData, getDuplicateResponseMetadataData) || other.getDuplicateResponseMetadataData == getDuplicateResponseMetadataData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDuplicateResponseMetadata&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,getDuplicateResponseMetadataData);
+int get hashCode => Object.hash(runtimeType,data);
 
 @override
 String toString() {
-  return 'GetDuplicateResponseMetadata(getDuplicateResponseMetadataData: $getDuplicateResponseMetadataData)';
+  return 'GetDuplicateResponseMetadata(data: $data)';
 }
 
 
@@ -12127,11 +12127,11 @@ abstract mixin class _$GetDuplicateResponseMetadataCopyWith<$Res> implements $Ge
   factory _$GetDuplicateResponseMetadataCopyWith(_GetDuplicateResponseMetadata value, $Res Function(_GetDuplicateResponseMetadata) _then) = __$GetDuplicateResponseMetadataCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'GetDuplicateResponseMetadataData') GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData
+ GetDuplicateResponseMetadataData? data
 });
 
 
-@override $GetDuplicateResponseMetadataDataCopyWith<$Res>? get getDuplicateResponseMetadataData;
+@override $GetDuplicateResponseMetadataDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -12144,9 +12144,9 @@ class __$GetDuplicateResponseMetadataCopyWithImpl<$Res>
 
 /// Create a copy of GetDuplicateResponseMetadata
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? getDuplicateResponseMetadataData = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,}) {
   return _then(_GetDuplicateResponseMetadata(
-getDuplicateResponseMetadataData: freezed == getDuplicateResponseMetadataData ? _self.getDuplicateResponseMetadataData : getDuplicateResponseMetadataData // ignore: cast_nullable_to_non_nullable
+data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as GetDuplicateResponseMetadataData?,
   ));
 }
@@ -12155,13 +12155,13 @@ as GetDuplicateResponseMetadataData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GetDuplicateResponseMetadataDataCopyWith<$Res>? get getDuplicateResponseMetadataData {
-    if (_self.getDuplicateResponseMetadataData == null) {
+$GetDuplicateResponseMetadataDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
     return null;
   }
 
-  return $GetDuplicateResponseMetadataDataCopyWith<$Res>(_self.getDuplicateResponseMetadataData!, (value) {
-    return _then(_self.copyWith(getDuplicateResponseMetadataData: value));
+  return $GetDuplicateResponseMetadataDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -12170,7 +12170,7 @@ $GetDuplicateResponseMetadataDataCopyWith<$Res>? get getDuplicateResponseMetadat
 /// @nodoc
 mixin _$GetDuplicateResponse {
 
- Data? get data;@JsonKey(name: 'GetDuplicateResponseMetadata') GetDuplicateResponseMetadata? get getDuplicateResponseMetadata;
+ Data? get data; GetDuplicateResponseMetadata? get metadata;
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -12183,16 +12183,16 @@ $GetDuplicateResponseCopyWith<GetDuplicateResponse> get copyWith => _$GetDuplica
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.getDuplicateResponseMetadata, getDuplicateResponseMetadata) || other.getDuplicateResponseMetadata == getDuplicateResponseMetadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,data,getDuplicateResponseMetadata);
+int get hashCode => Object.hash(runtimeType,data,metadata);
 
 @override
 String toString() {
-  return 'GetDuplicateResponse(data: $data, getDuplicateResponseMetadata: $getDuplicateResponseMetadata)';
+  return 'GetDuplicateResponse(data: $data, metadata: $metadata)';
 }
 
 
@@ -12203,11 +12203,11 @@ abstract mixin class $GetDuplicateResponseCopyWith<$Res>  {
   factory $GetDuplicateResponseCopyWith(GetDuplicateResponse value, $Res Function(GetDuplicateResponse) _then) = _$GetDuplicateResponseCopyWithImpl;
 @useResult
 $Res call({
- Data? data,@JsonKey(name: 'GetDuplicateResponseMetadata') GetDuplicateResponseMetadata? getDuplicateResponseMetadata
+ Data? data, GetDuplicateResponseMetadata? metadata
 });
 
 
-$DataCopyWith<$Res>? get data;$GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata;
+$DataCopyWith<$Res>? get data;$GetDuplicateResponseMetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -12220,10 +12220,10 @@ class _$GetDuplicateResponseCopyWithImpl<$Res>
 
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,Object? getDuplicateResponseMetadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as Data?,getDuplicateResponseMetadata: freezed == getDuplicateResponseMetadata ? _self.getDuplicateResponseMetadata : getDuplicateResponseMetadata // ignore: cast_nullable_to_non_nullable
+as Data?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as GetDuplicateResponseMetadata?,
   ));
 }
@@ -12243,13 +12243,13 @@ $DataCopyWith<$Res>? get data {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata {
-    if (_self.getDuplicateResponseMetadata == null) {
+$GetDuplicateResponseMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
     return null;
   }
 
-  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.getDuplicateResponseMetadata!, (value) {
-    return _then(_self.copyWith(getDuplicateResponseMetadata: value));
+  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.metadata!, (value) {
+    return _then(_self.copyWith(metadata: value));
   });
 }
 }
@@ -12333,10 +12333,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Data? data, @JsonKey(name: 'GetDuplicateResponseMetadata')  GetDuplicateResponseMetadata? getDuplicateResponseMetadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Data? data,  GetDuplicateResponseMetadata? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponse() when $default != null:
-return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
+return $default(_that.data,_that.metadata);case _:
   return orElse();
 
 }
@@ -12354,10 +12354,10 @@ return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Data? data, @JsonKey(name: 'GetDuplicateResponseMetadata')  GetDuplicateResponseMetadata? getDuplicateResponseMetadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Data? data,  GetDuplicateResponseMetadata? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponse():
-return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
+return $default(_that.data,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -12374,10 +12374,10 @@ return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Data? data, @JsonKey(name: 'GetDuplicateResponseMetadata')  GetDuplicateResponseMetadata? getDuplicateResponseMetadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Data? data,  GetDuplicateResponseMetadata? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponse() when $default != null:
-return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
+return $default(_that.data,_that.metadata);case _:
   return null;
 
 }
@@ -12389,11 +12389,11 @@ return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
 @JsonSerializable()
 
 class _GetDuplicateResponse implements GetDuplicateResponse {
-  const _GetDuplicateResponse({this.data, @JsonKey(name: 'GetDuplicateResponseMetadata') this.getDuplicateResponseMetadata});
+  const _GetDuplicateResponse({this.data, this.metadata});
   factory _GetDuplicateResponse.fromJson(Map<String, dynamic> json) => _$GetDuplicateResponseFromJson(json);
 
 @override final  Data? data;
-@override@JsonKey(name: 'GetDuplicateResponseMetadata') final  GetDuplicateResponseMetadata? getDuplicateResponseMetadata;
+@override final  GetDuplicateResponseMetadata? metadata;
 
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
@@ -12408,16 +12408,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.getDuplicateResponseMetadata, getDuplicateResponseMetadata) || other.getDuplicateResponseMetadata == getDuplicateResponseMetadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,data,getDuplicateResponseMetadata);
+int get hashCode => Object.hash(runtimeType,data,metadata);
 
 @override
 String toString() {
-  return 'GetDuplicateResponse(data: $data, getDuplicateResponseMetadata: $getDuplicateResponseMetadata)';
+  return 'GetDuplicateResponse(data: $data, metadata: $metadata)';
 }
 
 
@@ -12428,11 +12428,11 @@ abstract mixin class _$GetDuplicateResponseCopyWith<$Res> implements $GetDuplica
   factory _$GetDuplicateResponseCopyWith(_GetDuplicateResponse value, $Res Function(_GetDuplicateResponse) _then) = __$GetDuplicateResponseCopyWithImpl;
 @override @useResult
 $Res call({
- Data? data,@JsonKey(name: 'GetDuplicateResponseMetadata') GetDuplicateResponseMetadata? getDuplicateResponseMetadata
+ Data? data, GetDuplicateResponseMetadata? metadata
 });
 
 
-@override $DataCopyWith<$Res>? get data;@override $GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata;
+@override $DataCopyWith<$Res>? get data;@override $GetDuplicateResponseMetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -12445,10 +12445,10 @@ class __$GetDuplicateResponseCopyWithImpl<$Res>
 
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,Object? getDuplicateResponseMetadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,Object? metadata = freezed,}) {
   return _then(_GetDuplicateResponse(
 data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as Data?,getDuplicateResponseMetadata: freezed == getDuplicateResponseMetadata ? _self.getDuplicateResponseMetadata : getDuplicateResponseMetadata // ignore: cast_nullable_to_non_nullable
+as Data?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as GetDuplicateResponseMetadata?,
   ));
 }
@@ -12469,13 +12469,13 @@ $DataCopyWith<$Res>? get data {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata {
-    if (_self.getDuplicateResponseMetadata == null) {
+$GetDuplicateResponseMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
     return null;
   }
 
-  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.getDuplicateResponseMetadata!, (value) {
-    return _then(_self.copyWith(getDuplicateResponseMetadata: value));
+  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.metadata!, (value) {
+    return _then(_self.copyWith(metadata: value));
   });
 }
 }

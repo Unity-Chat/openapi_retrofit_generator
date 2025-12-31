@@ -15,11 +15,11 @@ class SessionPromptRequest {
   const SessionPromptRequest({
     required this.parts,
     this.messageId,
-    this.sessionPromptRequestModel,
+    this.model,
     this.agent,
     this.system,
     this.tools,
-    this.sessionPromptRequestAcpConnection,
+    this.acpConnection,
   });
 
   factory SessionPromptRequest.fromJson(Map<String, Object?> json) =>
@@ -27,13 +27,11 @@ class SessionPromptRequest {
 
   @JsonKey(name: 'messageID')
   final String? messageId;
-  @JsonKey(name: 'SessionPromptRequestModel')
-  final SessionPromptRequestModel? sessionPromptRequestModel;
+  final SessionPromptRequestModel? model;
   final String? agent;
   final String? system;
   final Map<String, bool>? tools;
-  @JsonKey(name: 'SessionPromptRequestAcpConnection')
-  final SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection;
+  final SessionPromptRequestAcpConnection? acpConnection;
   final List<SessionPromptRequestPartsParts> parts;
 
   Map<String, Object?> toJson() => _$SessionPromptRequestToJson(this);

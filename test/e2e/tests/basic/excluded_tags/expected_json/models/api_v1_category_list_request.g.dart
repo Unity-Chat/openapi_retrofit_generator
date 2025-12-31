@@ -10,18 +10,15 @@ ApiV1CategoryListRequest _$ApiV1CategoryListRequestFromJson(
   Map<String, dynamic> json,
 ) => ApiV1CategoryListRequest(
   includedField: json['includedField'] as String,
-  apiV1CategoryListRequestNestedIncluded:
-      json['ApiV1CategoryListRequestNestedIncluded'] == null
+  nestedIncluded: json['nestedIncluded'] == null
       ? null
       : ApiV1CategoryListRequestNestedIncluded.fromJson(
-          json['ApiV1CategoryListRequestNestedIncluded']
-              as Map<String, dynamic>,
+          json['nestedIncluded'] as Map<String, dynamic>,
         ),
-  apiV1CategoryListRequestMetadata:
-      json['ApiV1CategoryListRequestMetadata'] == null
+  metadata: json['metadata'] == null
       ? null
       : ApiV1CategoryListRequestMetadata.fromJson(
-          json['ApiV1CategoryListRequestMetadata'] as Map<String, dynamic>,
+          json['metadata'] as Map<String, dynamic>,
         ),
 );
 
@@ -29,8 +26,6 @@ Map<String, dynamic> _$ApiV1CategoryListRequestToJson(
   ApiV1CategoryListRequest instance,
 ) => <String, dynamic>{
   'includedField': instance.includedField,
-  'ApiV1CategoryListRequestNestedIncluded':
-      ?instance.apiV1CategoryListRequestNestedIncluded,
-  'ApiV1CategoryListRequestMetadata':
-      ?instance.apiV1CategoryListRequestMetadata,
+  'nestedIncluded': ?instance.nestedIncluded,
+  'metadata': ?instance.metadata,
 };

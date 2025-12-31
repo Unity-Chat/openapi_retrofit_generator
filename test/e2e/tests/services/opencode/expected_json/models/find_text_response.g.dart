@@ -8,11 +8,9 @@ part of 'find_text_response.dart';
 
 FindTextResponse _$FindTextResponseFromJson(Map<String, dynamic> json) =>
     FindTextResponse(
-      findTextResponsePath: FindTextResponsePath.fromJson(
-        json['FindTextResponsePath'] as Map<String, dynamic>,
-      ),
-      findTextResponseLines: FindTextResponseLines.fromJson(
-        json['FindTextResponseLines'] as Map<String, dynamic>,
+      path: FindTextResponsePath.fromJson(json['path'] as Map<String, dynamic>),
+      lines: FindTextResponseLines.fromJson(
+        json['lines'] as Map<String, dynamic>,
       ),
       lineNumber: json['line_number'] as num,
       absoluteOffset: json['absolute_offset'] as num,
@@ -26,8 +24,8 @@ FindTextResponse _$FindTextResponseFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$FindTextResponseToJson(FindTextResponse instance) =>
     <String, dynamic>{
-      'FindTextResponsePath': instance.findTextResponsePath,
-      'FindTextResponseLines': instance.findTextResponseLines,
+      'path': instance.path,
+      'lines': instance.lines,
       'line_number': instance.lineNumber,
       'absolute_offset': instance.absoluteOffset,
       'submatches': instance.submatches,

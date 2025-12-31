@@ -14,15 +14,14 @@ class UserMessage with UserMessageMappable {
     required this.id,
     required this.sessionId,
     required this.role,
-    required this.userMessageTime,
+    required this.time,
   });
 
   final String id;
   @MappableField(key: 'sessionID')
   final String sessionId;
   final String role;
-  @MappableField(key: 'UserMessageTime')
-  final UserMessageTime userMessageTime;
+  final UserMessageTime time;
 
   static UserMessage fromJson(Map<String, dynamic> json) =>
       UserMessageMapper.fromJson(json);

@@ -27,26 +27,21 @@ class EventSessionUpdatedMapper extends ClassMapperBase<EventSessionUpdated> {
     'type',
     _$type,
   );
-  static EventSessionUpdatedProperties _$eventSessionUpdatedProperties(
-    EventSessionUpdated v,
-  ) => v.eventSessionUpdatedProperties;
+  static EventSessionUpdatedProperties _$properties(EventSessionUpdated v) =>
+      v.properties;
   static const Field<EventSessionUpdated, EventSessionUpdatedProperties>
-  _f$eventSessionUpdatedProperties = Field(
-    'eventSessionUpdatedProperties',
-    _$eventSessionUpdatedProperties,
-    key: r'EventSessionUpdatedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventSessionUpdated> fields = const {
     #type: _f$type,
-    #eventSessionUpdatedProperties: _f$eventSessionUpdatedProperties,
+    #properties: _f$properties,
   };
 
   static EventSessionUpdated _instantiate(DecodingData data) {
     return EventSessionUpdated(
       type: data.dec(_f$type),
-      eventSessionUpdatedProperties: data.dec(_f$eventSessionUpdatedProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -125,11 +120,8 @@ abstract class EventSessionUpdatedCopyWith<
     EventSessionUpdatedProperties,
     EventSessionUpdatedProperties
   >
-  get eventSessionUpdatedProperties;
-  $R call({
-    String? type,
-    EventSessionUpdatedProperties? eventSessionUpdatedProperties,
-  });
+  get properties;
+  $R call({String? type, EventSessionUpdatedProperties? properties});
   EventSessionUpdatedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -149,28 +141,19 @@ class _EventSessionUpdatedCopyWithImpl<$R, $Out>
     EventSessionUpdatedProperties,
     EventSessionUpdatedProperties
   >
-  get eventSessionUpdatedProperties => $value
-      .eventSessionUpdatedProperties
-      .copyWith
-      .$chain((v) => call(eventSessionUpdatedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventSessionUpdatedProperties? eventSessionUpdatedProperties,
-  }) => $apply(
+  $R call({String? type, EventSessionUpdatedProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventSessionUpdatedProperties != null)
-        #eventSessionUpdatedProperties: eventSessionUpdatedProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventSessionUpdated $make(CopyWithData data) => EventSessionUpdated(
     type: data.get(#type, or: $value.type),
-    eventSessionUpdatedProperties: data.get(
-      #eventSessionUpdatedProperties,
-      or: $value.eventSessionUpdatedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

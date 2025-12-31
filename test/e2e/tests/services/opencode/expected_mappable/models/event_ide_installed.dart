@@ -10,14 +10,10 @@ part 'event_ide_installed.mapper.dart';
 
 @MappableClass()
 class EventIdeInstalled with EventIdeInstalledMappable {
-  const EventIdeInstalled({
-    required this.type,
-    required this.eventIdeInstalledProperties,
-  });
+  const EventIdeInstalled({required this.type, required this.properties});
 
   final String type;
-  @MappableField(key: 'EventIdeInstalledProperties')
-  final EventIdeInstalledProperties eventIdeInstalledProperties;
+  final EventIdeInstalledProperties properties;
 
   static EventIdeInstalled fromJson(Map<String, dynamic> json) =>
       EventIdeInstalledMapper.fromJson(json);

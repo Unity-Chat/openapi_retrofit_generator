@@ -13,7 +13,7 @@ class Project {
   const Project({
     required this.id,
     required this.worktree,
-    required this.projectTime,
+    required this.time,
     this.vcs,
   });
 
@@ -23,8 +23,7 @@ class Project {
   final String id;
   final String worktree;
   final String? vcs;
-  @JsonKey(name: 'ProjectTime')
-  final ProjectTime projectTime;
+  final ProjectTime time;
 
   Map<String, Object?> toJson() => _$ProjectToJson(this);
 }

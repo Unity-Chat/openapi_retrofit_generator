@@ -24,26 +24,20 @@ class ProviderAuthErrorMapper extends ClassMapperBase<ProviderAuthError> {
 
   static String _$name(ProviderAuthError v) => v.name;
   static const Field<ProviderAuthError, String> _f$name = Field('name', _$name);
-  static ProviderAuthErrorData _$providerAuthErrorData(ProviderAuthError v) =>
-      v.providerAuthErrorData;
-  static const Field<ProviderAuthError, ProviderAuthErrorData>
-  _f$providerAuthErrorData = Field(
-    'providerAuthErrorData',
-    _$providerAuthErrorData,
-    key: r'ProviderAuthErrorData',
+  static ProviderAuthErrorData _$data(ProviderAuthError v) => v.data;
+  static const Field<ProviderAuthError, ProviderAuthErrorData> _f$data = Field(
+    'data',
+    _$data,
   );
 
   @override
   final MappableFields<ProviderAuthError> fields = const {
     #name: _f$name,
-    #providerAuthErrorData: _f$providerAuthErrorData,
+    #data: _f$data,
   };
 
   static ProviderAuthError _instantiate(DecodingData data) {
-    return ProviderAuthError(
-      name: data.dec(_f$name),
-      providerAuthErrorData: data.dec(_f$providerAuthErrorData),
-    );
+    return ProviderAuthError(name: data.dec(_f$name), data: data.dec(_f$data));
   }
 
   @override
@@ -122,8 +116,8 @@ abstract class ProviderAuthErrorCopyWith<
     ProviderAuthErrorData,
     ProviderAuthErrorData
   >
-  get providerAuthErrorData;
-  $R call({String? name, ProviderAuthErrorData? providerAuthErrorData});
+  get data;
+  $R call({String? name, ProviderAuthErrorData? data});
   ProviderAuthErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -143,25 +137,18 @@ class _ProviderAuthErrorCopyWithImpl<$R, $Out>
     ProviderAuthErrorData,
     ProviderAuthErrorData
   >
-  get providerAuthErrorData => $value.providerAuthErrorData.copyWith.$chain(
-    (v) => call(providerAuthErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, ProviderAuthErrorData? providerAuthErrorData}) =>
-      $apply(
-        FieldCopyWithData({
-          if (name != null) #name: name,
-          if (providerAuthErrorData != null)
-            #providerAuthErrorData: providerAuthErrorData,
-        }),
-      );
+  $R call({String? name, ProviderAuthErrorData? data}) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (data != null) #data: data,
+    }),
+  );
   @override
   ProviderAuthError $make(CopyWithData data) => ProviderAuthError(
     name: data.get(#name, or: $value.name),
-    providerAuthErrorData: data.get(
-      #providerAuthErrorData,
-      or: $value.providerAuthErrorData,
-    ),
+    data: data.get(#data, or: $value.data),
   );
 
   @override

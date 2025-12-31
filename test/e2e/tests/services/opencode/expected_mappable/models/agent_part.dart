@@ -16,7 +16,7 @@ class AgentPart with AgentPartMappable {
     required this.messageId,
     required this.type,
     required this.name,
-    this.agentPartSource,
+    this.source,
   });
 
   final String id;
@@ -26,8 +26,7 @@ class AgentPart with AgentPartMappable {
   final String messageId;
   final String type;
   final String name;
-  @MappableField(key: 'AgentPartSource')
-  final AgentPartSource? agentPartSource;
+  final AgentPartSource? source;
 
   static AgentPart fromJson(Map<String, dynamic> json) =>
       AgentPartMapper.fromJson(json);

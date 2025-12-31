@@ -10,17 +10,13 @@ part 'event_session_error.g.dart';
 
 @JsonSerializable()
 class EventSessionError {
-  const EventSessionError({
-    required this.type,
-    required this.eventSessionErrorProperties,
-  });
+  const EventSessionError({required this.type, required this.properties});
 
   factory EventSessionError.fromJson(Map<String, Object?> json) =>
       _$EventSessionErrorFromJson(json);
 
   final String type;
-  @JsonKey(name: 'EventSessionErrorProperties')
-  final EventSessionErrorProperties eventSessionErrorProperties;
+  final EventSessionErrorProperties properties;
 
   Map<String, Object?> toJson() => _$EventSessionErrorToJson(this);
 }

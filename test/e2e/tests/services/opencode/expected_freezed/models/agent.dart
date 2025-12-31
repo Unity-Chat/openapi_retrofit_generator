@@ -16,13 +16,13 @@ abstract class Agent with _$Agent {
     required String name,
     required dynamic mode,
     required bool builtIn,
-    @JsonKey(name: 'AgentPermission') required AgentPermission agentPermission,
+    required AgentPermission permission,
     required Map<String, bool> tools,
     required Map<String, dynamic> options,
     String? description,
     num? topP,
     num? temperature,
-    @JsonKey(name: 'AgentModel') AgentModel? agentModel,
+    AgentModel? model,
     String? prompt,
   }) = _Agent;
 

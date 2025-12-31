@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventPermissionReplied {
 
- String get type;@JsonKey(name: 'EventPermissionRepliedProperties') EventPermissionRepliedProperties get eventPermissionRepliedProperties;
+ String get type; EventPermissionRepliedProperties get properties;
 /// Create a copy of EventPermissionReplied
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventPermissionRepliedCopyWith<EventPermissionReplied> get copyWith => _$EventP
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventPermissionReplied&&(identical(other.type, type) || other.type == type)&&(identical(other.eventPermissionRepliedProperties, eventPermissionRepliedProperties) || other.eventPermissionRepliedProperties == eventPermissionRepliedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventPermissionReplied&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventPermissionRepliedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventPermissionReplied(type: $type, eventPermissionRepliedProperties: $eventPermissionRepliedProperties)';
+  return 'EventPermissionReplied(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventPermissionRepliedCopyWith<$Res>  {
   factory $EventPermissionRepliedCopyWith(EventPermissionReplied value, $Res Function(EventPermissionReplied) _then) = _$EventPermissionRepliedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventPermissionRepliedProperties') EventPermissionRepliedProperties eventPermissionRepliedProperties
+ String type, EventPermissionRepliedProperties properties
 });
 
 
-$EventPermissionRepliedPropertiesCopyWith<$Res> get eventPermissionRepliedProperties;
+$EventPermissionRepliedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventPermissionRepliedCopyWithImpl<$Res>
 
 /// Create a copy of EventPermissionReplied
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventPermissionRepliedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventPermissionRepliedProperties: null == eventPermissionRepliedProperties ? _self.eventPermissionRepliedProperties : eventPermissionRepliedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventPermissionRepliedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventPermissionRepliedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventPermissionRepliedPropertiesCopyWith<$Res> get eventPermissionRepliedProperties {
+$EventPermissionRepliedPropertiesCopyWith<$Res> get properties {
   
-  return $EventPermissionRepliedPropertiesCopyWith<$Res>(_self.eventPermissionRepliedProperties, (value) {
-    return _then(_self.copyWith(eventPermissionRepliedProperties: value));
+  return $EventPermissionRepliedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventPermissionRepliedProperties')  EventPermissionRepliedProperties eventPermissionRepliedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventPermissionRepliedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventPermissionReplied() when $default != null:
-return $default(_that.type,_that.eventPermissionRepliedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventPermissionRepliedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventPermissionRepliedProperties')  EventPermissionRepliedProperties eventPermissionRepliedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventPermissionRepliedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventPermissionReplied():
-return $default(_that.type,_that.eventPermissionRepliedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventPermissionRepliedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventPermissionRepliedProperties')  EventPermissionRepliedProperties eventPermissionRepliedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventPermissionRepliedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventPermissionReplied() when $default != null:
-return $default(_that.type,_that.eventPermissionRepliedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventPermissionRepliedProperties);case _:
 @JsonSerializable()
 
 class _EventPermissionReplied implements EventPermissionReplied {
-  const _EventPermissionReplied({required this.type, @JsonKey(name: 'EventPermissionRepliedProperties') required this.eventPermissionRepliedProperties});
+  const _EventPermissionReplied({required this.type, required this.properties});
   factory _EventPermissionReplied.fromJson(Map<String, dynamic> json) => _$EventPermissionRepliedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventPermissionRepliedProperties') final  EventPermissionRepliedProperties eventPermissionRepliedProperties;
+@override final  EventPermissionRepliedProperties properties;
 
 /// Create a copy of EventPermissionReplied
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventPermissionReplied&&(identical(other.type, type) || other.type == type)&&(identical(other.eventPermissionRepliedProperties, eventPermissionRepliedProperties) || other.eventPermissionRepliedProperties == eventPermissionRepliedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventPermissionReplied&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventPermissionRepliedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventPermissionReplied(type: $type, eventPermissionRepliedProperties: $eventPermissionRepliedProperties)';
+  return 'EventPermissionReplied(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventPermissionRepliedCopyWith<$Res> implements $EventPer
   factory _$EventPermissionRepliedCopyWith(_EventPermissionReplied value, $Res Function(_EventPermissionReplied) _then) = __$EventPermissionRepliedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventPermissionRepliedProperties') EventPermissionRepliedProperties eventPermissionRepliedProperties
+ String type, EventPermissionRepliedProperties properties
 });
 
 
-@override $EventPermissionRepliedPropertiesCopyWith<$Res> get eventPermissionRepliedProperties;
+@override $EventPermissionRepliedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventPermissionRepliedCopyWithImpl<$Res>
 
 /// Create a copy of EventPermissionReplied
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventPermissionRepliedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventPermissionReplied(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventPermissionRepliedProperties: null == eventPermissionRepliedProperties ? _self.eventPermissionRepliedProperties : eventPermissionRepliedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventPermissionRepliedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventPermissionRepliedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventPermissionRepliedPropertiesCopyWith<$Res> get eventPermissionRepliedProperties {
+$EventPermissionRepliedPropertiesCopyWith<$Res> get properties {
   
-  return $EventPermissionRepliedPropertiesCopyWith<$Res>(_self.eventPermissionRepliedProperties, (value) {
-    return _then(_self.copyWith(eventPermissionRepliedProperties: value));
+  return $EventPermissionRepliedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

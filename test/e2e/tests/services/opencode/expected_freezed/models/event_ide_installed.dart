@@ -13,8 +13,7 @@ part 'event_ide_installed.g.dart';
 abstract class EventIdeInstalled with _$EventIdeInstalled {
   const factory EventIdeInstalled({
     required String type,
-    @JsonKey(name: 'EventIdeInstalledProperties')
-    required EventIdeInstalledProperties eventIdeInstalledProperties,
+    required EventIdeInstalledProperties properties,
   }) = _EventIdeInstalled;
 
   factory EventIdeInstalled.fromJson(Map<String, Object?> json) =>

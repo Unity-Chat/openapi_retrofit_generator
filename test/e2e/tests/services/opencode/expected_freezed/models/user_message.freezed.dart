@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserMessage {
 
- String get id;@JsonKey(name: 'sessionID') String get sessionId; String get role;@JsonKey(name: 'UserMessageTime') UserMessageTime get userMessageTime;
+ String get id;@JsonKey(name: 'sessionID') String get sessionId; String get role; UserMessageTime get time;
 /// Create a copy of UserMessage
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UserMessageCopyWith<UserMessage> get copyWith => _$UserMessageCopyWithImpl<User
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserMessage&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.role, role) || other.role == role)&&(identical(other.userMessageTime, userMessageTime) || other.userMessageTime == userMessageTime));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserMessage&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.role, role) || other.role == role)&&(identical(other.time, time) || other.time == time));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,role,userMessageTime);
+int get hashCode => Object.hash(runtimeType,id,sessionId,role,time);
 
 @override
 String toString() {
-  return 'UserMessage(id: $id, sessionId: $sessionId, role: $role, userMessageTime: $userMessageTime)';
+  return 'UserMessage(id: $id, sessionId: $sessionId, role: $role, time: $time)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $UserMessageCopyWith<$Res>  {
   factory $UserMessageCopyWith(UserMessage value, $Res Function(UserMessage) _then) = _$UserMessageCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId, String role,@JsonKey(name: 'UserMessageTime') UserMessageTime userMessageTime
+ String id,@JsonKey(name: 'sessionID') String sessionId, String role, UserMessageTime time
 });
 
 
-$UserMessageTimeCopyWith<$Res> get userMessageTime;
+$UserMessageTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -65,12 +65,12 @@ class _$UserMessageCopyWithImpl<$Res>
 
 /// Create a copy of UserMessage
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? role = null,Object? userMessageTime = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? role = null,Object? time = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String,userMessageTime: null == userMessageTime ? _self.userMessageTime : userMessageTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as UserMessageTime,
   ));
 }
@@ -78,10 +78,10 @@ as UserMessageTime,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserMessageTimeCopyWith<$Res> get userMessageTime {
+$UserMessageTimeCopyWith<$Res> get time {
   
-  return $UserMessageTimeCopyWith<$Res>(_self.userMessageTime, (value) {
-    return _then(_self.copyWith(userMessageTime: value));
+  return $UserMessageTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }
@@ -165,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId,  String role, @JsonKey(name: 'UserMessageTime')  UserMessageTime userMessageTime)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId,  String role,  UserMessageTime time)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserMessage() when $default != null:
-return $default(_that.id,_that.sessionId,_that.role,_that.userMessageTime);case _:
+return $default(_that.id,_that.sessionId,_that.role,_that.time);case _:
   return orElse();
 
 }
@@ -186,10 +186,10 @@ return $default(_that.id,_that.sessionId,_that.role,_that.userMessageTime);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId,  String role, @JsonKey(name: 'UserMessageTime')  UserMessageTime userMessageTime)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId,  String role,  UserMessageTime time)  $default,) {final _that = this;
 switch (_that) {
 case _UserMessage():
-return $default(_that.id,_that.sessionId,_that.role,_that.userMessageTime);case _:
+return $default(_that.id,_that.sessionId,_that.role,_that.time);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +206,10 @@ return $default(_that.id,_that.sessionId,_that.role,_that.userMessageTime);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId,  String role, @JsonKey(name: 'UserMessageTime')  UserMessageTime userMessageTime)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId,  String role,  UserMessageTime time)?  $default,) {final _that = this;
 switch (_that) {
 case _UserMessage() when $default != null:
-return $default(_that.id,_that.sessionId,_that.role,_that.userMessageTime);case _:
+return $default(_that.id,_that.sessionId,_that.role,_that.time);case _:
   return null;
 
 }
@@ -221,13 +221,13 @@ return $default(_that.id,_that.sessionId,_that.role,_that.userMessageTime);case 
 @JsonSerializable()
 
 class _UserMessage implements UserMessage {
-  const _UserMessage({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, required this.role, @JsonKey(name: 'UserMessageTime') required this.userMessageTime});
+  const _UserMessage({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, required this.role, required this.time});
   factory _UserMessage.fromJson(Map<String, dynamic> json) => _$UserMessageFromJson(json);
 
 @override final  String id;
 @override@JsonKey(name: 'sessionID') final  String sessionId;
 @override final  String role;
-@override@JsonKey(name: 'UserMessageTime') final  UserMessageTime userMessageTime;
+@override final  UserMessageTime time;
 
 /// Create a copy of UserMessage
 /// with the given fields replaced by the non-null parameter values.
@@ -242,16 +242,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserMessage&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.role, role) || other.role == role)&&(identical(other.userMessageTime, userMessageTime) || other.userMessageTime == userMessageTime));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserMessage&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.role, role) || other.role == role)&&(identical(other.time, time) || other.time == time));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,role,userMessageTime);
+int get hashCode => Object.hash(runtimeType,id,sessionId,role,time);
 
 @override
 String toString() {
-  return 'UserMessage(id: $id, sessionId: $sessionId, role: $role, userMessageTime: $userMessageTime)';
+  return 'UserMessage(id: $id, sessionId: $sessionId, role: $role, time: $time)';
 }
 
 
@@ -262,11 +262,11 @@ abstract mixin class _$UserMessageCopyWith<$Res> implements $UserMessageCopyWith
   factory _$UserMessageCopyWith(_UserMessage value, $Res Function(_UserMessage) _then) = __$UserMessageCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId, String role,@JsonKey(name: 'UserMessageTime') UserMessageTime userMessageTime
+ String id,@JsonKey(name: 'sessionID') String sessionId, String role, UserMessageTime time
 });
 
 
-@override $UserMessageTimeCopyWith<$Res> get userMessageTime;
+@override $UserMessageTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -279,12 +279,12 @@ class __$UserMessageCopyWithImpl<$Res>
 
 /// Create a copy of UserMessage
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? role = null,Object? userMessageTime = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? role = null,Object? time = null,}) {
   return _then(_UserMessage(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,role: null == role ? _self.role : role // ignore: cast_nullable_to_non_nullable
-as String,userMessageTime: null == userMessageTime ? _self.userMessageTime : userMessageTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as UserMessageTime,
   ));
 }
@@ -293,10 +293,10 @@ as UserMessageTime,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserMessageTimeCopyWith<$Res> get userMessageTime {
+$UserMessageTimeCopyWith<$Res> get time {
   
-  return $UserMessageTimeCopyWith<$Res>(_self.userMessageTime, (value) {
-    return _then(_self.copyWith(userMessageTime: value));
+  return $UserMessageTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }

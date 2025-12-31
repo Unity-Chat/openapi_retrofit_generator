@@ -32,11 +32,11 @@ abstract class Config with _$Config {
     KeybindsConfig? keybinds,
 
     /// TUI specific settings
-    @JsonKey(name: 'ConfigTui') ConfigTui? configTui,
+    ConfigTui? tui,
 
     /// Command configuration, see https://opencode.ai/docs/commands
     Map<String, Command>? command,
-    @JsonKey(name: 'ConfigWatcher') ConfigWatcher? configWatcher,
+    ConfigWatcher? watcher,
     List<String>? plugin,
     bool? snapshot,
 
@@ -78,9 +78,9 @@ abstract class Config with _$Config {
     /// Additional instruction files or patterns to include
     List<String>? instructions,
     LayoutConfig? layout,
-    @JsonKey(name: 'ConfigPermission') ConfigPermission? configPermission,
+    ConfigPermission? permission,
     Map<String, bool>? tools,
-    @JsonKey(name: 'ConfigExperimental') ConfigExperimental? configExperimental,
+    ConfigExperimental? experimental,
   }) = _Config;
 
   factory Config.fromJson(Map<String, Object?> json) => _$ConfigFromJson(json);

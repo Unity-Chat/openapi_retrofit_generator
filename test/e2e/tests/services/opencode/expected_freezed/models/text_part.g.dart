@@ -13,9 +13,9 @@ _TextPart _$TextPartFromJson(Map<String, dynamic> json) => _TextPart(
   type: json['type'] as String,
   text: json['text'] as String,
   synthetic: json['synthetic'] as bool?,
-  textPartTime: json['TextPartTime'] == null
+  time: json['time'] == null
       ? null
-      : TextPartTime.fromJson(json['TextPartTime'] as Map<String, dynamic>),
+      : TextPartTime.fromJson(json['time'] as Map<String, dynamic>),
   metadata: json['metadata'] as Map<String, dynamic>?,
 );
 
@@ -26,6 +26,6 @@ Map<String, dynamic> _$TextPartToJson(_TextPart instance) => <String, dynamic>{
   'type': instance.type,
   'text': instance.text,
   'synthetic': instance.synthetic,
-  'TextPartTime': instance.textPartTime,
+  'time': instance.time,
   'metadata': instance.metadata,
 };

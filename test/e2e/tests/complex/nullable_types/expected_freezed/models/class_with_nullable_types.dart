@@ -17,8 +17,7 @@ abstract class ClassWithNullableTypes with _$ClassWithNullableTypes {
     required List<String> p2,
     @JsonKey(name: 'p2_null_item') required List<List<String?>> p2NullItem,
     @JsonKey(name: 'p2_null_all') required List<dynamic>? p2NullAll,
-    @JsonKey(name: 'ClassWithNullableTypesP3')
-    required ClassWithNullableTypesP3 classWithNullableTypesP3,
+    required ClassWithNullableTypesP3 p3,
     @JsonKey(name: 'required_null_anyOf') required dynamic requiredNullAnyOf,
     @JsonKey(name: 'p1_anyOf') required dynamic p1AnyOf,
     @JsonKey(name: 'p2_anyOf') required dynamic p2AnyOf,
@@ -35,8 +34,7 @@ abstract class ClassWithNullableTypes with _$ClassWithNullableTypes {
     @JsonKey(name: 'p2_null') List<dynamic>? p2Null,
     @JsonKey(name: 'p1_n') String? p1N,
     @JsonKey(name: 'p2_n') List<String?>? p2N,
-    @JsonKey(name: 'ClassWithNullableTypesP3N')
-    ClassWithNullableTypesP3N? classWithNullableTypesP3N,
+    @JsonKey(name: 'p3_n') ClassWithNullableTypesP3N? p3N,
     @JsonKey(name: 'p1_list') String? p1List,
     @JsonKey(name: 'p2_list') List<dynamic>? p2List,
     @JsonKey(name: 'p3_list') dynamic p3List,

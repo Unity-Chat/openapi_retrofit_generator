@@ -15,8 +15,7 @@ abstract class AgentPartInput with _$AgentPartInput {
     required String type,
     required String name,
     String? id,
-    @JsonKey(name: 'AgentPartInputSource')
-    AgentPartInputSource? agentPartInputSource,
+    AgentPartInputSource? source,
   }) = _AgentPartInput;
 
   factory AgentPartInput.fromJson(Map<String, Object?> json) =>

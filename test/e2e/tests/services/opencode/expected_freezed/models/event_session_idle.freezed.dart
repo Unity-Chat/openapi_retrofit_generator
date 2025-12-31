@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventSessionIdle {
 
- String get type;@JsonKey(name: 'EventSessionIdleProperties') EventSessionIdleProperties get eventSessionIdleProperties;
+ String get type; EventSessionIdleProperties get properties;
 /// Create a copy of EventSessionIdle
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventSessionIdleCopyWith<EventSessionIdle> get copyWith => _$EventSessionIdleCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionIdle&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionIdleProperties, eventSessionIdleProperties) || other.eventSessionIdleProperties == eventSessionIdleProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionIdle&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionIdleProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionIdle(type: $type, eventSessionIdleProperties: $eventSessionIdleProperties)';
+  return 'EventSessionIdle(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventSessionIdleCopyWith<$Res>  {
   factory $EventSessionIdleCopyWith(EventSessionIdle value, $Res Function(EventSessionIdle) _then) = _$EventSessionIdleCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionIdleProperties') EventSessionIdleProperties eventSessionIdleProperties
+ String type, EventSessionIdleProperties properties
 });
 
 
-$EventSessionIdlePropertiesCopyWith<$Res> get eventSessionIdleProperties;
+$EventSessionIdlePropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventSessionIdleCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionIdle
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventSessionIdleProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionIdleProperties: null == eventSessionIdleProperties ? _self.eventSessionIdleProperties : eventSessionIdleProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionIdleProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventSessionIdleProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionIdlePropertiesCopyWith<$Res> get eventSessionIdleProperties {
+$EventSessionIdlePropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionIdlePropertiesCopyWith<$Res>(_self.eventSessionIdleProperties, (value) {
-    return _then(_self.copyWith(eventSessionIdleProperties: value));
+  return $EventSessionIdlePropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionIdleProperties')  EventSessionIdleProperties eventSessionIdleProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventSessionIdleProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventSessionIdle() when $default != null:
-return $default(_that.type,_that.eventSessionIdleProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventSessionIdleProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionIdleProperties')  EventSessionIdleProperties eventSessionIdleProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventSessionIdleProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionIdle():
-return $default(_that.type,_that.eventSessionIdleProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventSessionIdleProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventSessionIdleProperties')  EventSessionIdleProperties eventSessionIdleProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventSessionIdleProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionIdle() when $default != null:
-return $default(_that.type,_that.eventSessionIdleProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventSessionIdleProperties);case _:
 @JsonSerializable()
 
 class _EventSessionIdle implements EventSessionIdle {
-  const _EventSessionIdle({required this.type, @JsonKey(name: 'EventSessionIdleProperties') required this.eventSessionIdleProperties});
+  const _EventSessionIdle({required this.type, required this.properties});
   factory _EventSessionIdle.fromJson(Map<String, dynamic> json) => _$EventSessionIdleFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventSessionIdleProperties') final  EventSessionIdleProperties eventSessionIdleProperties;
+@override final  EventSessionIdleProperties properties;
 
 /// Create a copy of EventSessionIdle
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionIdle&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionIdleProperties, eventSessionIdleProperties) || other.eventSessionIdleProperties == eventSessionIdleProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionIdle&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionIdleProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionIdle(type: $type, eventSessionIdleProperties: $eventSessionIdleProperties)';
+  return 'EventSessionIdle(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventSessionIdleCopyWith<$Res> implements $EventSessionId
   factory _$EventSessionIdleCopyWith(_EventSessionIdle value, $Res Function(_EventSessionIdle) _then) = __$EventSessionIdleCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionIdleProperties') EventSessionIdleProperties eventSessionIdleProperties
+ String type, EventSessionIdleProperties properties
 });
 
 
-@override $EventSessionIdlePropertiesCopyWith<$Res> get eventSessionIdleProperties;
+@override $EventSessionIdlePropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventSessionIdleCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionIdle
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventSessionIdleProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventSessionIdle(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionIdleProperties: null == eventSessionIdleProperties ? _self.eventSessionIdleProperties : eventSessionIdleProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionIdleProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventSessionIdleProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionIdlePropertiesCopyWith<$Res> get eventSessionIdleProperties {
+$EventSessionIdlePropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionIdlePropertiesCopyWith<$Res>(_self.eventSessionIdleProperties, (value) {
-    return _then(_self.copyWith(eventSessionIdleProperties: value));
+  return $EventSessionIdlePropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

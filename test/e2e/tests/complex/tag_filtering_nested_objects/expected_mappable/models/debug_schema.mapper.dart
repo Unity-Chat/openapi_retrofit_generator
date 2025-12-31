@@ -30,11 +30,10 @@ class DebugSchemaMapper extends ClassMapperBase<DebugSchema> {
     _$message,
     opt: true,
   );
-  static DebugSchemaData? _$debugSchemaData(DebugSchema v) => v.debugSchemaData;
-  static const Field<DebugSchema, DebugSchemaData> _f$debugSchemaData = Field(
-    'debugSchemaData',
-    _$debugSchemaData,
-    key: r'DebugSchemaData',
+  static DebugSchemaData? _$data(DebugSchema v) => v.data;
+  static const Field<DebugSchema, DebugSchemaData> _f$data = Field(
+    'data',
+    _$data,
     opt: true,
   );
 
@@ -42,14 +41,14 @@ class DebugSchemaMapper extends ClassMapperBase<DebugSchema> {
   final MappableFields<DebugSchema> fields = const {
     #id: _f$id,
     #message: _f$message,
-    #debugSchemaData: _f$debugSchemaData,
+    #data: _f$data,
   };
 
   static DebugSchema _instantiate(DecodingData data) {
     return DebugSchema(
       id: data.dec(_f$id),
       message: data.dec(_f$message),
-      debugSchemaData: data.dec(_f$debugSchemaData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -113,9 +112,8 @@ extension DebugSchemaValueCopy<$R, $Out>
 
 abstract class DebugSchemaCopyWith<$R, $In extends DebugSchema, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  DebugSchemaDataCopyWith<$R, DebugSchemaData, DebugSchemaData>?
-  get debugSchemaData;
-  $R call({int? id, String? message, DebugSchemaData? debugSchemaData});
+  DebugSchemaDataCopyWith<$R, DebugSchemaData, DebugSchemaData>? get data;
+  $R call({int? id, String? message, DebugSchemaData? data});
   DebugSchemaCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -128,26 +126,25 @@ class _DebugSchemaCopyWithImpl<$R, $Out>
   late final ClassMapperBase<DebugSchema> $mapper =
       DebugSchemaMapper.ensureInitialized();
   @override
-  DebugSchemaDataCopyWith<$R, DebugSchemaData, DebugSchemaData>?
-  get debugSchemaData =>
-      $value.debugSchemaData?.copyWith.$chain((v) => call(debugSchemaData: v));
+  DebugSchemaDataCopyWith<$R, DebugSchemaData, DebugSchemaData>? get data =>
+      $value.data?.copyWith.$chain((v) => call(data: v));
   @override
   $R call({
     Object? id = $none,
     Object? message = $none,
-    Object? debugSchemaData = $none,
+    Object? data = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != $none) #id: id,
       if (message != $none) #message: message,
-      if (debugSchemaData != $none) #debugSchemaData: debugSchemaData,
+      if (data != $none) #data: data,
     }),
   );
   @override
   DebugSchema $make(CopyWithData data) => DebugSchema(
     id: data.get(#id, or: $value.id),
     message: data.get(#message, or: $value.message),
-    debugSchemaData: data.get(#debugSchemaData, or: $value.debugSchemaData),
+    data: data.get(#data, or: $value.data),
   );
 
   @override

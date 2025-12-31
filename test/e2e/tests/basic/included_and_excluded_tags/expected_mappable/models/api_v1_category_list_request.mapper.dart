@@ -31,50 +31,35 @@ class ApiV1CategoryListRequestMapper
     'includedField',
     _$includedField,
   );
-  static ApiV1CategoryListRequestIncludedNested?
-  _$apiV1CategoryListRequestIncludedNested(ApiV1CategoryListRequest v) =>
-      v.apiV1CategoryListRequestIncludedNested;
+  static ApiV1CategoryListRequestIncludedNested? _$includedNested(
+    ApiV1CategoryListRequest v,
+  ) => v.includedNested;
   static const Field<
     ApiV1CategoryListRequest,
     ApiV1CategoryListRequestIncludedNested
   >
-  _f$apiV1CategoryListRequestIncludedNested = Field(
-    'apiV1CategoryListRequestIncludedNested',
-    _$apiV1CategoryListRequestIncludedNested,
-    key: r'ApiV1CategoryListRequestIncludedNested',
-    opt: true,
-  );
-  static ApiV1CategoryListRequestAuditData? _$apiV1CategoryListRequestAuditData(
+  _f$includedNested = Field('includedNested', _$includedNested, opt: true);
+  static ApiV1CategoryListRequestAuditData? _$auditData(
     ApiV1CategoryListRequest v,
-  ) => v.apiV1CategoryListRequestAuditData;
+  ) => v.auditData;
   static const Field<
     ApiV1CategoryListRequest,
     ApiV1CategoryListRequestAuditData
   >
-  _f$apiV1CategoryListRequestAuditData = Field(
-    'apiV1CategoryListRequestAuditData',
-    _$apiV1CategoryListRequestAuditData,
-    key: r'ApiV1CategoryListRequestAuditData',
-    opt: true,
-  );
+  _f$auditData = Field('auditData', _$auditData, opt: true);
 
   @override
   final MappableFields<ApiV1CategoryListRequest> fields = const {
     #includedField: _f$includedField,
-    #apiV1CategoryListRequestIncludedNested:
-        _f$apiV1CategoryListRequestIncludedNested,
-    #apiV1CategoryListRequestAuditData: _f$apiV1CategoryListRequestAuditData,
+    #includedNested: _f$includedNested,
+    #auditData: _f$auditData,
   };
 
   static ApiV1CategoryListRequest _instantiate(DecodingData data) {
     return ApiV1CategoryListRequest(
       includedField: data.dec(_f$includedField),
-      apiV1CategoryListRequestIncludedNested: data.dec(
-        _f$apiV1CategoryListRequestIncludedNested,
-      ),
-      apiV1CategoryListRequestAuditData: data.dec(
-        _f$apiV1CategoryListRequestAuditData,
-      ),
+      includedNested: data.dec(_f$includedNested),
+      auditData: data.dec(_f$auditData),
     );
   }
 
@@ -153,18 +138,17 @@ abstract class ApiV1CategoryListRequestCopyWith<
     ApiV1CategoryListRequestIncludedNested,
     ApiV1CategoryListRequestIncludedNested
   >?
-  get apiV1CategoryListRequestIncludedNested;
+  get includedNested;
   ApiV1CategoryListRequestAuditDataCopyWith<
     $R,
     ApiV1CategoryListRequestAuditData,
     ApiV1CategoryListRequestAuditData
   >?
-  get apiV1CategoryListRequestAuditData;
+  get auditData;
   $R call({
     String? includedField,
-    ApiV1CategoryListRequestIncludedNested?
-    apiV1CategoryListRequestIncludedNested,
-    ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData,
+    ApiV1CategoryListRequestIncludedNested? includedNested,
+    ApiV1CategoryListRequestAuditData? auditData,
   });
   ApiV1CategoryListRequestCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -186,46 +170,32 @@ class _ApiV1CategoryListRequestCopyWithImpl<$R, $Out>
     ApiV1CategoryListRequestIncludedNested,
     ApiV1CategoryListRequestIncludedNested
   >?
-  get apiV1CategoryListRequestIncludedNested => $value
-      .apiV1CategoryListRequestIncludedNested
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListRequestIncludedNested: v));
+  get includedNested =>
+      $value.includedNested?.copyWith.$chain((v) => call(includedNested: v));
   @override
   ApiV1CategoryListRequestAuditDataCopyWith<
     $R,
     ApiV1CategoryListRequestAuditData,
     ApiV1CategoryListRequestAuditData
   >?
-  get apiV1CategoryListRequestAuditData => $value
-      .apiV1CategoryListRequestAuditData
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListRequestAuditData: v));
+  get auditData => $value.auditData?.copyWith.$chain((v) => call(auditData: v));
   @override
   $R call({
     String? includedField,
-    Object? apiV1CategoryListRequestIncludedNested = $none,
-    Object? apiV1CategoryListRequestAuditData = $none,
+    Object? includedNested = $none,
+    Object? auditData = $none,
   }) => $apply(
     FieldCopyWithData({
       if (includedField != null) #includedField: includedField,
-      if (apiV1CategoryListRequestIncludedNested != $none)
-        #apiV1CategoryListRequestIncludedNested:
-            apiV1CategoryListRequestIncludedNested,
-      if (apiV1CategoryListRequestAuditData != $none)
-        #apiV1CategoryListRequestAuditData: apiV1CategoryListRequestAuditData,
+      if (includedNested != $none) #includedNested: includedNested,
+      if (auditData != $none) #auditData: auditData,
     }),
   );
   @override
   ApiV1CategoryListRequest $make(CopyWithData data) => ApiV1CategoryListRequest(
     includedField: data.get(#includedField, or: $value.includedField),
-    apiV1CategoryListRequestIncludedNested: data.get(
-      #apiV1CategoryListRequestIncludedNested,
-      or: $value.apiV1CategoryListRequestIncludedNested,
-    ),
-    apiV1CategoryListRequestAuditData: data.get(
-      #apiV1CategoryListRequestAuditData,
-      or: $value.apiV1CategoryListRequestAuditData,
-    ),
+    includedNested: data.get(#includedNested, or: $value.includedNested),
+    auditData: data.get(#auditData, or: $value.auditData),
   );
 
   @override

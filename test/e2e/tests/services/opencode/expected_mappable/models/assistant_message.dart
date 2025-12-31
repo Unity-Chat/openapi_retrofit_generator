@@ -17,14 +17,14 @@ class AssistantMessage with AssistantMessageMappable {
     required this.id,
     required this.sessionId,
     required this.role,
-    required this.assistantMessageTime,
+    required this.time,
     required this.system,
     required this.modelId,
     required this.providerId,
     required this.mode,
-    required this.assistantMessagePath,
+    required this.path,
     required this.cost,
-    required this.assistantMessageTokens,
+    required this.tokens,
     this.error,
     this.summary,
   });
@@ -33,19 +33,16 @@ class AssistantMessage with AssistantMessageMappable {
   @MappableField(key: 'sessionID')
   final String sessionId;
   final String role;
-  @MappableField(key: 'AssistantMessageTime')
-  final AssistantMessageTime assistantMessageTime;
+  final AssistantMessageTime time;
   final List<String> system;
   @MappableField(key: 'modelID')
   final String modelId;
   @MappableField(key: 'providerID')
   final String providerId;
   final String mode;
-  @MappableField(key: 'AssistantMessagePath')
-  final AssistantMessagePath assistantMessagePath;
+  final AssistantMessagePath path;
   final num cost;
-  @MappableField(key: 'AssistantMessageTokens')
-  final AssistantMessageTokens assistantMessageTokens;
+  final AssistantMessageTokens tokens;
   final AssistantMessageErrorError? error;
   final bool? summary;
 

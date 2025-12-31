@@ -16,21 +16,20 @@ _SessionPromptRequest _$SessionPromptRequestFromJson(
       )
       .toList(),
   messageId: json['messageID'] as String?,
-  sessionPromptRequestModel: json['SessionPromptRequestModel'] == null
+  model: json['model'] == null
       ? null
       : SessionPromptRequestModel.fromJson(
-          json['SessionPromptRequestModel'] as Map<String, dynamic>,
+          json['model'] as Map<String, dynamic>,
         ),
   agent: json['agent'] as String?,
   system: json['system'] as String?,
   tools: (json['tools'] as Map<String, dynamic>?)?.map(
     (k, e) => MapEntry(k, e as bool),
   ),
-  sessionPromptRequestAcpConnection:
-      json['SessionPromptRequestAcpConnection'] == null
+  acpConnection: json['acpConnection'] == null
       ? null
       : SessionPromptRequestAcpConnection.fromJson(
-          json['SessionPromptRequestAcpConnection'] as Map<String, dynamic>,
+          json['acpConnection'] as Map<String, dynamic>,
         ),
 );
 
@@ -39,10 +38,9 @@ Map<String, dynamic> _$SessionPromptRequestToJson(
 ) => <String, dynamic>{
   'parts': instance.parts,
   'messageID': instance.messageId,
-  'SessionPromptRequestModel': instance.sessionPromptRequestModel,
+  'model': instance.model,
   'agent': instance.agent,
   'system': instance.system,
   'tools': instance.tools,
-  'SessionPromptRequestAcpConnection':
-      instance.sessionPromptRequestAcpConnection,
+  'acpConnection': instance.acpConnection,
 };

@@ -10,17 +10,17 @@ _Agent _$AgentFromJson(Map<String, dynamic> json) => _Agent(
   name: json['name'] as String,
   mode: json['mode'],
   builtIn: json['builtIn'] as bool,
-  agentPermission: AgentPermission.fromJson(
-    json['AgentPermission'] as Map<String, dynamic>,
+  permission: AgentPermission.fromJson(
+    json['permission'] as Map<String, dynamic>,
   ),
   tools: Map<String, bool>.from(json['tools'] as Map),
   options: json['options'] as Map<String, dynamic>,
   description: json['description'] as String?,
   topP: json['topP'] as num?,
   temperature: json['temperature'] as num?,
-  agentModel: json['AgentModel'] == null
+  model: json['model'] == null
       ? null
-      : AgentModel.fromJson(json['AgentModel'] as Map<String, dynamic>),
+      : AgentModel.fromJson(json['model'] as Map<String, dynamic>),
   prompt: json['prompt'] as String?,
 );
 
@@ -28,12 +28,12 @@ Map<String, dynamic> _$AgentToJson(_Agent instance) => <String, dynamic>{
   'name': instance.name,
   'mode': instance.mode,
   'builtIn': instance.builtIn,
-  'AgentPermission': instance.agentPermission,
+  'permission': instance.permission,
   'tools': instance.tools,
   'options': instance.options,
   'description': instance.description,
   'topP': instance.topP,
   'temperature': instance.temperature,
-  'AgentModel': instance.agentModel,
+  'model': instance.model,
   'prompt': instance.prompt,
 };

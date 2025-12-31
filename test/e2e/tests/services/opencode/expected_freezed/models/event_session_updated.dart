@@ -13,8 +13,7 @@ part 'event_session_updated.g.dart';
 abstract class EventSessionUpdated with _$EventSessionUpdated {
   const factory EventSessionUpdated({
     required String type,
-    @JsonKey(name: 'EventSessionUpdatedProperties')
-    required EventSessionUpdatedProperties eventSessionUpdatedProperties,
+    required EventSessionUpdatedProperties properties,
   }) = _EventSessionUpdated;
 
   factory EventSessionUpdated.fromJson(Map<String, Object?> json) =>

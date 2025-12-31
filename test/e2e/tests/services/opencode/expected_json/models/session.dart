@@ -18,10 +18,10 @@ class Session {
     required this.directory,
     required this.title,
     required this.version,
-    required this.sessionTime,
+    required this.time,
     this.parentId,
-    this.sessionShare,
-    this.sessionRevert,
+    this.share,
+    this.revert,
   });
 
   factory Session.fromJson(Map<String, Object?> json) =>
@@ -33,14 +33,11 @@ class Session {
   final String directory;
   @JsonKey(name: 'parentID')
   final String? parentId;
-  @JsonKey(name: 'SessionShare')
-  final SessionShare? sessionShare;
+  final SessionShare? share;
   final String title;
   final String version;
-  @JsonKey(name: 'SessionTime')
-  final SessionTime sessionTime;
-  @JsonKey(name: 'SessionRevert')
-  final SessionRevert? sessionRevert;
+  final SessionTime time;
+  final SessionRevert? revert;
 
   Map<String, Object?> toJson() => _$SessionToJson(this);
 }

@@ -15,28 +15,26 @@ class Agent with AgentMappable {
     required this.name,
     required this.mode,
     required this.builtIn,
-    required this.agentPermission,
+    required this.permission,
     required this.tools,
     required this.options,
     this.description,
     this.topP,
     this.temperature,
-    this.agentModel,
+    this.model,
     this.prompt,
   });
 
   final String name;
   final dynamic mode;
   final bool builtIn;
-  @MappableField(key: 'AgentPermission')
-  final AgentPermission agentPermission;
+  final AgentPermission permission;
   final Map<String, bool> tools;
   final Map<String, dynamic> options;
   final String? description;
   final num? topP;
   final num? temperature;
-  @MappableField(key: 'AgentModel')
-  final AgentModel? agentModel;
+  final AgentModel? model;
   final String? prompt;
 
   static Agent fromJson(Map<String, dynamic> json) =>

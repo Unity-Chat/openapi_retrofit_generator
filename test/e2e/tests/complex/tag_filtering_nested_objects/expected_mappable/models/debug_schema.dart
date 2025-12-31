@@ -10,12 +10,11 @@ part 'debug_schema.mapper.dart';
 
 @MappableClass()
 class DebugSchema with DebugSchemaMappable {
-  const DebugSchema({this.id, this.message, this.debugSchemaData});
+  const DebugSchema({this.id, this.message, this.data});
 
   final int? id;
   final String? message;
-  @MappableField(key: 'DebugSchemaData')
-  final DebugSchemaData? debugSchemaData;
+  final DebugSchemaData? data;
 
   static DebugSchema fromJson(Map<String, dynamic> json) =>
       DebugSchemaMapper.fromJson(json);

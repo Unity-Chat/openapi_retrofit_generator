@@ -33,8 +33,11 @@ class PartModelText extends PartModel with PartModelTextMappable {
 @MappableClass(discriminatorValue: 'tool_use')
 class PartModelToolUse extends PartModel with PartModelToolUseMappable {
   final String id;
+  @MappableField(key: 'tool_name')
   final String toolName;
+  @MappableField(key: 'tool_call_id')
   final String toolCallId;
+  @MappableField(key: 'tool_input')
   final dynamic toolInput;
   final String type;
 
@@ -50,9 +53,13 @@ class PartModelToolUse extends PartModel with PartModelToolUseMappable {
 @MappableClass(discriminatorValue: 'tool_result')
 class PartModelToolResult extends PartModel with PartModelToolResultMappable {
   final String id;
+  @MappableField(key: 'tool_name')
   final String toolName;
+  @MappableField(key: 'tool_call_id')
   final String toolCallId;
+  @MappableField(key: 'tool_result')
   final String toolResult;
+  @MappableField(key: 'is_error')
   final bool isError;
   final String type;
 

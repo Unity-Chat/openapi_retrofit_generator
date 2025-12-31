@@ -24,26 +24,21 @@ class EventIdeInstalledMapper extends ClassMapperBase<EventIdeInstalled> {
 
   static String _$type(EventIdeInstalled v) => v.type;
   static const Field<EventIdeInstalled, String> _f$type = Field('type', _$type);
-  static EventIdeInstalledProperties _$eventIdeInstalledProperties(
-    EventIdeInstalled v,
-  ) => v.eventIdeInstalledProperties;
+  static EventIdeInstalledProperties _$properties(EventIdeInstalled v) =>
+      v.properties;
   static const Field<EventIdeInstalled, EventIdeInstalledProperties>
-  _f$eventIdeInstalledProperties = Field(
-    'eventIdeInstalledProperties',
-    _$eventIdeInstalledProperties,
-    key: r'EventIdeInstalledProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventIdeInstalled> fields = const {
     #type: _f$type,
-    #eventIdeInstalledProperties: _f$eventIdeInstalledProperties,
+    #properties: _f$properties,
   };
 
   static EventIdeInstalled _instantiate(DecodingData data) {
     return EventIdeInstalled(
       type: data.dec(_f$type),
-      eventIdeInstalledProperties: data.dec(_f$eventIdeInstalledProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -123,11 +118,8 @@ abstract class EventIdeInstalledCopyWith<
     EventIdeInstalledProperties,
     EventIdeInstalledProperties
   >
-  get eventIdeInstalledProperties;
-  $R call({
-    String? type,
-    EventIdeInstalledProperties? eventIdeInstalledProperties,
-  });
+  get properties;
+  $R call({String? type, EventIdeInstalledProperties? properties});
   EventIdeInstalledCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -147,26 +139,19 @@ class _EventIdeInstalledCopyWithImpl<$R, $Out>
     EventIdeInstalledProperties,
     EventIdeInstalledProperties
   >
-  get eventIdeInstalledProperties => $value.eventIdeInstalledProperties.copyWith
-      .$chain((v) => call(eventIdeInstalledProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventIdeInstalledProperties? eventIdeInstalledProperties,
-  }) => $apply(
+  $R call({String? type, EventIdeInstalledProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventIdeInstalledProperties != null)
-        #eventIdeInstalledProperties: eventIdeInstalledProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventIdeInstalled $make(CopyWithData data) => EventIdeInstalled(
     type: data.get(#type, or: $value.type),
-    eventIdeInstalledProperties: data.get(
-      #eventIdeInstalledProperties,
-      or: $value.eventIdeInstalledProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

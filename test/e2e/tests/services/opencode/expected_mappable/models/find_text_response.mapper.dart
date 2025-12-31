@@ -24,21 +24,15 @@ class FindTextResponseMapper extends ClassMapperBase<FindTextResponse> {
   @override
   final String id = 'FindTextResponse';
 
-  static FindTextResponsePath _$findTextResponsePath(FindTextResponse v) =>
-      v.findTextResponsePath;
-  static const Field<FindTextResponse, FindTextResponsePath>
-  _f$findTextResponsePath = Field(
-    'findTextResponsePath',
-    _$findTextResponsePath,
-    key: r'FindTextResponsePath',
+  static FindTextResponsePath _$path(FindTextResponse v) => v.path;
+  static const Field<FindTextResponse, FindTextResponsePath> _f$path = Field(
+    'path',
+    _$path,
   );
-  static FindTextResponseLines _$findTextResponseLines(FindTextResponse v) =>
-      v.findTextResponseLines;
-  static const Field<FindTextResponse, FindTextResponseLines>
-  _f$findTextResponseLines = Field(
-    'findTextResponseLines',
-    _$findTextResponseLines,
-    key: r'FindTextResponseLines',
+  static FindTextResponseLines _$lines(FindTextResponse v) => v.lines;
+  static const Field<FindTextResponse, FindTextResponseLines> _f$lines = Field(
+    'lines',
+    _$lines,
   );
   static num _$lineNumber(FindTextResponse v) => v.lineNumber;
   static const Field<FindTextResponse, num> _f$lineNumber = Field(
@@ -59,8 +53,8 @@ class FindTextResponseMapper extends ClassMapperBase<FindTextResponse> {
 
   @override
   final MappableFields<FindTextResponse> fields = const {
-    #findTextResponsePath: _f$findTextResponsePath,
-    #findTextResponseLines: _f$findTextResponseLines,
+    #path: _f$path,
+    #lines: _f$lines,
     #lineNumber: _f$lineNumber,
     #absoluteOffset: _f$absoluteOffset,
     #submatches: _f$submatches,
@@ -68,8 +62,8 @@ class FindTextResponseMapper extends ClassMapperBase<FindTextResponse> {
 
   static FindTextResponse _instantiate(DecodingData data) {
     return FindTextResponse(
-      findTextResponsePath: data.dec(_f$findTextResponsePath),
-      findTextResponseLines: data.dec(_f$findTextResponseLines),
+      path: data.dec(_f$path),
+      lines: data.dec(_f$lines),
       lineNumber: data.dec(_f$lineNumber),
       absoluteOffset: data.dec(_f$absoluteOffset),
       submatches: data.dec(_f$submatches),
@@ -139,13 +133,13 @@ extension FindTextResponseValueCopy<$R, $Out>
 abstract class FindTextResponseCopyWith<$R, $In extends FindTextResponse, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   FindTextResponsePathCopyWith<$R, FindTextResponsePath, FindTextResponsePath>
-  get findTextResponsePath;
+  get path;
   FindTextResponseLinesCopyWith<
     $R,
     FindTextResponseLines,
     FindTextResponseLines
   >
-  get findTextResponseLines;
+  get lines;
   ListCopyWith<
     $R,
     FindTextResponseSubmatches,
@@ -157,8 +151,8 @@ abstract class FindTextResponseCopyWith<$R, $In extends FindTextResponse, $Out>
   >
   get submatches;
   $R call({
-    FindTextResponsePath? findTextResponsePath,
-    FindTextResponseLines? findTextResponseLines,
+    FindTextResponsePath? path,
+    FindTextResponseLines? lines,
     num? lineNumber,
     num? absoluteOffset,
     List<FindTextResponseSubmatches>? submatches,
@@ -178,18 +172,14 @@ class _FindTextResponseCopyWithImpl<$R, $Out>
       FindTextResponseMapper.ensureInitialized();
   @override
   FindTextResponsePathCopyWith<$R, FindTextResponsePath, FindTextResponsePath>
-  get findTextResponsePath => $value.findTextResponsePath.copyWith.$chain(
-    (v) => call(findTextResponsePath: v),
-  );
+  get path => $value.path.copyWith.$chain((v) => call(path: v));
   @override
   FindTextResponseLinesCopyWith<
     $R,
     FindTextResponseLines,
     FindTextResponseLines
   >
-  get findTextResponseLines => $value.findTextResponseLines.copyWith.$chain(
-    (v) => call(findTextResponseLines: v),
-  );
+  get lines => $value.lines.copyWith.$chain((v) => call(lines: v));
   @override
   ListCopyWith<
     $R,
@@ -207,17 +197,15 @@ class _FindTextResponseCopyWithImpl<$R, $Out>
   );
   @override
   $R call({
-    FindTextResponsePath? findTextResponsePath,
-    FindTextResponseLines? findTextResponseLines,
+    FindTextResponsePath? path,
+    FindTextResponseLines? lines,
     num? lineNumber,
     num? absoluteOffset,
     List<FindTextResponseSubmatches>? submatches,
   }) => $apply(
     FieldCopyWithData({
-      if (findTextResponsePath != null)
-        #findTextResponsePath: findTextResponsePath,
-      if (findTextResponseLines != null)
-        #findTextResponseLines: findTextResponseLines,
+      if (path != null) #path: path,
+      if (lines != null) #lines: lines,
       if (lineNumber != null) #lineNumber: lineNumber,
       if (absoluteOffset != null) #absoluteOffset: absoluteOffset,
       if (submatches != null) #submatches: submatches,
@@ -225,14 +213,8 @@ class _FindTextResponseCopyWithImpl<$R, $Out>
   );
   @override
   FindTextResponse $make(CopyWithData data) => FindTextResponse(
-    findTextResponsePath: data.get(
-      #findTextResponsePath,
-      or: $value.findTextResponsePath,
-    ),
-    findTextResponseLines: data.get(
-      #findTextResponseLines,
-      or: $value.findTextResponseLines,
-    ),
+    path: data.get(#path, or: $value.path),
+    lines: data.get(#lines, or: $value.lines),
     lineNumber: data.get(#lineNumber, or: $value.lineNumber),
     absoluteOffset: data.get(#absoluteOffset, or: $value.absoluteOffset),
     submatches: data.get(#submatches, or: $value.submatches),

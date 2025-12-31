@@ -14,8 +14,7 @@ part 'get_duplicate_response.g.dart';
 abstract class GetDuplicateResponse with _$GetDuplicateResponse {
   const factory GetDuplicateResponse({
     @JsonKey(includeIfNull: false) Data? data,
-    @JsonKey(includeIfNull: false, name: 'GetDuplicateResponseMetadata')
-    GetDuplicateResponseMetadata? getDuplicateResponseMetadata,
+    @JsonKey(includeIfNull: false) GetDuplicateResponseMetadata? metadata,
   }) = _GetDuplicateResponse;
 
   factory GetDuplicateResponse.fromJson(Map<String, Object?> json) =>

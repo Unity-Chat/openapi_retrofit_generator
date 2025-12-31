@@ -27,26 +27,21 @@ class EventMessageRemovedMapper extends ClassMapperBase<EventMessageRemoved> {
     'type',
     _$type,
   );
-  static EventMessageRemovedProperties _$eventMessageRemovedProperties(
-    EventMessageRemoved v,
-  ) => v.eventMessageRemovedProperties;
+  static EventMessageRemovedProperties _$properties(EventMessageRemoved v) =>
+      v.properties;
   static const Field<EventMessageRemoved, EventMessageRemovedProperties>
-  _f$eventMessageRemovedProperties = Field(
-    'eventMessageRemovedProperties',
-    _$eventMessageRemovedProperties,
-    key: r'EventMessageRemovedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventMessageRemoved> fields = const {
     #type: _f$type,
-    #eventMessageRemovedProperties: _f$eventMessageRemovedProperties,
+    #properties: _f$properties,
   };
 
   static EventMessageRemoved _instantiate(DecodingData data) {
     return EventMessageRemoved(
       type: data.dec(_f$type),
-      eventMessageRemovedProperties: data.dec(_f$eventMessageRemovedProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -125,11 +120,8 @@ abstract class EventMessageRemovedCopyWith<
     EventMessageRemovedProperties,
     EventMessageRemovedProperties
   >
-  get eventMessageRemovedProperties;
-  $R call({
-    String? type,
-    EventMessageRemovedProperties? eventMessageRemovedProperties,
-  });
+  get properties;
+  $R call({String? type, EventMessageRemovedProperties? properties});
   EventMessageRemovedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -149,28 +141,19 @@ class _EventMessageRemovedCopyWithImpl<$R, $Out>
     EventMessageRemovedProperties,
     EventMessageRemovedProperties
   >
-  get eventMessageRemovedProperties => $value
-      .eventMessageRemovedProperties
-      .copyWith
-      .$chain((v) => call(eventMessageRemovedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventMessageRemovedProperties? eventMessageRemovedProperties,
-  }) => $apply(
+  $R call({String? type, EventMessageRemovedProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventMessageRemovedProperties != null)
-        #eventMessageRemovedProperties: eventMessageRemovedProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventMessageRemoved $make(CopyWithData data) => EventMessageRemoved(
     type: data.get(#type, or: $value.type),
-    eventMessageRemovedProperties: data.get(
-      #eventMessageRemovedProperties,
-      or: $value.eventMessageRemovedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

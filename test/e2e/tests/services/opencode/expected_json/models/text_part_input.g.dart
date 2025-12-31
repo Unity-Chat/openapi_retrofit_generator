@@ -12,11 +12,9 @@ TextPartInput _$TextPartInputFromJson(Map<String, dynamic> json) =>
       text: json['text'] as String,
       id: json['id'] as String?,
       synthetic: json['synthetic'] as bool?,
-      textPartInputTime: json['TextPartInputTime'] == null
+      time: json['time'] == null
           ? null
-          : TextPartInputTime.fromJson(
-              json['TextPartInputTime'] as Map<String, dynamic>,
-            ),
+          : TextPartInputTime.fromJson(json['time'] as Map<String, dynamic>),
       metadata: json['metadata'] as Map<String, dynamic>?,
     );
 
@@ -26,6 +24,6 @@ Map<String, dynamic> _$TextPartInputToJson(TextPartInput instance) =>
       'type': instance.type,
       'text': instance.text,
       'synthetic': instance.synthetic,
-      'TextPartInputTime': instance.textPartInputTime,
+      'time': instance.time,
       'metadata': instance.metadata,
     };

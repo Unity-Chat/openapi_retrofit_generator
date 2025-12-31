@@ -24,26 +24,20 @@ class NotFoundErrorMapper extends ClassMapperBase<NotFoundError> {
 
   static String _$name(NotFoundError v) => v.name;
   static const Field<NotFoundError, String> _f$name = Field('name', _$name);
-  static NotFoundErrorData _$notFoundErrorData(NotFoundError v) =>
-      v.notFoundErrorData;
-  static const Field<NotFoundError, NotFoundErrorData> _f$notFoundErrorData =
-      Field(
-        'notFoundErrorData',
-        _$notFoundErrorData,
-        key: r'NotFoundErrorData',
-      );
+  static NotFoundErrorData _$data(NotFoundError v) => v.data;
+  static const Field<NotFoundError, NotFoundErrorData> _f$data = Field(
+    'data',
+    _$data,
+  );
 
   @override
   final MappableFields<NotFoundError> fields = const {
     #name: _f$name,
-    #notFoundErrorData: _f$notFoundErrorData,
+    #data: _f$data,
   };
 
   static NotFoundError _instantiate(DecodingData data) {
-    return NotFoundError(
-      name: data.dec(_f$name),
-      notFoundErrorData: data.dec(_f$notFoundErrorData),
-    );
+    return NotFoundError(name: data.dec(_f$name), data: data.dec(_f$data));
   }
 
   @override
@@ -108,9 +102,8 @@ extension NotFoundErrorValueCopy<$R, $Out>
 
 abstract class NotFoundErrorCopyWith<$R, $In extends NotFoundError, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  NotFoundErrorDataCopyWith<$R, NotFoundErrorData, NotFoundErrorData>
-  get notFoundErrorData;
-  $R call({String? name, NotFoundErrorData? notFoundErrorData});
+  NotFoundErrorDataCopyWith<$R, NotFoundErrorData, NotFoundErrorData> get data;
+  $R call({String? name, NotFoundErrorData? data});
   NotFoundErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -124,23 +117,18 @@ class _NotFoundErrorCopyWithImpl<$R, $Out>
       NotFoundErrorMapper.ensureInitialized();
   @override
   NotFoundErrorDataCopyWith<$R, NotFoundErrorData, NotFoundErrorData>
-  get notFoundErrorData => $value.notFoundErrorData.copyWith.$chain(
-    (v) => call(notFoundErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, NotFoundErrorData? notFoundErrorData}) => $apply(
+  $R call({String? name, NotFoundErrorData? data}) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
-      if (notFoundErrorData != null) #notFoundErrorData: notFoundErrorData,
+      if (data != null) #data: data,
     }),
   );
   @override
   NotFoundError $make(CopyWithData data) => NotFoundError(
     name: data.get(#name, or: $value.name),
-    notFoundErrorData: data.get(
-      #notFoundErrorData,
-      or: $value.notFoundErrorData,
-    ),
+    data: data.get(#data, or: $value.data),
   );
 
   @override

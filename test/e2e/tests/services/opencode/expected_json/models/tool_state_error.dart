@@ -14,7 +14,7 @@ class ToolStateError {
     required this.status,
     required this.input,
     required this.error,
-    required this.toolStateErrorTime,
+    required this.time,
     this.metadata,
   });
 
@@ -25,8 +25,7 @@ class ToolStateError {
   final Map<String, dynamic> input;
   final String error;
   final Map<String, dynamic>? metadata;
-  @JsonKey(name: 'ToolStateErrorTime')
-  final ToolStateErrorTime toolStateErrorTime;
+  final ToolStateErrorTime time;
 
   Map<String, Object?> toJson() => _$ToolStateErrorToJson(this);
 }

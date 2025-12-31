@@ -17,7 +17,7 @@ class TextPart {
     required this.type,
     required this.text,
     this.synthetic,
-    this.textPartTime,
+    this.time,
     this.metadata,
   });
 
@@ -32,8 +32,7 @@ class TextPart {
   final String type;
   final String text;
   final bool? synthetic;
-  @JsonKey(name: 'TextPartTime')
-  final TextPartTime? textPartTime;
+  final TextPartTime? time;
   final Map<String, dynamic>? metadata;
 
   Map<String, Object?> toJson() => _$TextPartToJson(this);

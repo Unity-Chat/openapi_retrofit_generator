@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MessageAbortedError {
 
- String get name;@JsonKey(name: 'MessageAbortedErrorData') MessageAbortedErrorData get messageAbortedErrorData;
+ String get name; MessageAbortedErrorData get data;
 /// Create a copy of MessageAbortedError
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $MessageAbortedErrorCopyWith<MessageAbortedError> get copyWith => _$MessageAbort
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageAbortedError&&(identical(other.name, name) || other.name == name)&&(identical(other.messageAbortedErrorData, messageAbortedErrorData) || other.messageAbortedErrorData == messageAbortedErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MessageAbortedError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,messageAbortedErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'MessageAbortedError(name: $name, messageAbortedErrorData: $messageAbortedErrorData)';
+  return 'MessageAbortedError(name: $name, data: $data)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $MessageAbortedErrorCopyWith<$Res>  {
   factory $MessageAbortedErrorCopyWith(MessageAbortedError value, $Res Function(MessageAbortedError) _then) = _$MessageAbortedErrorCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(name: 'MessageAbortedErrorData') MessageAbortedErrorData messageAbortedErrorData
+ String name, MessageAbortedErrorData data
 });
 
 
-$MessageAbortedErrorDataCopyWith<$Res> get messageAbortedErrorData;
+$MessageAbortedErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$MessageAbortedErrorCopyWithImpl<$Res>
 
 /// Create a copy of MessageAbortedError
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? messageAbortedErrorData = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? data = null,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,messageAbortedErrorData: null == messageAbortedErrorData ? _self.messageAbortedErrorData : messageAbortedErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as MessageAbortedErrorData,
   ));
 }
@@ -76,10 +76,10 @@ as MessageAbortedErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MessageAbortedErrorDataCopyWith<$Res> get messageAbortedErrorData {
+$MessageAbortedErrorDataCopyWith<$Res> get data {
   
-  return $MessageAbortedErrorDataCopyWith<$Res>(_self.messageAbortedErrorData, (value) {
-    return _then(_self.copyWith(messageAbortedErrorData: value));
+  return $MessageAbortedErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'MessageAbortedErrorData')  MessageAbortedErrorData messageAbortedErrorData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  MessageAbortedErrorData data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _MessageAbortedError() when $default != null:
-return $default(_that.name,_that.messageAbortedErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.name,_that.messageAbortedErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'MessageAbortedErrorData')  MessageAbortedErrorData messageAbortedErrorData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  MessageAbortedErrorData data)  $default,) {final _that = this;
 switch (_that) {
 case _MessageAbortedError():
-return $default(_that.name,_that.messageAbortedErrorData);case _:
+return $default(_that.name,_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.name,_that.messageAbortedErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(name: 'MessageAbortedErrorData')  MessageAbortedErrorData messageAbortedErrorData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  MessageAbortedErrorData data)?  $default,) {final _that = this;
 switch (_that) {
 case _MessageAbortedError() when $default != null:
-return $default(_that.name,_that.messageAbortedErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.name,_that.messageAbortedErrorData);case _:
 @JsonSerializable()
 
 class _MessageAbortedError implements MessageAbortedError {
-  const _MessageAbortedError({required this.name, @JsonKey(name: 'MessageAbortedErrorData') required this.messageAbortedErrorData});
+  const _MessageAbortedError({required this.name, required this.data});
   factory _MessageAbortedError.fromJson(Map<String, dynamic> json) => _$MessageAbortedErrorFromJson(json);
 
 @override final  String name;
-@override@JsonKey(name: 'MessageAbortedErrorData') final  MessageAbortedErrorData messageAbortedErrorData;
+@override final  MessageAbortedErrorData data;
 
 /// Create a copy of MessageAbortedError
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageAbortedError&&(identical(other.name, name) || other.name == name)&&(identical(other.messageAbortedErrorData, messageAbortedErrorData) || other.messageAbortedErrorData == messageAbortedErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MessageAbortedError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,messageAbortedErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'MessageAbortedError(name: $name, messageAbortedErrorData: $messageAbortedErrorData)';
+  return 'MessageAbortedError(name: $name, data: $data)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$MessageAbortedErrorCopyWith<$Res> implements $MessageAbor
   factory _$MessageAbortedErrorCopyWith(_MessageAbortedError value, $Res Function(_MessageAbortedError) _then) = __$MessageAbortedErrorCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(name: 'MessageAbortedErrorData') MessageAbortedErrorData messageAbortedErrorData
+ String name, MessageAbortedErrorData data
 });
 
 
-@override $MessageAbortedErrorDataCopyWith<$Res> get messageAbortedErrorData;
+@override $MessageAbortedErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$MessageAbortedErrorCopyWithImpl<$Res>
 
 /// Create a copy of MessageAbortedError
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? messageAbortedErrorData = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? data = null,}) {
   return _then(_MessageAbortedError(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,messageAbortedErrorData: null == messageAbortedErrorData ? _self.messageAbortedErrorData : messageAbortedErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as MessageAbortedErrorData,
   ));
 }
@@ -287,10 +287,10 @@ as MessageAbortedErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$MessageAbortedErrorDataCopyWith<$Res> get messageAbortedErrorData {
+$MessageAbortedErrorDataCopyWith<$Res> get data {
   
-  return $MessageAbortedErrorDataCopyWith<$Res>(_self.messageAbortedErrorData, (value) {
-    return _then(_self.copyWith(messageAbortedErrorData: value));
+  return $MessageAbortedErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

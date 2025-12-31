@@ -47,14 +47,14 @@ class ToolStateToolStateRunning with ToolStateToolStateRunningMappable {
   final dynamic input;
   final String? title;
   final Map<String, dynamic>? metadata;
-  final ToolStateRunningTime toolStateRunningTime;
+  final ToolStateRunningTime time;
 
   const ToolStateToolStateRunning({
     required this.status,
     required this.input,
     required this.title,
     required this.metadata,
-    required this.toolStateRunningTime,
+    required this.time,
   });
 }
 
@@ -65,7 +65,7 @@ class ToolStateToolStateCompleted with ToolStateToolStateCompletedMappable {
   final String output;
   final String title;
   final Map<String, dynamic> metadata;
-  final ToolStateCompletedTime toolStateCompletedTime;
+  final ToolStateCompletedTime time;
   final List<FilePart>? attachments;
 
   const ToolStateToolStateCompleted({
@@ -74,7 +74,7 @@ class ToolStateToolStateCompleted with ToolStateToolStateCompletedMappable {
     required this.output,
     required this.title,
     required this.metadata,
-    required this.toolStateCompletedTime,
+    required this.time,
     required this.attachments,
   });
 }
@@ -85,13 +85,13 @@ class ToolStateToolStateError with ToolStateToolStateErrorMappable {
   final Map<String, dynamic> input;
   final String error;
   final Map<String, dynamic>? metadata;
-  final ToolStateErrorTime toolStateErrorTime;
+  final ToolStateErrorTime time;
 
   const ToolStateToolStateError({
     required this.status,
     required this.input,
     required this.error,
     required this.metadata,
-    required this.toolStateErrorTime,
+    required this.time,
   });
 }

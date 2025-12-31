@@ -30,28 +30,22 @@ class EventMessagePartUpdatedMapper
     'type',
     _$type,
   );
-  static EventMessagePartUpdatedProperties _$eventMessagePartUpdatedProperties(
+  static EventMessagePartUpdatedProperties _$properties(
     EventMessagePartUpdated v,
-  ) => v.eventMessagePartUpdatedProperties;
+  ) => v.properties;
   static const Field<EventMessagePartUpdated, EventMessagePartUpdatedProperties>
-  _f$eventMessagePartUpdatedProperties = Field(
-    'eventMessagePartUpdatedProperties',
-    _$eventMessagePartUpdatedProperties,
-    key: r'EventMessagePartUpdatedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventMessagePartUpdated> fields = const {
     #type: _f$type,
-    #eventMessagePartUpdatedProperties: _f$eventMessagePartUpdatedProperties,
+    #properties: _f$properties,
   };
 
   static EventMessagePartUpdated _instantiate(DecodingData data) {
     return EventMessagePartUpdated(
       type: data.dec(_f$type),
-      eventMessagePartUpdatedProperties: data.dec(
-        _f$eventMessagePartUpdatedProperties,
-      ),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -130,11 +124,8 @@ abstract class EventMessagePartUpdatedCopyWith<
     EventMessagePartUpdatedProperties,
     EventMessagePartUpdatedProperties
   >
-  get eventMessagePartUpdatedProperties;
-  $R call({
-    String? type,
-    EventMessagePartUpdatedProperties? eventMessagePartUpdatedProperties,
-  });
+  get properties;
+  $R call({String? type, EventMessagePartUpdatedProperties? properties});
   EventMessagePartUpdatedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -155,28 +146,20 @@ class _EventMessagePartUpdatedCopyWithImpl<$R, $Out>
     EventMessagePartUpdatedProperties,
     EventMessagePartUpdatedProperties
   >
-  get eventMessagePartUpdatedProperties => $value
-      .eventMessagePartUpdatedProperties
-      .copyWith
-      .$chain((v) => call(eventMessagePartUpdatedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventMessagePartUpdatedProperties? eventMessagePartUpdatedProperties,
-  }) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (eventMessagePartUpdatedProperties != null)
-        #eventMessagePartUpdatedProperties: eventMessagePartUpdatedProperties,
-    }),
-  );
+  $R call({String? type, EventMessagePartUpdatedProperties? properties}) =>
+      $apply(
+        FieldCopyWithData({
+          if (type != null) #type: type,
+          if (properties != null) #properties: properties,
+        }),
+      );
   @override
   EventMessagePartUpdated $make(CopyWithData data) => EventMessagePartUpdated(
     type: data.get(#type, or: $value.type),
-    eventMessagePartUpdatedProperties: data.get(
-      #eventMessagePartUpdatedProperties,
-      or: $value.eventMessagePartUpdatedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

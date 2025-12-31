@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Model {
 
- String get id; String get name;@JsonKey(name: 'release_date') String get releaseDate; bool get attachment; bool get reasoning; bool get temperature;@JsonKey(name: 'tool_call') bool get toolCall;@JsonKey(name: 'ModelCost') ModelCost get modelCost;@JsonKey(name: 'ModelLimit') ModelLimit get modelLimit; Map<String, dynamic> get options;@JsonKey(name: 'ModelModalities') ModelModalities? get modelModalities; bool? get experimental; ModelStatusStatus? get status;@JsonKey(name: 'ModelProvider') ModelProvider? get modelProvider;
+ String get id; String get name;@JsonKey(name: 'release_date') String get releaseDate; bool get attachment; bool get reasoning; bool get temperature;@JsonKey(name: 'tool_call') bool get toolCall; ModelCost get cost; ModelLimit get limit; Map<String, dynamic> get options; ModelModalities? get modalities; bool? get experimental; ModelStatusStatus? get status; ModelProvider? get provider;
 /// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ModelCopyWith<Model> get copyWith => _$ModelCopyWithImpl<Model>(this as Model, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Model&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.attachment, attachment) || other.attachment == attachment)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.toolCall, toolCall) || other.toolCall == toolCall)&&(identical(other.modelCost, modelCost) || other.modelCost == modelCost)&&(identical(other.modelLimit, modelLimit) || other.modelLimit == modelLimit)&&const DeepCollectionEquality().equals(other.options, options)&&(identical(other.modelModalities, modelModalities) || other.modelModalities == modelModalities)&&(identical(other.experimental, experimental) || other.experimental == experimental)&&(identical(other.status, status) || other.status == status)&&(identical(other.modelProvider, modelProvider) || other.modelProvider == modelProvider));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Model&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.attachment, attachment) || other.attachment == attachment)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.toolCall, toolCall) || other.toolCall == toolCall)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.limit, limit) || other.limit == limit)&&const DeepCollectionEquality().equals(other.options, options)&&(identical(other.modalities, modalities) || other.modalities == modalities)&&(identical(other.experimental, experimental) || other.experimental == experimental)&&(identical(other.status, status) || other.status == status)&&(identical(other.provider, provider) || other.provider == provider));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,releaseDate,attachment,reasoning,temperature,toolCall,modelCost,modelLimit,const DeepCollectionEquality().hash(options),modelModalities,experimental,status,modelProvider);
+int get hashCode => Object.hash(runtimeType,id,name,releaseDate,attachment,reasoning,temperature,toolCall,cost,limit,const DeepCollectionEquality().hash(options),modalities,experimental,status,provider);
 
 @override
 String toString() {
-  return 'Model(id: $id, name: $name, releaseDate: $releaseDate, attachment: $attachment, reasoning: $reasoning, temperature: $temperature, toolCall: $toolCall, modelCost: $modelCost, modelLimit: $modelLimit, options: $options, modelModalities: $modelModalities, experimental: $experimental, status: $status, modelProvider: $modelProvider)';
+  return 'Model(id: $id, name: $name, releaseDate: $releaseDate, attachment: $attachment, reasoning: $reasoning, temperature: $temperature, toolCall: $toolCall, cost: $cost, limit: $limit, options: $options, modalities: $modalities, experimental: $experimental, status: $status, provider: $provider)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ModelCopyWith<$Res>  {
   factory $ModelCopyWith(Model value, $Res Function(Model) _then) = _$ModelCopyWithImpl;
 @useResult
 $Res call({
- String id, String name,@JsonKey(name: 'release_date') String releaseDate, bool attachment, bool reasoning, bool temperature,@JsonKey(name: 'tool_call') bool toolCall,@JsonKey(name: 'ModelCost') ModelCost modelCost,@JsonKey(name: 'ModelLimit') ModelLimit modelLimit, Map<String, dynamic> options,@JsonKey(name: 'ModelModalities') ModelModalities? modelModalities, bool? experimental, ModelStatusStatus? status,@JsonKey(name: 'ModelProvider') ModelProvider? modelProvider
+ String id, String name,@JsonKey(name: 'release_date') String releaseDate, bool attachment, bool reasoning, bool temperature,@JsonKey(name: 'tool_call') bool toolCall, ModelCost cost, ModelLimit limit, Map<String, dynamic> options, ModelModalities? modalities, bool? experimental, ModelStatusStatus? status, ModelProvider? provider
 });
 
 
-$ModelCostCopyWith<$Res> get modelCost;$ModelLimitCopyWith<$Res> get modelLimit;$ModelModalitiesCopyWith<$Res>? get modelModalities;$ModelProviderCopyWith<$Res>? get modelProvider;
+$ModelCostCopyWith<$Res> get cost;$ModelLimitCopyWith<$Res> get limit;$ModelModalitiesCopyWith<$Res>? get modalities;$ModelProviderCopyWith<$Res>? get provider;
 
 }
 /// @nodoc
@@ -65,7 +65,7 @@ class _$ModelCopyWithImpl<$Res>
 
 /// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? releaseDate = null,Object? attachment = null,Object? reasoning = null,Object? temperature = null,Object? toolCall = null,Object? modelCost = null,Object? modelLimit = null,Object? options = null,Object? modelModalities = freezed,Object? experimental = freezed,Object? status = freezed,Object? modelProvider = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? releaseDate = null,Object? attachment = null,Object? reasoning = null,Object? temperature = null,Object? toolCall = null,Object? cost = null,Object? limit = null,Object? options = null,Object? modalities = freezed,Object? experimental = freezed,Object? status = freezed,Object? provider = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -74,13 +74,13 @@ as String,attachment: null == attachment ? _self.attachment : attachment // igno
 as bool,reasoning: null == reasoning ? _self.reasoning : reasoning // ignore: cast_nullable_to_non_nullable
 as bool,temperature: null == temperature ? _self.temperature : temperature // ignore: cast_nullable_to_non_nullable
 as bool,toolCall: null == toolCall ? _self.toolCall : toolCall // ignore: cast_nullable_to_non_nullable
-as bool,modelCost: null == modelCost ? _self.modelCost : modelCost // ignore: cast_nullable_to_non_nullable
-as ModelCost,modelLimit: null == modelLimit ? _self.modelLimit : modelLimit // ignore: cast_nullable_to_non_nullable
+as bool,cost: null == cost ? _self.cost : cost // ignore: cast_nullable_to_non_nullable
+as ModelCost,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as ModelLimit,options: null == options ? _self.options : options // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,modelModalities: freezed == modelModalities ? _self.modelModalities : modelModalities // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,modalities: freezed == modalities ? _self.modalities : modalities // ignore: cast_nullable_to_non_nullable
 as ModelModalities?,experimental: freezed == experimental ? _self.experimental : experimental // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as ModelStatusStatus?,modelProvider: freezed == modelProvider ? _self.modelProvider : modelProvider // ignore: cast_nullable_to_non_nullable
+as ModelStatusStatus?,provider: freezed == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as ModelProvider?,
   ));
 }
@@ -88,43 +88,43 @@ as ModelProvider?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelCostCopyWith<$Res> get modelCost {
+$ModelCostCopyWith<$Res> get cost {
   
-  return $ModelCostCopyWith<$Res>(_self.modelCost, (value) {
-    return _then(_self.copyWith(modelCost: value));
+  return $ModelCostCopyWith<$Res>(_self.cost, (value) {
+    return _then(_self.copyWith(cost: value));
   });
 }/// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelLimitCopyWith<$Res> get modelLimit {
+$ModelLimitCopyWith<$Res> get limit {
   
-  return $ModelLimitCopyWith<$Res>(_self.modelLimit, (value) {
-    return _then(_self.copyWith(modelLimit: value));
+  return $ModelLimitCopyWith<$Res>(_self.limit, (value) {
+    return _then(_self.copyWith(limit: value));
   });
 }/// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelModalitiesCopyWith<$Res>? get modelModalities {
-    if (_self.modelModalities == null) {
+$ModelModalitiesCopyWith<$Res>? get modalities {
+    if (_self.modalities == null) {
     return null;
   }
 
-  return $ModelModalitiesCopyWith<$Res>(_self.modelModalities!, (value) {
-    return _then(_self.copyWith(modelModalities: value));
+  return $ModelModalitiesCopyWith<$Res>(_self.modalities!, (value) {
+    return _then(_self.copyWith(modalities: value));
   });
 }/// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelProviderCopyWith<$Res>? get modelProvider {
-    if (_self.modelProvider == null) {
+$ModelProviderCopyWith<$Res>? get provider {
+    if (_self.provider == null) {
     return null;
   }
 
-  return $ModelProviderCopyWith<$Res>(_self.modelProvider!, (value) {
-    return _then(_self.copyWith(modelProvider: value));
+  return $ModelProviderCopyWith<$Res>(_self.provider!, (value) {
+    return _then(_self.copyWith(provider: value));
   });
 }
 }
@@ -208,10 +208,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name, @JsonKey(name: 'release_date')  String releaseDate,  bool attachment,  bool reasoning,  bool temperature, @JsonKey(name: 'tool_call')  bool toolCall, @JsonKey(name: 'ModelCost')  ModelCost modelCost, @JsonKey(name: 'ModelLimit')  ModelLimit modelLimit,  Map<String, dynamic> options, @JsonKey(name: 'ModelModalities')  ModelModalities? modelModalities,  bool? experimental,  ModelStatusStatus? status, @JsonKey(name: 'ModelProvider')  ModelProvider? modelProvider)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name, @JsonKey(name: 'release_date')  String releaseDate,  bool attachment,  bool reasoning,  bool temperature, @JsonKey(name: 'tool_call')  bool toolCall,  ModelCost cost,  ModelLimit limit,  Map<String, dynamic> options,  ModelModalities? modalities,  bool? experimental,  ModelStatusStatus? status,  ModelProvider? provider)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Model() when $default != null:
-return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.reasoning,_that.temperature,_that.toolCall,_that.modelCost,_that.modelLimit,_that.options,_that.modelModalities,_that.experimental,_that.status,_that.modelProvider);case _:
+return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.reasoning,_that.temperature,_that.toolCall,_that.cost,_that.limit,_that.options,_that.modalities,_that.experimental,_that.status,_that.provider);case _:
   return orElse();
 
 }
@@ -229,10 +229,10 @@ return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.rea
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name, @JsonKey(name: 'release_date')  String releaseDate,  bool attachment,  bool reasoning,  bool temperature, @JsonKey(name: 'tool_call')  bool toolCall, @JsonKey(name: 'ModelCost')  ModelCost modelCost, @JsonKey(name: 'ModelLimit')  ModelLimit modelLimit,  Map<String, dynamic> options, @JsonKey(name: 'ModelModalities')  ModelModalities? modelModalities,  bool? experimental,  ModelStatusStatus? status, @JsonKey(name: 'ModelProvider')  ModelProvider? modelProvider)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name, @JsonKey(name: 'release_date')  String releaseDate,  bool attachment,  bool reasoning,  bool temperature, @JsonKey(name: 'tool_call')  bool toolCall,  ModelCost cost,  ModelLimit limit,  Map<String, dynamic> options,  ModelModalities? modalities,  bool? experimental,  ModelStatusStatus? status,  ModelProvider? provider)  $default,) {final _that = this;
 switch (_that) {
 case _Model():
-return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.reasoning,_that.temperature,_that.toolCall,_that.modelCost,_that.modelLimit,_that.options,_that.modelModalities,_that.experimental,_that.status,_that.modelProvider);case _:
+return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.reasoning,_that.temperature,_that.toolCall,_that.cost,_that.limit,_that.options,_that.modalities,_that.experimental,_that.status,_that.provider);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -249,10 +249,10 @@ return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.rea
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name, @JsonKey(name: 'release_date')  String releaseDate,  bool attachment,  bool reasoning,  bool temperature, @JsonKey(name: 'tool_call')  bool toolCall, @JsonKey(name: 'ModelCost')  ModelCost modelCost, @JsonKey(name: 'ModelLimit')  ModelLimit modelLimit,  Map<String, dynamic> options, @JsonKey(name: 'ModelModalities')  ModelModalities? modelModalities,  bool? experimental,  ModelStatusStatus? status, @JsonKey(name: 'ModelProvider')  ModelProvider? modelProvider)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name, @JsonKey(name: 'release_date')  String releaseDate,  bool attachment,  bool reasoning,  bool temperature, @JsonKey(name: 'tool_call')  bool toolCall,  ModelCost cost,  ModelLimit limit,  Map<String, dynamic> options,  ModelModalities? modalities,  bool? experimental,  ModelStatusStatus? status,  ModelProvider? provider)?  $default,) {final _that = this;
 switch (_that) {
 case _Model() when $default != null:
-return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.reasoning,_that.temperature,_that.toolCall,_that.modelCost,_that.modelLimit,_that.options,_that.modelModalities,_that.experimental,_that.status,_that.modelProvider);case _:
+return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.reasoning,_that.temperature,_that.toolCall,_that.cost,_that.limit,_that.options,_that.modalities,_that.experimental,_that.status,_that.provider);case _:
   return null;
 
 }
@@ -264,7 +264,7 @@ return $default(_that.id,_that.name,_that.releaseDate,_that.attachment,_that.rea
 @JsonSerializable()
 
 class _Model implements Model {
-  const _Model({required this.id, required this.name, @JsonKey(name: 'release_date') required this.releaseDate, required this.attachment, required this.reasoning, required this.temperature, @JsonKey(name: 'tool_call') required this.toolCall, @JsonKey(name: 'ModelCost') required this.modelCost, @JsonKey(name: 'ModelLimit') required this.modelLimit, required final  Map<String, dynamic> options, @JsonKey(name: 'ModelModalities') this.modelModalities, this.experimental, this.status, @JsonKey(name: 'ModelProvider') this.modelProvider}): _options = options;
+  const _Model({required this.id, required this.name, @JsonKey(name: 'release_date') required this.releaseDate, required this.attachment, required this.reasoning, required this.temperature, @JsonKey(name: 'tool_call') required this.toolCall, required this.cost, required this.limit, required final  Map<String, dynamic> options, this.modalities, this.experimental, this.status, this.provider}): _options = options;
   factory _Model.fromJson(Map<String, dynamic> json) => _$ModelFromJson(json);
 
 @override final  String id;
@@ -274,8 +274,8 @@ class _Model implements Model {
 @override final  bool reasoning;
 @override final  bool temperature;
 @override@JsonKey(name: 'tool_call') final  bool toolCall;
-@override@JsonKey(name: 'ModelCost') final  ModelCost modelCost;
-@override@JsonKey(name: 'ModelLimit') final  ModelLimit modelLimit;
+@override final  ModelCost cost;
+@override final  ModelLimit limit;
  final  Map<String, dynamic> _options;
 @override Map<String, dynamic> get options {
   if (_options is EqualUnmodifiableMapView) return _options;
@@ -283,10 +283,10 @@ class _Model implements Model {
   return EqualUnmodifiableMapView(_options);
 }
 
-@override@JsonKey(name: 'ModelModalities') final  ModelModalities? modelModalities;
+@override final  ModelModalities? modalities;
 @override final  bool? experimental;
 @override final  ModelStatusStatus? status;
-@override@JsonKey(name: 'ModelProvider') final  ModelProvider? modelProvider;
+@override final  ModelProvider? provider;
 
 /// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
@@ -301,16 +301,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Model&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.attachment, attachment) || other.attachment == attachment)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.toolCall, toolCall) || other.toolCall == toolCall)&&(identical(other.modelCost, modelCost) || other.modelCost == modelCost)&&(identical(other.modelLimit, modelLimit) || other.modelLimit == modelLimit)&&const DeepCollectionEquality().equals(other._options, _options)&&(identical(other.modelModalities, modelModalities) || other.modelModalities == modelModalities)&&(identical(other.experimental, experimental) || other.experimental == experimental)&&(identical(other.status, status) || other.status == status)&&(identical(other.modelProvider, modelProvider) || other.modelProvider == modelProvider));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Model&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.attachment, attachment) || other.attachment == attachment)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.toolCall, toolCall) || other.toolCall == toolCall)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.limit, limit) || other.limit == limit)&&const DeepCollectionEquality().equals(other._options, _options)&&(identical(other.modalities, modalities) || other.modalities == modalities)&&(identical(other.experimental, experimental) || other.experimental == experimental)&&(identical(other.status, status) || other.status == status)&&(identical(other.provider, provider) || other.provider == provider));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,releaseDate,attachment,reasoning,temperature,toolCall,modelCost,modelLimit,const DeepCollectionEquality().hash(_options),modelModalities,experimental,status,modelProvider);
+int get hashCode => Object.hash(runtimeType,id,name,releaseDate,attachment,reasoning,temperature,toolCall,cost,limit,const DeepCollectionEquality().hash(_options),modalities,experimental,status,provider);
 
 @override
 String toString() {
-  return 'Model(id: $id, name: $name, releaseDate: $releaseDate, attachment: $attachment, reasoning: $reasoning, temperature: $temperature, toolCall: $toolCall, modelCost: $modelCost, modelLimit: $modelLimit, options: $options, modelModalities: $modelModalities, experimental: $experimental, status: $status, modelProvider: $modelProvider)';
+  return 'Model(id: $id, name: $name, releaseDate: $releaseDate, attachment: $attachment, reasoning: $reasoning, temperature: $temperature, toolCall: $toolCall, cost: $cost, limit: $limit, options: $options, modalities: $modalities, experimental: $experimental, status: $status, provider: $provider)';
 }
 
 
@@ -321,11 +321,11 @@ abstract mixin class _$ModelCopyWith<$Res> implements $ModelCopyWith<$Res> {
   factory _$ModelCopyWith(_Model value, $Res Function(_Model) _then) = __$ModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name,@JsonKey(name: 'release_date') String releaseDate, bool attachment, bool reasoning, bool temperature,@JsonKey(name: 'tool_call') bool toolCall,@JsonKey(name: 'ModelCost') ModelCost modelCost,@JsonKey(name: 'ModelLimit') ModelLimit modelLimit, Map<String, dynamic> options,@JsonKey(name: 'ModelModalities') ModelModalities? modelModalities, bool? experimental, ModelStatusStatus? status,@JsonKey(name: 'ModelProvider') ModelProvider? modelProvider
+ String id, String name,@JsonKey(name: 'release_date') String releaseDate, bool attachment, bool reasoning, bool temperature,@JsonKey(name: 'tool_call') bool toolCall, ModelCost cost, ModelLimit limit, Map<String, dynamic> options, ModelModalities? modalities, bool? experimental, ModelStatusStatus? status, ModelProvider? provider
 });
 
 
-@override $ModelCostCopyWith<$Res> get modelCost;@override $ModelLimitCopyWith<$Res> get modelLimit;@override $ModelModalitiesCopyWith<$Res>? get modelModalities;@override $ModelProviderCopyWith<$Res>? get modelProvider;
+@override $ModelCostCopyWith<$Res> get cost;@override $ModelLimitCopyWith<$Res> get limit;@override $ModelModalitiesCopyWith<$Res>? get modalities;@override $ModelProviderCopyWith<$Res>? get provider;
 
 }
 /// @nodoc
@@ -338,7 +338,7 @@ class __$ModelCopyWithImpl<$Res>
 
 /// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? releaseDate = null,Object? attachment = null,Object? reasoning = null,Object? temperature = null,Object? toolCall = null,Object? modelCost = null,Object? modelLimit = null,Object? options = null,Object? modelModalities = freezed,Object? experimental = freezed,Object? status = freezed,Object? modelProvider = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? releaseDate = null,Object? attachment = null,Object? reasoning = null,Object? temperature = null,Object? toolCall = null,Object? cost = null,Object? limit = null,Object? options = null,Object? modalities = freezed,Object? experimental = freezed,Object? status = freezed,Object? provider = freezed,}) {
   return _then(_Model(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -347,13 +347,13 @@ as String,attachment: null == attachment ? _self.attachment : attachment // igno
 as bool,reasoning: null == reasoning ? _self.reasoning : reasoning // ignore: cast_nullable_to_non_nullable
 as bool,temperature: null == temperature ? _self.temperature : temperature // ignore: cast_nullable_to_non_nullable
 as bool,toolCall: null == toolCall ? _self.toolCall : toolCall // ignore: cast_nullable_to_non_nullable
-as bool,modelCost: null == modelCost ? _self.modelCost : modelCost // ignore: cast_nullable_to_non_nullable
-as ModelCost,modelLimit: null == modelLimit ? _self.modelLimit : modelLimit // ignore: cast_nullable_to_non_nullable
+as bool,cost: null == cost ? _self.cost : cost // ignore: cast_nullable_to_non_nullable
+as ModelCost,limit: null == limit ? _self.limit : limit // ignore: cast_nullable_to_non_nullable
 as ModelLimit,options: null == options ? _self._options : options // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,modelModalities: freezed == modelModalities ? _self.modelModalities : modelModalities // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,modalities: freezed == modalities ? _self.modalities : modalities // ignore: cast_nullable_to_non_nullable
 as ModelModalities?,experimental: freezed == experimental ? _self.experimental : experimental // ignore: cast_nullable_to_non_nullable
 as bool?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as ModelStatusStatus?,modelProvider: freezed == modelProvider ? _self.modelProvider : modelProvider // ignore: cast_nullable_to_non_nullable
+as ModelStatusStatus?,provider: freezed == provider ? _self.provider : provider // ignore: cast_nullable_to_non_nullable
 as ModelProvider?,
   ));
 }
@@ -362,43 +362,43 @@ as ModelProvider?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelCostCopyWith<$Res> get modelCost {
+$ModelCostCopyWith<$Res> get cost {
   
-  return $ModelCostCopyWith<$Res>(_self.modelCost, (value) {
-    return _then(_self.copyWith(modelCost: value));
+  return $ModelCostCopyWith<$Res>(_self.cost, (value) {
+    return _then(_self.copyWith(cost: value));
   });
 }/// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelLimitCopyWith<$Res> get modelLimit {
+$ModelLimitCopyWith<$Res> get limit {
   
-  return $ModelLimitCopyWith<$Res>(_self.modelLimit, (value) {
-    return _then(_self.copyWith(modelLimit: value));
+  return $ModelLimitCopyWith<$Res>(_self.limit, (value) {
+    return _then(_self.copyWith(limit: value));
   });
 }/// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelModalitiesCopyWith<$Res>? get modelModalities {
-    if (_self.modelModalities == null) {
+$ModelModalitiesCopyWith<$Res>? get modalities {
+    if (_self.modalities == null) {
     return null;
   }
 
-  return $ModelModalitiesCopyWith<$Res>(_self.modelModalities!, (value) {
-    return _then(_self.copyWith(modelModalities: value));
+  return $ModelModalitiesCopyWith<$Res>(_self.modalities!, (value) {
+    return _then(_self.copyWith(modalities: value));
   });
 }/// Create a copy of Model
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ModelProviderCopyWith<$Res>? get modelProvider {
-    if (_self.modelProvider == null) {
+$ModelProviderCopyWith<$Res>? get provider {
+    if (_self.provider == null) {
     return null;
   }
 
-  return $ModelProviderCopyWith<$Res>(_self.modelProvider!, (value) {
-    return _then(_self.copyWith(modelProvider: value));
+  return $ModelProviderCopyWith<$Res>(_self.provider!, (value) {
+    return _then(_self.copyWith(provider: value));
   });
 }
 }

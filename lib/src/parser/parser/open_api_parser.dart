@@ -1807,11 +1807,13 @@ class OpenApiParser {
                     .isNotEmpty &&
                 !(map[_additionalPropertiesConst] as Map<String, dynamic>)
                     .containsKey(_refConst))) {
-      final originalName = additionalName ?? name;
+      // Use additionalName for type naming (e.g., AssistantMessageTime)
+      // but keep original 'name' for jsonKey (e.g., 'time')
+      final typeBaseName = additionalName ?? name;
       // false positive result
       // ignore: unnecessary_null_checks
       final (newName!, description) = protectName(
-        originalName,
+        typeBaseName,
         uniqueIfNull: true,
         description: map[_descriptionConst]?.toString(),
       );
@@ -1862,11 +1864,19 @@ class OpenApiParser {
           ? map[_formatConst].toString()
           : null;
 
+      // Get field name from original property name (not additionalName)
+      // If name is null, fall back to newName (derived from typeBaseName)
+      final (fieldName, _) = protectName(
+        name,
+        description: map[_descriptionConst]?.toString(),
+      );
+      final effectiveFieldName = fieldName ?? newName;
+
       String? defaultValue;
       if (map.containsKey(_defaultConst)) {
         if (format == 'date' || format == 'date-time') {
           stdout.writeln(
-            'Warning: Default value for date/date-time field "${newName.toCamel}" is not supported and will be ignored.',
+            'Warning: Default value for date/date-time field "${effectiveFieldName.toCamel}" is not supported and will be ignored.',
           );
         } else {
           defaultValue = protectDefaultValue(map[_defaultConst]);
@@ -1876,10 +1886,10 @@ class OpenApiParser {
       return (
         type: UniversalType(
           type: type,
-          name: newName.toCamel,
+          name: effectiveFieldName.toCamel,
           description: description,
           format: format,
-          jsonKey: originalName,
+          jsonKey: name,
           defaultValue: defaultValue,
           nullable: switch (map[_nullableConst].toString().toBool()) {
             null => !isRequired,

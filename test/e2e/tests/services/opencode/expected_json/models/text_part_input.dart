@@ -15,7 +15,7 @@ class TextPartInput {
     required this.text,
     this.id,
     this.synthetic,
-    this.textPartInputTime,
+    this.time,
     this.metadata,
   });
 
@@ -26,8 +26,7 @@ class TextPartInput {
   final String type;
   final String text;
   final bool? synthetic;
-  @JsonKey(name: 'TextPartInputTime')
-  final TextPartInputTime? textPartInputTime;
+  final TextPartInputTime? time;
   final Map<String, dynamic>? metadata;
 
   Map<String, Object?> toJson() => _$TextPartInputToJson(this);

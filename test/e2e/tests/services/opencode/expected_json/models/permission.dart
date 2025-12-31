@@ -17,7 +17,7 @@ class Permission {
     required this.messageId,
     required this.title,
     required this.metadata,
-    required this.permissionTime,
+    required this.time,
     this.pattern,
     this.callId,
   });
@@ -36,8 +36,7 @@ class Permission {
   final String? callId;
   final String title;
   final Map<String, dynamic> metadata;
-  @JsonKey(name: 'PermissionTime')
-  final PermissionTime permissionTime;
+  final PermissionTime time;
 
   Map<String, Object?> toJson() => _$PermissionToJson(this);
 }

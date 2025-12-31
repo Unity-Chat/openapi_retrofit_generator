@@ -13,13 +13,12 @@ class SymbolModel with SymbolModelMappable {
   const SymbolModel({
     required this.name,
     required this.kind,
-    required this.symbolModelLocation,
+    required this.location,
   });
 
   final String name;
   final num kind;
-  @MappableField(key: 'SymbolModelLocation')
-  final SymbolModelLocation symbolModelLocation;
+  final SymbolModelLocation location;
 
   static SymbolModel fromJson(Map<String, dynamic> json) =>
       SymbolModelMapper.fromJson(json);

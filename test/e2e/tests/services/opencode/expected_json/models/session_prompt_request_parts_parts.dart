@@ -34,7 +34,7 @@ class SessionPromptRequestPartsPartsTextPartInput {
   final String type;
   final String text;
   final bool? synthetic;
-  final TextPartInputTime? textPartInputTime;
+  final TextPartInputTime? time;
   final Map<String, dynamic>? metadata;
 
   const SessionPromptRequestPartsPartsTextPartInput({
@@ -42,7 +42,7 @@ class SessionPromptRequestPartsPartsTextPartInput {
     required this.type,
     required this.text,
     required this.synthetic,
-    required this.textPartInputTime,
+    required this.time,
     required this.metadata,
   });
 
@@ -85,13 +85,13 @@ class SessionPromptRequestPartsPartsAgentPartInput {
   final String? id;
   final String type;
   final String name;
-  final AgentPartInputSource? agentPartInputSource;
+  final AgentPartInputSource? source;
 
   const SessionPromptRequestPartsPartsAgentPartInput({
     required this.id,
     required this.type,
     required this.name,
-    required this.agentPartInputSource,
+    required this.source,
   });
 
   factory SessionPromptRequestPartsPartsAgentPartInput.fromJson(

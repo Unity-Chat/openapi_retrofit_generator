@@ -13,9 +13,7 @@ part 'event_message_part_removed.g.dart';
 abstract class EventMessagePartRemoved with _$EventMessagePartRemoved {
   const factory EventMessagePartRemoved({
     required String type,
-    @JsonKey(name: 'EventMessagePartRemovedProperties')
-    required EventMessagePartRemovedProperties
-    eventMessagePartRemovedProperties,
+    required EventMessagePartRemovedProperties properties,
   }) = _EventMessagePartRemoved;
 
   factory EventMessagePartRemoved.fromJson(Map<String, Object?> json) =>

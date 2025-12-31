@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GetDuplicateResponse {
 
- Data? get data;@JsonKey(name: 'GetDuplicateResponseMetadata') GetDuplicateResponseMetadata? get getDuplicateResponseMetadata;
+ Data? get data; GetDuplicateResponseMetadata? get metadata;
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $GetDuplicateResponseCopyWith<GetDuplicateResponse> get copyWith => _$GetDuplica
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.getDuplicateResponseMetadata, getDuplicateResponseMetadata) || other.getDuplicateResponseMetadata == getDuplicateResponseMetadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,data,getDuplicateResponseMetadata);
+int get hashCode => Object.hash(runtimeType,data,metadata);
 
 @override
 String toString() {
-  return 'GetDuplicateResponse(data: $data, getDuplicateResponseMetadata: $getDuplicateResponseMetadata)';
+  return 'GetDuplicateResponse(data: $data, metadata: $metadata)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $GetDuplicateResponseCopyWith<$Res>  {
   factory $GetDuplicateResponseCopyWith(GetDuplicateResponse value, $Res Function(GetDuplicateResponse) _then) = _$GetDuplicateResponseCopyWithImpl;
 @useResult
 $Res call({
- Data? data,@JsonKey(name: 'GetDuplicateResponseMetadata') GetDuplicateResponseMetadata? getDuplicateResponseMetadata
+ Data? data, GetDuplicateResponseMetadata? metadata
 });
 
 
-$DataCopyWith<$Res>? get data;$GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata;
+$DataCopyWith<$Res>? get data;$GetDuplicateResponseMetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$GetDuplicateResponseCopyWithImpl<$Res>
 
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,Object? getDuplicateResponseMetadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? data = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as Data?,getDuplicateResponseMetadata: freezed == getDuplicateResponseMetadata ? _self.getDuplicateResponseMetadata : getDuplicateResponseMetadata // ignore: cast_nullable_to_non_nullable
+as Data?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as GetDuplicateResponseMetadata?,
   ));
 }
@@ -88,13 +88,13 @@ $DataCopyWith<$Res>? get data {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata {
-    if (_self.getDuplicateResponseMetadata == null) {
+$GetDuplicateResponseMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
     return null;
   }
 
-  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.getDuplicateResponseMetadata!, (value) {
-    return _then(_self.copyWith(getDuplicateResponseMetadata: value));
+  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.metadata!, (value) {
+    return _then(_self.copyWith(metadata: value));
   });
 }
 }
@@ -178,10 +178,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Data? data, @JsonKey(name: 'GetDuplicateResponseMetadata')  GetDuplicateResponseMetadata? getDuplicateResponseMetadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( Data? data,  GetDuplicateResponseMetadata? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponse() when $default != null:
-return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
+return $default(_that.data,_that.metadata);case _:
   return orElse();
 
 }
@@ -199,10 +199,10 @@ return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Data? data, @JsonKey(name: 'GetDuplicateResponseMetadata')  GetDuplicateResponseMetadata? getDuplicateResponseMetadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( Data? data,  GetDuplicateResponseMetadata? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponse():
-return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
+return $default(_that.data,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -219,10 +219,10 @@ return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Data? data, @JsonKey(name: 'GetDuplicateResponseMetadata')  GetDuplicateResponseMetadata? getDuplicateResponseMetadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( Data? data,  GetDuplicateResponseMetadata? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _GetDuplicateResponse() when $default != null:
-return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
+return $default(_that.data,_that.metadata);case _:
   return null;
 
 }
@@ -234,11 +234,11 @@ return $default(_that.data,_that.getDuplicateResponseMetadata);case _:
 @JsonSerializable()
 
 class _GetDuplicateResponse implements GetDuplicateResponse {
-  const _GetDuplicateResponse({this.data, @JsonKey(name: 'GetDuplicateResponseMetadata') this.getDuplicateResponseMetadata});
+  const _GetDuplicateResponse({this.data, this.metadata});
   factory _GetDuplicateResponse.fromJson(Map<String, dynamic> json) => _$GetDuplicateResponseFromJson(json);
 
 @override final  Data? data;
-@override@JsonKey(name: 'GetDuplicateResponseMetadata') final  GetDuplicateResponseMetadata? getDuplicateResponseMetadata;
+@override final  GetDuplicateResponseMetadata? metadata;
 
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
@@ -253,16 +253,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.getDuplicateResponseMetadata, getDuplicateResponseMetadata) || other.getDuplicateResponseMetadata == getDuplicateResponseMetadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDuplicateResponse&&(identical(other.data, data) || other.data == data)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,data,getDuplicateResponseMetadata);
+int get hashCode => Object.hash(runtimeType,data,metadata);
 
 @override
 String toString() {
-  return 'GetDuplicateResponse(data: $data, getDuplicateResponseMetadata: $getDuplicateResponseMetadata)';
+  return 'GetDuplicateResponse(data: $data, metadata: $metadata)';
 }
 
 
@@ -273,11 +273,11 @@ abstract mixin class _$GetDuplicateResponseCopyWith<$Res> implements $GetDuplica
   factory _$GetDuplicateResponseCopyWith(_GetDuplicateResponse value, $Res Function(_GetDuplicateResponse) _then) = __$GetDuplicateResponseCopyWithImpl;
 @override @useResult
 $Res call({
- Data? data,@JsonKey(name: 'GetDuplicateResponseMetadata') GetDuplicateResponseMetadata? getDuplicateResponseMetadata
+ Data? data, GetDuplicateResponseMetadata? metadata
 });
 
 
-@override $DataCopyWith<$Res>? get data;@override $GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata;
+@override $DataCopyWith<$Res>? get data;@override $GetDuplicateResponseMetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -290,10 +290,10 @@ class __$GetDuplicateResponseCopyWithImpl<$Res>
 
 /// Create a copy of GetDuplicateResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,Object? getDuplicateResponseMetadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? data = freezed,Object? metadata = freezed,}) {
   return _then(_GetDuplicateResponse(
 data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
-as Data?,getDuplicateResponseMetadata: freezed == getDuplicateResponseMetadata ? _self.getDuplicateResponseMetadata : getDuplicateResponseMetadata // ignore: cast_nullable_to_non_nullable
+as Data?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as GetDuplicateResponseMetadata?,
   ));
 }
@@ -314,13 +314,13 @@ $DataCopyWith<$Res>? get data {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$GetDuplicateResponseMetadataCopyWith<$Res>? get getDuplicateResponseMetadata {
-    if (_self.getDuplicateResponseMetadata == null) {
+$GetDuplicateResponseMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
     return null;
   }
 
-  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.getDuplicateResponseMetadata!, (value) {
-    return _then(_self.copyWith(getDuplicateResponseMetadata: value));
+  return $GetDuplicateResponseMetadataCopyWith<$Res>(_self.metadata!, (value) {
+    return _then(_self.copyWith(metadata: value));
   });
 }
 }

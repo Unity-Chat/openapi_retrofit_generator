@@ -14,25 +14,23 @@ _Models _$ModelsFromJson(Map<String, dynamic> json) => _Models(
   reasoning: json['reasoning'] as bool?,
   temperature: json['temperature'] as bool?,
   toolCall: json['tool_call'] as bool?,
-  modelsCost: json['ModelsCost'] == null
+  cost: json['cost'] == null
       ? null
-      : ModelsCost.fromJson(json['ModelsCost'] as Map<String, dynamic>),
-  modelsLimit: json['ModelsLimit'] == null
+      : ModelsCost.fromJson(json['cost'] as Map<String, dynamic>),
+  limit: json['limit'] == null
       ? null
-      : ModelsLimit.fromJson(json['ModelsLimit'] as Map<String, dynamic>),
-  modelsModalities: json['ModelsModalities'] == null
+      : ModelsLimit.fromJson(json['limit'] as Map<String, dynamic>),
+  modalities: json['modalities'] == null
       ? null
-      : ModelsModalities.fromJson(
-          json['ModelsModalities'] as Map<String, dynamic>,
-        ),
+      : ModelsModalities.fromJson(json['modalities'] as Map<String, dynamic>),
   experimental: json['experimental'] as bool?,
   status: json['status'] == null
       ? null
       : ModelsStatusStatus.fromJson(json['status'] as String),
   options: json['options'] as Map<String, dynamic>?,
-  modelsProvider: json['ModelsProvider'] == null
+  provider: json['provider'] == null
       ? null
-      : ModelsProvider.fromJson(json['ModelsProvider'] as Map<String, dynamic>),
+      : ModelsProvider.fromJson(json['provider'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ModelsToJson(_Models instance) => <String, dynamic>{
@@ -43,11 +41,11 @@ Map<String, dynamic> _$ModelsToJson(_Models instance) => <String, dynamic>{
   'reasoning': instance.reasoning,
   'temperature': instance.temperature,
   'tool_call': instance.toolCall,
-  'ModelsCost': instance.modelsCost,
-  'ModelsLimit': instance.modelsLimit,
-  'ModelsModalities': instance.modelsModalities,
+  'cost': instance.cost,
+  'limit': instance.limit,
+  'modalities': instance.modalities,
   'experimental': instance.experimental,
   'status': instance.status,
   'options': instance.options,
-  'ModelsProvider': instance.modelsProvider,
+  'provider': instance.provider,
 };

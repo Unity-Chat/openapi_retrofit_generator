@@ -12,10 +12,8 @@ part 'range.g.dart';
 
 @Freezed()
 abstract class Range with _$Range {
-  const factory Range({
-    @JsonKey(name: 'RangeStart') required RangeStart rangeStart,
-    @JsonKey(name: 'RangeEnd') required RangeEnd rangeEnd,
-  }) = _Range;
+  const factory Range({required RangeStart start, required RangeEnd end}) =
+      _Range;
 
   factory Range.fromJson(Map<String, Object?> json) => _$RangeFromJson(json);
 }

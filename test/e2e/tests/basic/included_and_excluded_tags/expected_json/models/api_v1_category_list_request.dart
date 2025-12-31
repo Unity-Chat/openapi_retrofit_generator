@@ -13,8 +13,8 @@ part 'api_v1_category_list_request.g.dart';
 class ApiV1CategoryListRequest {
   const ApiV1CategoryListRequest({
     required this.includedField,
-    this.apiV1CategoryListRequestIncludedNested,
-    this.apiV1CategoryListRequestAuditData,
+    this.includedNested,
+    this.auditData,
   });
 
   factory ApiV1CategoryListRequest.fromJson(Map<String, Object?> json) =>
@@ -22,11 +22,10 @@ class ApiV1CategoryListRequest {
 
   /// This field should be included (include tag wins)
   final String includedField;
-  @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestIncludedNested')
-  final ApiV1CategoryListRequestIncludedNested?
-  apiV1CategoryListRequestIncludedNested;
-  @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListRequestAuditData')
-  final ApiV1CategoryListRequestAuditData? apiV1CategoryListRequestAuditData;
+  @JsonKey(includeIfNull: false)
+  final ApiV1CategoryListRequestIncludedNested? includedNested;
+  @JsonKey(includeIfNull: false)
+  final ApiV1CategoryListRequestAuditData? auditData;
 
   Map<String, Object?> toJson() => _$ApiV1CategoryListRequestToJson(this);
 }

@@ -30,28 +30,22 @@ class EventFileWatcherUpdatedMapper
     'type',
     _$type,
   );
-  static EventFileWatcherUpdatedProperties _$eventFileWatcherUpdatedProperties(
+  static EventFileWatcherUpdatedProperties _$properties(
     EventFileWatcherUpdated v,
-  ) => v.eventFileWatcherUpdatedProperties;
+  ) => v.properties;
   static const Field<EventFileWatcherUpdated, EventFileWatcherUpdatedProperties>
-  _f$eventFileWatcherUpdatedProperties = Field(
-    'eventFileWatcherUpdatedProperties',
-    _$eventFileWatcherUpdatedProperties,
-    key: r'EventFileWatcherUpdatedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventFileWatcherUpdated> fields = const {
     #type: _f$type,
-    #eventFileWatcherUpdatedProperties: _f$eventFileWatcherUpdatedProperties,
+    #properties: _f$properties,
   };
 
   static EventFileWatcherUpdated _instantiate(DecodingData data) {
     return EventFileWatcherUpdated(
       type: data.dec(_f$type),
-      eventFileWatcherUpdatedProperties: data.dec(
-        _f$eventFileWatcherUpdatedProperties,
-      ),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -130,11 +124,8 @@ abstract class EventFileWatcherUpdatedCopyWith<
     EventFileWatcherUpdatedProperties,
     EventFileWatcherUpdatedProperties
   >
-  get eventFileWatcherUpdatedProperties;
-  $R call({
-    String? type,
-    EventFileWatcherUpdatedProperties? eventFileWatcherUpdatedProperties,
-  });
+  get properties;
+  $R call({String? type, EventFileWatcherUpdatedProperties? properties});
   EventFileWatcherUpdatedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -155,28 +146,20 @@ class _EventFileWatcherUpdatedCopyWithImpl<$R, $Out>
     EventFileWatcherUpdatedProperties,
     EventFileWatcherUpdatedProperties
   >
-  get eventFileWatcherUpdatedProperties => $value
-      .eventFileWatcherUpdatedProperties
-      .copyWith
-      .$chain((v) => call(eventFileWatcherUpdatedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventFileWatcherUpdatedProperties? eventFileWatcherUpdatedProperties,
-  }) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (eventFileWatcherUpdatedProperties != null)
-        #eventFileWatcherUpdatedProperties: eventFileWatcherUpdatedProperties,
-    }),
-  );
+  $R call({String? type, EventFileWatcherUpdatedProperties? properties}) =>
+      $apply(
+        FieldCopyWithData({
+          if (type != null) #type: type,
+          if (properties != null) #properties: properties,
+        }),
+      );
   @override
   EventFileWatcherUpdated $make(CopyWithData data) => EventFileWatcherUpdated(
     type: data.get(#type, or: $value.type),
-    eventFileWatcherUpdatedProperties: data.get(
-      #eventFileWatcherUpdatedProperties,
-      or: $value.eventFileWatcherUpdatedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

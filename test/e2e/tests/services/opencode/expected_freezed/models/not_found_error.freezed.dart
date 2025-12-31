@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$NotFoundError {
 
- String get name;@JsonKey(name: 'NotFoundErrorData') NotFoundErrorData get notFoundErrorData;
+ String get name; NotFoundErrorData get data;
 /// Create a copy of NotFoundError
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $NotFoundErrorCopyWith<NotFoundError> get copyWith => _$NotFoundErrorCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotFoundError&&(identical(other.name, name) || other.name == name)&&(identical(other.notFoundErrorData, notFoundErrorData) || other.notFoundErrorData == notFoundErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is NotFoundError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,notFoundErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'NotFoundError(name: $name, notFoundErrorData: $notFoundErrorData)';
+  return 'NotFoundError(name: $name, data: $data)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $NotFoundErrorCopyWith<$Res>  {
   factory $NotFoundErrorCopyWith(NotFoundError value, $Res Function(NotFoundError) _then) = _$NotFoundErrorCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(name: 'NotFoundErrorData') NotFoundErrorData notFoundErrorData
+ String name, NotFoundErrorData data
 });
 
 
-$NotFoundErrorDataCopyWith<$Res> get notFoundErrorData;
+$NotFoundErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$NotFoundErrorCopyWithImpl<$Res>
 
 /// Create a copy of NotFoundError
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? notFoundErrorData = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? data = null,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,notFoundErrorData: null == notFoundErrorData ? _self.notFoundErrorData : notFoundErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as NotFoundErrorData,
   ));
 }
@@ -76,10 +76,10 @@ as NotFoundErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$NotFoundErrorDataCopyWith<$Res> get notFoundErrorData {
+$NotFoundErrorDataCopyWith<$Res> get data {
   
-  return $NotFoundErrorDataCopyWith<$Res>(_self.notFoundErrorData, (value) {
-    return _then(_self.copyWith(notFoundErrorData: value));
+  return $NotFoundErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'NotFoundErrorData')  NotFoundErrorData notFoundErrorData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  NotFoundErrorData data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _NotFoundError() when $default != null:
-return $default(_that.name,_that.notFoundErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.name,_that.notFoundErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'NotFoundErrorData')  NotFoundErrorData notFoundErrorData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  NotFoundErrorData data)  $default,) {final _that = this;
 switch (_that) {
 case _NotFoundError():
-return $default(_that.name,_that.notFoundErrorData);case _:
+return $default(_that.name,_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.name,_that.notFoundErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(name: 'NotFoundErrorData')  NotFoundErrorData notFoundErrorData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  NotFoundErrorData data)?  $default,) {final _that = this;
 switch (_that) {
 case _NotFoundError() when $default != null:
-return $default(_that.name,_that.notFoundErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.name,_that.notFoundErrorData);case _:
 @JsonSerializable()
 
 class _NotFoundError implements NotFoundError {
-  const _NotFoundError({required this.name, @JsonKey(name: 'NotFoundErrorData') required this.notFoundErrorData});
+  const _NotFoundError({required this.name, required this.data});
   factory _NotFoundError.fromJson(Map<String, dynamic> json) => _$NotFoundErrorFromJson(json);
 
 @override final  String name;
-@override@JsonKey(name: 'NotFoundErrorData') final  NotFoundErrorData notFoundErrorData;
+@override final  NotFoundErrorData data;
 
 /// Create a copy of NotFoundError
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotFoundError&&(identical(other.name, name) || other.name == name)&&(identical(other.notFoundErrorData, notFoundErrorData) || other.notFoundErrorData == notFoundErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NotFoundError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,notFoundErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'NotFoundError(name: $name, notFoundErrorData: $notFoundErrorData)';
+  return 'NotFoundError(name: $name, data: $data)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$NotFoundErrorCopyWith<$Res> implements $NotFoundErrorCopy
   factory _$NotFoundErrorCopyWith(_NotFoundError value, $Res Function(_NotFoundError) _then) = __$NotFoundErrorCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(name: 'NotFoundErrorData') NotFoundErrorData notFoundErrorData
+ String name, NotFoundErrorData data
 });
 
 
-@override $NotFoundErrorDataCopyWith<$Res> get notFoundErrorData;
+@override $NotFoundErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$NotFoundErrorCopyWithImpl<$Res>
 
 /// Create a copy of NotFoundError
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? notFoundErrorData = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? data = null,}) {
   return _then(_NotFoundError(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,notFoundErrorData: null == notFoundErrorData ? _self.notFoundErrorData : notFoundErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as NotFoundErrorData,
   ));
 }
@@ -287,10 +287,10 @@ as NotFoundErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$NotFoundErrorDataCopyWith<$Res> get notFoundErrorData {
+$NotFoundErrorDataCopyWith<$Res> get data {
   
-  return $NotFoundErrorDataCopyWith<$Res>(_self.notFoundErrorData, (value) {
-    return _then(_self.copyWith(notFoundErrorData: value));
+  return $NotFoundErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

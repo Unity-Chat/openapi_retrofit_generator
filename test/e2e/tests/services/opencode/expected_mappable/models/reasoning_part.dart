@@ -16,7 +16,7 @@ class ReasoningPart with ReasoningPartMappable {
     required this.messageId,
     required this.type,
     required this.text,
-    required this.reasoningPartTime,
+    required this.time,
     this.metadata,
   });
 
@@ -27,8 +27,7 @@ class ReasoningPart with ReasoningPartMappable {
   final String messageId;
   final String type;
   final String text;
-  @MappableField(key: 'ReasoningPartTime')
-  final ReasoningPartTime reasoningPartTime;
+  final ReasoningPartTime time;
   final Map<String, dynamic>? metadata;
 
   static ReasoningPart fromJson(Map<String, dynamic> json) =>

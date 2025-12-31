@@ -29,12 +29,8 @@ class ProjectMapper extends ClassMapperBase<Project> {
     'worktree',
     _$worktree,
   );
-  static ProjectTime _$projectTime(Project v) => v.projectTime;
-  static const Field<Project, ProjectTime> _f$projectTime = Field(
-    'projectTime',
-    _$projectTime,
-    key: r'ProjectTime',
-  );
+  static ProjectTime _$time(Project v) => v.time;
+  static const Field<Project, ProjectTime> _f$time = Field('time', _$time);
   static String? _$vcs(Project v) => v.vcs;
   static const Field<Project, String> _f$vcs = Field('vcs', _$vcs, opt: true);
 
@@ -42,7 +38,7 @@ class ProjectMapper extends ClassMapperBase<Project> {
   final MappableFields<Project> fields = const {
     #id: _f$id,
     #worktree: _f$worktree,
-    #projectTime: _f$projectTime,
+    #time: _f$time,
     #vcs: _f$vcs,
   };
 
@@ -50,7 +46,7 @@ class ProjectMapper extends ClassMapperBase<Project> {
     return Project(
       id: data.dec(_f$id),
       worktree: data.dec(_f$worktree),
-      projectTime: data.dec(_f$projectTime),
+      time: data.dec(_f$time),
       vcs: data.dec(_f$vcs),
     );
   }
@@ -112,13 +108,8 @@ extension ProjectValueCopy<$R, $Out> on ObjectCopyWith<$R, Project, $Out> {
 
 abstract class ProjectCopyWith<$R, $In extends Project, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ProjectTimeCopyWith<$R, ProjectTime, ProjectTime> get projectTime;
-  $R call({
-    String? id,
-    String? worktree,
-    ProjectTime? projectTime,
-    String? vcs,
-  });
+  ProjectTimeCopyWith<$R, ProjectTime, ProjectTime> get time;
+  $R call({String? id, String? worktree, ProjectTime? time, String? vcs});
   ProjectCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -131,19 +122,19 @@ class _ProjectCopyWithImpl<$R, $Out>
   late final ClassMapperBase<Project> $mapper =
       ProjectMapper.ensureInitialized();
   @override
-  ProjectTimeCopyWith<$R, ProjectTime, ProjectTime> get projectTime =>
-      $value.projectTime.copyWith.$chain((v) => call(projectTime: v));
+  ProjectTimeCopyWith<$R, ProjectTime, ProjectTime> get time =>
+      $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? id,
     String? worktree,
-    ProjectTime? projectTime,
+    ProjectTime? time,
     Object? vcs = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (worktree != null) #worktree: worktree,
-      if (projectTime != null) #projectTime: projectTime,
+      if (time != null) #time: time,
       if (vcs != $none) #vcs: vcs,
     }),
   );
@@ -151,7 +142,7 @@ class _ProjectCopyWithImpl<$R, $Out>
   Project $make(CopyWithData data) => Project(
     id: data.get(#id, or: $value.id),
     worktree: data.get(#worktree, or: $value.worktree),
-    projectTime: data.get(#projectTime, or: $value.projectTime),
+    time: data.get(#time, or: $value.time),
     vcs: data.get(#vcs, or: $value.vcs),
   );
 

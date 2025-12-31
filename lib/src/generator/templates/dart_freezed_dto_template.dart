@@ -320,9 +320,10 @@ String _generateUndiscriminatedVariantClasses(
         final properties = entry.value;
         final variantClassName = '$className${variantName.toPascal}';
 
+        // Include @JsonKey annotation when jsonKey differs from name
         final fields = properties
             .map((prop) {
-              return '  final ${prop.toSuitableType()} ${prop.name};';
+              return '${_jsonKeyForWrapper(prop)}  final ${prop.toSuitableType()} ${prop.name};';
             })
             .join('\n');
 
@@ -430,6 +431,14 @@ String _freezedSuitableType(UniversalType type) {
   }
 
   return baseType;
+}
+
+/// Simplified JsonKey for wrapper classes - only handles name mapping
+String _jsonKeyForWrapper(UniversalType t) {
+  if (t.jsonKey != null && t.name != t.jsonKey) {
+    return "  @JsonKey(name: '${protectJsonKey(t.jsonKey)}')\n";
+  }
+  return '';
 }
 
 String _jsonKey(UniversalType t, bool includeIfNull) {

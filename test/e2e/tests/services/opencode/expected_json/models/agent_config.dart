@@ -19,7 +19,7 @@ class AgentConfig {
     this.disable,
     this.description,
     this.mode,
-    this.agentConfigPermission,
+    this.permission,
   });
 
   factory AgentConfig.fromJson(Map<String, Object?> json) =>
@@ -36,8 +36,7 @@ class AgentConfig {
   /// Description of when to use the agent
   final String? description;
   final dynamic mode;
-  @JsonKey(name: 'AgentConfigPermission')
-  final AgentConfigPermission? agentConfigPermission;
+  final AgentConfigPermission? permission;
 
   Map<String, Object?> toJson() => _$AgentConfigToJson(this);
 }

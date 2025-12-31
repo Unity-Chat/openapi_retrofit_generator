@@ -10,11 +10,10 @@ part 'not_found_error.mapper.dart';
 
 @MappableClass()
 class NotFoundError with NotFoundErrorMappable {
-  const NotFoundError({required this.name, required this.notFoundErrorData});
+  const NotFoundError({required this.name, required this.data});
 
   final String name;
-  @MappableField(key: 'NotFoundErrorData')
-  final NotFoundErrorData notFoundErrorData;
+  final NotFoundErrorData data;
 
   static NotFoundError fromJson(Map<String, dynamic> json) =>
       NotFoundErrorMapper.fromJson(json);

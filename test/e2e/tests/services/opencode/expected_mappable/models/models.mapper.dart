@@ -62,25 +62,22 @@ class ModelsMapper extends ClassMapperBase<Models> {
     key: r'tool_call',
     opt: true,
   );
-  static ModelsCost? _$modelsCost(Models v) => v.modelsCost;
-  static const Field<Models, ModelsCost> _f$modelsCost = Field(
-    'modelsCost',
-    _$modelsCost,
-    key: r'ModelsCost',
+  static ModelsCost? _$cost(Models v) => v.cost;
+  static const Field<Models, ModelsCost> _f$cost = Field(
+    'cost',
+    _$cost,
     opt: true,
   );
-  static ModelsLimit? _$modelsLimit(Models v) => v.modelsLimit;
-  static const Field<Models, ModelsLimit> _f$modelsLimit = Field(
-    'modelsLimit',
-    _$modelsLimit,
-    key: r'ModelsLimit',
+  static ModelsLimit? _$limit(Models v) => v.limit;
+  static const Field<Models, ModelsLimit> _f$limit = Field(
+    'limit',
+    _$limit,
     opt: true,
   );
-  static ModelsModalities? _$modelsModalities(Models v) => v.modelsModalities;
-  static const Field<Models, ModelsModalities> _f$modelsModalities = Field(
-    'modelsModalities',
-    _$modelsModalities,
-    key: r'ModelsModalities',
+  static ModelsModalities? _$modalities(Models v) => v.modalities;
+  static const Field<Models, ModelsModalities> _f$modalities = Field(
+    'modalities',
+    _$modalities,
     opt: true,
   );
   static bool? _$experimental(Models v) => v.experimental;
@@ -101,11 +98,10 @@ class ModelsMapper extends ClassMapperBase<Models> {
     _$options,
     opt: true,
   );
-  static ModelsProvider? _$modelsProvider(Models v) => v.modelsProvider;
-  static const Field<Models, ModelsProvider> _f$modelsProvider = Field(
-    'modelsProvider',
-    _$modelsProvider,
-    key: r'ModelsProvider',
+  static ModelsProvider? _$provider(Models v) => v.provider;
+  static const Field<Models, ModelsProvider> _f$provider = Field(
+    'provider',
+    _$provider,
     opt: true,
   );
 
@@ -118,13 +114,13 @@ class ModelsMapper extends ClassMapperBase<Models> {
     #reasoning: _f$reasoning,
     #temperature: _f$temperature,
     #toolCall: _f$toolCall,
-    #modelsCost: _f$modelsCost,
-    #modelsLimit: _f$modelsLimit,
-    #modelsModalities: _f$modelsModalities,
+    #cost: _f$cost,
+    #limit: _f$limit,
+    #modalities: _f$modalities,
     #experimental: _f$experimental,
     #status: _f$status,
     #options: _f$options,
-    #modelsProvider: _f$modelsProvider,
+    #provider: _f$provider,
   };
 
   static Models _instantiate(DecodingData data) {
@@ -136,13 +132,13 @@ class ModelsMapper extends ClassMapperBase<Models> {
       reasoning: data.dec(_f$reasoning),
       temperature: data.dec(_f$temperature),
       toolCall: data.dec(_f$toolCall),
-      modelsCost: data.dec(_f$modelsCost),
-      modelsLimit: data.dec(_f$modelsLimit),
-      modelsModalities: data.dec(_f$modelsModalities),
+      cost: data.dec(_f$cost),
+      limit: data.dec(_f$limit),
+      modalities: data.dec(_f$modalities),
       experimental: data.dec(_f$experimental),
       status: data.dec(_f$status),
       options: data.dec(_f$options),
-      modelsProvider: data.dec(_f$modelsProvider),
+      provider: data.dec(_f$provider),
     );
   }
 
@@ -192,14 +188,13 @@ extension ModelsValueCopy<$R, $Out> on ObjectCopyWith<$R, Models, $Out> {
 
 abstract class ModelsCopyWith<$R, $In extends Models, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ModelsCostCopyWith<$R, ModelsCost, ModelsCost>? get modelsCost;
-  ModelsLimitCopyWith<$R, ModelsLimit, ModelsLimit>? get modelsLimit;
+  ModelsCostCopyWith<$R, ModelsCost, ModelsCost>? get cost;
+  ModelsLimitCopyWith<$R, ModelsLimit, ModelsLimit>? get limit;
   ModelsModalitiesCopyWith<$R, ModelsModalities, ModelsModalities>?
-  get modelsModalities;
+  get modalities;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get options;
-  ModelsProviderCopyWith<$R, ModelsProvider, ModelsProvider>?
-  get modelsProvider;
+  ModelsProviderCopyWith<$R, ModelsProvider, ModelsProvider>? get provider;
   $R call({
     String? id,
     String? name,
@@ -208,13 +203,13 @@ abstract class ModelsCopyWith<$R, $In extends Models, $Out>
     bool? reasoning,
     bool? temperature,
     bool? toolCall,
-    ModelsCost? modelsCost,
-    ModelsLimit? modelsLimit,
-    ModelsModalities? modelsModalities,
+    ModelsCost? cost,
+    ModelsLimit? limit,
+    ModelsModalities? modalities,
     bool? experimental,
     ModelsStatusStatus? status,
     Map<String, dynamic>? options,
-    ModelsProvider? modelsProvider,
+    ModelsProvider? provider,
   });
   ModelsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -226,16 +221,15 @@ class _ModelsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Models, $Out>
   @override
   late final ClassMapperBase<Models> $mapper = ModelsMapper.ensureInitialized();
   @override
-  ModelsCostCopyWith<$R, ModelsCost, ModelsCost>? get modelsCost =>
-      $value.modelsCost?.copyWith.$chain((v) => call(modelsCost: v));
+  ModelsCostCopyWith<$R, ModelsCost, ModelsCost>? get cost =>
+      $value.cost?.copyWith.$chain((v) => call(cost: v));
   @override
-  ModelsLimitCopyWith<$R, ModelsLimit, ModelsLimit>? get modelsLimit =>
-      $value.modelsLimit?.copyWith.$chain((v) => call(modelsLimit: v));
+  ModelsLimitCopyWith<$R, ModelsLimit, ModelsLimit>? get limit =>
+      $value.limit?.copyWith.$chain((v) => call(limit: v));
   @override
   ModelsModalitiesCopyWith<$R, ModelsModalities, ModelsModalities>?
-  get modelsModalities => $value.modelsModalities?.copyWith.$chain(
-    (v) => call(modelsModalities: v),
-  );
+  get modalities =>
+      $value.modalities?.copyWith.$chain((v) => call(modalities: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get options => $value.options != null
@@ -246,9 +240,8 @@ class _ModelsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Models, $Out>
         )
       : null;
   @override
-  ModelsProviderCopyWith<$R, ModelsProvider, ModelsProvider>?
-  get modelsProvider =>
-      $value.modelsProvider?.copyWith.$chain((v) => call(modelsProvider: v));
+  ModelsProviderCopyWith<$R, ModelsProvider, ModelsProvider>? get provider =>
+      $value.provider?.copyWith.$chain((v) => call(provider: v));
   @override
   $R call({
     Object? id = $none,
@@ -258,13 +251,13 @@ class _ModelsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Models, $Out>
     Object? reasoning = $none,
     Object? temperature = $none,
     Object? toolCall = $none,
-    Object? modelsCost = $none,
-    Object? modelsLimit = $none,
-    Object? modelsModalities = $none,
+    Object? cost = $none,
+    Object? limit = $none,
+    Object? modalities = $none,
     Object? experimental = $none,
     Object? status = $none,
     Object? options = $none,
-    Object? modelsProvider = $none,
+    Object? provider = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != $none) #id: id,
@@ -274,13 +267,13 @@ class _ModelsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Models, $Out>
       if (reasoning != $none) #reasoning: reasoning,
       if (temperature != $none) #temperature: temperature,
       if (toolCall != $none) #toolCall: toolCall,
-      if (modelsCost != $none) #modelsCost: modelsCost,
-      if (modelsLimit != $none) #modelsLimit: modelsLimit,
-      if (modelsModalities != $none) #modelsModalities: modelsModalities,
+      if (cost != $none) #cost: cost,
+      if (limit != $none) #limit: limit,
+      if (modalities != $none) #modalities: modalities,
       if (experimental != $none) #experimental: experimental,
       if (status != $none) #status: status,
       if (options != $none) #options: options,
-      if (modelsProvider != $none) #modelsProvider: modelsProvider,
+      if (provider != $none) #provider: provider,
     }),
   );
   @override
@@ -292,13 +285,13 @@ class _ModelsCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Models, $Out>
     reasoning: data.get(#reasoning, or: $value.reasoning),
     temperature: data.get(#temperature, or: $value.temperature),
     toolCall: data.get(#toolCall, or: $value.toolCall),
-    modelsCost: data.get(#modelsCost, or: $value.modelsCost),
-    modelsLimit: data.get(#modelsLimit, or: $value.modelsLimit),
-    modelsModalities: data.get(#modelsModalities, or: $value.modelsModalities),
+    cost: data.get(#cost, or: $value.cost),
+    limit: data.get(#limit, or: $value.limit),
+    modalities: data.get(#modalities, or: $value.modalities),
     experimental: data.get(#experimental, or: $value.experimental),
     status: data.get(#status, or: $value.status),
     options: data.get(#options, or: $value.options),
-    modelsProvider: data.get(#modelsProvider, or: $value.modelsProvider),
+    provider: data.get(#provider, or: $value.provider),
   );
 
   @override

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventFileEdited {
 
- String get type;@JsonKey(name: 'EventFileEditedProperties') EventFileEditedProperties get eventFileEditedProperties;
+ String get type; EventFileEditedProperties get properties;
 /// Create a copy of EventFileEdited
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventFileEditedCopyWith<EventFileEdited> get copyWith => _$EventFileEditedCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventFileEdited&&(identical(other.type, type) || other.type == type)&&(identical(other.eventFileEditedProperties, eventFileEditedProperties) || other.eventFileEditedProperties == eventFileEditedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventFileEdited&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventFileEditedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventFileEdited(type: $type, eventFileEditedProperties: $eventFileEditedProperties)';
+  return 'EventFileEdited(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventFileEditedCopyWith<$Res>  {
   factory $EventFileEditedCopyWith(EventFileEdited value, $Res Function(EventFileEdited) _then) = _$EventFileEditedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventFileEditedProperties') EventFileEditedProperties eventFileEditedProperties
+ String type, EventFileEditedProperties properties
 });
 
 
-$EventFileEditedPropertiesCopyWith<$Res> get eventFileEditedProperties;
+$EventFileEditedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventFileEditedCopyWithImpl<$Res>
 
 /// Create a copy of EventFileEdited
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventFileEditedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventFileEditedProperties: null == eventFileEditedProperties ? _self.eventFileEditedProperties : eventFileEditedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventFileEditedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventFileEditedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventFileEditedPropertiesCopyWith<$Res> get eventFileEditedProperties {
+$EventFileEditedPropertiesCopyWith<$Res> get properties {
   
-  return $EventFileEditedPropertiesCopyWith<$Res>(_self.eventFileEditedProperties, (value) {
-    return _then(_self.copyWith(eventFileEditedProperties: value));
+  return $EventFileEditedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventFileEditedProperties')  EventFileEditedProperties eventFileEditedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventFileEditedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventFileEdited() when $default != null:
-return $default(_that.type,_that.eventFileEditedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventFileEditedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventFileEditedProperties')  EventFileEditedProperties eventFileEditedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventFileEditedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventFileEdited():
-return $default(_that.type,_that.eventFileEditedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventFileEditedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventFileEditedProperties')  EventFileEditedProperties eventFileEditedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventFileEditedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventFileEdited() when $default != null:
-return $default(_that.type,_that.eventFileEditedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventFileEditedProperties);case _:
 @JsonSerializable()
 
 class _EventFileEdited implements EventFileEdited {
-  const _EventFileEdited({required this.type, @JsonKey(name: 'EventFileEditedProperties') required this.eventFileEditedProperties});
+  const _EventFileEdited({required this.type, required this.properties});
   factory _EventFileEdited.fromJson(Map<String, dynamic> json) => _$EventFileEditedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventFileEditedProperties') final  EventFileEditedProperties eventFileEditedProperties;
+@override final  EventFileEditedProperties properties;
 
 /// Create a copy of EventFileEdited
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventFileEdited&&(identical(other.type, type) || other.type == type)&&(identical(other.eventFileEditedProperties, eventFileEditedProperties) || other.eventFileEditedProperties == eventFileEditedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventFileEdited&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventFileEditedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventFileEdited(type: $type, eventFileEditedProperties: $eventFileEditedProperties)';
+  return 'EventFileEdited(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventFileEditedCopyWith<$Res> implements $EventFileEdited
   factory _$EventFileEditedCopyWith(_EventFileEdited value, $Res Function(_EventFileEdited) _then) = __$EventFileEditedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventFileEditedProperties') EventFileEditedProperties eventFileEditedProperties
+ String type, EventFileEditedProperties properties
 });
 
 
-@override $EventFileEditedPropertiesCopyWith<$Res> get eventFileEditedProperties;
+@override $EventFileEditedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventFileEditedCopyWithImpl<$Res>
 
 /// Create a copy of EventFileEdited
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventFileEditedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventFileEdited(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventFileEditedProperties: null == eventFileEditedProperties ? _self.eventFileEditedProperties : eventFileEditedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventFileEditedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventFileEditedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventFileEditedPropertiesCopyWith<$Res> get eventFileEditedProperties {
+$EventFileEditedPropertiesCopyWith<$Res> get properties {
   
-  return $EventFileEditedPropertiesCopyWith<$Res>(_self.eventFileEditedProperties, (value) {
-    return _then(_self.copyWith(eventFileEditedProperties: value));
+  return $EventFileEditedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

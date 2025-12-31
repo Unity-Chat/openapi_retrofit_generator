@@ -10,14 +10,10 @@ part 'message_aborted_error.mapper.dart';
 
 @MappableClass()
 class MessageAbortedError with MessageAbortedErrorMappable {
-  const MessageAbortedError({
-    required this.name,
-    required this.messageAbortedErrorData,
-  });
+  const MessageAbortedError({required this.name, required this.data});
 
   final String name;
-  @MappableField(key: 'MessageAbortedErrorData')
-  final MessageAbortedErrorData messageAbortedErrorData;
+  final MessageAbortedErrorData data;
 
   static MessageAbortedError fromJson(Map<String, dynamic> json) =>
       MessageAbortedErrorMapper.fromJson(json);

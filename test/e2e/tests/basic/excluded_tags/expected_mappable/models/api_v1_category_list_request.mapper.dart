@@ -31,47 +31,32 @@ class ApiV1CategoryListRequestMapper
     'includedField',
     _$includedField,
   );
-  static ApiV1CategoryListRequestNestedIncluded?
-  _$apiV1CategoryListRequestNestedIncluded(ApiV1CategoryListRequest v) =>
-      v.apiV1CategoryListRequestNestedIncluded;
+  static ApiV1CategoryListRequestNestedIncluded? _$nestedIncluded(
+    ApiV1CategoryListRequest v,
+  ) => v.nestedIncluded;
   static const Field<
     ApiV1CategoryListRequest,
     ApiV1CategoryListRequestNestedIncluded
   >
-  _f$apiV1CategoryListRequestNestedIncluded = Field(
-    'apiV1CategoryListRequestNestedIncluded',
-    _$apiV1CategoryListRequestNestedIncluded,
-    key: r'ApiV1CategoryListRequestNestedIncluded',
-    opt: true,
-  );
-  static ApiV1CategoryListRequestMetadata? _$apiV1CategoryListRequestMetadata(
+  _f$nestedIncluded = Field('nestedIncluded', _$nestedIncluded, opt: true);
+  static ApiV1CategoryListRequestMetadata? _$metadata(
     ApiV1CategoryListRequest v,
-  ) => v.apiV1CategoryListRequestMetadata;
+  ) => v.metadata;
   static const Field<ApiV1CategoryListRequest, ApiV1CategoryListRequestMetadata>
-  _f$apiV1CategoryListRequestMetadata = Field(
-    'apiV1CategoryListRequestMetadata',
-    _$apiV1CategoryListRequestMetadata,
-    key: r'ApiV1CategoryListRequestMetadata',
-    opt: true,
-  );
+  _f$metadata = Field('metadata', _$metadata, opt: true);
 
   @override
   final MappableFields<ApiV1CategoryListRequest> fields = const {
     #includedField: _f$includedField,
-    #apiV1CategoryListRequestNestedIncluded:
-        _f$apiV1CategoryListRequestNestedIncluded,
-    #apiV1CategoryListRequestMetadata: _f$apiV1CategoryListRequestMetadata,
+    #nestedIncluded: _f$nestedIncluded,
+    #metadata: _f$metadata,
   };
 
   static ApiV1CategoryListRequest _instantiate(DecodingData data) {
     return ApiV1CategoryListRequest(
       includedField: data.dec(_f$includedField),
-      apiV1CategoryListRequestNestedIncluded: data.dec(
-        _f$apiV1CategoryListRequestNestedIncluded,
-      ),
-      apiV1CategoryListRequestMetadata: data.dec(
-        _f$apiV1CategoryListRequestMetadata,
-      ),
+      nestedIncluded: data.dec(_f$nestedIncluded),
+      metadata: data.dec(_f$metadata),
     );
   }
 
@@ -150,18 +135,17 @@ abstract class ApiV1CategoryListRequestCopyWith<
     ApiV1CategoryListRequestNestedIncluded,
     ApiV1CategoryListRequestNestedIncluded
   >?
-  get apiV1CategoryListRequestNestedIncluded;
+  get nestedIncluded;
   ApiV1CategoryListRequestMetadataCopyWith<
     $R,
     ApiV1CategoryListRequestMetadata,
     ApiV1CategoryListRequestMetadata
   >?
-  get apiV1CategoryListRequestMetadata;
+  get metadata;
   $R call({
     String? includedField,
-    ApiV1CategoryListRequestNestedIncluded?
-    apiV1CategoryListRequestNestedIncluded,
-    ApiV1CategoryListRequestMetadata? apiV1CategoryListRequestMetadata,
+    ApiV1CategoryListRequestNestedIncluded? nestedIncluded,
+    ApiV1CategoryListRequestMetadata? metadata,
   });
   ApiV1CategoryListRequestCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -183,46 +167,32 @@ class _ApiV1CategoryListRequestCopyWithImpl<$R, $Out>
     ApiV1CategoryListRequestNestedIncluded,
     ApiV1CategoryListRequestNestedIncluded
   >?
-  get apiV1CategoryListRequestNestedIncluded => $value
-      .apiV1CategoryListRequestNestedIncluded
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListRequestNestedIncluded: v));
+  get nestedIncluded =>
+      $value.nestedIncluded?.copyWith.$chain((v) => call(nestedIncluded: v));
   @override
   ApiV1CategoryListRequestMetadataCopyWith<
     $R,
     ApiV1CategoryListRequestMetadata,
     ApiV1CategoryListRequestMetadata
   >?
-  get apiV1CategoryListRequestMetadata => $value
-      .apiV1CategoryListRequestMetadata
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListRequestMetadata: v));
+  get metadata => $value.metadata?.copyWith.$chain((v) => call(metadata: v));
   @override
   $R call({
     String? includedField,
-    Object? apiV1CategoryListRequestNestedIncluded = $none,
-    Object? apiV1CategoryListRequestMetadata = $none,
+    Object? nestedIncluded = $none,
+    Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
       if (includedField != null) #includedField: includedField,
-      if (apiV1CategoryListRequestNestedIncluded != $none)
-        #apiV1CategoryListRequestNestedIncluded:
-            apiV1CategoryListRequestNestedIncluded,
-      if (apiV1CategoryListRequestMetadata != $none)
-        #apiV1CategoryListRequestMetadata: apiV1CategoryListRequestMetadata,
+      if (nestedIncluded != $none) #nestedIncluded: nestedIncluded,
+      if (metadata != $none) #metadata: metadata,
     }),
   );
   @override
   ApiV1CategoryListRequest $make(CopyWithData data) => ApiV1CategoryListRequest(
     includedField: data.get(#includedField, or: $value.includedField),
-    apiV1CategoryListRequestNestedIncluded: data.get(
-      #apiV1CategoryListRequestNestedIncluded,
-      or: $value.apiV1CategoryListRequestNestedIncluded,
-    ),
-    apiV1CategoryListRequestMetadata: data.get(
-      #apiV1CategoryListRequestMetadata,
-      or: $value.apiV1CategoryListRequestMetadata,
-    ),
+    nestedIncluded: data.get(#nestedIncluded, or: $value.nestedIncluded),
+    metadata: data.get(#metadata, or: $value.metadata),
   );
 
   @override

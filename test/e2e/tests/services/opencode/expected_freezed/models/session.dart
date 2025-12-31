@@ -19,10 +19,10 @@ abstract class Session with _$Session {
     required String directory,
     required String title,
     required String version,
-    @JsonKey(name: 'SessionTime') required SessionTime sessionTime,
+    required SessionTime time,
     @JsonKey(name: 'parentID') String? parentId,
-    @JsonKey(name: 'SessionShare') SessionShare? sessionShare,
-    @JsonKey(name: 'SessionRevert') SessionRevert? sessionRevert,
+    SessionShare? share,
+    SessionRevert? revert,
   }) = _Session;
 
   factory Session.fromJson(Map<String, Object?> json) =>

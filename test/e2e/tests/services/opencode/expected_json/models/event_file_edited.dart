@@ -10,17 +10,13 @@ part 'event_file_edited.g.dart';
 
 @JsonSerializable()
 class EventFileEdited {
-  const EventFileEdited({
-    required this.type,
-    required this.eventFileEditedProperties,
-  });
+  const EventFileEdited({required this.type, required this.properties});
 
   factory EventFileEdited.fromJson(Map<String, Object?> json) =>
       _$EventFileEditedFromJson(json);
 
   final String type;
-  @JsonKey(name: 'EventFileEditedProperties')
-  final EventFileEditedProperties eventFileEditedProperties;
+  final EventFileEditedProperties properties;
 
   Map<String, Object?> toJson() => _$EventFileEditedToJson(this);
 }

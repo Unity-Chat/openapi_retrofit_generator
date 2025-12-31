@@ -32,13 +32,10 @@ class ToolStateRunningMapper extends ClassMapperBase<ToolStateRunning> {
     'input',
     _$input,
   );
-  static ToolStateRunningTime _$toolStateRunningTime(ToolStateRunning v) =>
-      v.toolStateRunningTime;
-  static const Field<ToolStateRunning, ToolStateRunningTime>
-  _f$toolStateRunningTime = Field(
-    'toolStateRunningTime',
-    _$toolStateRunningTime,
-    key: r'ToolStateRunningTime',
+  static ToolStateRunningTime _$time(ToolStateRunning v) => v.time;
+  static const Field<ToolStateRunning, ToolStateRunningTime> _f$time = Field(
+    'time',
+    _$time,
   );
   static String? _$title(ToolStateRunning v) => v.title;
   static const Field<ToolStateRunning, String> _f$title = Field(
@@ -54,7 +51,7 @@ class ToolStateRunningMapper extends ClassMapperBase<ToolStateRunning> {
   final MappableFields<ToolStateRunning> fields = const {
     #status: _f$status,
     #input: _f$input,
-    #toolStateRunningTime: _f$toolStateRunningTime,
+    #time: _f$time,
     #title: _f$title,
     #metadata: _f$metadata,
   };
@@ -63,7 +60,7 @@ class ToolStateRunningMapper extends ClassMapperBase<ToolStateRunning> {
     return ToolStateRunning(
       status: data.dec(_f$status),
       input: data.dec(_f$input),
-      toolStateRunningTime: data.dec(_f$toolStateRunningTime),
+      time: data.dec(_f$time),
       title: data.dec(_f$title),
       metadata: data.dec(_f$metadata),
     );
@@ -132,13 +129,13 @@ extension ToolStateRunningValueCopy<$R, $Out>
 abstract class ToolStateRunningCopyWith<$R, $In extends ToolStateRunning, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ToolStateRunningTimeCopyWith<$R, ToolStateRunningTime, ToolStateRunningTime>
-  get toolStateRunningTime;
+  get time;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   $R call({
     String? status,
     dynamic input,
-    ToolStateRunningTime? toolStateRunningTime,
+    ToolStateRunningTime? time,
     String? title,
     Map<String, dynamic>? metadata,
   });
@@ -157,9 +154,7 @@ class _ToolStateRunningCopyWithImpl<$R, $Out>
       ToolStateRunningMapper.ensureInitialized();
   @override
   ToolStateRunningTimeCopyWith<$R, ToolStateRunningTime, ToolStateRunningTime>
-  get toolStateRunningTime => $value.toolStateRunningTime.copyWith.$chain(
-    (v) => call(toolStateRunningTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata => $value.metadata != null
@@ -173,15 +168,14 @@ class _ToolStateRunningCopyWithImpl<$R, $Out>
   $R call({
     String? status,
     Object? input = $none,
-    ToolStateRunningTime? toolStateRunningTime,
+    ToolStateRunningTime? time,
     Object? title = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
       if (status != null) #status: status,
       if (input != $none) #input: input,
-      if (toolStateRunningTime != null)
-        #toolStateRunningTime: toolStateRunningTime,
+      if (time != null) #time: time,
       if (title != $none) #title: title,
       if (metadata != $none) #metadata: metadata,
     }),
@@ -190,10 +184,7 @@ class _ToolStateRunningCopyWithImpl<$R, $Out>
   ToolStateRunning $make(CopyWithData data) => ToolStateRunning(
     status: data.get(#status, or: $value.status),
     input: data.get(#input, or: $value.input),
-    toolStateRunningTime: data.get(
-      #toolStateRunningTime,
-      or: $value.toolStateRunningTime,
-    ),
+    time: data.get(#time, or: $value.time),
     title: data.get(#title, or: $value.title),
     metadata: data.get(#metadata, or: $value.metadata),
   );

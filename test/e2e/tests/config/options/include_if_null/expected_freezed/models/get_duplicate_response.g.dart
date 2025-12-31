@@ -12,16 +12,13 @@ _GetDuplicateResponse _$GetDuplicateResponseFromJson(
   data: json['data'] == null
       ? null
       : Data.fromJson(json['data'] as Map<String, dynamic>),
-  getDuplicateResponseMetadata: json['GetDuplicateResponseMetadata'] == null
+  metadata: json['metadata'] == null
       ? null
       : GetDuplicateResponseMetadata.fromJson(
-          json['GetDuplicateResponseMetadata'] as Map<String, dynamic>,
+          json['metadata'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic> _$GetDuplicateResponseToJson(
   _GetDuplicateResponse instance,
-) => <String, dynamic>{
-  'data': ?instance.data,
-  'GetDuplicateResponseMetadata': ?instance.getDuplicateResponseMetadata,
-};
+) => <String, dynamic>{'data': ?instance.data, 'metadata': ?instance.metadata};

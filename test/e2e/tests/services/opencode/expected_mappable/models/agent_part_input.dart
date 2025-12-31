@@ -14,14 +14,13 @@ class AgentPartInput with AgentPartInputMappable {
     required this.type,
     required this.name,
     this.id,
-    this.agentPartInputSource,
+    this.source,
   });
 
   final String type;
   final String name;
   final String? id;
-  @MappableField(key: 'AgentPartInputSource')
-  final AgentPartInputSource? agentPartInputSource;
+  final AgentPartInputSource? source;
 
   static AgentPartInput fromJson(Map<String, dynamic> json) =>
       AgentPartInputMapper.fromJson(json);

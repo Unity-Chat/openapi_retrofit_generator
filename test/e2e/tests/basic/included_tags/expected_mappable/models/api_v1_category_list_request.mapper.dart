@@ -31,51 +31,35 @@ class ApiV1CategoryListRequestMapper
     'includedField',
     _$includedField,
   );
-  static ApiV1CategoryListRequestNestedIncluded?
-  _$apiV1CategoryListRequestNestedIncluded(ApiV1CategoryListRequest v) =>
-      v.apiV1CategoryListRequestNestedIncluded;
+  static ApiV1CategoryListRequestNestedIncluded? _$nestedIncluded(
+    ApiV1CategoryListRequest v,
+  ) => v.nestedIncluded;
   static const Field<
     ApiV1CategoryListRequest,
     ApiV1CategoryListRequestNestedIncluded
   >
-  _f$apiV1CategoryListRequestNestedIncluded = Field(
-    'apiV1CategoryListRequestNestedIncluded',
-    _$apiV1CategoryListRequestNestedIncluded,
-    key: r'ApiV1CategoryListRequestNestedIncluded',
-    opt: true,
-  );
-  static ApiV1CategoryListRequestAnchorReference?
-  _$apiV1CategoryListRequestAnchorReference(ApiV1CategoryListRequest v) =>
-      v.apiV1CategoryListRequestAnchorReference;
+  _f$nestedIncluded = Field('nestedIncluded', _$nestedIncluded, opt: true);
+  static ApiV1CategoryListRequestAnchorReference? _$anchorReference(
+    ApiV1CategoryListRequest v,
+  ) => v.anchorReference;
   static const Field<
     ApiV1CategoryListRequest,
     ApiV1CategoryListRequestAnchorReference
   >
-  _f$apiV1CategoryListRequestAnchorReference = Field(
-    'apiV1CategoryListRequestAnchorReference',
-    _$apiV1CategoryListRequestAnchorReference,
-    key: r'ApiV1CategoryListRequestAnchorReference',
-    opt: true,
-  );
+  _f$anchorReference = Field('anchorReference', _$anchorReference, opt: true);
 
   @override
   final MappableFields<ApiV1CategoryListRequest> fields = const {
     #includedField: _f$includedField,
-    #apiV1CategoryListRequestNestedIncluded:
-        _f$apiV1CategoryListRequestNestedIncluded,
-    #apiV1CategoryListRequestAnchorReference:
-        _f$apiV1CategoryListRequestAnchorReference,
+    #nestedIncluded: _f$nestedIncluded,
+    #anchorReference: _f$anchorReference,
   };
 
   static ApiV1CategoryListRequest _instantiate(DecodingData data) {
     return ApiV1CategoryListRequest(
       includedField: data.dec(_f$includedField),
-      apiV1CategoryListRequestNestedIncluded: data.dec(
-        _f$apiV1CategoryListRequestNestedIncluded,
-      ),
-      apiV1CategoryListRequestAnchorReference: data.dec(
-        _f$apiV1CategoryListRequestAnchorReference,
-      ),
+      nestedIncluded: data.dec(_f$nestedIncluded),
+      anchorReference: data.dec(_f$anchorReference),
     );
   }
 
@@ -154,19 +138,17 @@ abstract class ApiV1CategoryListRequestCopyWith<
     ApiV1CategoryListRequestNestedIncluded,
     ApiV1CategoryListRequestNestedIncluded
   >?
-  get apiV1CategoryListRequestNestedIncluded;
+  get nestedIncluded;
   ApiV1CategoryListRequestAnchorReferenceCopyWith<
     $R,
     ApiV1CategoryListRequestAnchorReference,
     ApiV1CategoryListRequestAnchorReference
   >?
-  get apiV1CategoryListRequestAnchorReference;
+  get anchorReference;
   $R call({
     String? includedField,
-    ApiV1CategoryListRequestNestedIncluded?
-    apiV1CategoryListRequestNestedIncluded,
-    ApiV1CategoryListRequestAnchorReference?
-    apiV1CategoryListRequestAnchorReference,
+    ApiV1CategoryListRequestNestedIncluded? nestedIncluded,
+    ApiV1CategoryListRequestAnchorReference? anchorReference,
   });
   ApiV1CategoryListRequestCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -188,47 +170,33 @@ class _ApiV1CategoryListRequestCopyWithImpl<$R, $Out>
     ApiV1CategoryListRequestNestedIncluded,
     ApiV1CategoryListRequestNestedIncluded
   >?
-  get apiV1CategoryListRequestNestedIncluded => $value
-      .apiV1CategoryListRequestNestedIncluded
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListRequestNestedIncluded: v));
+  get nestedIncluded =>
+      $value.nestedIncluded?.copyWith.$chain((v) => call(nestedIncluded: v));
   @override
   ApiV1CategoryListRequestAnchorReferenceCopyWith<
     $R,
     ApiV1CategoryListRequestAnchorReference,
     ApiV1CategoryListRequestAnchorReference
   >?
-  get apiV1CategoryListRequestAnchorReference => $value
-      .apiV1CategoryListRequestAnchorReference
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListRequestAnchorReference: v));
+  get anchorReference =>
+      $value.anchorReference?.copyWith.$chain((v) => call(anchorReference: v));
   @override
   $R call({
     String? includedField,
-    Object? apiV1CategoryListRequestNestedIncluded = $none,
-    Object? apiV1CategoryListRequestAnchorReference = $none,
+    Object? nestedIncluded = $none,
+    Object? anchorReference = $none,
   }) => $apply(
     FieldCopyWithData({
       if (includedField != null) #includedField: includedField,
-      if (apiV1CategoryListRequestNestedIncluded != $none)
-        #apiV1CategoryListRequestNestedIncluded:
-            apiV1CategoryListRequestNestedIncluded,
-      if (apiV1CategoryListRequestAnchorReference != $none)
-        #apiV1CategoryListRequestAnchorReference:
-            apiV1CategoryListRequestAnchorReference,
+      if (nestedIncluded != $none) #nestedIncluded: nestedIncluded,
+      if (anchorReference != $none) #anchorReference: anchorReference,
     }),
   );
   @override
   ApiV1CategoryListRequest $make(CopyWithData data) => ApiV1CategoryListRequest(
     includedField: data.get(#includedField, or: $value.includedField),
-    apiV1CategoryListRequestNestedIncluded: data.get(
-      #apiV1CategoryListRequestNestedIncluded,
-      or: $value.apiV1CategoryListRequestNestedIncluded,
-    ),
-    apiV1CategoryListRequestAnchorReference: data.get(
-      #apiV1CategoryListRequestAnchorReference,
-      or: $value.apiV1CategoryListRequestAnchorReference,
-    ),
+    nestedIncluded: data.get(#nestedIncluded, or: $value.nestedIncluded),
+    anchorReference: data.get(#anchorReference, or: $value.anchorReference),
   );
 
   @override

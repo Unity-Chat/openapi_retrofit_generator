@@ -11,35 +11,25 @@ _$EventSessionErrorPropertiesErrorErrorProviderAuthErrorFromJson(
   Map<String, dynamic> json,
 ) => EventSessionErrorPropertiesErrorErrorProviderAuthError(
   name: json['name'] as String,
-  providerAuthErrorData: ProviderAuthErrorData.fromJson(
-    json['providerAuthErrorData'] as Map<String, dynamic>,
-  ),
+  data: ProviderAuthErrorData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic>
 _$EventSessionErrorPropertiesErrorErrorProviderAuthErrorToJson(
   EventSessionErrorPropertiesErrorErrorProviderAuthError instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'providerAuthErrorData': instance.providerAuthErrorData,
-};
+) => <String, dynamic>{'name': instance.name, 'data': instance.data};
 
 EventSessionErrorPropertiesErrorErrorUnknownError
 _$EventSessionErrorPropertiesErrorErrorUnknownErrorFromJson(
   Map<String, dynamic> json,
 ) => EventSessionErrorPropertiesErrorErrorUnknownError(
   name: json['name'] as String,
-  unknownErrorData: UnknownErrorData.fromJson(
-    json['unknownErrorData'] as Map<String, dynamic>,
-  ),
+  data: UnknownErrorData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$EventSessionErrorPropertiesErrorErrorUnknownErrorToJson(
   EventSessionErrorPropertiesErrorErrorUnknownError instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'unknownErrorData': instance.unknownErrorData,
-};
+) => <String, dynamic>{'name': instance.name, 'data': instance.data};
 
 EventSessionErrorPropertiesErrorErrorMessageOutputLengthError
 _$EventSessionErrorPropertiesErrorErrorMessageOutputLengthErrorFromJson(
@@ -59,15 +49,10 @@ _$EventSessionErrorPropertiesErrorErrorMessageAbortedErrorFromJson(
   Map<String, dynamic> json,
 ) => EventSessionErrorPropertiesErrorErrorMessageAbortedError(
   name: json['name'] as String,
-  messageAbortedErrorData: MessageAbortedErrorData.fromJson(
-    json['messageAbortedErrorData'] as Map<String, dynamic>,
-  ),
+  data: MessageAbortedErrorData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic>
 _$EventSessionErrorPropertiesErrorErrorMessageAbortedErrorToJson(
   EventSessionErrorPropertiesErrorErrorMessageAbortedError instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'messageAbortedErrorData': instance.messageAbortedErrorData,
-};
+) => <String, dynamic>{'name': instance.name, 'data': instance.data};

@@ -38,22 +38,17 @@ class AssistantMessageTokensMapper
     'reasoning',
     _$reasoning,
   );
-  static AssistantMessageTokensCache _$assistantMessageTokensCache(
-    AssistantMessageTokens v,
-  ) => v.assistantMessageTokensCache;
+  static AssistantMessageTokensCache _$cache(AssistantMessageTokens v) =>
+      v.cache;
   static const Field<AssistantMessageTokens, AssistantMessageTokensCache>
-  _f$assistantMessageTokensCache = Field(
-    'assistantMessageTokensCache',
-    _$assistantMessageTokensCache,
-    key: r'AssistantMessageTokensCache',
-  );
+  _f$cache = Field('cache', _$cache);
 
   @override
   final MappableFields<AssistantMessageTokens> fields = const {
     #input: _f$input,
     #output: _f$output,
     #reasoning: _f$reasoning,
-    #assistantMessageTokensCache: _f$assistantMessageTokensCache,
+    #cache: _f$cache,
   };
 
   static AssistantMessageTokens _instantiate(DecodingData data) {
@@ -61,7 +56,7 @@ class AssistantMessageTokensMapper
       input: data.dec(_f$input),
       output: data.dec(_f$output),
       reasoning: data.dec(_f$reasoning),
-      assistantMessageTokensCache: data.dec(_f$assistantMessageTokensCache),
+      cache: data.dec(_f$cache),
     );
   }
 
@@ -140,12 +135,12 @@ abstract class AssistantMessageTokensCopyWith<
     AssistantMessageTokensCache,
     AssistantMessageTokensCache
   >
-  get assistantMessageTokensCache;
+  get cache;
   $R call({
     num? input,
     num? output,
     num? reasoning,
-    AssistantMessageTokensCache? assistantMessageTokensCache,
+    AssistantMessageTokensCache? cache,
   });
   AssistantMessageTokensCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -167,21 +162,19 @@ class _AssistantMessageTokensCopyWithImpl<$R, $Out>
     AssistantMessageTokensCache,
     AssistantMessageTokensCache
   >
-  get assistantMessageTokensCache => $value.assistantMessageTokensCache.copyWith
-      .$chain((v) => call(assistantMessageTokensCache: v));
+  get cache => $value.cache.copyWith.$chain((v) => call(cache: v));
   @override
   $R call({
     num? input,
     num? output,
     num? reasoning,
-    AssistantMessageTokensCache? assistantMessageTokensCache,
+    AssistantMessageTokensCache? cache,
   }) => $apply(
     FieldCopyWithData({
       if (input != null) #input: input,
       if (output != null) #output: output,
       if (reasoning != null) #reasoning: reasoning,
-      if (assistantMessageTokensCache != null)
-        #assistantMessageTokensCache: assistantMessageTokensCache,
+      if (cache != null) #cache: cache,
     }),
   );
   @override
@@ -189,10 +182,7 @@ class _AssistantMessageTokensCopyWithImpl<$R, $Out>
     input: data.get(#input, or: $value.input),
     output: data.get(#output, or: $value.output),
     reasoning: data.get(#reasoning, or: $value.reasoning),
-    assistantMessageTokensCache: data.get(
-      #assistantMessageTokensCache,
-      or: $value.assistantMessageTokensCache,
-    ),
+    cache: data.get(#cache, or: $value.cache),
   );
 
   @override

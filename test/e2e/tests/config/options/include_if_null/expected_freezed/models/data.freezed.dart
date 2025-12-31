@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Data {
 
- String get id; String get value;@JsonKey(includeIfNull: false, name: 'DataNested') DataNested? get dataNested;
+ String get id; String get value;@JsonKey(includeIfNull: false) DataNested? get nested;
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DataCopyWith<Data> get copyWith => _$DataCopyWithImpl<Data>(this as Data, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.dataNested, dataNested) || other.dataNested == dataNested));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.nested, nested) || other.nested == nested));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,value,dataNested);
+int get hashCode => Object.hash(runtimeType,id,value,nested);
 
 @override
 String toString() {
-  return 'Data(id: $id, value: $value, dataNested: $dataNested)';
+  return 'Data(id: $id, value: $value, nested: $nested)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $DataCopyWith<$Res>  {
   factory $DataCopyWith(Data value, $Res Function(Data) _then) = _$DataCopyWithImpl;
 @useResult
 $Res call({
- String id, String value,@JsonKey(includeIfNull: false, name: 'DataNested') DataNested? dataNested
+ String id, String value,@JsonKey(includeIfNull: false) DataNested? nested
 });
 
 
-$DataNestedCopyWith<$Res>? get dataNested;
+$DataNestedCopyWith<$Res>? get nested;
 
 }
 /// @nodoc
@@ -65,11 +65,11 @@ class _$DataCopyWithImpl<$Res>
 
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? value = null,Object? dataNested = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? value = null,Object? nested = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,dataNested: freezed == dataNested ? _self.dataNested : dataNested // ignore: cast_nullable_to_non_nullable
+as String,nested: freezed == nested ? _self.nested : nested // ignore: cast_nullable_to_non_nullable
 as DataNested?,
   ));
 }
@@ -77,13 +77,13 @@ as DataNested?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DataNestedCopyWith<$Res>? get dataNested {
-    if (_self.dataNested == null) {
+$DataNestedCopyWith<$Res>? get nested {
+    if (_self.nested == null) {
     return null;
   }
 
-  return $DataNestedCopyWith<$Res>(_self.dataNested!, (value) {
-    return _then(_self.copyWith(dataNested: value));
+  return $DataNestedCopyWith<$Res>(_self.nested!, (value) {
+    return _then(_self.copyWith(nested: value));
   });
 }
 }
@@ -167,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String value, @JsonKey(includeIfNull: false, name: 'DataNested')  DataNested? dataNested)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String value, @JsonKey(includeIfNull: false)  DataNested? nested)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Data() when $default != null:
-return $default(_that.id,_that.value,_that.dataNested);case _:
+return $default(_that.id,_that.value,_that.nested);case _:
   return orElse();
 
 }
@@ -188,10 +188,10 @@ return $default(_that.id,_that.value,_that.dataNested);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String value, @JsonKey(includeIfNull: false, name: 'DataNested')  DataNested? dataNested)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String value, @JsonKey(includeIfNull: false)  DataNested? nested)  $default,) {final _that = this;
 switch (_that) {
 case _Data():
-return $default(_that.id,_that.value,_that.dataNested);case _:
+return $default(_that.id,_that.value,_that.nested);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +208,10 @@ return $default(_that.id,_that.value,_that.dataNested);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String value, @JsonKey(includeIfNull: false, name: 'DataNested')  DataNested? dataNested)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String value, @JsonKey(includeIfNull: false)  DataNested? nested)?  $default,) {final _that = this;
 switch (_that) {
 case _Data() when $default != null:
-return $default(_that.id,_that.value,_that.dataNested);case _:
+return $default(_that.id,_that.value,_that.nested);case _:
   return null;
 
 }
@@ -223,12 +223,12 @@ return $default(_that.id,_that.value,_that.dataNested);case _:
 @JsonSerializable()
 
 class _Data implements Data {
-  const _Data({required this.id, required this.value, @JsonKey(includeIfNull: false, name: 'DataNested') this.dataNested});
+  const _Data({required this.id, required this.value, @JsonKey(includeIfNull: false) this.nested});
   factory _Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 
 @override final  String id;
 @override final  String value;
-@override@JsonKey(includeIfNull: false, name: 'DataNested') final  DataNested? dataNested;
+@override@JsonKey(includeIfNull: false) final  DataNested? nested;
 
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
@@ -243,16 +243,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.dataNested, dataNested) || other.dataNested == dataNested));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Data&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value)&&(identical(other.nested, nested) || other.nested == nested));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,value,dataNested);
+int get hashCode => Object.hash(runtimeType,id,value,nested);
 
 @override
 String toString() {
-  return 'Data(id: $id, value: $value, dataNested: $dataNested)';
+  return 'Data(id: $id, value: $value, nested: $nested)';
 }
 
 
@@ -263,11 +263,11 @@ abstract mixin class _$DataCopyWith<$Res> implements $DataCopyWith<$Res> {
   factory _$DataCopyWith(_Data value, $Res Function(_Data) _then) = __$DataCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String value,@JsonKey(includeIfNull: false, name: 'DataNested') DataNested? dataNested
+ String id, String value,@JsonKey(includeIfNull: false) DataNested? nested
 });
 
 
-@override $DataNestedCopyWith<$Res>? get dataNested;
+@override $DataNestedCopyWith<$Res>? get nested;
 
 }
 /// @nodoc
@@ -280,11 +280,11 @@ class __$DataCopyWithImpl<$Res>
 
 /// Create a copy of Data
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? value = null,Object? dataNested = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? value = null,Object? nested = freezed,}) {
   return _then(_Data(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,dataNested: freezed == dataNested ? _self.dataNested : dataNested // ignore: cast_nullable_to_non_nullable
+as String,nested: freezed == nested ? _self.nested : nested // ignore: cast_nullable_to_non_nullable
 as DataNested?,
   ));
 }
@@ -293,13 +293,13 @@ as DataNested?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DataNestedCopyWith<$Res>? get dataNested {
-    if (_self.dataNested == null) {
+$DataNestedCopyWith<$Res>? get nested {
+    if (_self.nested == null) {
     return null;
   }
 
-  return $DataNestedCopyWith<$Res>(_self.dataNested!, (value) {
-    return _then(_self.copyWith(dataNested: value));
+  return $DataNestedCopyWith<$Res>(_self.nested!, (value) {
+    return _then(_self.copyWith(nested: value));
   });
 }
 }

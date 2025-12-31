@@ -15,13 +15,13 @@ class Agent {
     required this.name,
     required this.mode,
     required this.builtIn,
-    required this.agentPermission,
+    required this.permission,
     required this.tools,
     required this.options,
     this.description,
     this.topP,
     this.temperature,
-    this.agentModel,
+    this.model,
     this.prompt,
   });
 
@@ -33,10 +33,8 @@ class Agent {
   final bool builtIn;
   final num? topP;
   final num? temperature;
-  @JsonKey(name: 'AgentPermission')
-  final AgentPermission agentPermission;
-  @JsonKey(name: 'AgentModel')
-  final AgentModel? agentModel;
+  final AgentPermission permission;
+  final AgentModel? model;
   final String? prompt;
   final Map<String, bool> tools;
   final Map<String, dynamic> options;

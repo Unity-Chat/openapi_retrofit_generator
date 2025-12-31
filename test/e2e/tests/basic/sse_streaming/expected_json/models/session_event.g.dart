@@ -31,13 +31,13 @@ Map<String, dynamic> _$SessionEventSessionUpdatedToJson(
 SessionEventSessionDeleted _$SessionEventSessionDeletedFromJson(
   Map<String, dynamic> json,
 ) => SessionEventSessionDeleted(
-  sessionId: json['sessionId'] as String,
+  sessionId: json['session_id'] as String,
   type: json['type'] as String,
 );
 
 Map<String, dynamic> _$SessionEventSessionDeletedToJson(
   SessionEventSessionDeleted instance,
-) => <String, dynamic>{'sessionId': instance.sessionId, 'type': instance.type};
+) => <String, dynamic>{'session_id': instance.sessionId, 'type': instance.type};
 
 SessionEventMessageCreated _$SessionEventMessageCreatedFromJson(
   Map<String, dynamic> json,
@@ -64,43 +64,43 @@ Map<String, dynamic> _$SessionEventMessageUpdatedToJson(
 SessionEventMessageRemoved _$SessionEventMessageRemovedFromJson(
   Map<String, dynamic> json,
 ) => SessionEventMessageRemoved(
-  messageId: json['messageId'] as String,
+  messageId: json['message_id'] as String,
   type: json['type'] as String,
 );
 
 Map<String, dynamic> _$SessionEventMessageRemovedToJson(
   SessionEventMessageRemoved instance,
-) => <String, dynamic>{'messageId': instance.messageId, 'type': instance.type};
+) => <String, dynamic>{'message_id': instance.messageId, 'type': instance.type};
 
 SessionEventPartUpdated _$SessionEventPartUpdatedFromJson(
   Map<String, dynamic> json,
 ) => SessionEventPartUpdated(
-  messageId: json['messageId'] as String,
-  partField: PartModel.fromJson(json['partField'] as Map<String, dynamic>),
+  messageId: json['message_id'] as String,
+  partField: PartModel.fromJson(json['part'] as Map<String, dynamic>),
   type: json['type'] as String,
 );
 
 Map<String, dynamic> _$SessionEventPartUpdatedToJson(
   SessionEventPartUpdated instance,
 ) => <String, dynamic>{
-  'messageId': instance.messageId,
-  'partField': instance.partField,
+  'message_id': instance.messageId,
+  'part': instance.partField,
   'type': instance.type,
 };
 
 SessionEventPartRemoved _$SessionEventPartRemovedFromJson(
   Map<String, dynamic> json,
 ) => SessionEventPartRemoved(
-  messageId: json['messageId'] as String,
-  partId: json['partId'] as String,
+  messageId: json['message_id'] as String,
+  partId: json['part_id'] as String,
   type: json['type'] as String,
 );
 
 Map<String, dynamic> _$SessionEventPartRemovedToJson(
   SessionEventPartRemoved instance,
 ) => <String, dynamic>{
-  'messageId': instance.messageId,
-  'partId': instance.partId,
+  'message_id': instance.messageId,
+  'part_id': instance.partId,
   'type': instance.type,
 };
 

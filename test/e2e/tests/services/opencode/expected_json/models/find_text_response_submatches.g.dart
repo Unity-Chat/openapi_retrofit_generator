@@ -9,8 +9,8 @@ part of 'find_text_response_submatches.dart';
 FindTextResponseSubmatches _$FindTextResponseSubmatchesFromJson(
   Map<String, dynamic> json,
 ) => FindTextResponseSubmatches(
-  findTextResponseSubmatchesMatch: FindTextResponseSubmatchesMatch.fromJson(
-    json['FindTextResponseSubmatchesMatch'] as Map<String, dynamic>,
+  match: FindTextResponseSubmatchesMatch.fromJson(
+    json['match'] as Map<String, dynamic>,
   ),
   start: json['start'] as num,
   end: json['end'] as num,
@@ -19,7 +19,7 @@ FindTextResponseSubmatches _$FindTextResponseSubmatchesFromJson(
 Map<String, dynamic> _$FindTextResponseSubmatchesToJson(
   FindTextResponseSubmatches instance,
 ) => <String, dynamic>{
-  'FindTextResponseSubmatchesMatch': instance.findTextResponseSubmatchesMatch,
+  'match': instance.match,
   'start': instance.start,
   'end': instance.end,
 };

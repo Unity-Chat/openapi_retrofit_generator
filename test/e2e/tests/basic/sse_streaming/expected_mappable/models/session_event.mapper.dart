@@ -393,6 +393,7 @@ class SessionEventSessionDeletedMapper
   static const Field<SessionEventSessionDeleted, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'session_id',
   );
   static String _$type(SessionEventSessionDeleted v) => v.type;
   static const Field<SessionEventSessionDeleted, String> _f$type = Field(
@@ -895,6 +896,7 @@ class SessionEventMessageRemovedMapper
   static const Field<SessionEventMessageRemoved, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'message_id',
   );
   static String _$type(SessionEventMessageRemoved v) => v.type;
   static const Field<SessionEventMessageRemoved, String> _f$type = Field(
@@ -1060,11 +1062,13 @@ class SessionEventPartUpdatedMapper
   static const Field<SessionEventPartUpdated, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'message_id',
   );
   static PartModel _$partField(SessionEventPartUpdated v) => v.partField;
   static const Field<SessionEventPartUpdated, PartModel> _f$partField = Field(
     'partField',
     _$partField,
+    key: r'part',
   );
   static String _$type(SessionEventPartUpdated v) => v.type;
   static const Field<SessionEventPartUpdated, String> _f$type = Field(
@@ -1228,11 +1232,13 @@ class SessionEventPartRemovedMapper
   static const Field<SessionEventPartRemoved, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'message_id',
   );
   static String _$partId(SessionEventPartRemoved v) => v.partId;
   static const Field<SessionEventPartRemoved, String> _f$partId = Field(
     'partId',
     _$partId,
+    key: r'part_id',
   );
   static String _$type(SessionEventPartRemoved v) => v.type;
   static const Field<SessionEventPartRemoved, String> _f$type = Field(

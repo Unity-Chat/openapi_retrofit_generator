@@ -26,9 +26,9 @@ class Config {
     this.schema,
     this.theme,
     this.keybinds,
-    this.configTui,
+    this.tui,
     this.command,
-    this.configWatcher,
+    this.watcher,
     this.plugin,
     this.snapshot,
     this.share,
@@ -46,9 +46,9 @@ class Config {
     this.lsp,
     this.instructions,
     this.layout,
-    this.configPermission,
+    this.permission,
     this.tools,
-    this.configExperimental,
+    this.experimental,
   });
 
   factory Config.fromJson(Map<String, Object?> json) => _$ConfigFromJson(json);
@@ -62,13 +62,11 @@ class Config {
   final KeybindsConfig? keybinds;
 
   /// TUI specific settings
-  @JsonKey(name: 'ConfigTui')
-  final ConfigTui? configTui;
+  final ConfigTui? tui;
 
   /// Command configuration, see https://opencode.ai/docs/commands
   final Map<String, Command>? command;
-  @JsonKey(name: 'ConfigWatcher')
-  final ConfigWatcher? configWatcher;
+  final ConfigWatcher? watcher;
   final List<String>? plugin;
   final bool? snapshot;
 
@@ -112,11 +110,9 @@ class Config {
   /// Additional instruction files or patterns to include
   final List<String>? instructions;
   final LayoutConfig? layout;
-  @JsonKey(name: 'ConfigPermission')
-  final ConfigPermission? configPermission;
+  final ConfigPermission? permission;
   final Map<String, bool>? tools;
-  @JsonKey(name: 'ConfigExperimental')
-  final ConfigExperimental? configExperimental;
+  final ConfigExperimental? experimental;
 
   Map<String, Object?> toJson() => _$ConfigToJson(this);
 }

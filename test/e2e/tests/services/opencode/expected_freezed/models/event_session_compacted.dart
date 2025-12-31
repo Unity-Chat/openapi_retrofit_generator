@@ -13,8 +13,7 @@ part 'event_session_compacted.g.dart';
 abstract class EventSessionCompacted with _$EventSessionCompacted {
   const factory EventSessionCompacted({
     required String type,
-    @JsonKey(name: 'EventSessionCompactedProperties')
-    required EventSessionCompactedProperties eventSessionCompactedProperties,
+    required EventSessionCompactedProperties properties,
   }) = _EventSessionCompacted;
 
   factory EventSessionCompacted.fromJson(Map<String, Object?> json) =>

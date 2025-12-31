@@ -27,26 +27,20 @@ class MessageAbortedErrorMapper extends ClassMapperBase<MessageAbortedError> {
     'name',
     _$name,
   );
-  static MessageAbortedErrorData _$messageAbortedErrorData(
-    MessageAbortedError v,
-  ) => v.messageAbortedErrorData;
-  static const Field<MessageAbortedError, MessageAbortedErrorData>
-  _f$messageAbortedErrorData = Field(
-    'messageAbortedErrorData',
-    _$messageAbortedErrorData,
-    key: r'MessageAbortedErrorData',
-  );
+  static MessageAbortedErrorData _$data(MessageAbortedError v) => v.data;
+  static const Field<MessageAbortedError, MessageAbortedErrorData> _f$data =
+      Field('data', _$data);
 
   @override
   final MappableFields<MessageAbortedError> fields = const {
     #name: _f$name,
-    #messageAbortedErrorData: _f$messageAbortedErrorData,
+    #data: _f$data,
   };
 
   static MessageAbortedError _instantiate(DecodingData data) {
     return MessageAbortedError(
       name: data.dec(_f$name),
-      messageAbortedErrorData: data.dec(_f$messageAbortedErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -125,8 +119,8 @@ abstract class MessageAbortedErrorCopyWith<
     MessageAbortedErrorData,
     MessageAbortedErrorData
   >
-  get messageAbortedErrorData;
-  $R call({String? name, MessageAbortedErrorData? messageAbortedErrorData});
+  get data;
+  $R call({String? name, MessageAbortedErrorData? data});
   MessageAbortedErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -146,25 +140,18 @@ class _MessageAbortedErrorCopyWithImpl<$R, $Out>
     MessageAbortedErrorData,
     MessageAbortedErrorData
   >
-  get messageAbortedErrorData => $value.messageAbortedErrorData.copyWith.$chain(
-    (v) => call(messageAbortedErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, MessageAbortedErrorData? messageAbortedErrorData}) =>
-      $apply(
-        FieldCopyWithData({
-          if (name != null) #name: name,
-          if (messageAbortedErrorData != null)
-            #messageAbortedErrorData: messageAbortedErrorData,
-        }),
-      );
+  $R call({String? name, MessageAbortedErrorData? data}) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (data != null) #data: data,
+    }),
+  );
   @override
   MessageAbortedError $make(CopyWithData data) => MessageAbortedError(
     name: data.get(#name, or: $value.name),
-    messageAbortedErrorData: data.get(
-      #messageAbortedErrorData,
-      or: $value.messageAbortedErrorData,
-    ),
+    data: data.get(#data, or: $value.data),
   );
 
   @override

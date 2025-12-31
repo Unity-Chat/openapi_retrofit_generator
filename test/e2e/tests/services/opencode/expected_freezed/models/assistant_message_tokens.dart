@@ -15,8 +15,7 @@ abstract class AssistantMessageTokens with _$AssistantMessageTokens {
     required num input,
     required num output,
     required num reasoning,
-    @JsonKey(name: 'AssistantMessageTokensCache')
-    required AssistantMessageTokensCache assistantMessageTokensCache,
+    required AssistantMessageTokensCache cache,
   }) = _AssistantMessageTokens;
 
   factory AssistantMessageTokens.fromJson(Map<String, Object?> json) =>

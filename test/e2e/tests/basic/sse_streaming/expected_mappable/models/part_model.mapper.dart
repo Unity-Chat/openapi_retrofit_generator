@@ -220,16 +220,19 @@ class PartModelToolUseMapper extends SubClassMapperBase<PartModelToolUse> {
   static const Field<PartModelToolUse, String> _f$toolName = Field(
     'toolName',
     _$toolName,
+    key: r'tool_name',
   );
   static String _$toolCallId(PartModelToolUse v) => v.toolCallId;
   static const Field<PartModelToolUse, String> _f$toolCallId = Field(
     'toolCallId',
     _$toolCallId,
+    key: r'tool_call_id',
   );
   static dynamic _$toolInput(PartModelToolUse v) => v.toolInput;
   static const Field<PartModelToolUse, dynamic> _f$toolInput = Field(
     'toolInput',
     _$toolInput,
+    key: r'tool_input',
   );
   static String _$type(PartModelToolUse v) => v.type;
   static const Field<PartModelToolUse, String> _f$type = Field('type', _$type);
@@ -396,21 +399,25 @@ class PartModelToolResultMapper
   static const Field<PartModelToolResult, String> _f$toolName = Field(
     'toolName',
     _$toolName,
+    key: r'tool_name',
   );
   static String _$toolCallId(PartModelToolResult v) => v.toolCallId;
   static const Field<PartModelToolResult, String> _f$toolCallId = Field(
     'toolCallId',
     _$toolCallId,
+    key: r'tool_call_id',
   );
   static String _$toolResult(PartModelToolResult v) => v.toolResult;
   static const Field<PartModelToolResult, String> _f$toolResult = Field(
     'toolResult',
     _$toolResult,
+    key: r'tool_result',
   );
   static bool _$isError(PartModelToolResult v) => v.isError;
   static const Field<PartModelToolResult, bool> _f$isError = Field(
     'isError',
     _$isError,
+    key: r'is_error',
   );
   static String _$type(PartModelToolResult v) => v.type;
   static const Field<PartModelToolResult, String> _f$type = Field(

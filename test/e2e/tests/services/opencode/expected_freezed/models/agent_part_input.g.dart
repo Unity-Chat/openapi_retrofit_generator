@@ -11,10 +11,10 @@ _AgentPartInput _$AgentPartInputFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       name: json['name'] as String,
       id: json['id'] as String?,
-      agentPartInputSource: json['AgentPartInputSource'] == null
+      source: json['source'] == null
           ? null
           : AgentPartInputSource.fromJson(
-              json['AgentPartInputSource'] as Map<String, dynamic>,
+              json['source'] as Map<String, dynamic>,
             ),
     );
 
@@ -23,5 +23,5 @@ Map<String, dynamic> _$AgentPartInputToJson(_AgentPartInput instance) =>
       'type': instance.type,
       'name': instance.name,
       'id': instance.id,
-      'AgentPartInputSource': instance.agentPartInputSource,
+      'source': instance.source,
     };

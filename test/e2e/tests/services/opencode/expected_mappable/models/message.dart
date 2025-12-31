@@ -32,47 +32,51 @@ class Message {
 @MappableClass()
 class MessageUserMessage with MessageUserMessageMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
   final String role;
-  final UserMessageTime userMessageTime;
+  final UserMessageTime time;
 
   const MessageUserMessage({
     required this.id,
     required this.sessionId,
     required this.role,
-    required this.userMessageTime,
+    required this.time,
   });
 }
 
 @MappableClass()
 class MessageAssistantMessage with MessageAssistantMessageMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
   final String role;
-  final AssistantMessageTime assistantMessageTime;
+  final AssistantMessageTime time;
   final AssistantMessageErrorError? error;
   final List<String> system;
+  @MappableField(key: 'modelID')
   final String modelId;
+  @MappableField(key: 'providerID')
   final String providerId;
   final String mode;
-  final AssistantMessagePath assistantMessagePath;
+  final AssistantMessagePath path;
   final bool? summary;
   final num cost;
-  final AssistantMessageTokens assistantMessageTokens;
+  final AssistantMessageTokens tokens;
 
   const MessageAssistantMessage({
     required this.id,
     required this.sessionId,
     required this.role,
-    required this.assistantMessageTime,
+    required this.time,
     required this.error,
     required this.system,
     required this.modelId,
     required this.providerId,
     required this.mode,
-    required this.assistantMessagePath,
+    required this.path,
     required this.summary,
     required this.cost,
-    required this.assistantMessageTokens,
+    required this.tokens,
   });
 }

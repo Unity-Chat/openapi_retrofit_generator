@@ -15,7 +15,7 @@ abstract class FileContent with _$FileContent {
     required String type,
     required String content,
     String? diff,
-    @JsonKey(name: 'FileContentPatch') FileContentPatch? fileContentPatch,
+    FileContentPatch? patch,
     String? encoding,
     String? mimeType,
   }) = _FileContent;

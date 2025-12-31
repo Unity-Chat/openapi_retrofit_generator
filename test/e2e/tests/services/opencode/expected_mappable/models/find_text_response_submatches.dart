@@ -11,13 +11,12 @@ part 'find_text_response_submatches.mapper.dart';
 @MappableClass()
 class FindTextResponseSubmatches with FindTextResponseSubmatchesMappable {
   const FindTextResponseSubmatches({
-    required this.findTextResponseSubmatchesMatch,
+    required this.match,
     required this.start,
     required this.end,
   });
 
-  @MappableField(key: 'FindTextResponseSubmatchesMatch')
-  final FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch;
+  final FindTextResponseSubmatchesMatch match;
   final num start;
   final num end;
 

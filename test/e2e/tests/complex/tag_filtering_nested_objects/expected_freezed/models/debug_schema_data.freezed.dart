@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DebugSchemaData {
 
-@JsonKey(includeIfNull: false) String? get name;@JsonKey(includeIfNull: false) int? get id;@JsonKey(includeIfNull: false) DebugSchemaDataStatusStatus? get status;@JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata') DebugSchemaDataMetadata? get debugSchemaDataMetadata;
+@JsonKey(includeIfNull: false) String? get name;@JsonKey(includeIfNull: false) int? get id;@JsonKey(includeIfNull: false) DebugSchemaDataStatusStatus? get status;@JsonKey(includeIfNull: false) DebugSchemaDataMetadata? get metadata;
 /// Create a copy of DebugSchemaData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DebugSchemaDataCopyWith<DebugSchemaData> get copyWith => _$DebugSchemaDataCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DebugSchemaData&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.status, status) || other.status == status)&&(identical(other.debugSchemaDataMetadata, debugSchemaDataMetadata) || other.debugSchemaDataMetadata == debugSchemaDataMetadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DebugSchemaData&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.status, status) || other.status == status)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,id,status,debugSchemaDataMetadata);
+int get hashCode => Object.hash(runtimeType,name,id,status,metadata);
 
 @override
 String toString() {
-  return 'DebugSchemaData(name: $name, id: $id, status: $status, debugSchemaDataMetadata: $debugSchemaDataMetadata)';
+  return 'DebugSchemaData(name: $name, id: $id, status: $status, metadata: $metadata)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $DebugSchemaDataCopyWith<$Res>  {
   factory $DebugSchemaDataCopyWith(DebugSchemaData value, $Res Function(DebugSchemaData) _then) = _$DebugSchemaDataCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(includeIfNull: false) String? name,@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) DebugSchemaDataStatusStatus? status,@JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata') DebugSchemaDataMetadata? debugSchemaDataMetadata
+@JsonKey(includeIfNull: false) String? name,@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) DebugSchemaDataStatusStatus? status,@JsonKey(includeIfNull: false) DebugSchemaDataMetadata? metadata
 });
 
 
-$DebugSchemaDataMetadataCopyWith<$Res>? get debugSchemaDataMetadata;
+$DebugSchemaDataMetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -65,12 +65,12 @@ class _$DebugSchemaDataCopyWithImpl<$Res>
 
 /// Create a copy of DebugSchemaData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = freezed,Object? id = freezed,Object? status = freezed,Object? debugSchemaDataMetadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = freezed,Object? id = freezed,Object? status = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as DebugSchemaDataStatusStatus?,debugSchemaDataMetadata: freezed == debugSchemaDataMetadata ? _self.debugSchemaDataMetadata : debugSchemaDataMetadata // ignore: cast_nullable_to_non_nullable
+as DebugSchemaDataStatusStatus?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as DebugSchemaDataMetadata?,
   ));
 }
@@ -78,13 +78,13 @@ as DebugSchemaDataMetadata?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DebugSchemaDataMetadataCopyWith<$Res>? get debugSchemaDataMetadata {
-    if (_self.debugSchemaDataMetadata == null) {
+$DebugSchemaDataMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
     return null;
   }
 
-  return $DebugSchemaDataMetadataCopyWith<$Res>(_self.debugSchemaDataMetadata!, (value) {
-    return _then(_self.copyWith(debugSchemaDataMetadata: value));
+  return $DebugSchemaDataMetadataCopyWith<$Res>(_self.metadata!, (value) {
+    return _then(_self.copyWith(metadata: value));
   });
 }
 }
@@ -168,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? name, @JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  DebugSchemaDataStatusStatus? status, @JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata')  DebugSchemaDataMetadata? debugSchemaDataMetadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? name, @JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  DebugSchemaDataStatusStatus? status, @JsonKey(includeIfNull: false)  DebugSchemaDataMetadata? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DebugSchemaData() when $default != null:
-return $default(_that.name,_that.id,_that.status,_that.debugSchemaDataMetadata);case _:
+return $default(_that.name,_that.id,_that.status,_that.metadata);case _:
   return orElse();
 
 }
@@ -189,10 +189,10 @@ return $default(_that.name,_that.id,_that.status,_that.debugSchemaDataMetadata);
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? name, @JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  DebugSchemaDataStatusStatus? status, @JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata')  DebugSchemaDataMetadata? debugSchemaDataMetadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  String? name, @JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  DebugSchemaDataStatusStatus? status, @JsonKey(includeIfNull: false)  DebugSchemaDataMetadata? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _DebugSchemaData():
-return $default(_that.name,_that.id,_that.status,_that.debugSchemaDataMetadata);case _:
+return $default(_that.name,_that.id,_that.status,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +209,10 @@ return $default(_that.name,_that.id,_that.status,_that.debugSchemaDataMetadata);
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  String? name, @JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  DebugSchemaDataStatusStatus? status, @JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata')  DebugSchemaDataMetadata? debugSchemaDataMetadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  String? name, @JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  DebugSchemaDataStatusStatus? status, @JsonKey(includeIfNull: false)  DebugSchemaDataMetadata? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _DebugSchemaData() when $default != null:
-return $default(_that.name,_that.id,_that.status,_that.debugSchemaDataMetadata);case _:
+return $default(_that.name,_that.id,_that.status,_that.metadata);case _:
   return null;
 
 }
@@ -224,13 +224,13 @@ return $default(_that.name,_that.id,_that.status,_that.debugSchemaDataMetadata);
 @JsonSerializable()
 
 class _DebugSchemaData implements DebugSchemaData {
-  const _DebugSchemaData({@JsonKey(includeIfNull: false) this.name, @JsonKey(includeIfNull: false) this.id, @JsonKey(includeIfNull: false) this.status, @JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata') this.debugSchemaDataMetadata});
+  const _DebugSchemaData({@JsonKey(includeIfNull: false) this.name, @JsonKey(includeIfNull: false) this.id, @JsonKey(includeIfNull: false) this.status, @JsonKey(includeIfNull: false) this.metadata});
   factory _DebugSchemaData.fromJson(Map<String, dynamic> json) => _$DebugSchemaDataFromJson(json);
 
 @override@JsonKey(includeIfNull: false) final  String? name;
 @override@JsonKey(includeIfNull: false) final  int? id;
 @override@JsonKey(includeIfNull: false) final  DebugSchemaDataStatusStatus? status;
-@override@JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata') final  DebugSchemaDataMetadata? debugSchemaDataMetadata;
+@override@JsonKey(includeIfNull: false) final  DebugSchemaDataMetadata? metadata;
 
 /// Create a copy of DebugSchemaData
 /// with the given fields replaced by the non-null parameter values.
@@ -245,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DebugSchemaData&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.status, status) || other.status == status)&&(identical(other.debugSchemaDataMetadata, debugSchemaDataMetadata) || other.debugSchemaDataMetadata == debugSchemaDataMetadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DebugSchemaData&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.status, status) || other.status == status)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,id,status,debugSchemaDataMetadata);
+int get hashCode => Object.hash(runtimeType,name,id,status,metadata);
 
 @override
 String toString() {
-  return 'DebugSchemaData(name: $name, id: $id, status: $status, debugSchemaDataMetadata: $debugSchemaDataMetadata)';
+  return 'DebugSchemaData(name: $name, id: $id, status: $status, metadata: $metadata)';
 }
 
 
@@ -265,11 +265,11 @@ abstract mixin class _$DebugSchemaDataCopyWith<$Res> implements $DebugSchemaData
   factory _$DebugSchemaDataCopyWith(_DebugSchemaData value, $Res Function(_DebugSchemaData) _then) = __$DebugSchemaDataCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(includeIfNull: false) String? name,@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) DebugSchemaDataStatusStatus? status,@JsonKey(includeIfNull: false, name: 'DebugSchemaDataMetadata') DebugSchemaDataMetadata? debugSchemaDataMetadata
+@JsonKey(includeIfNull: false) String? name,@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) DebugSchemaDataStatusStatus? status,@JsonKey(includeIfNull: false) DebugSchemaDataMetadata? metadata
 });
 
 
-@override $DebugSchemaDataMetadataCopyWith<$Res>? get debugSchemaDataMetadata;
+@override $DebugSchemaDataMetadataCopyWith<$Res>? get metadata;
 
 }
 /// @nodoc
@@ -282,12 +282,12 @@ class __$DebugSchemaDataCopyWithImpl<$Res>
 
 /// Create a copy of DebugSchemaData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = freezed,Object? id = freezed,Object? status = freezed,Object? debugSchemaDataMetadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = freezed,Object? id = freezed,Object? status = freezed,Object? metadata = freezed,}) {
   return _then(_DebugSchemaData(
 name: freezed == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String?,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as DebugSchemaDataStatusStatus?,debugSchemaDataMetadata: freezed == debugSchemaDataMetadata ? _self.debugSchemaDataMetadata : debugSchemaDataMetadata // ignore: cast_nullable_to_non_nullable
+as DebugSchemaDataStatusStatus?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as DebugSchemaDataMetadata?,
   ));
 }
@@ -296,13 +296,13 @@ as DebugSchemaDataMetadata?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DebugSchemaDataMetadataCopyWith<$Res>? get debugSchemaDataMetadata {
-    if (_self.debugSchemaDataMetadata == null) {
+$DebugSchemaDataMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
     return null;
   }
 
-  return $DebugSchemaDataMetadataCopyWith<$Res>(_self.debugSchemaDataMetadata!, (value) {
-    return _then(_self.copyWith(debugSchemaDataMetadata: value));
+  return $DebugSchemaDataMetadataCopyWith<$Res>(_self.metadata!, (value) {
+    return _then(_self.copyWith(metadata: value));
   });
 }
 }

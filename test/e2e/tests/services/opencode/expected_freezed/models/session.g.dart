@@ -12,16 +12,14 @@ _Session _$SessionFromJson(Map<String, dynamic> json) => _Session(
   directory: json['directory'] as String,
   title: json['title'] as String,
   version: json['version'] as String,
-  sessionTime: SessionTime.fromJson(
-    json['SessionTime'] as Map<String, dynamic>,
-  ),
+  time: SessionTime.fromJson(json['time'] as Map<String, dynamic>),
   parentId: json['parentID'] as String?,
-  sessionShare: json['SessionShare'] == null
+  share: json['share'] == null
       ? null
-      : SessionShare.fromJson(json['SessionShare'] as Map<String, dynamic>),
-  sessionRevert: json['SessionRevert'] == null
+      : SessionShare.fromJson(json['share'] as Map<String, dynamic>),
+  revert: json['revert'] == null
       ? null
-      : SessionRevert.fromJson(json['SessionRevert'] as Map<String, dynamic>),
+      : SessionRevert.fromJson(json['revert'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
@@ -30,8 +28,8 @@ Map<String, dynamic> _$SessionToJson(_Session instance) => <String, dynamic>{
   'directory': instance.directory,
   'title': instance.title,
   'version': instance.version,
-  'SessionTime': instance.sessionTime,
+  'time': instance.time,
   'parentID': instance.parentId,
-  'SessionShare': instance.sessionShare,
-  'SessionRevert': instance.sessionRevert,
+  'share': instance.share,
+  'revert': instance.revert,
 };

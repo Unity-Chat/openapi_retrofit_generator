@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AssistantMessageTokens {
 
- num get input; num get output; num get reasoning;@JsonKey(name: 'AssistantMessageTokensCache') AssistantMessageTokensCache get assistantMessageTokensCache;
+ num get input; num get output; num get reasoning; AssistantMessageTokensCache get cache;
 /// Create a copy of AssistantMessageTokens
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $AssistantMessageTokensCopyWith<AssistantMessageTokens> get copyWith => _$Assist
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AssistantMessageTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.assistantMessageTokensCache, assistantMessageTokensCache) || other.assistantMessageTokensCache == assistantMessageTokensCache));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AssistantMessageTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.cache, cache) || other.cache == cache));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,input,output,reasoning,assistantMessageTokensCache);
+int get hashCode => Object.hash(runtimeType,input,output,reasoning,cache);
 
 @override
 String toString() {
-  return 'AssistantMessageTokens(input: $input, output: $output, reasoning: $reasoning, assistantMessageTokensCache: $assistantMessageTokensCache)';
+  return 'AssistantMessageTokens(input: $input, output: $output, reasoning: $reasoning, cache: $cache)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $AssistantMessageTokensCopyWith<$Res>  {
   factory $AssistantMessageTokensCopyWith(AssistantMessageTokens value, $Res Function(AssistantMessageTokens) _then) = _$AssistantMessageTokensCopyWithImpl;
 @useResult
 $Res call({
- num input, num output, num reasoning,@JsonKey(name: 'AssistantMessageTokensCache') AssistantMessageTokensCache assistantMessageTokensCache
+ num input, num output, num reasoning, AssistantMessageTokensCache cache
 });
 
 
-$AssistantMessageTokensCacheCopyWith<$Res> get assistantMessageTokensCache;
+$AssistantMessageTokensCacheCopyWith<$Res> get cache;
 
 }
 /// @nodoc
@@ -65,12 +65,12 @@ class _$AssistantMessageTokensCopyWithImpl<$Res>
 
 /// Create a copy of AssistantMessageTokens
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? assistantMessageTokensCache = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? cache = null,}) {
   return _then(_self.copyWith(
 input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
 as num,output: null == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
 as num,reasoning: null == reasoning ? _self.reasoning : reasoning // ignore: cast_nullable_to_non_nullable
-as num,assistantMessageTokensCache: null == assistantMessageTokensCache ? _self.assistantMessageTokensCache : assistantMessageTokensCache // ignore: cast_nullable_to_non_nullable
+as num,cache: null == cache ? _self.cache : cache // ignore: cast_nullable_to_non_nullable
 as AssistantMessageTokensCache,
   ));
 }
@@ -78,10 +78,10 @@ as AssistantMessageTokensCache,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AssistantMessageTokensCacheCopyWith<$Res> get assistantMessageTokensCache {
+$AssistantMessageTokensCacheCopyWith<$Res> get cache {
   
-  return $AssistantMessageTokensCacheCopyWith<$Res>(_self.assistantMessageTokensCache, (value) {
-    return _then(_self.copyWith(assistantMessageTokensCache: value));
+  return $AssistantMessageTokensCacheCopyWith<$Res>(_self.cache, (value) {
+    return _then(_self.copyWith(cache: value));
   });
 }
 }
@@ -165,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning, @JsonKey(name: 'AssistantMessageTokensCache')  AssistantMessageTokensCache assistantMessageTokensCache)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning,  AssistantMessageTokensCache cache)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AssistantMessageTokens() when $default != null:
-return $default(_that.input,_that.output,_that.reasoning,_that.assistantMessageTokensCache);case _:
+return $default(_that.input,_that.output,_that.reasoning,_that.cache);case _:
   return orElse();
 
 }
@@ -186,10 +186,10 @@ return $default(_that.input,_that.output,_that.reasoning,_that.assistantMessageT
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning, @JsonKey(name: 'AssistantMessageTokensCache')  AssistantMessageTokensCache assistantMessageTokensCache)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning,  AssistantMessageTokensCache cache)  $default,) {final _that = this;
 switch (_that) {
 case _AssistantMessageTokens():
-return $default(_that.input,_that.output,_that.reasoning,_that.assistantMessageTokensCache);case _:
+return $default(_that.input,_that.output,_that.reasoning,_that.cache);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +206,10 @@ return $default(_that.input,_that.output,_that.reasoning,_that.assistantMessageT
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( num input,  num output,  num reasoning, @JsonKey(name: 'AssistantMessageTokensCache')  AssistantMessageTokensCache assistantMessageTokensCache)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( num input,  num output,  num reasoning,  AssistantMessageTokensCache cache)?  $default,) {final _that = this;
 switch (_that) {
 case _AssistantMessageTokens() when $default != null:
-return $default(_that.input,_that.output,_that.reasoning,_that.assistantMessageTokensCache);case _:
+return $default(_that.input,_that.output,_that.reasoning,_that.cache);case _:
   return null;
 
 }
@@ -221,13 +221,13 @@ return $default(_that.input,_that.output,_that.reasoning,_that.assistantMessageT
 @JsonSerializable()
 
 class _AssistantMessageTokens implements AssistantMessageTokens {
-  const _AssistantMessageTokens({required this.input, required this.output, required this.reasoning, @JsonKey(name: 'AssistantMessageTokensCache') required this.assistantMessageTokensCache});
+  const _AssistantMessageTokens({required this.input, required this.output, required this.reasoning, required this.cache});
   factory _AssistantMessageTokens.fromJson(Map<String, dynamic> json) => _$AssistantMessageTokensFromJson(json);
 
 @override final  num input;
 @override final  num output;
 @override final  num reasoning;
-@override@JsonKey(name: 'AssistantMessageTokensCache') final  AssistantMessageTokensCache assistantMessageTokensCache;
+@override final  AssistantMessageTokensCache cache;
 
 /// Create a copy of AssistantMessageTokens
 /// with the given fields replaced by the non-null parameter values.
@@ -242,16 +242,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AssistantMessageTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.assistantMessageTokensCache, assistantMessageTokensCache) || other.assistantMessageTokensCache == assistantMessageTokensCache));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AssistantMessageTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.cache, cache) || other.cache == cache));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,input,output,reasoning,assistantMessageTokensCache);
+int get hashCode => Object.hash(runtimeType,input,output,reasoning,cache);
 
 @override
 String toString() {
-  return 'AssistantMessageTokens(input: $input, output: $output, reasoning: $reasoning, assistantMessageTokensCache: $assistantMessageTokensCache)';
+  return 'AssistantMessageTokens(input: $input, output: $output, reasoning: $reasoning, cache: $cache)';
 }
 
 
@@ -262,11 +262,11 @@ abstract mixin class _$AssistantMessageTokensCopyWith<$Res> implements $Assistan
   factory _$AssistantMessageTokensCopyWith(_AssistantMessageTokens value, $Res Function(_AssistantMessageTokens) _then) = __$AssistantMessageTokensCopyWithImpl;
 @override @useResult
 $Res call({
- num input, num output, num reasoning,@JsonKey(name: 'AssistantMessageTokensCache') AssistantMessageTokensCache assistantMessageTokensCache
+ num input, num output, num reasoning, AssistantMessageTokensCache cache
 });
 
 
-@override $AssistantMessageTokensCacheCopyWith<$Res> get assistantMessageTokensCache;
+@override $AssistantMessageTokensCacheCopyWith<$Res> get cache;
 
 }
 /// @nodoc
@@ -279,12 +279,12 @@ class __$AssistantMessageTokensCopyWithImpl<$Res>
 
 /// Create a copy of AssistantMessageTokens
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? assistantMessageTokensCache = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? cache = null,}) {
   return _then(_AssistantMessageTokens(
 input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
 as num,output: null == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
 as num,reasoning: null == reasoning ? _self.reasoning : reasoning // ignore: cast_nullable_to_non_nullable
-as num,assistantMessageTokensCache: null == assistantMessageTokensCache ? _self.assistantMessageTokensCache : assistantMessageTokensCache // ignore: cast_nullable_to_non_nullable
+as num,cache: null == cache ? _self.cache : cache // ignore: cast_nullable_to_non_nullable
 as AssistantMessageTokensCache,
   ));
 }
@@ -293,10 +293,10 @@ as AssistantMessageTokensCache,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AssistantMessageTokensCacheCopyWith<$Res> get assistantMessageTokensCache {
+$AssistantMessageTokensCacheCopyWith<$Res> get cache {
   
-  return $AssistantMessageTokensCacheCopyWith<$Res>(_self.assistantMessageTokensCache, (value) {
-    return _then(_self.copyWith(assistantMessageTokensCache: value));
+  return $AssistantMessageTokensCacheCopyWith<$Res>(_self.cache, (value) {
+    return _then(_self.copyWith(cache: value));
   });
 }
 }

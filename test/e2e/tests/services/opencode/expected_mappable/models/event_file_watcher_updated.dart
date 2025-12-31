@@ -10,14 +10,10 @@ part 'event_file_watcher_updated.mapper.dart';
 
 @MappableClass()
 class EventFileWatcherUpdated with EventFileWatcherUpdatedMappable {
-  const EventFileWatcherUpdated({
-    required this.type,
-    required this.eventFileWatcherUpdatedProperties,
-  });
+  const EventFileWatcherUpdated({required this.type, required this.properties});
 
   final String type;
-  @MappableField(key: 'EventFileWatcherUpdatedProperties')
-  final EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties;
+  final EventFileWatcherUpdatedProperties properties;
 
   static EventFileWatcherUpdated fromJson(Map<String, dynamic> json) =>
       EventFileWatcherUpdatedMapper.fromJson(json);

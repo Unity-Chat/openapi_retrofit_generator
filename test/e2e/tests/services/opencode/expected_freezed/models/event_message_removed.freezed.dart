@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventMessageRemoved {
 
- String get type;@JsonKey(name: 'EventMessageRemovedProperties') EventMessageRemovedProperties get eventMessageRemovedProperties;
+ String get type; EventMessageRemovedProperties get properties;
 /// Create a copy of EventMessageRemoved
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventMessageRemovedCopyWith<EventMessageRemoved> get copyWith => _$EventMessage
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventMessageRemoved&&(identical(other.type, type) || other.type == type)&&(identical(other.eventMessageRemovedProperties, eventMessageRemovedProperties) || other.eventMessageRemovedProperties == eventMessageRemovedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventMessageRemoved&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventMessageRemovedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventMessageRemoved(type: $type, eventMessageRemovedProperties: $eventMessageRemovedProperties)';
+  return 'EventMessageRemoved(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventMessageRemovedCopyWith<$Res>  {
   factory $EventMessageRemovedCopyWith(EventMessageRemoved value, $Res Function(EventMessageRemoved) _then) = _$EventMessageRemovedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventMessageRemovedProperties') EventMessageRemovedProperties eventMessageRemovedProperties
+ String type, EventMessageRemovedProperties properties
 });
 
 
-$EventMessageRemovedPropertiesCopyWith<$Res> get eventMessageRemovedProperties;
+$EventMessageRemovedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventMessageRemovedCopyWithImpl<$Res>
 
 /// Create a copy of EventMessageRemoved
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventMessageRemovedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventMessageRemovedProperties: null == eventMessageRemovedProperties ? _self.eventMessageRemovedProperties : eventMessageRemovedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventMessageRemovedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventMessageRemovedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventMessageRemovedPropertiesCopyWith<$Res> get eventMessageRemovedProperties {
+$EventMessageRemovedPropertiesCopyWith<$Res> get properties {
   
-  return $EventMessageRemovedPropertiesCopyWith<$Res>(_self.eventMessageRemovedProperties, (value) {
-    return _then(_self.copyWith(eventMessageRemovedProperties: value));
+  return $EventMessageRemovedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventMessageRemovedProperties')  EventMessageRemovedProperties eventMessageRemovedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventMessageRemovedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventMessageRemoved() when $default != null:
-return $default(_that.type,_that.eventMessageRemovedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventMessageRemovedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventMessageRemovedProperties')  EventMessageRemovedProperties eventMessageRemovedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventMessageRemovedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventMessageRemoved():
-return $default(_that.type,_that.eventMessageRemovedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventMessageRemovedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventMessageRemovedProperties')  EventMessageRemovedProperties eventMessageRemovedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventMessageRemovedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventMessageRemoved() when $default != null:
-return $default(_that.type,_that.eventMessageRemovedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventMessageRemovedProperties);case _:
 @JsonSerializable()
 
 class _EventMessageRemoved implements EventMessageRemoved {
-  const _EventMessageRemoved({required this.type, @JsonKey(name: 'EventMessageRemovedProperties') required this.eventMessageRemovedProperties});
+  const _EventMessageRemoved({required this.type, required this.properties});
   factory _EventMessageRemoved.fromJson(Map<String, dynamic> json) => _$EventMessageRemovedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventMessageRemovedProperties') final  EventMessageRemovedProperties eventMessageRemovedProperties;
+@override final  EventMessageRemovedProperties properties;
 
 /// Create a copy of EventMessageRemoved
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventMessageRemoved&&(identical(other.type, type) || other.type == type)&&(identical(other.eventMessageRemovedProperties, eventMessageRemovedProperties) || other.eventMessageRemovedProperties == eventMessageRemovedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventMessageRemoved&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventMessageRemovedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventMessageRemoved(type: $type, eventMessageRemovedProperties: $eventMessageRemovedProperties)';
+  return 'EventMessageRemoved(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventMessageRemovedCopyWith<$Res> implements $EventMessag
   factory _$EventMessageRemovedCopyWith(_EventMessageRemoved value, $Res Function(_EventMessageRemoved) _then) = __$EventMessageRemovedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventMessageRemovedProperties') EventMessageRemovedProperties eventMessageRemovedProperties
+ String type, EventMessageRemovedProperties properties
 });
 
 
-@override $EventMessageRemovedPropertiesCopyWith<$Res> get eventMessageRemovedProperties;
+@override $EventMessageRemovedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventMessageRemovedCopyWithImpl<$Res>
 
 /// Create a copy of EventMessageRemoved
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventMessageRemovedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventMessageRemoved(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventMessageRemovedProperties: null == eventMessageRemovedProperties ? _self.eventMessageRemovedProperties : eventMessageRemovedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventMessageRemovedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventMessageRemovedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventMessageRemovedPropertiesCopyWith<$Res> get eventMessageRemovedProperties {
+$EventMessageRemovedPropertiesCopyWith<$Res> get properties {
   
-  return $EventMessageRemovedPropertiesCopyWith<$Res>(_self.eventMessageRemovedProperties, (value) {
-    return _then(_self.copyWith(eventMessageRemovedProperties: value));
+  return $EventMessageRemovedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

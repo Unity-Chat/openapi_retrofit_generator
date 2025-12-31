@@ -24,22 +24,20 @@ class UnknownErrorMapper extends ClassMapperBase<UnknownError> {
 
   static String _$name(UnknownError v) => v.name;
   static const Field<UnknownError, String> _f$name = Field('name', _$name);
-  static UnknownErrorData _$unknownErrorData(UnknownError v) =>
-      v.unknownErrorData;
-  static const Field<UnknownError, UnknownErrorData> _f$unknownErrorData =
-      Field('unknownErrorData', _$unknownErrorData, key: r'UnknownErrorData');
+  static UnknownErrorData _$data(UnknownError v) => v.data;
+  static const Field<UnknownError, UnknownErrorData> _f$data = Field(
+    'data',
+    _$data,
+  );
 
   @override
   final MappableFields<UnknownError> fields = const {
     #name: _f$name,
-    #unknownErrorData: _f$unknownErrorData,
+    #data: _f$data,
   };
 
   static UnknownError _instantiate(DecodingData data) {
-    return UnknownError(
-      name: data.dec(_f$name),
-      unknownErrorData: data.dec(_f$unknownErrorData),
-    );
+    return UnknownError(name: data.dec(_f$name), data: data.dec(_f$data));
   }
 
   @override
@@ -104,9 +102,8 @@ extension UnknownErrorValueCopy<$R, $Out>
 
 abstract class UnknownErrorCopyWith<$R, $In extends UnknownError, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData>
-  get unknownErrorData;
-  $R call({String? name, UnknownErrorData? unknownErrorData});
+  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData> get data;
+  $R call({String? name, UnknownErrorData? data});
   UnknownErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -119,20 +116,19 @@ class _UnknownErrorCopyWithImpl<$R, $Out>
   late final ClassMapperBase<UnknownError> $mapper =
       UnknownErrorMapper.ensureInitialized();
   @override
-  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData>
-  get unknownErrorData =>
-      $value.unknownErrorData.copyWith.$chain((v) => call(unknownErrorData: v));
+  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData> get data =>
+      $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, UnknownErrorData? unknownErrorData}) => $apply(
+  $R call({String? name, UnknownErrorData? data}) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
-      if (unknownErrorData != null) #unknownErrorData: unknownErrorData,
+      if (data != null) #data: data,
     }),
   );
   @override
   UnknownError $make(CopyWithData data) => UnknownError(
     name: data.get(#name, or: $value.name),
-    unknownErrorData: data.get(#unknownErrorData, or: $value.unknownErrorData),
+    data: data.get(#data, or: $value.data),
   );
 
   @override

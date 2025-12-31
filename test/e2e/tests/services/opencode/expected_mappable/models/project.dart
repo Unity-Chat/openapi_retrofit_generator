@@ -13,14 +13,13 @@ class Project with ProjectMappable {
   const Project({
     required this.id,
     required this.worktree,
-    required this.projectTime,
+    required this.time,
     this.vcs,
   });
 
   final String id;
   final String worktree;
-  @MappableField(key: 'ProjectTime')
-  final ProjectTime projectTime;
+  final ProjectTime time;
   final String? vcs;
 
   static Project fromJson(Map<String, dynamic> json) =>

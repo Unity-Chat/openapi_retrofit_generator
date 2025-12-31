@@ -29,16 +29,10 @@ class ListPostsResponseMapper extends ClassMapperBase<ListPostsResponse> {
     _$posts,
     opt: true,
   );
-  static ListPostsResponsePagination? _$listPostsResponsePagination(
-    ListPostsResponse v,
-  ) => v.listPostsResponsePagination;
+  static ListPostsResponsePagination? _$pagination(ListPostsResponse v) =>
+      v.pagination;
   static const Field<ListPostsResponse, ListPostsResponsePagination>
-  _f$listPostsResponsePagination = Field(
-    'listPostsResponsePagination',
-    _$listPostsResponsePagination,
-    key: r'ListPostsResponsePagination',
-    opt: true,
-  );
+  _f$pagination = Field('pagination', _$pagination, opt: true);
   static Map<String, String>? _$metadata(ListPostsResponse v) => v.metadata;
   static const Field<ListPostsResponse, Map<String, String>> _f$metadata =
       Field('metadata', _$metadata, opt: true);
@@ -46,14 +40,14 @@ class ListPostsResponseMapper extends ClassMapperBase<ListPostsResponse> {
   @override
   final MappableFields<ListPostsResponse> fields = const {
     #posts: _f$posts,
-    #listPostsResponsePagination: _f$listPostsResponsePagination,
+    #pagination: _f$pagination,
     #metadata: _f$metadata,
   };
 
   static ListPostsResponse _instantiate(DecodingData data) {
     return ListPostsResponse(
       posts: data.dec(_f$posts),
-      listPostsResponsePagination: data.dec(_f$listPostsResponsePagination),
+      pagination: data.dec(_f$pagination),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -136,12 +130,12 @@ abstract class ListPostsResponseCopyWith<
     ListPostsResponsePagination,
     ListPostsResponsePagination
   >?
-  get listPostsResponsePagination;
+  get pagination;
   MapCopyWith<$R, String, String, ObjectCopyWith<$R, String, String>>?
   get metadata;
   $R call({
     List<PostModel>? posts,
-    ListPostsResponsePagination? listPostsResponsePagination,
+    ListPostsResponsePagination? pagination,
     Map<String, String>? metadata,
   });
   ListPostsResponseCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -172,10 +166,8 @@ class _ListPostsResponseCopyWithImpl<$R, $Out>
     ListPostsResponsePagination,
     ListPostsResponsePagination
   >?
-  get listPostsResponsePagination => $value
-      .listPostsResponsePagination
-      ?.copyWith
-      .$chain((v) => call(listPostsResponsePagination: v));
+  get pagination =>
+      $value.pagination?.copyWith.$chain((v) => call(pagination: v));
   @override
   MapCopyWith<$R, String, String, ObjectCopyWith<$R, String, String>>?
   get metadata => $value.metadata != null
@@ -188,23 +180,19 @@ class _ListPostsResponseCopyWithImpl<$R, $Out>
   @override
   $R call({
     Object? posts = $none,
-    Object? listPostsResponsePagination = $none,
+    Object? pagination = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
       if (posts != $none) #posts: posts,
-      if (listPostsResponsePagination != $none)
-        #listPostsResponsePagination: listPostsResponsePagination,
+      if (pagination != $none) #pagination: pagination,
       if (metadata != $none) #metadata: metadata,
     }),
   );
   @override
   ListPostsResponse $make(CopyWithData data) => ListPostsResponse(
     posts: data.get(#posts, or: $value.posts),
-    listPostsResponsePagination: data.get(
-      #listPostsResponsePagination,
-      or: $value.listPostsResponsePagination,
-    ),
+    pagination: data.get(#pagination, or: $value.pagination),
     metadata: data.get(#metadata, or: $value.metadata),
   );
 

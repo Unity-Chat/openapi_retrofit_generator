@@ -14,14 +14,13 @@ class StepFinishPartTokens with StepFinishPartTokensMappable {
     required this.input,
     required this.output,
     required this.reasoning,
-    required this.stepFinishPartTokensCache,
+    required this.cache,
   });
 
   final num input;
   final num output;
   final num reasoning;
-  @MappableField(key: 'StepFinishPartTokensCache')
-  final StepFinishPartTokensCache stepFinishPartTokensCache;
+  final StepFinishPartTokensCache cache;
 
   static StepFinishPartTokens fromJson(Map<String, dynamic> json) =>
       StepFinishPartTokensMapper.fromJson(json);

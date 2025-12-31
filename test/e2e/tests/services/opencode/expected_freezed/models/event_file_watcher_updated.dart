@@ -13,9 +13,7 @@ part 'event_file_watcher_updated.g.dart';
 abstract class EventFileWatcherUpdated with _$EventFileWatcherUpdated {
   const factory EventFileWatcherUpdated({
     required String type,
-    @JsonKey(name: 'EventFileWatcherUpdatedProperties')
-    required EventFileWatcherUpdatedProperties
-    eventFileWatcherUpdatedProperties,
+    required EventFileWatcherUpdatedProperties properties,
   }) = _EventFileWatcherUpdated;
 
   factory EventFileWatcherUpdated.fromJson(Map<String, Object?> json) =>

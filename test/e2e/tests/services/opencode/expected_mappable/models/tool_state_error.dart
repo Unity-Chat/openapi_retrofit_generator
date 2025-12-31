@@ -14,15 +14,14 @@ class ToolStateError with ToolStateErrorMappable {
     required this.status,
     required this.input,
     required this.error,
-    required this.toolStateErrorTime,
+    required this.time,
     this.metadata,
   });
 
   final String status;
   final Map<String, dynamic> input;
   final String error;
-  @MappableField(key: 'ToolStateErrorTime')
-  final ToolStateErrorTime toolStateErrorTime;
+  final ToolStateErrorTime time;
   final Map<String, dynamic>? metadata;
 
   static ToolStateError fromJson(Map<String, dynamic> json) =>

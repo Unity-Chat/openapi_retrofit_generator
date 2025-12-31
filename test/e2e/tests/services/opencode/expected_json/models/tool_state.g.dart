@@ -21,9 +21,7 @@ ToolStateToolStateRunning _$ToolStateToolStateRunningFromJson(
   input: json['input'],
   title: json['title'] as String?,
   metadata: json['metadata'] as Map<String, dynamic>?,
-  toolStateRunningTime: ToolStateRunningTime.fromJson(
-    json['toolStateRunningTime'] as Map<String, dynamic>,
-  ),
+  time: ToolStateRunningTime.fromJson(json['time'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ToolStateToolStateRunningToJson(
@@ -33,7 +31,7 @@ Map<String, dynamic> _$ToolStateToolStateRunningToJson(
   'input': instance.input,
   'title': instance.title,
   'metadata': instance.metadata,
-  'toolStateRunningTime': instance.toolStateRunningTime,
+  'time': instance.time,
 };
 
 ToolStateToolStateCompleted _$ToolStateToolStateCompletedFromJson(
@@ -44,9 +42,7 @@ ToolStateToolStateCompleted _$ToolStateToolStateCompletedFromJson(
   output: json['output'] as String,
   title: json['title'] as String,
   metadata: json['metadata'] as Map<String, dynamic>,
-  toolStateCompletedTime: ToolStateCompletedTime.fromJson(
-    json['toolStateCompletedTime'] as Map<String, dynamic>,
-  ),
+  time: ToolStateCompletedTime.fromJson(json['time'] as Map<String, dynamic>),
   attachments: (json['attachments'] as List<dynamic>?)
       ?.map((e) => FilePart.fromJson(e as Map<String, dynamic>))
       .toList(),
@@ -60,7 +56,7 @@ Map<String, dynamic> _$ToolStateToolStateCompletedToJson(
   'output': instance.output,
   'title': instance.title,
   'metadata': instance.metadata,
-  'toolStateCompletedTime': instance.toolStateCompletedTime,
+  'time': instance.time,
   'attachments': instance.attachments,
 };
 
@@ -71,9 +67,7 @@ ToolStateToolStateError _$ToolStateToolStateErrorFromJson(
   input: json['input'] as Map<String, dynamic>,
   error: json['error'] as String,
   metadata: json['metadata'] as Map<String, dynamic>?,
-  toolStateErrorTime: ToolStateErrorTime.fromJson(
-    json['toolStateErrorTime'] as Map<String, dynamic>,
-  ),
+  time: ToolStateErrorTime.fromJson(json['time'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ToolStateToolStateErrorToJson(
@@ -83,5 +77,5 @@ Map<String, dynamic> _$ToolStateToolStateErrorToJson(
   'input': instance.input,
   'error': instance.error,
   'metadata': instance.metadata,
-  'toolStateErrorTime': instance.toolStateErrorTime,
+  'time': instance.time,
 };

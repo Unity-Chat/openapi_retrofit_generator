@@ -10,11 +10,10 @@ part 'unknown_error.mapper.dart';
 
 @MappableClass()
 class UnknownError with UnknownErrorMappable {
-  const UnknownError({required this.name, required this.unknownErrorData});
+  const UnknownError({required this.name, required this.data});
 
   final String name;
-  @MappableField(key: 'UnknownErrorData')
-  final UnknownErrorData unknownErrorData;
+  final UnknownErrorData data;
 
   static UnknownError fromJson(Map<String, dynamic> json) =>
       UnknownErrorMapper.fromJson(json);

@@ -24,26 +24,21 @@ class EventSessionErrorMapper extends ClassMapperBase<EventSessionError> {
 
   static String _$type(EventSessionError v) => v.type;
   static const Field<EventSessionError, String> _f$type = Field('type', _$type);
-  static EventSessionErrorProperties _$eventSessionErrorProperties(
-    EventSessionError v,
-  ) => v.eventSessionErrorProperties;
+  static EventSessionErrorProperties _$properties(EventSessionError v) =>
+      v.properties;
   static const Field<EventSessionError, EventSessionErrorProperties>
-  _f$eventSessionErrorProperties = Field(
-    'eventSessionErrorProperties',
-    _$eventSessionErrorProperties,
-    key: r'EventSessionErrorProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventSessionError> fields = const {
     #type: _f$type,
-    #eventSessionErrorProperties: _f$eventSessionErrorProperties,
+    #properties: _f$properties,
   };
 
   static EventSessionError _instantiate(DecodingData data) {
     return EventSessionError(
       type: data.dec(_f$type),
-      eventSessionErrorProperties: data.dec(_f$eventSessionErrorProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -123,11 +118,8 @@ abstract class EventSessionErrorCopyWith<
     EventSessionErrorProperties,
     EventSessionErrorProperties
   >
-  get eventSessionErrorProperties;
-  $R call({
-    String? type,
-    EventSessionErrorProperties? eventSessionErrorProperties,
-  });
+  get properties;
+  $R call({String? type, EventSessionErrorProperties? properties});
   EventSessionErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -147,26 +139,19 @@ class _EventSessionErrorCopyWithImpl<$R, $Out>
     EventSessionErrorProperties,
     EventSessionErrorProperties
   >
-  get eventSessionErrorProperties => $value.eventSessionErrorProperties.copyWith
-      .$chain((v) => call(eventSessionErrorProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventSessionErrorProperties? eventSessionErrorProperties,
-  }) => $apply(
+  $R call({String? type, EventSessionErrorProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventSessionErrorProperties != null)
-        #eventSessionErrorProperties: eventSessionErrorProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventSessionError $make(CopyWithData data) => EventSessionError(
     type: data.get(#type, or: $value.type),
-    eventSessionErrorProperties: data.get(
-      #eventSessionErrorProperties,
-      or: $value.eventSessionErrorProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

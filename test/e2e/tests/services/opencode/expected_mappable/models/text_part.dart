@@ -17,7 +17,7 @@ class TextPart with TextPartMappable {
     required this.type,
     required this.text,
     this.synthetic,
-    this.textPartTime,
+    this.time,
     this.metadata,
   });
 
@@ -29,8 +29,7 @@ class TextPart with TextPartMappable {
   final String type;
   final String text;
   final bool? synthetic;
-  @MappableField(key: 'TextPartTime')
-  final TextPartTime? textPartTime;
+  final TextPartTime? time;
   final Map<String, dynamic>? metadata;
 
   static TextPart fromJson(Map<String, dynamic> json) =>

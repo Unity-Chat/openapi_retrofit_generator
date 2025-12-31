@@ -16,13 +16,11 @@ abstract class SessionPromptRequest with _$SessionPromptRequest {
   const factory SessionPromptRequest({
     required List<SessionPromptRequestPartsParts> parts,
     @JsonKey(name: 'messageID') String? messageId,
-    @JsonKey(name: 'SessionPromptRequestModel')
-    SessionPromptRequestModel? sessionPromptRequestModel,
+    SessionPromptRequestModel? model,
     String? agent,
     String? system,
     Map<String, bool>? tools,
-    @JsonKey(name: 'SessionPromptRequestAcpConnection')
-    SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection,
+    SessionPromptRequestAcpConnection? acpConnection,
   }) = _SessionPromptRequest;
 
   factory SessionPromptRequest.fromJson(Map<String, Object?> json) =>

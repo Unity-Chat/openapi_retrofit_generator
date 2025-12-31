@@ -22,13 +22,13 @@ class Models {
     this.reasoning,
     this.temperature,
     this.toolCall,
-    this.modelsCost,
-    this.modelsLimit,
-    this.modelsModalities,
+    this.cost,
+    this.limit,
+    this.modalities,
     this.experimental,
     this.status,
     this.options,
-    this.modelsProvider,
+    this.provider,
   });
 
   factory Models.fromJson(Map<String, Object?> json) => _$ModelsFromJson(json);
@@ -42,17 +42,13 @@ class Models {
   final bool? temperature;
   @JsonKey(name: 'tool_call')
   final bool? toolCall;
-  @JsonKey(name: 'ModelsCost')
-  final ModelsCost? modelsCost;
-  @JsonKey(name: 'ModelsLimit')
-  final ModelsLimit? modelsLimit;
-  @JsonKey(name: 'ModelsModalities')
-  final ModelsModalities? modelsModalities;
+  final ModelsCost? cost;
+  final ModelsLimit? limit;
+  final ModelsModalities? modalities;
   final bool? experimental;
   final ModelsStatusStatus? status;
   final Map<String, dynamic>? options;
-  @JsonKey(name: 'ModelsProvider')
-  final ModelsProvider? modelsProvider;
+  final ModelsProvider? provider;
 
   Map<String, Object?> toJson() => _$ModelsToJson(this);
 }

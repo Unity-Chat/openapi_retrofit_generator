@@ -13,15 +13,14 @@ class ToolStateRunning with ToolStateRunningMappable {
   const ToolStateRunning({
     required this.status,
     required this.input,
-    required this.toolStateRunningTime,
+    required this.time,
     this.title,
     this.metadata,
   });
 
   final String status;
   final dynamic input;
-  @MappableField(key: 'ToolStateRunningTime')
-  final ToolStateRunningTime toolStateRunningTime;
+  final ToolStateRunningTime time;
   final String? title;
   final Map<String, dynamic>? metadata;
 

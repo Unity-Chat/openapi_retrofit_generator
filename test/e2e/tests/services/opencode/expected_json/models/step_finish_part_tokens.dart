@@ -14,7 +14,7 @@ class StepFinishPartTokens {
     required this.input,
     required this.output,
     required this.reasoning,
-    required this.stepFinishPartTokensCache,
+    required this.cache,
   });
 
   factory StepFinishPartTokens.fromJson(Map<String, Object?> json) =>
@@ -23,8 +23,7 @@ class StepFinishPartTokens {
   final num input;
   final num output;
   final num reasoning;
-  @JsonKey(name: 'StepFinishPartTokensCache')
-  final StepFinishPartTokensCache stepFinishPartTokensCache;
+  final StepFinishPartTokensCache cache;
 
   Map<String, Object?> toJson() => _$StepFinishPartTokensToJson(this);
 }

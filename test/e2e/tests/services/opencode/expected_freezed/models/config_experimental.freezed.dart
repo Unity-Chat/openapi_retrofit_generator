@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ConfigExperimental {
 
-@JsonKey(name: 'ConfigExperimentalHook') ConfigExperimentalHook? get configExperimentalHook;@JsonKey(name: 'disable_paste_summary') bool? get disablePasteSummary;
+ ConfigExperimentalHook? get hook;@JsonKey(name: 'disable_paste_summary') bool? get disablePasteSummary;
 /// Create a copy of ConfigExperimental
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ConfigExperimentalCopyWith<ConfigExperimental> get copyWith => _$ConfigExperime
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConfigExperimental&&(identical(other.configExperimentalHook, configExperimentalHook) || other.configExperimentalHook == configExperimentalHook)&&(identical(other.disablePasteSummary, disablePasteSummary) || other.disablePasteSummary == disablePasteSummary));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ConfigExperimental&&(identical(other.hook, hook) || other.hook == hook)&&(identical(other.disablePasteSummary, disablePasteSummary) || other.disablePasteSummary == disablePasteSummary));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,configExperimentalHook,disablePasteSummary);
+int get hashCode => Object.hash(runtimeType,hook,disablePasteSummary);
 
 @override
 String toString() {
-  return 'ConfigExperimental(configExperimentalHook: $configExperimentalHook, disablePasteSummary: $disablePasteSummary)';
+  return 'ConfigExperimental(hook: $hook, disablePasteSummary: $disablePasteSummary)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ConfigExperimentalCopyWith<$Res>  {
   factory $ConfigExperimentalCopyWith(ConfigExperimental value, $Res Function(ConfigExperimental) _then) = _$ConfigExperimentalCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'ConfigExperimentalHook') ConfigExperimentalHook? configExperimentalHook,@JsonKey(name: 'disable_paste_summary') bool? disablePasteSummary
+ ConfigExperimentalHook? hook,@JsonKey(name: 'disable_paste_summary') bool? disablePasteSummary
 });
 
 
-$ConfigExperimentalHookCopyWith<$Res>? get configExperimentalHook;
+$ConfigExperimentalHookCopyWith<$Res>? get hook;
 
 }
 /// @nodoc
@@ -65,9 +65,9 @@ class _$ConfigExperimentalCopyWithImpl<$Res>
 
 /// Create a copy of ConfigExperimental
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? configExperimentalHook = freezed,Object? disablePasteSummary = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? hook = freezed,Object? disablePasteSummary = freezed,}) {
   return _then(_self.copyWith(
-configExperimentalHook: freezed == configExperimentalHook ? _self.configExperimentalHook : configExperimentalHook // ignore: cast_nullable_to_non_nullable
+hook: freezed == hook ? _self.hook : hook // ignore: cast_nullable_to_non_nullable
 as ConfigExperimentalHook?,disablePasteSummary: freezed == disablePasteSummary ? _self.disablePasteSummary : disablePasteSummary // ignore: cast_nullable_to_non_nullable
 as bool?,
   ));
@@ -76,13 +76,13 @@ as bool?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ConfigExperimentalHookCopyWith<$Res>? get configExperimentalHook {
-    if (_self.configExperimentalHook == null) {
+$ConfigExperimentalHookCopyWith<$Res>? get hook {
+    if (_self.hook == null) {
     return null;
   }
 
-  return $ConfigExperimentalHookCopyWith<$Res>(_self.configExperimentalHook!, (value) {
-    return _then(_self.copyWith(configExperimentalHook: value));
+  return $ConfigExperimentalHookCopyWith<$Res>(_self.hook!, (value) {
+    return _then(_self.copyWith(hook: value));
   });
 }
 }
@@ -166,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'ConfigExperimentalHook')  ConfigExperimentalHook? configExperimentalHook, @JsonKey(name: 'disable_paste_summary')  bool? disablePasteSummary)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ConfigExperimentalHook? hook, @JsonKey(name: 'disable_paste_summary')  bool? disablePasteSummary)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ConfigExperimental() when $default != null:
-return $default(_that.configExperimentalHook,_that.disablePasteSummary);case _:
+return $default(_that.hook,_that.disablePasteSummary);case _:
   return orElse();
 
 }
@@ -187,10 +187,10 @@ return $default(_that.configExperimentalHook,_that.disablePasteSummary);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'ConfigExperimentalHook')  ConfigExperimentalHook? configExperimentalHook, @JsonKey(name: 'disable_paste_summary')  bool? disablePasteSummary)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ConfigExperimentalHook? hook, @JsonKey(name: 'disable_paste_summary')  bool? disablePasteSummary)  $default,) {final _that = this;
 switch (_that) {
 case _ConfigExperimental():
-return $default(_that.configExperimentalHook,_that.disablePasteSummary);case _:
+return $default(_that.hook,_that.disablePasteSummary);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +207,10 @@ return $default(_that.configExperimentalHook,_that.disablePasteSummary);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'ConfigExperimentalHook')  ConfigExperimentalHook? configExperimentalHook, @JsonKey(name: 'disable_paste_summary')  bool? disablePasteSummary)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ConfigExperimentalHook? hook, @JsonKey(name: 'disable_paste_summary')  bool? disablePasteSummary)?  $default,) {final _that = this;
 switch (_that) {
 case _ConfigExperimental() when $default != null:
-return $default(_that.configExperimentalHook,_that.disablePasteSummary);case _:
+return $default(_that.hook,_that.disablePasteSummary);case _:
   return null;
 
 }
@@ -222,10 +222,10 @@ return $default(_that.configExperimentalHook,_that.disablePasteSummary);case _:
 @JsonSerializable()
 
 class _ConfigExperimental implements ConfigExperimental {
-  const _ConfigExperimental({@JsonKey(name: 'ConfigExperimentalHook') this.configExperimentalHook, @JsonKey(name: 'disable_paste_summary') this.disablePasteSummary});
+  const _ConfigExperimental({this.hook, @JsonKey(name: 'disable_paste_summary') this.disablePasteSummary});
   factory _ConfigExperimental.fromJson(Map<String, dynamic> json) => _$ConfigExperimentalFromJson(json);
 
-@override@JsonKey(name: 'ConfigExperimentalHook') final  ConfigExperimentalHook? configExperimentalHook;
+@override final  ConfigExperimentalHook? hook;
 @override@JsonKey(name: 'disable_paste_summary') final  bool? disablePasteSummary;
 
 /// Create a copy of ConfigExperimental
@@ -241,16 +241,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConfigExperimental&&(identical(other.configExperimentalHook, configExperimentalHook) || other.configExperimentalHook == configExperimentalHook)&&(identical(other.disablePasteSummary, disablePasteSummary) || other.disablePasteSummary == disablePasteSummary));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConfigExperimental&&(identical(other.hook, hook) || other.hook == hook)&&(identical(other.disablePasteSummary, disablePasteSummary) || other.disablePasteSummary == disablePasteSummary));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,configExperimentalHook,disablePasteSummary);
+int get hashCode => Object.hash(runtimeType,hook,disablePasteSummary);
 
 @override
 String toString() {
-  return 'ConfigExperimental(configExperimentalHook: $configExperimentalHook, disablePasteSummary: $disablePasteSummary)';
+  return 'ConfigExperimental(hook: $hook, disablePasteSummary: $disablePasteSummary)';
 }
 
 
@@ -261,11 +261,11 @@ abstract mixin class _$ConfigExperimentalCopyWith<$Res> implements $ConfigExperi
   factory _$ConfigExperimentalCopyWith(_ConfigExperimental value, $Res Function(_ConfigExperimental) _then) = __$ConfigExperimentalCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'ConfigExperimentalHook') ConfigExperimentalHook? configExperimentalHook,@JsonKey(name: 'disable_paste_summary') bool? disablePasteSummary
+ ConfigExperimentalHook? hook,@JsonKey(name: 'disable_paste_summary') bool? disablePasteSummary
 });
 
 
-@override $ConfigExperimentalHookCopyWith<$Res>? get configExperimentalHook;
+@override $ConfigExperimentalHookCopyWith<$Res>? get hook;
 
 }
 /// @nodoc
@@ -278,9 +278,9 @@ class __$ConfigExperimentalCopyWithImpl<$Res>
 
 /// Create a copy of ConfigExperimental
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? configExperimentalHook = freezed,Object? disablePasteSummary = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? hook = freezed,Object? disablePasteSummary = freezed,}) {
   return _then(_ConfigExperimental(
-configExperimentalHook: freezed == configExperimentalHook ? _self.configExperimentalHook : configExperimentalHook // ignore: cast_nullable_to_non_nullable
+hook: freezed == hook ? _self.hook : hook // ignore: cast_nullable_to_non_nullable
 as ConfigExperimentalHook?,disablePasteSummary: freezed == disablePasteSummary ? _self.disablePasteSummary : disablePasteSummary // ignore: cast_nullable_to_non_nullable
 as bool?,
   ));
@@ -290,13 +290,13 @@ as bool?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ConfigExperimentalHookCopyWith<$Res>? get configExperimentalHook {
-    if (_self.configExperimentalHook == null) {
+$ConfigExperimentalHookCopyWith<$Res>? get hook {
+    if (_self.hook == null) {
     return null;
   }
 
-  return $ConfigExperimentalHookCopyWith<$Res>(_self.configExperimentalHook!, (value) {
-    return _then(_self.copyWith(configExperimentalHook: value));
+  return $ConfigExperimentalHookCopyWith<$Res>(_self.hook!, (value) {
+    return _then(_self.copyWith(hook: value));
   });
 }
 }

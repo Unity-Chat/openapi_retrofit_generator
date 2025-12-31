@@ -10,11 +10,9 @@ FileContent _$FileContentFromJson(Map<String, dynamic> json) => FileContent(
   type: json['type'] as String,
   content: json['content'] as String,
   diff: json['diff'] as String?,
-  fileContentPatch: json['FileContentPatch'] == null
+  patch: json['patch'] == null
       ? null
-      : FileContentPatch.fromJson(
-          json['FileContentPatch'] as Map<String, dynamic>,
-        ),
+      : FileContentPatch.fromJson(json['patch'] as Map<String, dynamic>),
   encoding: json['encoding'] as String?,
   mimeType: json['mimeType'] as String?,
 );
@@ -24,7 +22,7 @@ Map<String, dynamic> _$FileContentToJson(FileContent instance) =>
       'type': instance.type,
       'content': instance.content,
       'diff': instance.diff,
-      'FileContentPatch': instance.fileContentPatch,
+      'patch': instance.patch,
       'encoding': instance.encoding,
       'mimeType': instance.mimeType,
     };

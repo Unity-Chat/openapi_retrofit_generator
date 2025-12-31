@@ -8,15 +8,15 @@ part of 'user_settings.dart';
 
 _UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) =>
     _UserSettings(
-      userSettingsNotifications: json['UserSettingsNotifications'] == null
+      notifications: json['notifications'] == null
           ? null
           : UserSettingsNotifications.fromJson(
-              json['UserSettingsNotifications'] as Map<String, dynamic>,
+              json['notifications'] as Map<String, dynamic>,
             ),
-      userSettingsPrivacy: json['UserSettingsPrivacy'] == null
+      privacy: json['privacy'] == null
           ? null
           : UserSettingsPrivacy.fromJson(
-              json['UserSettingsPrivacy'] as Map<String, dynamic>,
+              json['privacy'] as Map<String, dynamic>,
             ),
       theme: json['theme'] == null
           ? UserSettingsThemeTheme.auto
@@ -26,8 +26,8 @@ _UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$UserSettingsToJson(_UserSettings instance) =>
     <String, dynamic>{
-      'UserSettingsNotifications': ?instance.userSettingsNotifications,
-      'UserSettingsPrivacy': ?instance.userSettingsPrivacy,
+      'notifications': ?instance.notifications,
+      'privacy': ?instance.privacy,
       'theme': instance.theme,
       'language': instance.language,
     };

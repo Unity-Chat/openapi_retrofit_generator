@@ -48,11 +48,11 @@ class EventSessionErrorPropertiesErrorError {
 class EventSessionErrorPropertiesErrorErrorProviderAuthError
     with EventSessionErrorPropertiesErrorErrorProviderAuthErrorMappable {
   final String name;
-  final ProviderAuthErrorData providerAuthErrorData;
+  final ProviderAuthErrorData data;
 
   const EventSessionErrorPropertiesErrorErrorProviderAuthError({
     required this.name,
-    required this.providerAuthErrorData,
+    required this.data,
   });
 }
 
@@ -60,11 +60,11 @@ class EventSessionErrorPropertiesErrorErrorProviderAuthError
 class EventSessionErrorPropertiesErrorErrorUnknownError
     with EventSessionErrorPropertiesErrorErrorUnknownErrorMappable {
   final String name;
-  final UnknownErrorData unknownErrorData;
+  final UnknownErrorData data;
 
   const EventSessionErrorPropertiesErrorErrorUnknownError({
     required this.name,
-    required this.unknownErrorData,
+    required this.data,
   });
 }
 
@@ -84,10 +84,10 @@ class EventSessionErrorPropertiesErrorErrorMessageOutputLengthError
 class EventSessionErrorPropertiesErrorErrorMessageAbortedError
     with EventSessionErrorPropertiesErrorErrorMessageAbortedErrorMappable {
   final String name;
-  final MessageAbortedErrorData messageAbortedErrorData;
+  final MessageAbortedErrorData data;
 
   const EventSessionErrorPropertiesErrorErrorMessageAbortedError({
     required this.name,
-    required this.messageAbortedErrorData,
+    required this.data,
   });
 }

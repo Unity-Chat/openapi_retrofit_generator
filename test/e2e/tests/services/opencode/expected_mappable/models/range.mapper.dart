@@ -23,30 +23,16 @@ class RangeMapper extends ClassMapperBase<Range> {
   @override
   final String id = 'Range';
 
-  static RangeStart _$rangeStart(Range v) => v.rangeStart;
-  static const Field<Range, RangeStart> _f$rangeStart = Field(
-    'rangeStart',
-    _$rangeStart,
-    key: r'RangeStart',
-  );
-  static RangeEnd _$rangeEnd(Range v) => v.rangeEnd;
-  static const Field<Range, RangeEnd> _f$rangeEnd = Field(
-    'rangeEnd',
-    _$rangeEnd,
-    key: r'RangeEnd',
-  );
+  static RangeStart _$start(Range v) => v.start;
+  static const Field<Range, RangeStart> _f$start = Field('start', _$start);
+  static RangeEnd _$end(Range v) => v.end;
+  static const Field<Range, RangeEnd> _f$end = Field('end', _$end);
 
   @override
-  final MappableFields<Range> fields = const {
-    #rangeStart: _f$rangeStart,
-    #rangeEnd: _f$rangeEnd,
-  };
+  final MappableFields<Range> fields = const {#start: _f$start, #end: _f$end};
 
   static Range _instantiate(DecodingData data) {
-    return Range(
-      rangeStart: data.dec(_f$rangeStart),
-      rangeEnd: data.dec(_f$rangeEnd),
-    );
+    return Range(start: data.dec(_f$start), end: data.dec(_f$end));
   }
 
   @override
@@ -95,9 +81,9 @@ extension RangeValueCopy<$R, $Out> on ObjectCopyWith<$R, Range, $Out> {
 
 abstract class RangeCopyWith<$R, $In extends Range, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  RangeStartCopyWith<$R, RangeStart, RangeStart> get rangeStart;
-  RangeEndCopyWith<$R, RangeEnd, RangeEnd> get rangeEnd;
-  $R call({RangeStart? rangeStart, RangeEnd? rangeEnd});
+  RangeStartCopyWith<$R, RangeStart, RangeStart> get start;
+  RangeEndCopyWith<$R, RangeEnd, RangeEnd> get end;
+  $R call({RangeStart? start, RangeEnd? end});
   RangeCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -108,22 +94,22 @@ class _RangeCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Range, $Out>
   @override
   late final ClassMapperBase<Range> $mapper = RangeMapper.ensureInitialized();
   @override
-  RangeStartCopyWith<$R, RangeStart, RangeStart> get rangeStart =>
-      $value.rangeStart.copyWith.$chain((v) => call(rangeStart: v));
+  RangeStartCopyWith<$R, RangeStart, RangeStart> get start =>
+      $value.start.copyWith.$chain((v) => call(start: v));
   @override
-  RangeEndCopyWith<$R, RangeEnd, RangeEnd> get rangeEnd =>
-      $value.rangeEnd.copyWith.$chain((v) => call(rangeEnd: v));
+  RangeEndCopyWith<$R, RangeEnd, RangeEnd> get end =>
+      $value.end.copyWith.$chain((v) => call(end: v));
   @override
-  $R call({RangeStart? rangeStart, RangeEnd? rangeEnd}) => $apply(
+  $R call({RangeStart? start, RangeEnd? end}) => $apply(
     FieldCopyWithData({
-      if (rangeStart != null) #rangeStart: rangeStart,
-      if (rangeEnd != null) #rangeEnd: rangeEnd,
+      if (start != null) #start: start,
+      if (end != null) #end: end,
     }),
   );
   @override
   Range $make(CopyWithData data) => Range(
-    rangeStart: data.get(#rangeStart, or: $value.rangeStart),
-    rangeEnd: data.get(#rangeEnd, or: $value.rangeEnd),
+    start: data.get(#start, or: $value.start),
+    end: data.get(#end, or: $value.end),
   );
 
   @override

@@ -39,31 +39,25 @@ class EventSessionErrorPropertiesErrorErrorProviderAuthErrorMapper
     String
   >
   _f$name = Field('name', _$name);
-  static ProviderAuthErrorData _$providerAuthErrorData(
+  static ProviderAuthErrorData _$data(
     EventSessionErrorPropertiesErrorErrorProviderAuthError v,
-  ) => v.providerAuthErrorData;
+  ) => v.data;
   static const Field<
     EventSessionErrorPropertiesErrorErrorProviderAuthError,
     ProviderAuthErrorData
   >
-  _f$providerAuthErrorData = Field(
-    'providerAuthErrorData',
-    _$providerAuthErrorData,
-  );
+  _f$data = Field('data', _$data);
 
   @override
   final MappableFields<EventSessionErrorPropertiesErrorErrorProviderAuthError>
-  fields = const {
-    #name: _f$name,
-    #providerAuthErrorData: _f$providerAuthErrorData,
-  };
+  fields = const {#name: _f$name, #data: _f$data};
 
   static EventSessionErrorPropertiesErrorErrorProviderAuthError _instantiate(
     DecodingData data,
   ) {
     return EventSessionErrorPropertiesErrorErrorProviderAuthError(
       name: data.dec(_f$name),
-      providerAuthErrorData: data.dec(_f$providerAuthErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -177,8 +171,8 @@ abstract class EventSessionErrorPropertiesErrorErrorProviderAuthErrorCopyWith<
     ProviderAuthErrorData,
     ProviderAuthErrorData
   >
-  get providerAuthErrorData;
-  $R call({String? name, ProviderAuthErrorData? providerAuthErrorData});
+  get data;
+  $R call({String? name, ProviderAuthErrorData? data});
   EventSessionErrorPropertiesErrorErrorProviderAuthErrorCopyWith<
     $R2,
     $In,
@@ -221,27 +215,20 @@ class _EventSessionErrorPropertiesErrorErrorProviderAuthErrorCopyWithImpl<
     ProviderAuthErrorData,
     ProviderAuthErrorData
   >
-  get providerAuthErrorData => $value.providerAuthErrorData.copyWith.$chain(
-    (v) => call(providerAuthErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, ProviderAuthErrorData? providerAuthErrorData}) =>
-      $apply(
-        FieldCopyWithData({
-          if (name != null) #name: name,
-          if (providerAuthErrorData != null)
-            #providerAuthErrorData: providerAuthErrorData,
-        }),
-      );
+  $R call({String? name, ProviderAuthErrorData? data}) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (data != null) #data: data,
+    }),
+  );
   @override
   EventSessionErrorPropertiesErrorErrorProviderAuthError $make(
     CopyWithData data,
   ) => EventSessionErrorPropertiesErrorErrorProviderAuthError(
     name: data.get(#name, or: $value.name),
-    providerAuthErrorData: data.get(
-      #providerAuthErrorData,
-      or: $value.providerAuthErrorData,
-    ),
+    data: data.get(#data, or: $value.data),
   );
 
   @override
@@ -280,25 +267,25 @@ class EventSessionErrorPropertiesErrorErrorUnknownErrorMapper
       v.name;
   static const Field<EventSessionErrorPropertiesErrorErrorUnknownError, String>
   _f$name = Field('name', _$name);
-  static UnknownErrorData _$unknownErrorData(
+  static UnknownErrorData _$data(
     EventSessionErrorPropertiesErrorErrorUnknownError v,
-  ) => v.unknownErrorData;
+  ) => v.data;
   static const Field<
     EventSessionErrorPropertiesErrorErrorUnknownError,
     UnknownErrorData
   >
-  _f$unknownErrorData = Field('unknownErrorData', _$unknownErrorData);
+  _f$data = Field('data', _$data);
 
   @override
   final MappableFields<EventSessionErrorPropertiesErrorErrorUnknownError>
-  fields = const {#name: _f$name, #unknownErrorData: _f$unknownErrorData};
+  fields = const {#name: _f$name, #data: _f$data};
 
   static EventSessionErrorPropertiesErrorErrorUnknownError _instantiate(
     DecodingData data,
   ) {
     return EventSessionErrorPropertiesErrorErrorUnknownError(
       name: data.dec(_f$name),
-      unknownErrorData: data.dec(_f$unknownErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -400,9 +387,8 @@ abstract class EventSessionErrorPropertiesErrorErrorUnknownErrorCopyWith<
   $Out
 >
     implements ClassCopyWith<$R, $In, $Out> {
-  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData>
-  get unknownErrorData;
-  $R call({String? name, UnknownErrorData? unknownErrorData});
+  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData> get data;
+  $R call({String? name, UnknownErrorData? data});
   EventSessionErrorPropertiesErrorErrorUnknownErrorCopyWith<$R2, $In, $Out2>
   $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -431,24 +417,20 @@ class _EventSessionErrorPropertiesErrorErrorUnknownErrorCopyWithImpl<$R, $Out>
   $mapper =
       EventSessionErrorPropertiesErrorErrorUnknownErrorMapper.ensureInitialized();
   @override
-  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData>
-  get unknownErrorData =>
-      $value.unknownErrorData.copyWith.$chain((v) => call(unknownErrorData: v));
+  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData> get data =>
+      $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, UnknownErrorData? unknownErrorData}) => $apply(
+  $R call({String? name, UnknownErrorData? data}) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
-      if (unknownErrorData != null) #unknownErrorData: unknownErrorData,
+      if (data != null) #data: data,
     }),
   );
   @override
   EventSessionErrorPropertiesErrorErrorUnknownError $make(CopyWithData data) =>
       EventSessionErrorPropertiesErrorErrorUnknownError(
         name: data.get(#name, or: $value.name),
-        unknownErrorData: data.get(
-          #unknownErrorData,
-          or: $value.unknownErrorData,
-        ),
+        data: data.get(#data, or: $value.data),
       );
 
   @override
@@ -724,31 +706,25 @@ class EventSessionErrorPropertiesErrorErrorMessageAbortedErrorMapper
     String
   >
   _f$name = Field('name', _$name);
-  static MessageAbortedErrorData _$messageAbortedErrorData(
+  static MessageAbortedErrorData _$data(
     EventSessionErrorPropertiesErrorErrorMessageAbortedError v,
-  ) => v.messageAbortedErrorData;
+  ) => v.data;
   static const Field<
     EventSessionErrorPropertiesErrorErrorMessageAbortedError,
     MessageAbortedErrorData
   >
-  _f$messageAbortedErrorData = Field(
-    'messageAbortedErrorData',
-    _$messageAbortedErrorData,
-  );
+  _f$data = Field('data', _$data);
 
   @override
   final MappableFields<EventSessionErrorPropertiesErrorErrorMessageAbortedError>
-  fields = const {
-    #name: _f$name,
-    #messageAbortedErrorData: _f$messageAbortedErrorData,
-  };
+  fields = const {#name: _f$name, #data: _f$data};
 
   static EventSessionErrorPropertiesErrorErrorMessageAbortedError _instantiate(
     DecodingData data,
   ) {
     return EventSessionErrorPropertiesErrorErrorMessageAbortedError(
       name: data.dec(_f$name),
-      messageAbortedErrorData: data.dec(_f$messageAbortedErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -863,8 +839,8 @@ abstract class EventSessionErrorPropertiesErrorErrorMessageAbortedErrorCopyWith<
     MessageAbortedErrorData,
     MessageAbortedErrorData
   >
-  get messageAbortedErrorData;
-  $R call({String? name, MessageAbortedErrorData? messageAbortedErrorData});
+  get data;
+  $R call({String? name, MessageAbortedErrorData? data});
   EventSessionErrorPropertiesErrorErrorMessageAbortedErrorCopyWith<
     $R2,
     $In,
@@ -907,27 +883,20 @@ class _EventSessionErrorPropertiesErrorErrorMessageAbortedErrorCopyWithImpl<
     MessageAbortedErrorData,
     MessageAbortedErrorData
   >
-  get messageAbortedErrorData => $value.messageAbortedErrorData.copyWith.$chain(
-    (v) => call(messageAbortedErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, MessageAbortedErrorData? messageAbortedErrorData}) =>
-      $apply(
-        FieldCopyWithData({
-          if (name != null) #name: name,
-          if (messageAbortedErrorData != null)
-            #messageAbortedErrorData: messageAbortedErrorData,
-        }),
-      );
+  $R call({String? name, MessageAbortedErrorData? data}) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (data != null) #data: data,
+    }),
+  );
   @override
   EventSessionErrorPropertiesErrorErrorMessageAbortedError $make(
     CopyWithData data,
   ) => EventSessionErrorPropertiesErrorErrorMessageAbortedError(
     name: data.get(#name, or: $value.name),
-    messageAbortedErrorData: data.get(
-      #messageAbortedErrorData,
-      or: $value.messageAbortedErrorData,
-    ),
+    data: data.get(#data, or: $value.data),
   );
 
   @override

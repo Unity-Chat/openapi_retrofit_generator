@@ -29,33 +29,25 @@ class ApiV1CategoryListResponseMapper
       v.includedResponse;
   static const Field<ApiV1CategoryListResponse, String> _f$includedResponse =
       Field('includedResponse', _$includedResponse);
-  static ApiV1CategoryListResponseIncludedData?
-  _$apiV1CategoryListResponseIncludedData(ApiV1CategoryListResponse v) =>
-      v.apiV1CategoryListResponseIncludedData;
+  static ApiV1CategoryListResponseIncludedData? _$includedData(
+    ApiV1CategoryListResponse v,
+  ) => v.includedData;
   static const Field<
     ApiV1CategoryListResponse,
     ApiV1CategoryListResponseIncludedData
   >
-  _f$apiV1CategoryListResponseIncludedData = Field(
-    'apiV1CategoryListResponseIncludedData',
-    _$apiV1CategoryListResponseIncludedData,
-    key: r'ApiV1CategoryListResponseIncludedData',
-    opt: true,
-  );
+  _f$includedData = Field('includedData', _$includedData, opt: true);
 
   @override
   final MappableFields<ApiV1CategoryListResponse> fields = const {
     #includedResponse: _f$includedResponse,
-    #apiV1CategoryListResponseIncludedData:
-        _f$apiV1CategoryListResponseIncludedData,
+    #includedData: _f$includedData,
   };
 
   static ApiV1CategoryListResponse _instantiate(DecodingData data) {
     return ApiV1CategoryListResponse(
       includedResponse: data.dec(_f$includedResponse),
-      apiV1CategoryListResponseIncludedData: data.dec(
-        _f$apiV1CategoryListResponseIncludedData,
-      ),
+      includedData: data.dec(_f$includedData),
     );
   }
 
@@ -138,11 +130,10 @@ abstract class ApiV1CategoryListResponseCopyWith<
     ApiV1CategoryListResponseIncludedData,
     ApiV1CategoryListResponseIncludedData
   >?
-  get apiV1CategoryListResponseIncludedData;
+  get includedData;
   $R call({
     String? includedResponse,
-    ApiV1CategoryListResponseIncludedData?
-    apiV1CategoryListResponseIncludedData,
+    ApiV1CategoryListResponseIncludedData? includedData,
   });
   ApiV1CategoryListResponseCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -164,20 +155,13 @@ class _ApiV1CategoryListResponseCopyWithImpl<$R, $Out>
     ApiV1CategoryListResponseIncludedData,
     ApiV1CategoryListResponseIncludedData
   >?
-  get apiV1CategoryListResponseIncludedData => $value
-      .apiV1CategoryListResponseIncludedData
-      ?.copyWith
-      .$chain((v) => call(apiV1CategoryListResponseIncludedData: v));
+  get includedData =>
+      $value.includedData?.copyWith.$chain((v) => call(includedData: v));
   @override
-  $R call({
-    String? includedResponse,
-    Object? apiV1CategoryListResponseIncludedData = $none,
-  }) => $apply(
+  $R call({String? includedResponse, Object? includedData = $none}) => $apply(
     FieldCopyWithData({
       if (includedResponse != null) #includedResponse: includedResponse,
-      if (apiV1CategoryListResponseIncludedData != $none)
-        #apiV1CategoryListResponseIncludedData:
-            apiV1CategoryListResponseIncludedData,
+      if (includedData != $none) #includedData: includedData,
     }),
   );
   @override
@@ -187,10 +171,7 @@ class _ApiV1CategoryListResponseCopyWithImpl<$R, $Out>
           #includedResponse,
           or: $value.includedResponse,
         ),
-        apiV1CategoryListResponseIncludedData: data.get(
-          #apiV1CategoryListResponseIncludedData,
-          or: $value.apiV1CategoryListResponseIncludedData,
-        ),
+        includedData: data.get(#includedData, or: $value.includedData),
       );
 
   @override

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventInstallationUpdated {
 
- String get type;@JsonKey(name: 'EventInstallationUpdatedProperties') EventInstallationUpdatedProperties get eventInstallationUpdatedProperties;
+ String get type; EventInstallationUpdatedProperties get properties;
 /// Create a copy of EventInstallationUpdated
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventInstallationUpdatedCopyWith<EventInstallationUpdated> get copyWith => _$Ev
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventInstallationUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventInstallationUpdatedProperties, eventInstallationUpdatedProperties) || other.eventInstallationUpdatedProperties == eventInstallationUpdatedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventInstallationUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventInstallationUpdatedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventInstallationUpdated(type: $type, eventInstallationUpdatedProperties: $eventInstallationUpdatedProperties)';
+  return 'EventInstallationUpdated(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventInstallationUpdatedCopyWith<$Res>  {
   factory $EventInstallationUpdatedCopyWith(EventInstallationUpdated value, $Res Function(EventInstallationUpdated) _then) = _$EventInstallationUpdatedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventInstallationUpdatedProperties') EventInstallationUpdatedProperties eventInstallationUpdatedProperties
+ String type, EventInstallationUpdatedProperties properties
 });
 
 
-$EventInstallationUpdatedPropertiesCopyWith<$Res> get eventInstallationUpdatedProperties;
+$EventInstallationUpdatedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventInstallationUpdatedCopyWithImpl<$Res>
 
 /// Create a copy of EventInstallationUpdated
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventInstallationUpdatedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventInstallationUpdatedProperties: null == eventInstallationUpdatedProperties ? _self.eventInstallationUpdatedProperties : eventInstallationUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventInstallationUpdatedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventInstallationUpdatedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventInstallationUpdatedPropertiesCopyWith<$Res> get eventInstallationUpdatedProperties {
+$EventInstallationUpdatedPropertiesCopyWith<$Res> get properties {
   
-  return $EventInstallationUpdatedPropertiesCopyWith<$Res>(_self.eventInstallationUpdatedProperties, (value) {
-    return _then(_self.copyWith(eventInstallationUpdatedProperties: value));
+  return $EventInstallationUpdatedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventInstallationUpdatedProperties')  EventInstallationUpdatedProperties eventInstallationUpdatedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventInstallationUpdatedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventInstallationUpdated() when $default != null:
-return $default(_that.type,_that.eventInstallationUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventInstallationUpdatedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventInstallationUpdatedProperties')  EventInstallationUpdatedProperties eventInstallationUpdatedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventInstallationUpdatedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventInstallationUpdated():
-return $default(_that.type,_that.eventInstallationUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventInstallationUpdatedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventInstallationUpdatedProperties')  EventInstallationUpdatedProperties eventInstallationUpdatedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventInstallationUpdatedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventInstallationUpdated() when $default != null:
-return $default(_that.type,_that.eventInstallationUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventInstallationUpdatedProperties);case _:
 @JsonSerializable()
 
 class _EventInstallationUpdated implements EventInstallationUpdated {
-  const _EventInstallationUpdated({required this.type, @JsonKey(name: 'EventInstallationUpdatedProperties') required this.eventInstallationUpdatedProperties});
+  const _EventInstallationUpdated({required this.type, required this.properties});
   factory _EventInstallationUpdated.fromJson(Map<String, dynamic> json) => _$EventInstallationUpdatedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventInstallationUpdatedProperties') final  EventInstallationUpdatedProperties eventInstallationUpdatedProperties;
+@override final  EventInstallationUpdatedProperties properties;
 
 /// Create a copy of EventInstallationUpdated
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventInstallationUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventInstallationUpdatedProperties, eventInstallationUpdatedProperties) || other.eventInstallationUpdatedProperties == eventInstallationUpdatedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventInstallationUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventInstallationUpdatedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventInstallationUpdated(type: $type, eventInstallationUpdatedProperties: $eventInstallationUpdatedProperties)';
+  return 'EventInstallationUpdated(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventInstallationUpdatedCopyWith<$Res> implements $EventI
   factory _$EventInstallationUpdatedCopyWith(_EventInstallationUpdated value, $Res Function(_EventInstallationUpdated) _then) = __$EventInstallationUpdatedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventInstallationUpdatedProperties') EventInstallationUpdatedProperties eventInstallationUpdatedProperties
+ String type, EventInstallationUpdatedProperties properties
 });
 
 
-@override $EventInstallationUpdatedPropertiesCopyWith<$Res> get eventInstallationUpdatedProperties;
+@override $EventInstallationUpdatedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventInstallationUpdatedCopyWithImpl<$Res>
 
 /// Create a copy of EventInstallationUpdated
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventInstallationUpdatedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventInstallationUpdated(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventInstallationUpdatedProperties: null == eventInstallationUpdatedProperties ? _self.eventInstallationUpdatedProperties : eventInstallationUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventInstallationUpdatedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventInstallationUpdatedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventInstallationUpdatedPropertiesCopyWith<$Res> get eventInstallationUpdatedProperties {
+$EventInstallationUpdatedPropertiesCopyWith<$Res> get properties {
   
-  return $EventInstallationUpdatedPropertiesCopyWith<$Res>(_self.eventInstallationUpdatedProperties, (value) {
-    return _then(_self.copyWith(eventInstallationUpdatedProperties: value));
+  return $EventInstallationUpdatedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

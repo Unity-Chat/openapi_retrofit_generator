@@ -13,8 +13,7 @@ part 'post_api_v1_request.g.dart';
 @Freezed()
 abstract class PostApiV1Request with _$PostApiV1Request {
   const factory PostApiV1Request({
-    @JsonKey(name: 'PostApiV1RequestP1Class')
-    required PostApiV1RequestP1Class postApiV1RequestP1Class,
+    @JsonKey(name: 'p1_class') required PostApiV1RequestP1Class p1Class,
     @JsonKey(includeIfNull: false, name: 'p2_enum')
     PostApiV1RequestP2EnumP2Enum? p2Enum,
   }) = _PostApiV1Request;

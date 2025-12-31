@@ -10,16 +10,14 @@ _EventInstallationUpdated _$EventInstallationUpdatedFromJson(
   Map<String, dynamic> json,
 ) => _EventInstallationUpdated(
   type: json['type'] as String,
-  eventInstallationUpdatedProperties:
-      EventInstallationUpdatedProperties.fromJson(
-        json['EventInstallationUpdatedProperties'] as Map<String, dynamic>,
-      ),
+  properties: EventInstallationUpdatedProperties.fromJson(
+    json['properties'] as Map<String, dynamic>,
+  ),
 );
 
 Map<String, dynamic> _$EventInstallationUpdatedToJson(
   _EventInstallationUpdated instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  'EventInstallationUpdatedProperties':
-      instance.eventInstallationUpdatedProperties,
+  'properties': instance.properties,
 };

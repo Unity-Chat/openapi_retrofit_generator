@@ -29,27 +29,21 @@ class GetDuplicateResponseMapper extends ClassMapperBase<GetDuplicateResponse> {
     _$data,
     opt: true,
   );
-  static GetDuplicateResponseMetadata? _$getDuplicateResponseMetadata(
-    GetDuplicateResponse v,
-  ) => v.getDuplicateResponseMetadata;
+  static GetDuplicateResponseMetadata? _$metadata(GetDuplicateResponse v) =>
+      v.metadata;
   static const Field<GetDuplicateResponse, GetDuplicateResponseMetadata>
-  _f$getDuplicateResponseMetadata = Field(
-    'getDuplicateResponseMetadata',
-    _$getDuplicateResponseMetadata,
-    key: r'GetDuplicateResponseMetadata',
-    opt: true,
-  );
+  _f$metadata = Field('metadata', _$metadata, opt: true);
 
   @override
   final MappableFields<GetDuplicateResponse> fields = const {
     #data: _f$data,
-    #getDuplicateResponseMetadata: _f$getDuplicateResponseMetadata,
+    #metadata: _f$metadata,
   };
 
   static GetDuplicateResponse _instantiate(DecodingData data) {
     return GetDuplicateResponse(
       data: data.dec(_f$data),
-      getDuplicateResponseMetadata: data.dec(_f$getDuplicateResponseMetadata),
+      metadata: data.dec(_f$metadata),
     );
   }
 
@@ -129,11 +123,8 @@ abstract class GetDuplicateResponseCopyWith<
     GetDuplicateResponseMetadata,
     GetDuplicateResponseMetadata
   >?
-  get getDuplicateResponseMetadata;
-  $R call({
-    Data? data,
-    GetDuplicateResponseMetadata? getDuplicateResponseMetadata,
-  });
+  get metadata;
+  $R call({Data? data, GetDuplicateResponseMetadata? metadata});
   GetDuplicateResponseCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -156,28 +147,18 @@ class _GetDuplicateResponseCopyWithImpl<$R, $Out>
     GetDuplicateResponseMetadata,
     GetDuplicateResponseMetadata
   >?
-  get getDuplicateResponseMetadata => $value
-      .getDuplicateResponseMetadata
-      ?.copyWith
-      .$chain((v) => call(getDuplicateResponseMetadata: v));
+  get metadata => $value.metadata?.copyWith.$chain((v) => call(metadata: v));
   @override
-  $R call({
-    Object? data = $none,
-    Object? getDuplicateResponseMetadata = $none,
-  }) => $apply(
+  $R call({Object? data = $none, Object? metadata = $none}) => $apply(
     FieldCopyWithData({
       if (data != $none) #data: data,
-      if (getDuplicateResponseMetadata != $none)
-        #getDuplicateResponseMetadata: getDuplicateResponseMetadata,
+      if (metadata != $none) #metadata: metadata,
     }),
   );
   @override
   GetDuplicateResponse $make(CopyWithData data) => GetDuplicateResponse(
     data: data.get(#data, or: $value.data),
-    getDuplicateResponseMetadata: data.get(
-      #getDuplicateResponseMetadata,
-      or: $value.getDuplicateResponseMetadata,
-    ),
+    metadata: data.get(#metadata, or: $value.metadata),
   );
 
   @override

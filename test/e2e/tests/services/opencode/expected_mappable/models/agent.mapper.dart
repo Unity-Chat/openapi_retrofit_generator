@@ -29,11 +29,10 @@ class AgentMapper extends ClassMapperBase<Agent> {
   static const Field<Agent, dynamic> _f$mode = Field('mode', _$mode);
   static bool _$builtIn(Agent v) => v.builtIn;
   static const Field<Agent, bool> _f$builtIn = Field('builtIn', _$builtIn);
-  static AgentPermission _$agentPermission(Agent v) => v.agentPermission;
-  static const Field<Agent, AgentPermission> _f$agentPermission = Field(
-    'agentPermission',
-    _$agentPermission,
-    key: r'AgentPermission',
+  static AgentPermission _$permission(Agent v) => v.permission;
+  static const Field<Agent, AgentPermission> _f$permission = Field(
+    'permission',
+    _$permission,
   );
   static Map<String, bool> _$tools(Agent v) => v.tools;
   static const Field<Agent, Map<String, bool>> _f$tools = Field(
@@ -59,11 +58,10 @@ class AgentMapper extends ClassMapperBase<Agent> {
     _$temperature,
     opt: true,
   );
-  static AgentModel? _$agentModel(Agent v) => v.agentModel;
-  static const Field<Agent, AgentModel> _f$agentModel = Field(
-    'agentModel',
-    _$agentModel,
-    key: r'AgentModel',
+  static AgentModel? _$model(Agent v) => v.model;
+  static const Field<Agent, AgentModel> _f$model = Field(
+    'model',
+    _$model,
     opt: true,
   );
   static String? _$prompt(Agent v) => v.prompt;
@@ -78,13 +76,13 @@ class AgentMapper extends ClassMapperBase<Agent> {
     #name: _f$name,
     #mode: _f$mode,
     #builtIn: _f$builtIn,
-    #agentPermission: _f$agentPermission,
+    #permission: _f$permission,
     #tools: _f$tools,
     #options: _f$options,
     #description: _f$description,
     #topP: _f$topP,
     #temperature: _f$temperature,
-    #agentModel: _f$agentModel,
+    #model: _f$model,
     #prompt: _f$prompt,
   };
 
@@ -93,13 +91,13 @@ class AgentMapper extends ClassMapperBase<Agent> {
       name: data.dec(_f$name),
       mode: data.dec(_f$mode),
       builtIn: data.dec(_f$builtIn),
-      agentPermission: data.dec(_f$agentPermission),
+      permission: data.dec(_f$permission),
       tools: data.dec(_f$tools),
       options: data.dec(_f$options),
       description: data.dec(_f$description),
       topP: data.dec(_f$topP),
       temperature: data.dec(_f$temperature),
-      agentModel: data.dec(_f$agentModel),
+      model: data.dec(_f$model),
       prompt: data.dec(_f$prompt),
     );
   }
@@ -150,23 +148,22 @@ extension AgentValueCopy<$R, $Out> on ObjectCopyWith<$R, Agent, $Out> {
 
 abstract class AgentCopyWith<$R, $In extends Agent, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  AgentPermissionCopyWith<$R, AgentPermission, AgentPermission>
-  get agentPermission;
+  AgentPermissionCopyWith<$R, AgentPermission, AgentPermission> get permission;
   MapCopyWith<$R, String, bool, ObjectCopyWith<$R, bool, bool>> get tools;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get options;
-  AgentModelCopyWith<$R, AgentModel, AgentModel>? get agentModel;
+  AgentModelCopyWith<$R, AgentModel, AgentModel>? get model;
   $R call({
     String? name,
     dynamic mode,
     bool? builtIn,
-    AgentPermission? agentPermission,
+    AgentPermission? permission,
     Map<String, bool>? tools,
     Map<String, dynamic>? options,
     String? description,
     num? topP,
     num? temperature,
-    AgentModel? agentModel,
+    AgentModel? model,
     String? prompt,
   });
   AgentCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -180,8 +177,8 @@ class _AgentCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Agent, $Out>
   late final ClassMapperBase<Agent> $mapper = AgentMapper.ensureInitialized();
   @override
   AgentPermissionCopyWith<$R, AgentPermission, AgentPermission>
-  get agentPermission =>
-      $value.agentPermission.copyWith.$chain((v) => call(agentPermission: v));
+  get permission =>
+      $value.permission.copyWith.$chain((v) => call(permission: v));
   @override
   MapCopyWith<$R, String, bool, ObjectCopyWith<$R, bool, bool>> get tools =>
       MapCopyWith(
@@ -197,33 +194,33 @@ class _AgentCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Agent, $Out>
     (v) => call(options: v),
   );
   @override
-  AgentModelCopyWith<$R, AgentModel, AgentModel>? get agentModel =>
-      $value.agentModel?.copyWith.$chain((v) => call(agentModel: v));
+  AgentModelCopyWith<$R, AgentModel, AgentModel>? get model =>
+      $value.model?.copyWith.$chain((v) => call(model: v));
   @override
   $R call({
     String? name,
     Object? mode = $none,
     bool? builtIn,
-    AgentPermission? agentPermission,
+    AgentPermission? permission,
     Map<String, bool>? tools,
     Map<String, dynamic>? options,
     Object? description = $none,
     Object? topP = $none,
     Object? temperature = $none,
-    Object? agentModel = $none,
+    Object? model = $none,
     Object? prompt = $none,
   }) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
       if (mode != $none) #mode: mode,
       if (builtIn != null) #builtIn: builtIn,
-      if (agentPermission != null) #agentPermission: agentPermission,
+      if (permission != null) #permission: permission,
       if (tools != null) #tools: tools,
       if (options != null) #options: options,
       if (description != $none) #description: description,
       if (topP != $none) #topP: topP,
       if (temperature != $none) #temperature: temperature,
-      if (agentModel != $none) #agentModel: agentModel,
+      if (model != $none) #model: model,
       if (prompt != $none) #prompt: prompt,
     }),
   );
@@ -232,13 +229,13 @@ class _AgentCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Agent, $Out>
     name: data.get(#name, or: $value.name),
     mode: data.get(#mode, or: $value.mode),
     builtIn: data.get(#builtIn, or: $value.builtIn),
-    agentPermission: data.get(#agentPermission, or: $value.agentPermission),
+    permission: data.get(#permission, or: $value.permission),
     tools: data.get(#tools, or: $value.tools),
     options: data.get(#options, or: $value.options),
     description: data.get(#description, or: $value.description),
     topP: data.get(#topP, or: $value.topP),
     temperature: data.get(#temperature, or: $value.temperature),
-    agentModel: data.get(#agentModel, or: $value.agentModel),
+    model: data.get(#model, or: $value.model),
     prompt: data.get(#prompt, or: $value.prompt),
   );
 

@@ -11,33 +11,23 @@ _$AssistantMessageErrorErrorProviderAuthErrorFromJson(
   Map<String, dynamic> json,
 ) => AssistantMessageErrorErrorProviderAuthError(
   name: json['name'] as String,
-  providerAuthErrorData: ProviderAuthErrorData.fromJson(
-    json['providerAuthErrorData'] as Map<String, dynamic>,
-  ),
+  data: ProviderAuthErrorData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$AssistantMessageErrorErrorProviderAuthErrorToJson(
   AssistantMessageErrorErrorProviderAuthError instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'providerAuthErrorData': instance.providerAuthErrorData,
-};
+) => <String, dynamic>{'name': instance.name, 'data': instance.data};
 
 AssistantMessageErrorErrorUnknownError
 _$AssistantMessageErrorErrorUnknownErrorFromJson(Map<String, dynamic> json) =>
     AssistantMessageErrorErrorUnknownError(
       name: json['name'] as String,
-      unknownErrorData: UnknownErrorData.fromJson(
-        json['unknownErrorData'] as Map<String, dynamic>,
-      ),
+      data: UnknownErrorData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$AssistantMessageErrorErrorUnknownErrorToJson(
   AssistantMessageErrorErrorUnknownError instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'unknownErrorData': instance.unknownErrorData,
-};
+) => <String, dynamic>{'name': instance.name, 'data': instance.data};
 
 AssistantMessageErrorErrorMessageOutputLengthError
 _$AssistantMessageErrorErrorMessageOutputLengthErrorFromJson(
@@ -56,14 +46,9 @@ _$AssistantMessageErrorErrorMessageAbortedErrorFromJson(
   Map<String, dynamic> json,
 ) => AssistantMessageErrorErrorMessageAbortedError(
   name: json['name'] as String,
-  messageAbortedErrorData: MessageAbortedErrorData.fromJson(
-    json['messageAbortedErrorData'] as Map<String, dynamic>,
-  ),
+  data: MessageAbortedErrorData.fromJson(json['data'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$AssistantMessageErrorErrorMessageAbortedErrorToJson(
   AssistantMessageErrorErrorMessageAbortedError instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'messageAbortedErrorData': instance.messageAbortedErrorData,
-};
+) => <String, dynamic>{'name': instance.name, 'data': instance.data};

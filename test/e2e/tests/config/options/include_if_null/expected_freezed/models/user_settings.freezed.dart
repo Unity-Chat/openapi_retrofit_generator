@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserSettings {
 
-@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications') UserSettingsNotifications? get userSettingsNotifications;@JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy') UserSettingsPrivacy? get userSettingsPrivacy; UserSettingsThemeTheme get theme; String get language;
+@JsonKey(includeIfNull: false) UserSettingsNotifications? get notifications;@JsonKey(includeIfNull: false) UserSettingsPrivacy? get privacy; UserSettingsThemeTheme get theme; String get language;
 /// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UserSettingsCopyWith<UserSettings> get copyWith => _$UserSettingsCopyWithImpl<U
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserSettings&&(identical(other.userSettingsNotifications, userSettingsNotifications) || other.userSettingsNotifications == userSettingsNotifications)&&(identical(other.userSettingsPrivacy, userSettingsPrivacy) || other.userSettingsPrivacy == userSettingsPrivacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserSettings&&(identical(other.notifications, notifications) || other.notifications == notifications)&&(identical(other.privacy, privacy) || other.privacy == privacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userSettingsNotifications,userSettingsPrivacy,theme,language);
+int get hashCode => Object.hash(runtimeType,notifications,privacy,theme,language);
 
 @override
 String toString() {
-  return 'UserSettings(userSettingsNotifications: $userSettingsNotifications, userSettingsPrivacy: $userSettingsPrivacy, theme: $theme, language: $language)';
+  return 'UserSettings(notifications: $notifications, privacy: $privacy, theme: $theme, language: $language)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $UserSettingsCopyWith<$Res>  {
   factory $UserSettingsCopyWith(UserSettings value, $Res Function(UserSettings) _then) = _$UserSettingsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications') UserSettingsNotifications? userSettingsNotifications,@JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy') UserSettingsPrivacy? userSettingsPrivacy, UserSettingsThemeTheme theme, String language
+@JsonKey(includeIfNull: false) UserSettingsNotifications? notifications,@JsonKey(includeIfNull: false) UserSettingsPrivacy? privacy, UserSettingsThemeTheme theme, String language
 });
 
 
-$UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications;$UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy;
+$UserSettingsNotificationsCopyWith<$Res>? get notifications;$UserSettingsPrivacyCopyWith<$Res>? get privacy;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$UserSettingsCopyWithImpl<$Res>
 
 /// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userSettingsNotifications = freezed,Object? userSettingsPrivacy = freezed,Object? theme = null,Object? language = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? notifications = freezed,Object? privacy = freezed,Object? theme = null,Object? language = null,}) {
   return _then(_self.copyWith(
-userSettingsNotifications: freezed == userSettingsNotifications ? _self.userSettingsNotifications : userSettingsNotifications // ignore: cast_nullable_to_non_nullable
-as UserSettingsNotifications?,userSettingsPrivacy: freezed == userSettingsPrivacy ? _self.userSettingsPrivacy : userSettingsPrivacy // ignore: cast_nullable_to_non_nullable
+notifications: freezed == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
+as UserSettingsNotifications?,privacy: freezed == privacy ? _self.privacy : privacy // ignore: cast_nullable_to_non_nullable
 as UserSettingsPrivacy?,theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
 as UserSettingsThemeTheme,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
 as String,
@@ -78,25 +78,25 @@ as String,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications {
-    if (_self.userSettingsNotifications == null) {
+$UserSettingsNotificationsCopyWith<$Res>? get notifications {
+    if (_self.notifications == null) {
     return null;
   }
 
-  return $UserSettingsNotificationsCopyWith<$Res>(_self.userSettingsNotifications!, (value) {
-    return _then(_self.copyWith(userSettingsNotifications: value));
+  return $UserSettingsNotificationsCopyWith<$Res>(_self.notifications!, (value) {
+    return _then(_self.copyWith(notifications: value));
   });
 }/// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy {
-    if (_self.userSettingsPrivacy == null) {
+$UserSettingsPrivacyCopyWith<$Res>? get privacy {
+    if (_self.privacy == null) {
     return null;
   }
 
-  return $UserSettingsPrivacyCopyWith<$Res>(_self.userSettingsPrivacy!, (value) {
-    return _then(_self.copyWith(userSettingsPrivacy: value));
+  return $UserSettingsPrivacyCopyWith<$Res>(_self.privacy!, (value) {
+    return _then(_self.copyWith(privacy: value));
   });
 }
 }
@@ -180,10 +180,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications')  UserSettingsNotifications? userSettingsNotifications, @JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy')  UserSettingsPrivacy? userSettingsPrivacy,  UserSettingsThemeTheme theme,  String language)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  UserSettingsNotifications? notifications, @JsonKey(includeIfNull: false)  UserSettingsPrivacy? privacy,  UserSettingsThemeTheme theme,  String language)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserSettings() when $default != null:
-return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.theme,_that.language);case _:
+return $default(_that.notifications,_that.privacy,_that.theme,_that.language);case _:
   return orElse();
 
 }
@@ -201,10 +201,10 @@ return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications')  UserSettingsNotifications? userSettingsNotifications, @JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy')  UserSettingsPrivacy? userSettingsPrivacy,  UserSettingsThemeTheme theme,  String language)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  UserSettingsNotifications? notifications, @JsonKey(includeIfNull: false)  UserSettingsPrivacy? privacy,  UserSettingsThemeTheme theme,  String language)  $default,) {final _that = this;
 switch (_that) {
 case _UserSettings():
-return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.theme,_that.language);case _:
+return $default(_that.notifications,_that.privacy,_that.theme,_that.language);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -221,10 +221,10 @@ return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications')  UserSettingsNotifications? userSettingsNotifications, @JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy')  UserSettingsPrivacy? userSettingsPrivacy,  UserSettingsThemeTheme theme,  String language)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  UserSettingsNotifications? notifications, @JsonKey(includeIfNull: false)  UserSettingsPrivacy? privacy,  UserSettingsThemeTheme theme,  String language)?  $default,) {final _that = this;
 switch (_that) {
 case _UserSettings() when $default != null:
-return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.theme,_that.language);case _:
+return $default(_that.notifications,_that.privacy,_that.theme,_that.language);case _:
   return null;
 
 }
@@ -236,11 +236,11 @@ return $default(_that.userSettingsNotifications,_that.userSettingsPrivacy,_that.
 @JsonSerializable()
 
 class _UserSettings implements UserSettings {
-  const _UserSettings({@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications') this.userSettingsNotifications, @JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy') this.userSettingsPrivacy, this.theme = UserSettingsThemeTheme.auto, this.language = 'en'});
+  const _UserSettings({@JsonKey(includeIfNull: false) this.notifications, @JsonKey(includeIfNull: false) this.privacy, this.theme = UserSettingsThemeTheme.auto, this.language = 'en'});
   factory _UserSettings.fromJson(Map<String, dynamic> json) => _$UserSettingsFromJson(json);
 
-@override@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications') final  UserSettingsNotifications? userSettingsNotifications;
-@override@JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy') final  UserSettingsPrivacy? userSettingsPrivacy;
+@override@JsonKey(includeIfNull: false) final  UserSettingsNotifications? notifications;
+@override@JsonKey(includeIfNull: false) final  UserSettingsPrivacy? privacy;
 @override@JsonKey() final  UserSettingsThemeTheme theme;
 @override@JsonKey() final  String language;
 
@@ -257,16 +257,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserSettings&&(identical(other.userSettingsNotifications, userSettingsNotifications) || other.userSettingsNotifications == userSettingsNotifications)&&(identical(other.userSettingsPrivacy, userSettingsPrivacy) || other.userSettingsPrivacy == userSettingsPrivacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserSettings&&(identical(other.notifications, notifications) || other.notifications == notifications)&&(identical(other.privacy, privacy) || other.privacy == privacy)&&(identical(other.theme, theme) || other.theme == theme)&&(identical(other.language, language) || other.language == language));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userSettingsNotifications,userSettingsPrivacy,theme,language);
+int get hashCode => Object.hash(runtimeType,notifications,privacy,theme,language);
 
 @override
 String toString() {
-  return 'UserSettings(userSettingsNotifications: $userSettingsNotifications, userSettingsPrivacy: $userSettingsPrivacy, theme: $theme, language: $language)';
+  return 'UserSettings(notifications: $notifications, privacy: $privacy, theme: $theme, language: $language)';
 }
 
 
@@ -277,11 +277,11 @@ abstract mixin class _$UserSettingsCopyWith<$Res> implements $UserSettingsCopyWi
   factory _$UserSettingsCopyWith(_UserSettings value, $Res Function(_UserSettings) _then) = __$UserSettingsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(includeIfNull: false, name: 'UserSettingsNotifications') UserSettingsNotifications? userSettingsNotifications,@JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy') UserSettingsPrivacy? userSettingsPrivacy, UserSettingsThemeTheme theme, String language
+@JsonKey(includeIfNull: false) UserSettingsNotifications? notifications,@JsonKey(includeIfNull: false) UserSettingsPrivacy? privacy, UserSettingsThemeTheme theme, String language
 });
 
 
-@override $UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications;@override $UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy;
+@override $UserSettingsNotificationsCopyWith<$Res>? get notifications;@override $UserSettingsPrivacyCopyWith<$Res>? get privacy;
 
 }
 /// @nodoc
@@ -294,10 +294,10 @@ class __$UserSettingsCopyWithImpl<$Res>
 
 /// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userSettingsNotifications = freezed,Object? userSettingsPrivacy = freezed,Object? theme = null,Object? language = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? notifications = freezed,Object? privacy = freezed,Object? theme = null,Object? language = null,}) {
   return _then(_UserSettings(
-userSettingsNotifications: freezed == userSettingsNotifications ? _self.userSettingsNotifications : userSettingsNotifications // ignore: cast_nullable_to_non_nullable
-as UserSettingsNotifications?,userSettingsPrivacy: freezed == userSettingsPrivacy ? _self.userSettingsPrivacy : userSettingsPrivacy // ignore: cast_nullable_to_non_nullable
+notifications: freezed == notifications ? _self.notifications : notifications // ignore: cast_nullable_to_non_nullable
+as UserSettingsNotifications?,privacy: freezed == privacy ? _self.privacy : privacy // ignore: cast_nullable_to_non_nullable
 as UserSettingsPrivacy?,theme: null == theme ? _self.theme : theme // ignore: cast_nullable_to_non_nullable
 as UserSettingsThemeTheme,language: null == language ? _self.language : language // ignore: cast_nullable_to_non_nullable
 as String,
@@ -308,25 +308,25 @@ as String,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsNotificationsCopyWith<$Res>? get userSettingsNotifications {
-    if (_self.userSettingsNotifications == null) {
+$UserSettingsNotificationsCopyWith<$Res>? get notifications {
+    if (_self.notifications == null) {
     return null;
   }
 
-  return $UserSettingsNotificationsCopyWith<$Res>(_self.userSettingsNotifications!, (value) {
-    return _then(_self.copyWith(userSettingsNotifications: value));
+  return $UserSettingsNotificationsCopyWith<$Res>(_self.notifications!, (value) {
+    return _then(_self.copyWith(notifications: value));
   });
 }/// Create a copy of UserSettings
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UserSettingsPrivacyCopyWith<$Res>? get userSettingsPrivacy {
-    if (_self.userSettingsPrivacy == null) {
+$UserSettingsPrivacyCopyWith<$Res>? get privacy {
+    if (_self.privacy == null) {
     return null;
   }
 
-  return $UserSettingsPrivacyCopyWith<$Res>(_self.userSettingsPrivacy!, (value) {
-    return _then(_self.copyWith(userSettingsPrivacy: value));
+  return $UserSettingsPrivacyCopyWith<$Res>(_self.privacy!, (value) {
+    return _then(_self.copyWith(privacy: value));
   });
 }
 }

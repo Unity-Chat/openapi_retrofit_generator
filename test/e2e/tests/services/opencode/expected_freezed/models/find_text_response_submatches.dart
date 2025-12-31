@@ -12,8 +12,7 @@ part 'find_text_response_submatches.g.dart';
 @Freezed()
 abstract class FindTextResponseSubmatches with _$FindTextResponseSubmatches {
   const factory FindTextResponseSubmatches({
-    @JsonKey(name: 'FindTextResponseSubmatchesMatch')
-    required FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch,
+    required FindTextResponseSubmatchesMatch match,
     required num start,
     required num end,
   }) = _FindTextResponseSubmatches;

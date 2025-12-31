@@ -16,7 +16,7 @@ class StepFinishPart {
     required this.messageId,
     required this.type,
     required this.cost,
-    required this.stepFinishPartTokens,
+    required this.tokens,
     this.snapshot,
   });
 
@@ -31,8 +31,7 @@ class StepFinishPart {
   final String type;
   final String? snapshot;
   final num cost;
-  @JsonKey(name: 'StepFinishPartTokens')
-  final StepFinishPartTokens stepFinishPartTokens;
+  final StepFinishPartTokens tokens;
 
   Map<String, Object?> toJson() => _$StepFinishPartToJson(this);
 }

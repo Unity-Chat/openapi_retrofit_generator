@@ -12,13 +12,11 @@ part 'api_v1_category_list_response.mapper.dart';
 class ApiV1CategoryListResponse with ApiV1CategoryListResponseMappable {
   const ApiV1CategoryListResponse({
     required this.includedResponse,
-    this.apiV1CategoryListResponseIncludedData,
+    this.includedData,
   });
 
   final String includedResponse;
-  @MappableField(key: 'ApiV1CategoryListResponseIncludedData')
-  final ApiV1CategoryListResponseIncludedData?
-  apiV1CategoryListResponseIncludedData;
+  final ApiV1CategoryListResponseIncludedData? includedData;
 
   static ApiV1CategoryListResponse fromJson(Map<String, dynamic> json) =>
       ApiV1CategoryListResponseMapper.fromJson(json);

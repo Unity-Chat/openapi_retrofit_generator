@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ApiV1CategoryListResponse {
 
- String get includedResponse;@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData') ApiV1CategoryListResponseIncludedData? get apiV1CategoryListResponseIncludedData;
+ String get includedResponse;@JsonKey(includeIfNull: false) ApiV1CategoryListResponseIncludedData? get includedData;
 /// Create a copy of ApiV1CategoryListResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ApiV1CategoryListResponseCopyWith<ApiV1CategoryListResponse> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiV1CategoryListResponse&&(identical(other.includedResponse, includedResponse) || other.includedResponse == includedResponse)&&(identical(other.apiV1CategoryListResponseIncludedData, apiV1CategoryListResponseIncludedData) || other.apiV1CategoryListResponseIncludedData == apiV1CategoryListResponseIncludedData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ApiV1CategoryListResponse&&(identical(other.includedResponse, includedResponse) || other.includedResponse == includedResponse)&&(identical(other.includedData, includedData) || other.includedData == includedData));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,includedResponse,apiV1CategoryListResponseIncludedData);
+int get hashCode => Object.hash(runtimeType,includedResponse,includedData);
 
 @override
 String toString() {
-  return 'ApiV1CategoryListResponse(includedResponse: $includedResponse, apiV1CategoryListResponseIncludedData: $apiV1CategoryListResponseIncludedData)';
+  return 'ApiV1CategoryListResponse(includedResponse: $includedResponse, includedData: $includedData)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ApiV1CategoryListResponseCopyWith<$Res>  {
   factory $ApiV1CategoryListResponseCopyWith(ApiV1CategoryListResponse value, $Res Function(ApiV1CategoryListResponse) _then) = _$ApiV1CategoryListResponseCopyWithImpl;
 @useResult
 $Res call({
- String includedResponse,@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData') ApiV1CategoryListResponseIncludedData? apiV1CategoryListResponseIncludedData
+ String includedResponse,@JsonKey(includeIfNull: false) ApiV1CategoryListResponseIncludedData? includedData
 });
 
 
-$ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get apiV1CategoryListResponseIncludedData;
+$ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get includedData;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$ApiV1CategoryListResponseCopyWithImpl<$Res>
 
 /// Create a copy of ApiV1CategoryListResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? includedResponse = null,Object? apiV1CategoryListResponseIncludedData = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? includedResponse = null,Object? includedData = freezed,}) {
   return _then(_self.copyWith(
 includedResponse: null == includedResponse ? _self.includedResponse : includedResponse // ignore: cast_nullable_to_non_nullable
-as String,apiV1CategoryListResponseIncludedData: freezed == apiV1CategoryListResponseIncludedData ? _self.apiV1CategoryListResponseIncludedData : apiV1CategoryListResponseIncludedData // ignore: cast_nullable_to_non_nullable
+as String,includedData: freezed == includedData ? _self.includedData : includedData // ignore: cast_nullable_to_non_nullable
 as ApiV1CategoryListResponseIncludedData?,
   ));
 }
@@ -76,13 +76,13 @@ as ApiV1CategoryListResponseIncludedData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get apiV1CategoryListResponseIncludedData {
-    if (_self.apiV1CategoryListResponseIncludedData == null) {
+$ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get includedData {
+    if (_self.includedData == null) {
     return null;
   }
 
-  return $ApiV1CategoryListResponseIncludedDataCopyWith<$Res>(_self.apiV1CategoryListResponseIncludedData!, (value) {
-    return _then(_self.copyWith(apiV1CategoryListResponseIncludedData: value));
+  return $ApiV1CategoryListResponseIncludedDataCopyWith<$Res>(_self.includedData!, (value) {
+    return _then(_self.copyWith(includedData: value));
   });
 }
 }
@@ -166,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String includedResponse, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData')  ApiV1CategoryListResponseIncludedData? apiV1CategoryListResponseIncludedData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String includedResponse, @JsonKey(includeIfNull: false)  ApiV1CategoryListResponseIncludedData? includedData)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ApiV1CategoryListResponse() when $default != null:
-return $default(_that.includedResponse,_that.apiV1CategoryListResponseIncludedData);case _:
+return $default(_that.includedResponse,_that.includedData);case _:
   return orElse();
 
 }
@@ -187,10 +187,10 @@ return $default(_that.includedResponse,_that.apiV1CategoryListResponseIncludedDa
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String includedResponse, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData')  ApiV1CategoryListResponseIncludedData? apiV1CategoryListResponseIncludedData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String includedResponse, @JsonKey(includeIfNull: false)  ApiV1CategoryListResponseIncludedData? includedData)  $default,) {final _that = this;
 switch (_that) {
 case _ApiV1CategoryListResponse():
-return $default(_that.includedResponse,_that.apiV1CategoryListResponseIncludedData);case _:
+return $default(_that.includedResponse,_that.includedData);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +207,10 @@ return $default(_that.includedResponse,_that.apiV1CategoryListResponseIncludedDa
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String includedResponse, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData')  ApiV1CategoryListResponseIncludedData? apiV1CategoryListResponseIncludedData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String includedResponse, @JsonKey(includeIfNull: false)  ApiV1CategoryListResponseIncludedData? includedData)?  $default,) {final _that = this;
 switch (_that) {
 case _ApiV1CategoryListResponse() when $default != null:
-return $default(_that.includedResponse,_that.apiV1CategoryListResponseIncludedData);case _:
+return $default(_that.includedResponse,_that.includedData);case _:
   return null;
 
 }
@@ -222,11 +222,11 @@ return $default(_that.includedResponse,_that.apiV1CategoryListResponseIncludedDa
 @JsonSerializable()
 
 class _ApiV1CategoryListResponse implements ApiV1CategoryListResponse {
-  const _ApiV1CategoryListResponse({required this.includedResponse, @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData') this.apiV1CategoryListResponseIncludedData});
+  const _ApiV1CategoryListResponse({required this.includedResponse, @JsonKey(includeIfNull: false) this.includedData});
   factory _ApiV1CategoryListResponse.fromJson(Map<String, dynamic> json) => _$ApiV1CategoryListResponseFromJson(json);
 
 @override final  String includedResponse;
-@override@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData') final  ApiV1CategoryListResponseIncludedData? apiV1CategoryListResponseIncludedData;
+@override@JsonKey(includeIfNull: false) final  ApiV1CategoryListResponseIncludedData? includedData;
 
 /// Create a copy of ApiV1CategoryListResponse
 /// with the given fields replaced by the non-null parameter values.
@@ -241,16 +241,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiV1CategoryListResponse&&(identical(other.includedResponse, includedResponse) || other.includedResponse == includedResponse)&&(identical(other.apiV1CategoryListResponseIncludedData, apiV1CategoryListResponseIncludedData) || other.apiV1CategoryListResponseIncludedData == apiV1CategoryListResponseIncludedData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ApiV1CategoryListResponse&&(identical(other.includedResponse, includedResponse) || other.includedResponse == includedResponse)&&(identical(other.includedData, includedData) || other.includedData == includedData));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,includedResponse,apiV1CategoryListResponseIncludedData);
+int get hashCode => Object.hash(runtimeType,includedResponse,includedData);
 
 @override
 String toString() {
-  return 'ApiV1CategoryListResponse(includedResponse: $includedResponse, apiV1CategoryListResponseIncludedData: $apiV1CategoryListResponseIncludedData)';
+  return 'ApiV1CategoryListResponse(includedResponse: $includedResponse, includedData: $includedData)';
 }
 
 
@@ -261,11 +261,11 @@ abstract mixin class _$ApiV1CategoryListResponseCopyWith<$Res> implements $ApiV1
   factory _$ApiV1CategoryListResponseCopyWith(_ApiV1CategoryListResponse value, $Res Function(_ApiV1CategoryListResponse) _then) = __$ApiV1CategoryListResponseCopyWithImpl;
 @override @useResult
 $Res call({
- String includedResponse,@JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData') ApiV1CategoryListResponseIncludedData? apiV1CategoryListResponseIncludedData
+ String includedResponse,@JsonKey(includeIfNull: false) ApiV1CategoryListResponseIncludedData? includedData
 });
 
 
-@override $ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get apiV1CategoryListResponseIncludedData;
+@override $ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get includedData;
 
 }
 /// @nodoc
@@ -278,10 +278,10 @@ class __$ApiV1CategoryListResponseCopyWithImpl<$Res>
 
 /// Create a copy of ApiV1CategoryListResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? includedResponse = null,Object? apiV1CategoryListResponseIncludedData = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? includedResponse = null,Object? includedData = freezed,}) {
   return _then(_ApiV1CategoryListResponse(
 includedResponse: null == includedResponse ? _self.includedResponse : includedResponse // ignore: cast_nullable_to_non_nullable
-as String,apiV1CategoryListResponseIncludedData: freezed == apiV1CategoryListResponseIncludedData ? _self.apiV1CategoryListResponseIncludedData : apiV1CategoryListResponseIncludedData // ignore: cast_nullable_to_non_nullable
+as String,includedData: freezed == includedData ? _self.includedData : includedData // ignore: cast_nullable_to_non_nullable
 as ApiV1CategoryListResponseIncludedData?,
   ));
 }
@@ -290,13 +290,13 @@ as ApiV1CategoryListResponseIncludedData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get apiV1CategoryListResponseIncludedData {
-    if (_self.apiV1CategoryListResponseIncludedData == null) {
+$ApiV1CategoryListResponseIncludedDataCopyWith<$Res>? get includedData {
+    if (_self.includedData == null) {
     return null;
   }
 
-  return $ApiV1CategoryListResponseIncludedDataCopyWith<$Res>(_self.apiV1CategoryListResponseIncludedData!, (value) {
-    return _then(_self.copyWith(apiV1CategoryListResponseIncludedData: value));
+  return $ApiV1CategoryListResponseIncludedDataCopyWith<$Res>(_self.includedData!, (value) {
+    return _then(_self.copyWith(includedData: value));
   });
 }
 }

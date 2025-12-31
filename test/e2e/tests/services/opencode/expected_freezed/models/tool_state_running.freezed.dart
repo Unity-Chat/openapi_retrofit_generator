@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ToolStateRunning {
 
- String get status; dynamic get input;@JsonKey(name: 'ToolStateRunningTime') ToolStateRunningTime get toolStateRunningTime; String? get title; Map<String, dynamic>? get metadata;
+ String get status; dynamic get input; ToolStateRunningTime get time; String? get title; Map<String, dynamic>? get metadata;
 /// Create a copy of ToolStateRunning
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ToolStateRunningCopyWith<ToolStateRunning> get copyWith => _$ToolStateRunningCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ToolStateRunning&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.toolStateRunningTime, toolStateRunningTime) || other.toolStateRunningTime == toolStateRunningTime)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.metadata, metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ToolStateRunning&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.time, time) || other.time == time)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.metadata, metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(input),toolStateRunningTime,title,const DeepCollectionEquality().hash(metadata));
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(input),time,title,const DeepCollectionEquality().hash(metadata));
 
 @override
 String toString() {
-  return 'ToolStateRunning(status: $status, input: $input, toolStateRunningTime: $toolStateRunningTime, title: $title, metadata: $metadata)';
+  return 'ToolStateRunning(status: $status, input: $input, time: $time, title: $title, metadata: $metadata)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ToolStateRunningCopyWith<$Res>  {
   factory $ToolStateRunningCopyWith(ToolStateRunning value, $Res Function(ToolStateRunning) _then) = _$ToolStateRunningCopyWithImpl;
 @useResult
 $Res call({
- String status, dynamic input,@JsonKey(name: 'ToolStateRunningTime') ToolStateRunningTime toolStateRunningTime, String? title, Map<String, dynamic>? metadata
+ String status, dynamic input, ToolStateRunningTime time, String? title, Map<String, dynamic>? metadata
 });
 
 
-$ToolStateRunningTimeCopyWith<$Res> get toolStateRunningTime;
+$ToolStateRunningTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -65,11 +65,11 @@ class _$ToolStateRunningCopyWithImpl<$Res>
 
 /// Create a copy of ToolStateRunning
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? input = freezed,Object? toolStateRunningTime = null,Object? title = freezed,Object? metadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? input = freezed,Object? time = null,Object? title = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,input: freezed == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
-as dynamic,toolStateRunningTime: null == toolStateRunningTime ? _self.toolStateRunningTime : toolStateRunningTime // ignore: cast_nullable_to_non_nullable
+as dynamic,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ToolStateRunningTime,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -79,10 +79,10 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ToolStateRunningTimeCopyWith<$Res> get toolStateRunningTime {
+$ToolStateRunningTimeCopyWith<$Res> get time {
   
-  return $ToolStateRunningTimeCopyWith<$Res>(_self.toolStateRunningTime, (value) {
-    return _then(_self.copyWith(toolStateRunningTime: value));
+  return $ToolStateRunningTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }
@@ -166,10 +166,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String status,  dynamic input, @JsonKey(name: 'ToolStateRunningTime')  ToolStateRunningTime toolStateRunningTime,  String? title,  Map<String, dynamic>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String status,  dynamic input,  ToolStateRunningTime time,  String? title,  Map<String, dynamic>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ToolStateRunning() when $default != null:
-return $default(_that.status,_that.input,_that.toolStateRunningTime,_that.title,_that.metadata);case _:
+return $default(_that.status,_that.input,_that.time,_that.title,_that.metadata);case _:
   return orElse();
 
 }
@@ -187,10 +187,10 @@ return $default(_that.status,_that.input,_that.toolStateRunningTime,_that.title,
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String status,  dynamic input, @JsonKey(name: 'ToolStateRunningTime')  ToolStateRunningTime toolStateRunningTime,  String? title,  Map<String, dynamic>? metadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String status,  dynamic input,  ToolStateRunningTime time,  String? title,  Map<String, dynamic>? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _ToolStateRunning():
-return $default(_that.status,_that.input,_that.toolStateRunningTime,_that.title,_that.metadata);case _:
+return $default(_that.status,_that.input,_that.time,_that.title,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -207,10 +207,10 @@ return $default(_that.status,_that.input,_that.toolStateRunningTime,_that.title,
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String status,  dynamic input, @JsonKey(name: 'ToolStateRunningTime')  ToolStateRunningTime toolStateRunningTime,  String? title,  Map<String, dynamic>? metadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String status,  dynamic input,  ToolStateRunningTime time,  String? title,  Map<String, dynamic>? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _ToolStateRunning() when $default != null:
-return $default(_that.status,_that.input,_that.toolStateRunningTime,_that.title,_that.metadata);case _:
+return $default(_that.status,_that.input,_that.time,_that.title,_that.metadata);case _:
   return null;
 
 }
@@ -222,12 +222,12 @@ return $default(_that.status,_that.input,_that.toolStateRunningTime,_that.title,
 @JsonSerializable()
 
 class _ToolStateRunning implements ToolStateRunning {
-  const _ToolStateRunning({required this.status, required this.input, @JsonKey(name: 'ToolStateRunningTime') required this.toolStateRunningTime, this.title, final  Map<String, dynamic>? metadata}): _metadata = metadata;
+  const _ToolStateRunning({required this.status, required this.input, required this.time, this.title, final  Map<String, dynamic>? metadata}): _metadata = metadata;
   factory _ToolStateRunning.fromJson(Map<String, dynamic> json) => _$ToolStateRunningFromJson(json);
 
 @override final  String status;
 @override final  dynamic input;
-@override@JsonKey(name: 'ToolStateRunningTime') final  ToolStateRunningTime toolStateRunningTime;
+@override final  ToolStateRunningTime time;
 @override final  String? title;
  final  Map<String, dynamic>? _metadata;
 @override Map<String, dynamic>? get metadata {
@@ -252,16 +252,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToolStateRunning&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.toolStateRunningTime, toolStateRunningTime) || other.toolStateRunningTime == toolStateRunningTime)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToolStateRunning&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.time, time) || other.time == time)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(input),toolStateRunningTime,title,const DeepCollectionEquality().hash(_metadata));
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(input),time,title,const DeepCollectionEquality().hash(_metadata));
 
 @override
 String toString() {
-  return 'ToolStateRunning(status: $status, input: $input, toolStateRunningTime: $toolStateRunningTime, title: $title, metadata: $metadata)';
+  return 'ToolStateRunning(status: $status, input: $input, time: $time, title: $title, metadata: $metadata)';
 }
 
 
@@ -272,11 +272,11 @@ abstract mixin class _$ToolStateRunningCopyWith<$Res> implements $ToolStateRunni
   factory _$ToolStateRunningCopyWith(_ToolStateRunning value, $Res Function(_ToolStateRunning) _then) = __$ToolStateRunningCopyWithImpl;
 @override @useResult
 $Res call({
- String status, dynamic input,@JsonKey(name: 'ToolStateRunningTime') ToolStateRunningTime toolStateRunningTime, String? title, Map<String, dynamic>? metadata
+ String status, dynamic input, ToolStateRunningTime time, String? title, Map<String, dynamic>? metadata
 });
 
 
-@override $ToolStateRunningTimeCopyWith<$Res> get toolStateRunningTime;
+@override $ToolStateRunningTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -289,11 +289,11 @@ class __$ToolStateRunningCopyWithImpl<$Res>
 
 /// Create a copy of ToolStateRunning
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? input = freezed,Object? toolStateRunningTime = null,Object? title = freezed,Object? metadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? input = freezed,Object? time = null,Object? title = freezed,Object? metadata = freezed,}) {
   return _then(_ToolStateRunning(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,input: freezed == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
-as dynamic,toolStateRunningTime: null == toolStateRunningTime ? _self.toolStateRunningTime : toolStateRunningTime // ignore: cast_nullable_to_non_nullable
+as dynamic,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ToolStateRunningTime,title: freezed == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String?,metadata: freezed == metadata ? _self._metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
@@ -304,10 +304,10 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ToolStateRunningTimeCopyWith<$Res> get toolStateRunningTime {
+$ToolStateRunningTimeCopyWith<$Res> get time {
   
-  return $ToolStateRunningTimeCopyWith<$Res>(_self.toolStateRunningTime, (value) {
-    return _then(_self.copyWith(toolStateRunningTime: value));
+  return $ToolStateRunningTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }

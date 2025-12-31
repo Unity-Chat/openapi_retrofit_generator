@@ -39,11 +39,11 @@ class AssistantMessageErrorError {
 class AssistantMessageErrorErrorProviderAuthError
     with AssistantMessageErrorErrorProviderAuthErrorMappable {
   final String name;
-  final ProviderAuthErrorData providerAuthErrorData;
+  final ProviderAuthErrorData data;
 
   const AssistantMessageErrorErrorProviderAuthError({
     required this.name,
-    required this.providerAuthErrorData,
+    required this.data,
   });
 }
 
@@ -51,11 +51,11 @@ class AssistantMessageErrorErrorProviderAuthError
 class AssistantMessageErrorErrorUnknownError
     with AssistantMessageErrorErrorUnknownErrorMappable {
   final String name;
-  final UnknownErrorData unknownErrorData;
+  final UnknownErrorData data;
 
   const AssistantMessageErrorErrorUnknownError({
     required this.name,
-    required this.unknownErrorData,
+    required this.data,
   });
 }
 
@@ -75,10 +75,10 @@ class AssistantMessageErrorErrorMessageOutputLengthError
 class AssistantMessageErrorErrorMessageAbortedError
     with AssistantMessageErrorErrorMessageAbortedErrorMappable {
   final String name;
-  final MessageAbortedErrorData messageAbortedErrorData;
+  final MessageAbortedErrorData data;
 
   const AssistantMessageErrorErrorMessageAbortedError({
     required this.name,
-    required this.messageAbortedErrorData,
+    required this.data,
   });
 }

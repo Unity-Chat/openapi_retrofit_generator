@@ -8,8 +8,8 @@ part of 'post_api_v1_request.dart';
 
 _PostApiV1Request _$PostApiV1RequestFromJson(Map<String, dynamic> json) =>
     _PostApiV1Request(
-      postApiV1RequestP1Class: PostApiV1RequestP1Class.fromJson(
-        json['PostApiV1RequestP1Class'] as Map<String, dynamic>,
+      p1Class: PostApiV1RequestP1Class.fromJson(
+        json['p1_class'] as Map<String, dynamic>,
       ),
       p2Enum: json['p2_enum'] == null
           ? null
@@ -18,6 +18,6 @@ _PostApiV1Request _$PostApiV1RequestFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$PostApiV1RequestToJson(_PostApiV1Request instance) =>
     <String, dynamic>{
-      'PostApiV1RequestP1Class': instance.postApiV1RequestP1Class,
+      'p1_class': instance.p1Class,
       'p2_enum': ?instance.p2Enum,
     };

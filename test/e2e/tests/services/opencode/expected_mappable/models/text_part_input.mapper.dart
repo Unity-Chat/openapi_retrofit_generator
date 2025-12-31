@@ -38,15 +38,12 @@ class TextPartInputMapper extends ClassMapperBase<TextPartInput> {
     _$synthetic,
     opt: true,
   );
-  static TextPartInputTime? _$textPartInputTime(TextPartInput v) =>
-      v.textPartInputTime;
-  static const Field<TextPartInput, TextPartInputTime> _f$textPartInputTime =
-      Field(
-        'textPartInputTime',
-        _$textPartInputTime,
-        key: r'TextPartInputTime',
-        opt: true,
-      );
+  static TextPartInputTime? _$time(TextPartInput v) => v.time;
+  static const Field<TextPartInput, TextPartInputTime> _f$time = Field(
+    'time',
+    _$time,
+    opt: true,
+  );
   static Map<String, dynamic>? _$metadata(TextPartInput v) => v.metadata;
   static const Field<TextPartInput, Map<String, dynamic>> _f$metadata = Field(
     'metadata',
@@ -60,7 +57,7 @@ class TextPartInputMapper extends ClassMapperBase<TextPartInput> {
     #text: _f$text,
     #id: _f$id,
     #synthetic: _f$synthetic,
-    #textPartInputTime: _f$textPartInputTime,
+    #time: _f$time,
     #metadata: _f$metadata,
   };
 
@@ -70,7 +67,7 @@ class TextPartInputMapper extends ClassMapperBase<TextPartInput> {
       text: data.dec(_f$text),
       id: data.dec(_f$id),
       synthetic: data.dec(_f$synthetic),
-      textPartInputTime: data.dec(_f$textPartInputTime),
+      time: data.dec(_f$time),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -137,8 +134,7 @@ extension TextPartInputValueCopy<$R, $Out>
 
 abstract class TextPartInputCopyWith<$R, $In extends TextPartInput, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  TextPartInputTimeCopyWith<$R, TextPartInputTime, TextPartInputTime>?
-  get textPartInputTime;
+  TextPartInputTimeCopyWith<$R, TextPartInputTime, TextPartInputTime>? get time;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   $R call({
@@ -146,7 +142,7 @@ abstract class TextPartInputCopyWith<$R, $In extends TextPartInput, $Out>
     String? text,
     String? id,
     bool? synthetic,
-    TextPartInputTime? textPartInputTime,
+    TextPartInputTime? time,
     Map<String, dynamic>? metadata,
   });
   TextPartInputCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -162,9 +158,7 @@ class _TextPartInputCopyWithImpl<$R, $Out>
       TextPartInputMapper.ensureInitialized();
   @override
   TextPartInputTimeCopyWith<$R, TextPartInputTime, TextPartInputTime>?
-  get textPartInputTime => $value.textPartInputTime?.copyWith.$chain(
-    (v) => call(textPartInputTime: v),
-  );
+  get time => $value.time?.copyWith.$chain((v) => call(time: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata => $value.metadata != null
@@ -180,7 +174,7 @@ class _TextPartInputCopyWithImpl<$R, $Out>
     String? text,
     Object? id = $none,
     Object? synthetic = $none,
-    Object? textPartInputTime = $none,
+    Object? time = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -188,7 +182,7 @@ class _TextPartInputCopyWithImpl<$R, $Out>
       if (text != null) #text: text,
       if (id != $none) #id: id,
       if (synthetic != $none) #synthetic: synthetic,
-      if (textPartInputTime != $none) #textPartInputTime: textPartInputTime,
+      if (time != $none) #time: time,
       if (metadata != $none) #metadata: metadata,
     }),
   );
@@ -198,10 +192,7 @@ class _TextPartInputCopyWithImpl<$R, $Out>
     text: data.get(#text, or: $value.text),
     id: data.get(#id, or: $value.id),
     synthetic: data.get(#synthetic, or: $value.synthetic),
-    textPartInputTime: data.get(
-      #textPartInputTime,
-      or: $value.textPartInputTime,
-    ),
+    time: data.get(#time, or: $value.time),
     metadata: data.get(#metadata, or: $value.metadata),
   );
 

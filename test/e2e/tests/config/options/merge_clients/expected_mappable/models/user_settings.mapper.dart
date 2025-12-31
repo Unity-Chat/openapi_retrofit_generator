@@ -24,25 +24,16 @@ class UserSettingsMapper extends ClassMapperBase<UserSettings> {
   @override
   final String id = 'UserSettings';
 
-  static UserSettingsNotifications? _$userSettingsNotifications(
-    UserSettings v,
-  ) => v.userSettingsNotifications;
-  static const Field<UserSettings, UserSettingsNotifications>
-  _f$userSettingsNotifications = Field(
-    'userSettingsNotifications',
-    _$userSettingsNotifications,
-    key: r'UserSettingsNotifications',
+  static UserSettingsNotifications? _$notifications(UserSettings v) =>
+      v.notifications;
+  static const Field<UserSettings, UserSettingsNotifications> _f$notifications =
+      Field('notifications', _$notifications, opt: true);
+  static UserSettingsPrivacy? _$privacy(UserSettings v) => v.privacy;
+  static const Field<UserSettings, UserSettingsPrivacy> _f$privacy = Field(
+    'privacy',
+    _$privacy,
     opt: true,
   );
-  static UserSettingsPrivacy? _$userSettingsPrivacy(UserSettings v) =>
-      v.userSettingsPrivacy;
-  static const Field<UserSettings, UserSettingsPrivacy> _f$userSettingsPrivacy =
-      Field(
-        'userSettingsPrivacy',
-        _$userSettingsPrivacy,
-        key: r'UserSettingsPrivacy',
-        opt: true,
-      );
   static UserSettingsThemeTheme _$theme(UserSettings v) => v.theme;
   static const Field<UserSettings, UserSettingsThemeTheme> _f$theme = Field(
     'theme',
@@ -60,16 +51,16 @@ class UserSettingsMapper extends ClassMapperBase<UserSettings> {
 
   @override
   final MappableFields<UserSettings> fields = const {
-    #userSettingsNotifications: _f$userSettingsNotifications,
-    #userSettingsPrivacy: _f$userSettingsPrivacy,
+    #notifications: _f$notifications,
+    #privacy: _f$privacy,
     #theme: _f$theme,
     #language: _f$language,
   };
 
   static UserSettings _instantiate(DecodingData data) {
     return UserSettings(
-      userSettingsNotifications: data.dec(_f$userSettingsNotifications),
-      userSettingsPrivacy: data.dec(_f$userSettingsPrivacy),
+      notifications: data.dec(_f$notifications),
+      privacy: data.dec(_f$privacy),
       theme: data.dec(_f$theme),
       language: data.dec(_f$language),
     );
@@ -142,12 +133,12 @@ abstract class UserSettingsCopyWith<$R, $In extends UserSettings, $Out>
     UserSettingsNotifications,
     UserSettingsNotifications
   >?
-  get userSettingsNotifications;
+  get notifications;
   UserSettingsPrivacyCopyWith<$R, UserSettingsPrivacy, UserSettingsPrivacy>?
-  get userSettingsPrivacy;
+  get privacy;
   $R call({
-    UserSettingsNotifications? userSettingsNotifications,
-    UserSettingsPrivacy? userSettingsPrivacy,
+    UserSettingsNotifications? notifications,
+    UserSettingsPrivacy? privacy,
     UserSettingsThemeTheme? theme,
     String? language,
   });
@@ -168,39 +159,29 @@ class _UserSettingsCopyWithImpl<$R, $Out>
     UserSettingsNotifications,
     UserSettingsNotifications
   >?
-  get userSettingsNotifications => $value.userSettingsNotifications?.copyWith
-      .$chain((v) => call(userSettingsNotifications: v));
+  get notifications =>
+      $value.notifications?.copyWith.$chain((v) => call(notifications: v));
   @override
   UserSettingsPrivacyCopyWith<$R, UserSettingsPrivacy, UserSettingsPrivacy>?
-  get userSettingsPrivacy => $value.userSettingsPrivacy?.copyWith.$chain(
-    (v) => call(userSettingsPrivacy: v),
-  );
+  get privacy => $value.privacy?.copyWith.$chain((v) => call(privacy: v));
   @override
   $R call({
-    Object? userSettingsNotifications = $none,
-    Object? userSettingsPrivacy = $none,
+    Object? notifications = $none,
+    Object? privacy = $none,
     UserSettingsThemeTheme? theme,
     String? language,
   }) => $apply(
     FieldCopyWithData({
-      if (userSettingsNotifications != $none)
-        #userSettingsNotifications: userSettingsNotifications,
-      if (userSettingsPrivacy != $none)
-        #userSettingsPrivacy: userSettingsPrivacy,
+      if (notifications != $none) #notifications: notifications,
+      if (privacy != $none) #privacy: privacy,
       if (theme != null) #theme: theme,
       if (language != null) #language: language,
     }),
   );
   @override
   UserSettings $make(CopyWithData data) => UserSettings(
-    userSettingsNotifications: data.get(
-      #userSettingsNotifications,
-      or: $value.userSettingsNotifications,
-    ),
-    userSettingsPrivacy: data.get(
-      #userSettingsPrivacy,
-      or: $value.userSettingsPrivacy,
-    ),
+    notifications: data.get(#notifications, or: $value.notifications),
+    privacy: data.get(#privacy, or: $value.privacy),
     theme: data.get(#theme, or: $value.theme),
     language: data.get(#language, or: $value.language),
   );

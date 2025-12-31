@@ -38,14 +38,14 @@ class SessionPromptRequestPartsPartsTextPartInputMapper
       v.synthetic;
   static const Field<SessionPromptRequestPartsPartsTextPartInput, bool>
   _f$synthetic = Field('synthetic', _$synthetic);
-  static TextPartInputTime? _$textPartInputTime(
+  static TextPartInputTime? _$time(
     SessionPromptRequestPartsPartsTextPartInput v,
-  ) => v.textPartInputTime;
+  ) => v.time;
   static const Field<
     SessionPromptRequestPartsPartsTextPartInput,
     TextPartInputTime
   >
-  _f$textPartInputTime = Field('textPartInputTime', _$textPartInputTime);
+  _f$time = Field('time', _$time);
   static Map<String, dynamic>? _$metadata(
     SessionPromptRequestPartsPartsTextPartInput v,
   ) => v.metadata;
@@ -62,7 +62,7 @@ class SessionPromptRequestPartsPartsTextPartInputMapper
         #type: _f$type,
         #text: _f$text,
         #synthetic: _f$synthetic,
-        #textPartInputTime: _f$textPartInputTime,
+        #time: _f$time,
         #metadata: _f$metadata,
       };
 
@@ -74,7 +74,7 @@ class SessionPromptRequestPartsPartsTextPartInputMapper
       type: data.dec(_f$type),
       text: data.dec(_f$text),
       synthetic: data.dec(_f$synthetic),
-      textPartInputTime: data.dec(_f$textPartInputTime),
+      time: data.dec(_f$time),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -171,8 +171,7 @@ abstract class SessionPromptRequestPartsPartsTextPartInputCopyWith<
   $Out
 >
     implements ClassCopyWith<$R, $In, $Out> {
-  TextPartInputTimeCopyWith<$R, TextPartInputTime, TextPartInputTime>?
-  get textPartInputTime;
+  TextPartInputTimeCopyWith<$R, TextPartInputTime, TextPartInputTime>? get time;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   $R call({
@@ -180,7 +179,7 @@ abstract class SessionPromptRequestPartsPartsTextPartInputCopyWith<
     String? type,
     String? text,
     bool? synthetic,
-    TextPartInputTime? textPartInputTime,
+    TextPartInputTime? time,
     Map<String, dynamic>? metadata,
   });
   SessionPromptRequestPartsPartsTextPartInputCopyWith<$R2, $In, $Out2>
@@ -208,9 +207,7 @@ class _SessionPromptRequestPartsPartsTextPartInputCopyWithImpl<$R, $Out>
       SessionPromptRequestPartsPartsTextPartInputMapper.ensureInitialized();
   @override
   TextPartInputTimeCopyWith<$R, TextPartInputTime, TextPartInputTime>?
-  get textPartInputTime => $value.textPartInputTime?.copyWith.$chain(
-    (v) => call(textPartInputTime: v),
-  );
+  get time => $value.time?.copyWith.$chain((v) => call(time: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata => $value.metadata != null
@@ -226,7 +223,7 @@ class _SessionPromptRequestPartsPartsTextPartInputCopyWithImpl<$R, $Out>
     String? type,
     String? text,
     Object? synthetic = $none,
-    Object? textPartInputTime = $none,
+    Object? time = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -234,7 +231,7 @@ class _SessionPromptRequestPartsPartsTextPartInputCopyWithImpl<$R, $Out>
       if (type != null) #type: type,
       if (text != null) #text: text,
       if (synthetic != $none) #synthetic: synthetic,
-      if (textPartInputTime != $none) #textPartInputTime: textPartInputTime,
+      if (time != $none) #time: time,
       if (metadata != $none) #metadata: metadata,
     }),
   );
@@ -245,10 +242,7 @@ class _SessionPromptRequestPartsPartsTextPartInputCopyWithImpl<$R, $Out>
         type: data.get(#type, or: $value.type),
         text: data.get(#text, or: $value.text),
         synthetic: data.get(#synthetic, or: $value.synthetic),
-        textPartInputTime: data.get(
-          #textPartInputTime,
-          or: $value.textPartInputTime,
-        ),
+        time: data.get(#time, or: $value.time),
         metadata: data.get(#metadata, or: $value.metadata),
       );
 
@@ -528,26 +522,18 @@ class SessionPromptRequestPartsPartsAgentPartInputMapper
       v.name;
   static const Field<SessionPromptRequestPartsPartsAgentPartInput, String>
   _f$name = Field('name', _$name);
-  static AgentPartInputSource? _$agentPartInputSource(
+  static AgentPartInputSource? _$source(
     SessionPromptRequestPartsPartsAgentPartInput v,
-  ) => v.agentPartInputSource;
+  ) => v.source;
   static const Field<
     SessionPromptRequestPartsPartsAgentPartInput,
     AgentPartInputSource
   >
-  _f$agentPartInputSource = Field(
-    'agentPartInputSource',
-    _$agentPartInputSource,
-  );
+  _f$source = Field('source', _$source);
 
   @override
   final MappableFields<SessionPromptRequestPartsPartsAgentPartInput> fields =
-      const {
-        #id: _f$id,
-        #type: _f$type,
-        #name: _f$name,
-        #agentPartInputSource: _f$agentPartInputSource,
-      };
+      const {#id: _f$id, #type: _f$type, #name: _f$name, #source: _f$source};
 
   static SessionPromptRequestPartsPartsAgentPartInput _instantiate(
     DecodingData data,
@@ -556,7 +542,7 @@ class SessionPromptRequestPartsPartsAgentPartInputMapper
       id: data.dec(_f$id),
       type: data.dec(_f$type),
       name: data.dec(_f$name),
-      agentPartInputSource: data.dec(_f$agentPartInputSource),
+      source: data.dec(_f$source),
     );
   }
 
@@ -653,12 +639,12 @@ abstract class SessionPromptRequestPartsPartsAgentPartInputCopyWith<
 >
     implements ClassCopyWith<$R, $In, $Out> {
   AgentPartInputSourceCopyWith<$R, AgentPartInputSource, AgentPartInputSource>?
-  get agentPartInputSource;
+  get source;
   $R call({
     String? id,
     String? type,
     String? name,
-    AgentPartInputSource? agentPartInputSource,
+    AgentPartInputSource? source,
   });
   SessionPromptRequestPartsPartsAgentPartInputCopyWith<$R2, $In, $Out2>
   $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -689,22 +675,19 @@ class _SessionPromptRequestPartsPartsAgentPartInputCopyWithImpl<$R, $Out>
       SessionPromptRequestPartsPartsAgentPartInputMapper.ensureInitialized();
   @override
   AgentPartInputSourceCopyWith<$R, AgentPartInputSource, AgentPartInputSource>?
-  get agentPartInputSource => $value.agentPartInputSource?.copyWith.$chain(
-    (v) => call(agentPartInputSource: v),
-  );
+  get source => $value.source?.copyWith.$chain((v) => call(source: v));
   @override
   $R call({
     Object? id = $none,
     String? type,
     String? name,
-    Object? agentPartInputSource = $none,
+    Object? source = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != $none) #id: id,
       if (type != null) #type: type,
       if (name != null) #name: name,
-      if (agentPartInputSource != $none)
-        #agentPartInputSource: agentPartInputSource,
+      if (source != $none) #source: source,
     }),
   );
   @override
@@ -713,10 +696,7 @@ class _SessionPromptRequestPartsPartsAgentPartInputCopyWithImpl<$R, $Out>
         id: data.get(#id, or: $value.id),
         type: data.get(#type, or: $value.type),
         name: data.get(#name, or: $value.name),
-        agentPartInputSource: data.get(
-          #agentPartInputSource,
-          or: $value.agentPartInputSource,
-        ),
+        source: data.get(#source, or: $value.source),
       );
 
   @override

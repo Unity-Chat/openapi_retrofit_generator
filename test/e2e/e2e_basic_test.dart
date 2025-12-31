@@ -512,5 +512,19 @@ void main() {
         buildFolder: buildFolder,
       );
     });
+
+    test('reserved_field_name', () async {
+      await e2eTest(
+        'basic/reserved_field_name',
+        (outputDirectory, schemaPath, serializer) => OpenApiConfig(
+          outputDirectory: outputDirectory,
+          schemaPath: schemaPath,
+          jsonSerializer: serializer,
+          putClientsInFolder: true,
+        ),
+        schemaFileName: 'openapi.yaml',
+        buildFolder: buildFolder,
+      );
+    });
   });
 }

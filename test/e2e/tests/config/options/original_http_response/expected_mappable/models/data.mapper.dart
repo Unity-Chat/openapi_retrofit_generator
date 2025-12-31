@@ -26,11 +26,10 @@ class DataMapper extends ClassMapperBase<Data> {
   static const Field<Data, String> _f$id = Field('id', _$id);
   static String _$value(Data v) => v.value;
   static const Field<Data, String> _f$value = Field('value', _$value);
-  static DataNested? _$dataNested(Data v) => v.dataNested;
-  static const Field<Data, DataNested> _f$dataNested = Field(
-    'dataNested',
-    _$dataNested,
-    key: r'DataNested',
+  static DataNested? _$nested(Data v) => v.nested;
+  static const Field<Data, DataNested> _f$nested = Field(
+    'nested',
+    _$nested,
     opt: true,
   );
 
@@ -38,14 +37,14 @@ class DataMapper extends ClassMapperBase<Data> {
   final MappableFields<Data> fields = const {
     #id: _f$id,
     #value: _f$value,
-    #dataNested: _f$dataNested,
+    #nested: _f$nested,
   };
 
   static Data _instantiate(DecodingData data) {
     return Data(
       id: data.dec(_f$id),
       value: data.dec(_f$value),
-      dataNested: data.dec(_f$dataNested),
+      nested: data.dec(_f$nested),
     );
   }
 
@@ -95,8 +94,8 @@ extension DataValueCopy<$R, $Out> on ObjectCopyWith<$R, Data, $Out> {
 
 abstract class DataCopyWith<$R, $In extends Data, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  DataNestedCopyWith<$R, DataNested, DataNested>? get dataNested;
-  $R call({String? id, String? value, DataNested? dataNested});
+  DataNestedCopyWith<$R, DataNested, DataNested>? get nested;
+  $R call({String? id, String? value, DataNested? nested});
   DataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -107,21 +106,21 @@ class _DataCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Data, $Out>
   @override
   late final ClassMapperBase<Data> $mapper = DataMapper.ensureInitialized();
   @override
-  DataNestedCopyWith<$R, DataNested, DataNested>? get dataNested =>
-      $value.dataNested?.copyWith.$chain((v) => call(dataNested: v));
+  DataNestedCopyWith<$R, DataNested, DataNested>? get nested =>
+      $value.nested?.copyWith.$chain((v) => call(nested: v));
   @override
-  $R call({String? id, String? value, Object? dataNested = $none}) => $apply(
+  $R call({String? id, String? value, Object? nested = $none}) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (value != null) #value: value,
-      if (dataNested != $none) #dataNested: dataNested,
+      if (nested != $none) #nested: nested,
     }),
   );
   @override
   Data $make(CopyWithData data) => Data(
     id: data.get(#id, or: $value.id),
     value: data.get(#value, or: $value.value),
-    dataNested: data.get(#dataNested, or: $value.dataNested),
+    nested: data.get(#nested, or: $value.nested),
   );
 
   @override

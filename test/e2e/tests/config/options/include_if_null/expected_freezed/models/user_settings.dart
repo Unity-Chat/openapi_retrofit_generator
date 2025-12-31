@@ -14,10 +14,8 @@ part 'user_settings.g.dart';
 @Freezed()
 abstract class UserSettings with _$UserSettings {
   const factory UserSettings({
-    @JsonKey(includeIfNull: false, name: 'UserSettingsNotifications')
-    UserSettingsNotifications? userSettingsNotifications,
-    @JsonKey(includeIfNull: false, name: 'UserSettingsPrivacy')
-    UserSettingsPrivacy? userSettingsPrivacy,
+    @JsonKey(includeIfNull: false) UserSettingsNotifications? notifications,
+    @JsonKey(includeIfNull: false) UserSettingsPrivacy? privacy,
     @Default(UserSettingsThemeTheme.auto) UserSettingsThemeTheme theme,
     @Default('en') String language,
   }) = _UserSettings;

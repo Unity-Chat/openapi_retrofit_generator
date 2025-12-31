@@ -25,18 +25,14 @@ class FindTextResponseSubmatchesMapper
   @override
   final String id = 'FindTextResponseSubmatches';
 
-  static FindTextResponseSubmatchesMatch _$findTextResponseSubmatchesMatch(
+  static FindTextResponseSubmatchesMatch _$match(
     FindTextResponseSubmatches v,
-  ) => v.findTextResponseSubmatchesMatch;
+  ) => v.match;
   static const Field<
     FindTextResponseSubmatches,
     FindTextResponseSubmatchesMatch
   >
-  _f$findTextResponseSubmatchesMatch = Field(
-    'findTextResponseSubmatchesMatch',
-    _$findTextResponseSubmatchesMatch,
-    key: r'FindTextResponseSubmatchesMatch',
-  );
+  _f$match = Field('match', _$match);
   static num _$start(FindTextResponseSubmatches v) => v.start;
   static const Field<FindTextResponseSubmatches, num> _f$start = Field(
     'start',
@@ -50,16 +46,14 @@ class FindTextResponseSubmatchesMapper
 
   @override
   final MappableFields<FindTextResponseSubmatches> fields = const {
-    #findTextResponseSubmatchesMatch: _f$findTextResponseSubmatchesMatch,
+    #match: _f$match,
     #start: _f$start,
     #end: _f$end,
   };
 
   static FindTextResponseSubmatches _instantiate(DecodingData data) {
     return FindTextResponseSubmatches(
-      findTextResponseSubmatchesMatch: data.dec(
-        _f$findTextResponseSubmatchesMatch,
-      ),
+      match: data.dec(_f$match),
       start: data.dec(_f$start),
       end: data.dec(_f$end),
     );
@@ -144,12 +138,8 @@ abstract class FindTextResponseSubmatchesCopyWith<
     FindTextResponseSubmatchesMatch,
     FindTextResponseSubmatchesMatch
   >
-  get findTextResponseSubmatchesMatch;
-  $R call({
-    FindTextResponseSubmatchesMatch? findTextResponseSubmatchesMatch,
-    num? start,
-    num? end,
-  });
+  get match;
+  $R call({FindTextResponseSubmatchesMatch? match, num? start, num? end});
   FindTextResponseSubmatchesCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -174,30 +164,20 @@ class _FindTextResponseSubmatchesCopyWithImpl<$R, $Out>
     FindTextResponseSubmatchesMatch,
     FindTextResponseSubmatchesMatch
   >
-  get findTextResponseSubmatchesMatch => $value
-      .findTextResponseSubmatchesMatch
-      .copyWith
-      .$chain((v) => call(findTextResponseSubmatchesMatch: v));
+  get match => $value.match.copyWith.$chain((v) => call(match: v));
   @override
-  $R call({
-    FindTextResponseSubmatchesMatch? findTextResponseSubmatchesMatch,
-    num? start,
-    num? end,
-  }) => $apply(
-    FieldCopyWithData({
-      if (findTextResponseSubmatchesMatch != null)
-        #findTextResponseSubmatchesMatch: findTextResponseSubmatchesMatch,
-      if (start != null) #start: start,
-      if (end != null) #end: end,
-    }),
-  );
+  $R call({FindTextResponseSubmatchesMatch? match, num? start, num? end}) =>
+      $apply(
+        FieldCopyWithData({
+          if (match != null) #match: match,
+          if (start != null) #start: start,
+          if (end != null) #end: end,
+        }),
+      );
   @override
   FindTextResponseSubmatches $make(CopyWithData data) =>
       FindTextResponseSubmatches(
-        findTextResponseSubmatchesMatch: data.get(
-          #findTextResponseSubmatchesMatch,
-          or: $value.findTextResponseSubmatchesMatch,
-        ),
+        match: data.get(#match, or: $value.match),
         start: data.get(#start, or: $value.start),
         end: data.get(#end, or: $value.end),
       );

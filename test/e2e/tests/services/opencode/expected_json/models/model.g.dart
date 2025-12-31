@@ -14,21 +14,19 @@ Model _$ModelFromJson(Map<String, dynamic> json) => Model(
   reasoning: json['reasoning'] as bool,
   temperature: json['temperature'] as bool,
   toolCall: json['tool_call'] as bool,
-  modelCost: ModelCost.fromJson(json['ModelCost'] as Map<String, dynamic>),
-  modelLimit: ModelLimit.fromJson(json['ModelLimit'] as Map<String, dynamic>),
+  cost: ModelCost.fromJson(json['cost'] as Map<String, dynamic>),
+  limit: ModelLimit.fromJson(json['limit'] as Map<String, dynamic>),
   options: json['options'] as Map<String, dynamic>,
-  modelModalities: json['ModelModalities'] == null
+  modalities: json['modalities'] == null
       ? null
-      : ModelModalities.fromJson(
-          json['ModelModalities'] as Map<String, dynamic>,
-        ),
+      : ModelModalities.fromJson(json['modalities'] as Map<String, dynamic>),
   experimental: json['experimental'] as bool?,
   status: json['status'] == null
       ? null
       : ModelStatusStatus.fromJson(json['status'] as String),
-  modelProvider: json['ModelProvider'] == null
+  provider: json['provider'] == null
       ? null
-      : ModelProvider.fromJson(json['ModelProvider'] as Map<String, dynamic>),
+      : ModelProvider.fromJson(json['provider'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ModelToJson(Model instance) => <String, dynamic>{
@@ -39,11 +37,11 @@ Map<String, dynamic> _$ModelToJson(Model instance) => <String, dynamic>{
   'reasoning': instance.reasoning,
   'temperature': instance.temperature,
   'tool_call': instance.toolCall,
-  'ModelCost': instance.modelCost,
-  'ModelLimit': instance.modelLimit,
-  'ModelModalities': instance.modelModalities,
+  'cost': instance.cost,
+  'limit': instance.limit,
+  'modalities': instance.modalities,
   'experimental': instance.experimental,
   'status': instance.status,
   'options': instance.options,
-  'ModelProvider': instance.modelProvider,
+  'provider': instance.provider,
 };

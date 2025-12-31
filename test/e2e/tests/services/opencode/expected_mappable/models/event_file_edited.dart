@@ -10,14 +10,10 @@ part 'event_file_edited.mapper.dart';
 
 @MappableClass()
 class EventFileEdited with EventFileEditedMappable {
-  const EventFileEdited({
-    required this.type,
-    required this.eventFileEditedProperties,
-  });
+  const EventFileEdited({required this.type, required this.properties});
 
   final String type;
-  @MappableField(key: 'EventFileEditedProperties')
-  final EventFileEditedProperties eventFileEditedProperties;
+  final EventFileEditedProperties properties;
 
   static EventFileEdited fromJson(Map<String, dynamic> json) =>
       EventFileEditedMapper.fromJson(json);

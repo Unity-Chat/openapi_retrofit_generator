@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AgentPartInput {
 
- String get type; String get name; String? get id;@JsonKey(name: 'AgentPartInputSource') AgentPartInputSource? get agentPartInputSource;
+ String get type; String get name; String? get id; AgentPartInputSource? get source;
 /// Create a copy of AgentPartInput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $AgentPartInputCopyWith<AgentPartInput> get copyWith => _$AgentPartInputCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgentPartInput&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.agentPartInputSource, agentPartInputSource) || other.agentPartInputSource == agentPartInputSource));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgentPartInput&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.source, source) || other.source == source));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,name,id,agentPartInputSource);
+int get hashCode => Object.hash(runtimeType,type,name,id,source);
 
 @override
 String toString() {
-  return 'AgentPartInput(type: $type, name: $name, id: $id, agentPartInputSource: $agentPartInputSource)';
+  return 'AgentPartInput(type: $type, name: $name, id: $id, source: $source)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $AgentPartInputCopyWith<$Res>  {
   factory $AgentPartInputCopyWith(AgentPartInput value, $Res Function(AgentPartInput) _then) = _$AgentPartInputCopyWithImpl;
 @useResult
 $Res call({
- String type, String name, String? id,@JsonKey(name: 'AgentPartInputSource') AgentPartInputSource? agentPartInputSource
+ String type, String name, String? id, AgentPartInputSource? source
 });
 
 
-$AgentPartInputSourceCopyWith<$Res>? get agentPartInputSource;
+$AgentPartInputSourceCopyWith<$Res>? get source;
 
 }
 /// @nodoc
@@ -65,12 +65,12 @@ class _$AgentPartInputCopyWithImpl<$Res>
 
 /// Create a copy of AgentPartInput
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? name = null,Object? id = freezed,Object? agentPartInputSource = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? name = null,Object? id = freezed,Object? source = freezed,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,agentPartInputSource: freezed == agentPartInputSource ? _self.agentPartInputSource : agentPartInputSource // ignore: cast_nullable_to_non_nullable
+as String?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as AgentPartInputSource?,
   ));
 }
@@ -78,13 +78,13 @@ as AgentPartInputSource?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AgentPartInputSourceCopyWith<$Res>? get agentPartInputSource {
-    if (_self.agentPartInputSource == null) {
+$AgentPartInputSourceCopyWith<$Res>? get source {
+    if (_self.source == null) {
     return null;
   }
 
-  return $AgentPartInputSourceCopyWith<$Res>(_self.agentPartInputSource!, (value) {
-    return _then(_self.copyWith(agentPartInputSource: value));
+  return $AgentPartInputSourceCopyWith<$Res>(_self.source!, (value) {
+    return _then(_self.copyWith(source: value));
   });
 }
 }
@@ -168,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String name,  String? id, @JsonKey(name: 'AgentPartInputSource')  AgentPartInputSource? agentPartInputSource)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String name,  String? id,  AgentPartInputSource? source)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgentPartInput() when $default != null:
-return $default(_that.type,_that.name,_that.id,_that.agentPartInputSource);case _:
+return $default(_that.type,_that.name,_that.id,_that.source);case _:
   return orElse();
 
 }
@@ -189,10 +189,10 @@ return $default(_that.type,_that.name,_that.id,_that.agentPartInputSource);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String name,  String? id, @JsonKey(name: 'AgentPartInputSource')  AgentPartInputSource? agentPartInputSource)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String name,  String? id,  AgentPartInputSource? source)  $default,) {final _that = this;
 switch (_that) {
 case _AgentPartInput():
-return $default(_that.type,_that.name,_that.id,_that.agentPartInputSource);case _:
+return $default(_that.type,_that.name,_that.id,_that.source);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +209,10 @@ return $default(_that.type,_that.name,_that.id,_that.agentPartInputSource);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String name,  String? id, @JsonKey(name: 'AgentPartInputSource')  AgentPartInputSource? agentPartInputSource)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String name,  String? id,  AgentPartInputSource? source)?  $default,) {final _that = this;
 switch (_that) {
 case _AgentPartInput() when $default != null:
-return $default(_that.type,_that.name,_that.id,_that.agentPartInputSource);case _:
+return $default(_that.type,_that.name,_that.id,_that.source);case _:
   return null;
 
 }
@@ -224,13 +224,13 @@ return $default(_that.type,_that.name,_that.id,_that.agentPartInputSource);case 
 @JsonSerializable()
 
 class _AgentPartInput implements AgentPartInput {
-  const _AgentPartInput({required this.type, required this.name, this.id, @JsonKey(name: 'AgentPartInputSource') this.agentPartInputSource});
+  const _AgentPartInput({required this.type, required this.name, this.id, this.source});
   factory _AgentPartInput.fromJson(Map<String, dynamic> json) => _$AgentPartInputFromJson(json);
 
 @override final  String type;
 @override final  String name;
 @override final  String? id;
-@override@JsonKey(name: 'AgentPartInputSource') final  AgentPartInputSource? agentPartInputSource;
+@override final  AgentPartInputSource? source;
 
 /// Create a copy of AgentPartInput
 /// with the given fields replaced by the non-null parameter values.
@@ -245,16 +245,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgentPartInput&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.agentPartInputSource, agentPartInputSource) || other.agentPartInputSource == agentPartInputSource));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgentPartInput&&(identical(other.type, type) || other.type == type)&&(identical(other.name, name) || other.name == name)&&(identical(other.id, id) || other.id == id)&&(identical(other.source, source) || other.source == source));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,name,id,agentPartInputSource);
+int get hashCode => Object.hash(runtimeType,type,name,id,source);
 
 @override
 String toString() {
-  return 'AgentPartInput(type: $type, name: $name, id: $id, agentPartInputSource: $agentPartInputSource)';
+  return 'AgentPartInput(type: $type, name: $name, id: $id, source: $source)';
 }
 
 
@@ -265,11 +265,11 @@ abstract mixin class _$AgentPartInputCopyWith<$Res> implements $AgentPartInputCo
   factory _$AgentPartInputCopyWith(_AgentPartInput value, $Res Function(_AgentPartInput) _then) = __$AgentPartInputCopyWithImpl;
 @override @useResult
 $Res call({
- String type, String name, String? id,@JsonKey(name: 'AgentPartInputSource') AgentPartInputSource? agentPartInputSource
+ String type, String name, String? id, AgentPartInputSource? source
 });
 
 
-@override $AgentPartInputSourceCopyWith<$Res>? get agentPartInputSource;
+@override $AgentPartInputSourceCopyWith<$Res>? get source;
 
 }
 /// @nodoc
@@ -282,12 +282,12 @@ class __$AgentPartInputCopyWithImpl<$Res>
 
 /// Create a copy of AgentPartInput
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? name = null,Object? id = freezed,Object? agentPartInputSource = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? name = null,Object? id = freezed,Object? source = freezed,}) {
   return _then(_AgentPartInput(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String?,agentPartInputSource: freezed == agentPartInputSource ? _self.agentPartInputSource : agentPartInputSource // ignore: cast_nullable_to_non_nullable
+as String?,source: freezed == source ? _self.source : source // ignore: cast_nullable_to_non_nullable
 as AgentPartInputSource?,
   ));
 }
@@ -296,13 +296,13 @@ as AgentPartInputSource?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AgentPartInputSourceCopyWith<$Res>? get agentPartInputSource {
-    if (_self.agentPartInputSource == null) {
+$AgentPartInputSourceCopyWith<$Res>? get source {
+    if (_self.source == null) {
     return null;
   }
 
-  return $AgentPartInputSourceCopyWith<$Res>(_self.agentPartInputSource!, (value) {
-    return _then(_self.copyWith(agentPartInputSource: value));
+  return $AgentPartInputSourceCopyWith<$Res>(_self.source!, (value) {
+    return _then(_self.copyWith(source: value));
   });
 }
 }

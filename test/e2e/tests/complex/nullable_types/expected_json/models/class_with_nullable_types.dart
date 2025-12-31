@@ -16,7 +16,7 @@ class ClassWithNullableTypes {
     required this.p2,
     required this.p2NullItem,
     required this.p2NullAll,
-    required this.classWithNullableTypesP3,
+    required this.p3,
     required this.requiredNullAnyOf,
     required this.p1AnyOf,
     required this.p2AnyOf,
@@ -33,7 +33,7 @@ class ClassWithNullableTypes {
     this.p2Null,
     this.p1N,
     this.p2N,
-    this.classWithNullableTypesP3N,
+    this.p3N,
     this.p1List,
     this.p2List,
     this.p3List,
@@ -58,14 +58,13 @@ class ClassWithNullableTypes {
   final List<List<String?>> p2NullItem;
   @JsonKey(name: 'p2_null_all')
   final List<dynamic>? p2NullAll;
-  @JsonKey(name: 'ClassWithNullableTypesP3')
-  final ClassWithNullableTypesP3 classWithNullableTypesP3;
+  final ClassWithNullableTypesP3 p3;
   @JsonKey(name: 'p1_n')
   final String? p1N;
   @JsonKey(name: 'p2_n')
   final List<String?>? p2N;
-  @JsonKey(name: 'ClassWithNullableTypesP3N')
-  final ClassWithNullableTypesP3N? classWithNullableTypesP3N;
+  @JsonKey(name: 'p3_n')
+  final ClassWithNullableTypesP3N? p3N;
   @JsonKey(name: 'p1_list')
   final String? p1List;
   @JsonKey(name: 'p2_list')

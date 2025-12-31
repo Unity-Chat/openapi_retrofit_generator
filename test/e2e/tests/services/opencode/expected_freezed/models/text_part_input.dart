@@ -16,7 +16,7 @@ abstract class TextPartInput with _$TextPartInput {
     required String text,
     String? id,
     bool? synthetic,
-    @JsonKey(name: 'TextPartInputTime') TextPartInputTime? textPartInputTime,
+    TextPartInputTime? time,
     Map<String, dynamic>? metadata,
   }) = _TextPartInput;
 

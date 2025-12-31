@@ -22,16 +22,9 @@ class ConfigExperimentalMapper extends ClassMapperBase<ConfigExperimental> {
   @override
   final String id = 'ConfigExperimental';
 
-  static ConfigExperimentalHook? _$configExperimentalHook(
-    ConfigExperimental v,
-  ) => v.configExperimentalHook;
-  static const Field<ConfigExperimental, ConfigExperimentalHook>
-  _f$configExperimentalHook = Field(
-    'configExperimentalHook',
-    _$configExperimentalHook,
-    key: r'ConfigExperimentalHook',
-    opt: true,
-  );
+  static ConfigExperimentalHook? _$hook(ConfigExperimental v) => v.hook;
+  static const Field<ConfigExperimental, ConfigExperimentalHook> _f$hook =
+      Field('hook', _$hook, opt: true);
   static bool? _$disablePasteSummary(ConfigExperimental v) =>
       v.disablePasteSummary;
   static const Field<ConfigExperimental, bool> _f$disablePasteSummary = Field(
@@ -43,13 +36,13 @@ class ConfigExperimentalMapper extends ClassMapperBase<ConfigExperimental> {
 
   @override
   final MappableFields<ConfigExperimental> fields = const {
-    #configExperimentalHook: _f$configExperimentalHook,
+    #hook: _f$hook,
     #disablePasteSummary: _f$disablePasteSummary,
   };
 
   static ConfigExperimental _instantiate(DecodingData data) {
     return ConfigExperimental(
-      configExperimentalHook: data.dec(_f$configExperimentalHook),
+      hook: data.dec(_f$hook),
       disablePasteSummary: data.dec(_f$disablePasteSummary),
     );
   }
@@ -130,11 +123,8 @@ abstract class ConfigExperimentalCopyWith<
     ConfigExperimentalHook,
     ConfigExperimentalHook
   >?
-  get configExperimentalHook;
-  $R call({
-    ConfigExperimentalHook? configExperimentalHook,
-    bool? disablePasteSummary,
-  });
+  get hook;
+  $R call({ConfigExperimentalHook? hook, bool? disablePasteSummary});
   ConfigExperimentalCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -154,27 +144,19 @@ class _ConfigExperimentalCopyWithImpl<$R, $Out>
     ConfigExperimentalHook,
     ConfigExperimentalHook
   >?
-  get configExperimentalHook => $value.configExperimentalHook?.copyWith.$chain(
-    (v) => call(configExperimentalHook: v),
-  );
+  get hook => $value.hook?.copyWith.$chain((v) => call(hook: v));
   @override
-  $R call({
-    Object? configExperimentalHook = $none,
-    Object? disablePasteSummary = $none,
-  }) => $apply(
-    FieldCopyWithData({
-      if (configExperimentalHook != $none)
-        #configExperimentalHook: configExperimentalHook,
-      if (disablePasteSummary != $none)
-        #disablePasteSummary: disablePasteSummary,
-    }),
-  );
+  $R call({Object? hook = $none, Object? disablePasteSummary = $none}) =>
+      $apply(
+        FieldCopyWithData({
+          if (hook != $none) #hook: hook,
+          if (disablePasteSummary != $none)
+            #disablePasteSummary: disablePasteSummary,
+        }),
+      );
   @override
   ConfigExperimental $make(CopyWithData data) => ConfigExperimental(
-    configExperimentalHook: data.get(
-      #configExperimentalHook,
-      or: $value.configExperimentalHook,
-    ),
+    hook: data.get(#hook, or: $value.hook),
     disablePasteSummary: data.get(
       #disablePasteSummary,
       or: $value.disablePasteSummary,

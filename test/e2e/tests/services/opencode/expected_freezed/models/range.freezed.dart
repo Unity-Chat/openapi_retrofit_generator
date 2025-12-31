@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Range {
 
-@JsonKey(name: 'RangeStart') RangeStart get rangeStart;@JsonKey(name: 'RangeEnd') RangeEnd get rangeEnd;
+ RangeStart get start; RangeEnd get end;
 /// Create a copy of Range
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $RangeCopyWith<Range> get copyWith => _$RangeCopyWithImpl<Range>(this as Range, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Range&&(identical(other.rangeStart, rangeStart) || other.rangeStart == rangeStart)&&(identical(other.rangeEnd, rangeEnd) || other.rangeEnd == rangeEnd));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Range&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,rangeStart,rangeEnd);
+int get hashCode => Object.hash(runtimeType,start,end);
 
 @override
 String toString() {
-  return 'Range(rangeStart: $rangeStart, rangeEnd: $rangeEnd)';
+  return 'Range(start: $start, end: $end)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $RangeCopyWith<$Res>  {
   factory $RangeCopyWith(Range value, $Res Function(Range) _then) = _$RangeCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'RangeStart') RangeStart rangeStart,@JsonKey(name: 'RangeEnd') RangeEnd rangeEnd
+ RangeStart start, RangeEnd end
 });
 
 
-$RangeStartCopyWith<$Res> get rangeStart;$RangeEndCopyWith<$Res> get rangeEnd;
+$RangeStartCopyWith<$Res> get start;$RangeEndCopyWith<$Res> get end;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$RangeCopyWithImpl<$Res>
 
 /// Create a copy of Range
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? rangeStart = null,Object? rangeEnd = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? start = null,Object? end = null,}) {
   return _then(_self.copyWith(
-rangeStart: null == rangeStart ? _self.rangeStart : rangeStart // ignore: cast_nullable_to_non_nullable
-as RangeStart,rangeEnd: null == rangeEnd ? _self.rangeEnd : rangeEnd // ignore: cast_nullable_to_non_nullable
+start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
+as RangeStart,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
 as RangeEnd,
   ));
 }
@@ -76,19 +76,19 @@ as RangeEnd,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$RangeStartCopyWith<$Res> get rangeStart {
+$RangeStartCopyWith<$Res> get start {
   
-  return $RangeStartCopyWith<$Res>(_self.rangeStart, (value) {
-    return _then(_self.copyWith(rangeStart: value));
+  return $RangeStartCopyWith<$Res>(_self.start, (value) {
+    return _then(_self.copyWith(start: value));
   });
 }/// Create a copy of Range
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$RangeEndCopyWith<$Res> get rangeEnd {
+$RangeEndCopyWith<$Res> get end {
   
-  return $RangeEndCopyWith<$Res>(_self.rangeEnd, (value) {
-    return _then(_self.copyWith(rangeEnd: value));
+  return $RangeEndCopyWith<$Res>(_self.end, (value) {
+    return _then(_self.copyWith(end: value));
   });
 }
 }
@@ -172,10 +172,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'RangeStart')  RangeStart rangeStart, @JsonKey(name: 'RangeEnd')  RangeEnd rangeEnd)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( RangeStart start,  RangeEnd end)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Range() when $default != null:
-return $default(_that.rangeStart,_that.rangeEnd);case _:
+return $default(_that.start,_that.end);case _:
   return orElse();
 
 }
@@ -193,10 +193,10 @@ return $default(_that.rangeStart,_that.rangeEnd);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'RangeStart')  RangeStart rangeStart, @JsonKey(name: 'RangeEnd')  RangeEnd rangeEnd)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( RangeStart start,  RangeEnd end)  $default,) {final _that = this;
 switch (_that) {
 case _Range():
-return $default(_that.rangeStart,_that.rangeEnd);case _:
+return $default(_that.start,_that.end);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -213,10 +213,10 @@ return $default(_that.rangeStart,_that.rangeEnd);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'RangeStart')  RangeStart rangeStart, @JsonKey(name: 'RangeEnd')  RangeEnd rangeEnd)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( RangeStart start,  RangeEnd end)?  $default,) {final _that = this;
 switch (_that) {
 case _Range() when $default != null:
-return $default(_that.rangeStart,_that.rangeEnd);case _:
+return $default(_that.start,_that.end);case _:
   return null;
 
 }
@@ -228,11 +228,11 @@ return $default(_that.rangeStart,_that.rangeEnd);case _:
 @JsonSerializable()
 
 class _Range implements Range {
-  const _Range({@JsonKey(name: 'RangeStart') required this.rangeStart, @JsonKey(name: 'RangeEnd') required this.rangeEnd});
+  const _Range({required this.start, required this.end});
   factory _Range.fromJson(Map<String, dynamic> json) => _$RangeFromJson(json);
 
-@override@JsonKey(name: 'RangeStart') final  RangeStart rangeStart;
-@override@JsonKey(name: 'RangeEnd') final  RangeEnd rangeEnd;
+@override final  RangeStart start;
+@override final  RangeEnd end;
 
 /// Create a copy of Range
 /// with the given fields replaced by the non-null parameter values.
@@ -247,16 +247,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Range&&(identical(other.rangeStart, rangeStart) || other.rangeStart == rangeStart)&&(identical(other.rangeEnd, rangeEnd) || other.rangeEnd == rangeEnd));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Range&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,rangeStart,rangeEnd);
+int get hashCode => Object.hash(runtimeType,start,end);
 
 @override
 String toString() {
-  return 'Range(rangeStart: $rangeStart, rangeEnd: $rangeEnd)';
+  return 'Range(start: $start, end: $end)';
 }
 
 
@@ -267,11 +267,11 @@ abstract mixin class _$RangeCopyWith<$Res> implements $RangeCopyWith<$Res> {
   factory _$RangeCopyWith(_Range value, $Res Function(_Range) _then) = __$RangeCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'RangeStart') RangeStart rangeStart,@JsonKey(name: 'RangeEnd') RangeEnd rangeEnd
+ RangeStart start, RangeEnd end
 });
 
 
-@override $RangeStartCopyWith<$Res> get rangeStart;@override $RangeEndCopyWith<$Res> get rangeEnd;
+@override $RangeStartCopyWith<$Res> get start;@override $RangeEndCopyWith<$Res> get end;
 
 }
 /// @nodoc
@@ -284,10 +284,10 @@ class __$RangeCopyWithImpl<$Res>
 
 /// Create a copy of Range
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? rangeStart = null,Object? rangeEnd = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? start = null,Object? end = null,}) {
   return _then(_Range(
-rangeStart: null == rangeStart ? _self.rangeStart : rangeStart // ignore: cast_nullable_to_non_nullable
-as RangeStart,rangeEnd: null == rangeEnd ? _self.rangeEnd : rangeEnd // ignore: cast_nullable_to_non_nullable
+start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
+as RangeStart,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
 as RangeEnd,
   ));
 }
@@ -296,19 +296,19 @@ as RangeEnd,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$RangeStartCopyWith<$Res> get rangeStart {
+$RangeStartCopyWith<$Res> get start {
   
-  return $RangeStartCopyWith<$Res>(_self.rangeStart, (value) {
-    return _then(_self.copyWith(rangeStart: value));
+  return $RangeStartCopyWith<$Res>(_self.start, (value) {
+    return _then(_self.copyWith(start: value));
   });
 }/// Create a copy of Range
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$RangeEndCopyWith<$Res> get rangeEnd {
+$RangeEndCopyWith<$Res> get end {
   
-  return $RangeEndCopyWith<$Res>(_self.rangeEnd, (value) {
-    return _then(_self.copyWith(rangeEnd: value));
+  return $RangeEndCopyWith<$Res>(_self.end, (value) {
+    return _then(_self.copyWith(end: value));
   });
 }
 }

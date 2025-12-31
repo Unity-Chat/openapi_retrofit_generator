@@ -10,14 +10,13 @@ part 'not_found_error.g.dart';
 
 @JsonSerializable()
 class NotFoundError {
-  const NotFoundError({required this.name, required this.notFoundErrorData});
+  const NotFoundError({required this.name, required this.data});
 
   factory NotFoundError.fromJson(Map<String, Object?> json) =>
       _$NotFoundErrorFromJson(json);
 
   final String name;
-  @JsonKey(name: 'NotFoundErrorData')
-  final NotFoundErrorData notFoundErrorData;
+  final NotFoundErrorData data;
 
   Map<String, Object?> toJson() => _$NotFoundErrorToJson(this);
 }

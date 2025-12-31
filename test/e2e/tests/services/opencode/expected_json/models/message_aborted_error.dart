@@ -10,17 +10,13 @@ part 'message_aborted_error.g.dart';
 
 @JsonSerializable()
 class MessageAbortedError {
-  const MessageAbortedError({
-    required this.name,
-    required this.messageAbortedErrorData,
-  });
+  const MessageAbortedError({required this.name, required this.data});
 
   factory MessageAbortedError.fromJson(Map<String, Object?> json) =>
       _$MessageAbortedErrorFromJson(json);
 
   final String name;
-  @JsonKey(name: 'MessageAbortedErrorData')
-  final MessageAbortedErrorData messageAbortedErrorData;
+  final MessageAbortedErrorData data;
 
   Map<String, Object?> toJson() => _$MessageAbortedErrorToJson(this);
 }

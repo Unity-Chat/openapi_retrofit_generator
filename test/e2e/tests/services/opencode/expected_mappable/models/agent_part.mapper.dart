@@ -40,11 +40,10 @@ class AgentPartMapper extends ClassMapperBase<AgentPart> {
   static const Field<AgentPart, String> _f$type = Field('type', _$type);
   static String _$name(AgentPart v) => v.name;
   static const Field<AgentPart, String> _f$name = Field('name', _$name);
-  static AgentPartSource? _$agentPartSource(AgentPart v) => v.agentPartSource;
-  static const Field<AgentPart, AgentPartSource> _f$agentPartSource = Field(
-    'agentPartSource',
-    _$agentPartSource,
-    key: r'AgentPartSource',
+  static AgentPartSource? _$source(AgentPart v) => v.source;
+  static const Field<AgentPart, AgentPartSource> _f$source = Field(
+    'source',
+    _$source,
     opt: true,
   );
 
@@ -55,7 +54,7 @@ class AgentPartMapper extends ClassMapperBase<AgentPart> {
     #messageId: _f$messageId,
     #type: _f$type,
     #name: _f$name,
-    #agentPartSource: _f$agentPartSource,
+    #source: _f$source,
   };
 
   static AgentPart _instantiate(DecodingData data) {
@@ -65,7 +64,7 @@ class AgentPartMapper extends ClassMapperBase<AgentPart> {
       messageId: data.dec(_f$messageId),
       type: data.dec(_f$type),
       name: data.dec(_f$name),
-      agentPartSource: data.dec(_f$agentPartSource),
+      source: data.dec(_f$source),
     );
   }
 
@@ -128,15 +127,14 @@ extension AgentPartValueCopy<$R, $Out> on ObjectCopyWith<$R, AgentPart, $Out> {
 
 abstract class AgentPartCopyWith<$R, $In extends AgentPart, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>?
-  get agentPartSource;
+  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>? get source;
   $R call({
     String? id,
     String? sessionId,
     String? messageId,
     String? type,
     String? name,
-    AgentPartSource? agentPartSource,
+    AgentPartSource? source,
   });
   AgentPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -150,9 +148,8 @@ class _AgentPartCopyWithImpl<$R, $Out>
   late final ClassMapperBase<AgentPart> $mapper =
       AgentPartMapper.ensureInitialized();
   @override
-  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>?
-  get agentPartSource =>
-      $value.agentPartSource?.copyWith.$chain((v) => call(agentPartSource: v));
+  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>? get source =>
+      $value.source?.copyWith.$chain((v) => call(source: v));
   @override
   $R call({
     String? id,
@@ -160,7 +157,7 @@ class _AgentPartCopyWithImpl<$R, $Out>
     String? messageId,
     String? type,
     String? name,
-    Object? agentPartSource = $none,
+    Object? source = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -168,7 +165,7 @@ class _AgentPartCopyWithImpl<$R, $Out>
       if (messageId != null) #messageId: messageId,
       if (type != null) #type: type,
       if (name != null) #name: name,
-      if (agentPartSource != $none) #agentPartSource: agentPartSource,
+      if (source != $none) #source: source,
     }),
   );
   @override
@@ -178,7 +175,7 @@ class _AgentPartCopyWithImpl<$R, $Out>
     messageId: data.get(#messageId, or: $value.messageId),
     type: data.get(#type, or: $value.type),
     name: data.get(#name, or: $value.name),
-    agentPartSource: data.get(#agentPartSource, or: $value.agentPartSource),
+    source: data.get(#source, or: $value.source),
   );
 
   @override

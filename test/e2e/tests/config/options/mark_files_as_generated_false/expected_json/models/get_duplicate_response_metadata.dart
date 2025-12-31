@@ -10,13 +10,12 @@ part 'get_duplicate_response_metadata.g.dart';
 
 @JsonSerializable()
 class GetDuplicateResponseMetadata {
-  const GetDuplicateResponseMetadata({this.getDuplicateResponseMetadataData});
+  const GetDuplicateResponseMetadata({this.data});
 
   factory GetDuplicateResponseMetadata.fromJson(Map<String, Object?> json) =>
       _$GetDuplicateResponseMetadataFromJson(json);
 
-  @JsonKey(name: 'GetDuplicateResponseMetadataData')
-  final GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData;
+  final GetDuplicateResponseMetadataData? data;
 
   Map<String, Object?> toJson() => _$GetDuplicateResponseMetadataToJson(this);
 }

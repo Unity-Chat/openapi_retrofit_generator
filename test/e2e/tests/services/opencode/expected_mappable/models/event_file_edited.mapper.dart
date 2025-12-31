@@ -24,26 +24,21 @@ class EventFileEditedMapper extends ClassMapperBase<EventFileEdited> {
 
   static String _$type(EventFileEdited v) => v.type;
   static const Field<EventFileEdited, String> _f$type = Field('type', _$type);
-  static EventFileEditedProperties _$eventFileEditedProperties(
-    EventFileEdited v,
-  ) => v.eventFileEditedProperties;
-  static const Field<EventFileEdited, EventFileEditedProperties>
-  _f$eventFileEditedProperties = Field(
-    'eventFileEditedProperties',
-    _$eventFileEditedProperties,
-    key: r'EventFileEditedProperties',
-  );
+  static EventFileEditedProperties _$properties(EventFileEdited v) =>
+      v.properties;
+  static const Field<EventFileEdited, EventFileEditedProperties> _f$properties =
+      Field('properties', _$properties);
 
   @override
   final MappableFields<EventFileEdited> fields = const {
     #type: _f$type,
-    #eventFileEditedProperties: _f$eventFileEditedProperties,
+    #properties: _f$properties,
   };
 
   static EventFileEdited _instantiate(DecodingData data) {
     return EventFileEdited(
       type: data.dec(_f$type),
-      eventFileEditedProperties: data.dec(_f$eventFileEditedProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -114,8 +109,8 @@ abstract class EventFileEditedCopyWith<$R, $In extends EventFileEdited, $Out>
     EventFileEditedProperties,
     EventFileEditedProperties
   >
-  get eventFileEditedProperties;
-  $R call({String? type, EventFileEditedProperties? eventFileEditedProperties});
+  get properties;
+  $R call({String? type, EventFileEditedProperties? properties});
   EventFileEditedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -135,26 +130,19 @@ class _EventFileEditedCopyWithImpl<$R, $Out>
     EventFileEditedProperties,
     EventFileEditedProperties
   >
-  get eventFileEditedProperties => $value.eventFileEditedProperties.copyWith
-      .$chain((v) => call(eventFileEditedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventFileEditedProperties? eventFileEditedProperties,
-  }) => $apply(
+  $R call({String? type, EventFileEditedProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventFileEditedProperties != null)
-        #eventFileEditedProperties: eventFileEditedProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventFileEdited $make(CopyWithData data) => EventFileEdited(
     type: data.get(#type, or: $value.type),
-    eventFileEditedProperties: data.get(
-      #eventFileEditedProperties,
-      or: $value.eventFileEditedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

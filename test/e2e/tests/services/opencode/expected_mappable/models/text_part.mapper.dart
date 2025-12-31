@@ -46,11 +46,10 @@ class TextPartMapper extends ClassMapperBase<TextPart> {
     _$synthetic,
     opt: true,
   );
-  static TextPartTime? _$textPartTime(TextPart v) => v.textPartTime;
-  static const Field<TextPart, TextPartTime> _f$textPartTime = Field(
-    'textPartTime',
-    _$textPartTime,
-    key: r'TextPartTime',
+  static TextPartTime? _$time(TextPart v) => v.time;
+  static const Field<TextPart, TextPartTime> _f$time = Field(
+    'time',
+    _$time,
     opt: true,
   );
   static Map<String, dynamic>? _$metadata(TextPart v) => v.metadata;
@@ -68,7 +67,7 @@ class TextPartMapper extends ClassMapperBase<TextPart> {
     #type: _f$type,
     #text: _f$text,
     #synthetic: _f$synthetic,
-    #textPartTime: _f$textPartTime,
+    #time: _f$time,
     #metadata: _f$metadata,
   };
 
@@ -80,7 +79,7 @@ class TextPartMapper extends ClassMapperBase<TextPart> {
       type: data.dec(_f$type),
       text: data.dec(_f$text),
       synthetic: data.dec(_f$synthetic),
-      textPartTime: data.dec(_f$textPartTime),
+      time: data.dec(_f$time),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -142,7 +141,7 @@ extension TextPartValueCopy<$R, $Out> on ObjectCopyWith<$R, TextPart, $Out> {
 
 abstract class TextPartCopyWith<$R, $In extends TextPart, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get textPartTime;
+  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get time;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   $R call({
@@ -152,7 +151,7 @@ abstract class TextPartCopyWith<$R, $In extends TextPart, $Out>
     String? type,
     String? text,
     bool? synthetic,
-    TextPartTime? textPartTime,
+    TextPartTime? time,
     Map<String, dynamic>? metadata,
   });
   TextPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -167,8 +166,8 @@ class _TextPartCopyWithImpl<$R, $Out>
   late final ClassMapperBase<TextPart> $mapper =
       TextPartMapper.ensureInitialized();
   @override
-  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get textPartTime =>
-      $value.textPartTime?.copyWith.$chain((v) => call(textPartTime: v));
+  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get time =>
+      $value.time?.copyWith.$chain((v) => call(time: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata => $value.metadata != null
@@ -186,7 +185,7 @@ class _TextPartCopyWithImpl<$R, $Out>
     String? type,
     String? text,
     Object? synthetic = $none,
-    Object? textPartTime = $none,
+    Object? time = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -196,7 +195,7 @@ class _TextPartCopyWithImpl<$R, $Out>
       if (type != null) #type: type,
       if (text != null) #text: text,
       if (synthetic != $none) #synthetic: synthetic,
-      if (textPartTime != $none) #textPartTime: textPartTime,
+      if (time != $none) #time: time,
       if (metadata != $none) #metadata: metadata,
     }),
   );
@@ -208,7 +207,7 @@ class _TextPartCopyWithImpl<$R, $Out>
     type: data.get(#type, or: $value.type),
     text: data.get(#text, or: $value.text),
     synthetic: data.get(#synthetic, or: $value.synthetic),
-    textPartTime: data.get(#textPartTime, or: $value.textPartTime),
+    time: data.get(#time, or: $value.time),
     metadata: data.get(#metadata, or: $value.metadata),
   );
 

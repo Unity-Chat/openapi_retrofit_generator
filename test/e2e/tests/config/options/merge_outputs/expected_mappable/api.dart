@@ -420,16 +420,14 @@ enum UserStatus {
 @MappableClass()
 class UserSettings with UserSettingsMappable {
   const UserSettings({
-    this.userSettingsNotifications,
-    this.userSettingsPrivacy,
+    this.notifications,
+    this.privacy,
     this.theme = UserSettingsThemeTheme.auto,
     this.language = 'en',
   });
 
-  @MappableField(key: 'UserSettingsNotifications')
-  final UserSettingsNotifications? userSettingsNotifications;
-  @MappableField(key: 'UserSettingsPrivacy')
-  final UserSettingsPrivacy? userSettingsPrivacy;
+  final UserSettingsNotifications? notifications;
+  final UserSettingsPrivacy? privacy;
   final UserSettingsThemeTheme theme;
   final String language;
 
@@ -1062,12 +1060,11 @@ typedef EmptyObject = dynamic;
 
 @MappableClass()
 class Data with DataMappable {
-  const Data({required this.id, required this.value, this.dataNested});
+  const Data({required this.id, required this.value, this.nested});
 
   final String id;
   final String value;
-  @MappableField(key: 'DataNested')
-  final DataNested? dataNested;
+  final DataNested? nested;
 
   static Data fromJson(Map<String, dynamic> json) => DataMapper.fromJson(json);
 }
@@ -1140,15 +1137,10 @@ class ListPostsResponsePagination with ListPostsResponsePaginationMappable {
 
 @MappableClass()
 class ListPostsResponse with ListPostsResponseMappable {
-  const ListPostsResponse({
-    this.posts,
-    this.listPostsResponsePagination,
-    this.metadata,
-  });
+  const ListPostsResponse({this.posts, this.pagination, this.metadata});
 
   final List<PostModel>? posts;
-  @MappableField(key: 'ListPostsResponsePagination')
-  final ListPostsResponsePagination? listPostsResponsePagination;
+  final ListPostsResponsePagination? pagination;
   final Map<String, String>? metadata;
 
   static ListPostsResponse fromJson(Map<String, dynamic> json) =>
@@ -1168,12 +1160,11 @@ class FiltersDateRange with FiltersDateRangeMappable {
 
 @MappableClass()
 class Filters with FiltersMappable {
-  const Filters({this.authorId, this.tags, this.filtersDateRange});
+  const Filters({this.authorId, this.tags, this.dateRange});
 
   final String? authorId;
   final List<String>? tags;
-  @MappableField(key: 'FiltersDateRange')
-  final FiltersDateRange? filtersDateRange;
+  final FiltersDateRange? dateRange;
 
   static Filters fromJson(Map<String, dynamic> json) =>
       FiltersMapper.fromJson(json);
@@ -1288,10 +1279,9 @@ class GetDuplicateResponseMetadataData
 
 @MappableClass()
 class GetDuplicateResponseMetadata with GetDuplicateResponseMetadataMappable {
-  const GetDuplicateResponseMetadata({this.getDuplicateResponseMetadataData});
+  const GetDuplicateResponseMetadata({this.data});
 
-  @MappableField(key: 'GetDuplicateResponseMetadataData')
-  final GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData;
+  final GetDuplicateResponseMetadataData? data;
 
   static GetDuplicateResponseMetadata fromJson(Map<String, dynamic> json) =>
       GetDuplicateResponseMetadataMapper.fromJson(json);
@@ -1299,11 +1289,10 @@ class GetDuplicateResponseMetadata with GetDuplicateResponseMetadataMappable {
 
 @MappableClass()
 class GetDuplicateResponse with GetDuplicateResponseMappable {
-  const GetDuplicateResponse({this.data, this.getDuplicateResponseMetadata});
+  const GetDuplicateResponse({this.data, this.metadata});
 
   final Data? data;
-  @MappableField(key: 'GetDuplicateResponseMetadata')
-  final GetDuplicateResponseMetadata? getDuplicateResponseMetadata;
+  final GetDuplicateResponseMetadata? metadata;
 
   static GetDuplicateResponse fromJson(Map<String, dynamic> json) =>
       GetDuplicateResponseMapper.fromJson(json);

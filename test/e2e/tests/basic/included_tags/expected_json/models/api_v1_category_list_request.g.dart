@@ -10,19 +10,15 @@ ApiV1CategoryListRequest _$ApiV1CategoryListRequestFromJson(
   Map<String, dynamic> json,
 ) => ApiV1CategoryListRequest(
   includedField: json['includedField'] as String,
-  apiV1CategoryListRequestNestedIncluded:
-      json['ApiV1CategoryListRequestNestedIncluded'] == null
+  nestedIncluded: json['nestedIncluded'] == null
       ? null
       : ApiV1CategoryListRequestNestedIncluded.fromJson(
-          json['ApiV1CategoryListRequestNestedIncluded']
-              as Map<String, dynamic>,
+          json['nestedIncluded'] as Map<String, dynamic>,
         ),
-  apiV1CategoryListRequestAnchorReference:
-      json['ApiV1CategoryListRequestAnchorReference'] == null
+  anchorReference: json['anchorReference'] == null
       ? null
       : ApiV1CategoryListRequestAnchorReference.fromJson(
-          json['ApiV1CategoryListRequestAnchorReference']
-              as Map<String, dynamic>,
+          json['anchorReference'] as Map<String, dynamic>,
         ),
 );
 
@@ -30,8 +26,6 @@ Map<String, dynamic> _$ApiV1CategoryListRequestToJson(
   ApiV1CategoryListRequest instance,
 ) => <String, dynamic>{
   'includedField': instance.includedField,
-  'ApiV1CategoryListRequestNestedIncluded':
-      ?instance.apiV1CategoryListRequestNestedIncluded,
-  'ApiV1CategoryListRequestAnchorReference':
-      ?instance.apiV1CategoryListRequestAnchorReference,
+  'nestedIncluded': ?instance.nestedIncluded,
+  'anchorReference': ?instance.anchorReference,
 };

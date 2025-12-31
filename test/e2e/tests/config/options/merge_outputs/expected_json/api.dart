@@ -436,8 +436,8 @@ enum UserStatus {
 @JsonSerializable()
 class UserSettings {
   const UserSettings({
-    this.userSettingsNotifications,
-    this.userSettingsPrivacy,
+    this.notifications,
+    this.privacy,
     this.theme = UserSettingsThemeTheme.auto,
     this.language = 'en',
   });
@@ -446,10 +446,8 @@ class UserSettings {
       _$UserSettingsFromJson(json);
 
   final UserSettingsThemeTheme theme;
-  @JsonKey(name: 'UserSettingsNotifications')
-  final UserSettingsNotifications? userSettingsNotifications;
-  @JsonKey(name: 'UserSettingsPrivacy')
-  final UserSettingsPrivacy? userSettingsPrivacy;
+  final UserSettingsNotifications? notifications;
+  final UserSettingsPrivacy? privacy;
   final String language;
 
   Map<String, Object?> toJson() => _$UserSettingsToJson(this);
@@ -1244,14 +1242,13 @@ typedef EmptyObject = dynamic;
 
 @JsonSerializable()
 class Data {
-  const Data({required this.id, required this.value, this.dataNested});
+  const Data({required this.id, required this.value, this.nested});
 
   factory Data.fromJson(Map<String, Object?> json) => _$DataFromJson(json);
 
   final String id;
   final String value;
-  @JsonKey(name: 'DataNested')
-  final DataNested? dataNested;
+  final DataNested? nested;
 
   Map<String, Object?> toJson() => _$DataToJson(this);
 }
@@ -1334,18 +1331,13 @@ class ListPostsResponsePagination {
 
 @JsonSerializable()
 class ListPostsResponse {
-  const ListPostsResponse({
-    this.posts,
-    this.listPostsResponsePagination,
-    this.metadata,
-  });
+  const ListPostsResponse({this.posts, this.pagination, this.metadata});
 
   factory ListPostsResponse.fromJson(Map<String, Object?> json) =>
       _$ListPostsResponseFromJson(json);
 
   final List<PostModel>? posts;
-  @JsonKey(name: 'ListPostsResponsePagination')
-  final ListPostsResponsePagination? listPostsResponsePagination;
+  final ListPostsResponsePagination? pagination;
   final Map<String, String>? metadata;
 
   Map<String, Object?> toJson() => _$ListPostsResponseToJson(this);
@@ -1366,15 +1358,14 @@ class FiltersDateRange {
 
 @JsonSerializable()
 class Filters {
-  const Filters({this.authorId, this.tags, this.filtersDateRange});
+  const Filters({this.authorId, this.tags, this.dateRange});
 
   factory Filters.fromJson(Map<String, Object?> json) =>
       _$FiltersFromJson(json);
 
   final String? authorId;
   final List<String>? tags;
-  @JsonKey(name: 'FiltersDateRange')
-  final FiltersDateRange? filtersDateRange;
+  final FiltersDateRange? dateRange;
 
   Map<String, Object?> toJson() => _$FiltersToJson(this);
 }
@@ -1501,27 +1492,25 @@ class GetDuplicateResponseMetadataData {
 
 @JsonSerializable()
 class GetDuplicateResponseMetadata {
-  const GetDuplicateResponseMetadata({this.getDuplicateResponseMetadataData});
+  const GetDuplicateResponseMetadata({this.data});
 
   factory GetDuplicateResponseMetadata.fromJson(Map<String, Object?> json) =>
       _$GetDuplicateResponseMetadataFromJson(json);
 
-  @JsonKey(name: 'GetDuplicateResponseMetadataData')
-  final GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData;
+  final GetDuplicateResponseMetadataData? data;
 
   Map<String, Object?> toJson() => _$GetDuplicateResponseMetadataToJson(this);
 }
 
 @JsonSerializable()
 class GetDuplicateResponse {
-  const GetDuplicateResponse({this.data, this.getDuplicateResponseMetadata});
+  const GetDuplicateResponse({this.data, this.metadata});
 
   factory GetDuplicateResponse.fromJson(Map<String, Object?> json) =>
       _$GetDuplicateResponseFromJson(json);
 
   final Data? data;
-  @JsonKey(name: 'GetDuplicateResponseMetadata')
-  final GetDuplicateResponseMetadata? getDuplicateResponseMetadata;
+  final GetDuplicateResponseMetadata? metadata;
 
   Map<String, Object?> toJson() => _$GetDuplicateResponseToJson(this);
 }

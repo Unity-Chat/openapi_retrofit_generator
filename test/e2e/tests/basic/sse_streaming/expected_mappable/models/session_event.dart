@@ -54,6 +54,7 @@ class SessionEventSessionUpdated extends SessionEvent
 @MappableClass(discriminatorValue: 'session_deleted')
 class SessionEventSessionDeleted extends SessionEvent
     with SessionEventSessionDeletedMappable {
+  @MappableField(key: 'session_id')
   final String sessionId;
   final String type;
 
@@ -84,6 +85,7 @@ class SessionEventMessageUpdated extends SessionEvent
 @MappableClass(discriminatorValue: 'message_removed')
 class SessionEventMessageRemoved extends SessionEvent
     with SessionEventMessageRemovedMappable {
+  @MappableField(key: 'message_id')
   final String messageId;
   final String type;
 
@@ -96,7 +98,9 @@ class SessionEventMessageRemoved extends SessionEvent
 @MappableClass(discriminatorValue: 'part_updated')
 class SessionEventPartUpdated extends SessionEvent
     with SessionEventPartUpdatedMappable {
+  @MappableField(key: 'message_id')
   final String messageId;
+  @MappableField(key: 'part')
   final PartModel partField;
   final String type;
 
@@ -110,7 +114,9 @@ class SessionEventPartUpdated extends SessionEvent
 @MappableClass(discriminatorValue: 'part_removed')
 class SessionEventPartRemoved extends SessionEvent
     with SessionEventPartRemovedMappable {
+  @MappableField(key: 'message_id')
   final String messageId;
+  @MappableField(key: 'part_id')
   final String partId;
   final String type;
 

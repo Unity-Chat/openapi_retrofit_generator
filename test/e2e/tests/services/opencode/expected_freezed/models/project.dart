@@ -14,7 +14,7 @@ abstract class Project with _$Project {
   const factory Project({
     required String id,
     required String worktree,
-    @JsonKey(name: 'ProjectTime') required ProjectTime projectTime,
+    required ProjectTime time,
     String? vcs,
   }) = _Project;
 

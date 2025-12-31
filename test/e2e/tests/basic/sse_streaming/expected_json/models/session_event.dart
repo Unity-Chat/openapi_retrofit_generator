@@ -101,6 +101,7 @@ class SessionEventSessionUpdated extends SessionEvent {
 
 @JsonSerializable()
 class SessionEventSessionDeleted extends SessionEvent {
+  @JsonKey(name: 'session_id')
   final String sessionId;
   final String type;
 
@@ -146,6 +147,7 @@ class SessionEventMessageUpdated extends SessionEvent {
 
 @JsonSerializable()
 class SessionEventMessageRemoved extends SessionEvent {
+  @JsonKey(name: 'message_id')
   final String messageId;
   final String type;
 
@@ -163,7 +165,9 @@ class SessionEventMessageRemoved extends SessionEvent {
 
 @JsonSerializable()
 class SessionEventPartUpdated extends SessionEvent {
+  @JsonKey(name: 'message_id')
   final String messageId;
+  @JsonKey(name: 'part')
   final PartModel partField;
   final String type;
 
@@ -182,7 +186,9 @@ class SessionEventPartUpdated extends SessionEvent {
 
 @JsonSerializable()
 class SessionEventPartRemoved extends SessionEvent {
+  @JsonKey(name: 'message_id')
   final String messageId;
+  @JsonKey(name: 'part_id')
   final String partId;
   final String type;
 

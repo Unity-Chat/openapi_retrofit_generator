@@ -17,7 +17,7 @@ class ToolStateCompleted with ToolStateCompletedMappable {
     required this.output,
     required this.title,
     required this.metadata,
-    required this.toolStateCompletedTime,
+    required this.time,
     this.attachments,
   });
 
@@ -26,8 +26,7 @@ class ToolStateCompleted with ToolStateCompletedMappable {
   final String output;
   final String title;
   final Map<String, dynamic> metadata;
-  @MappableField(key: 'ToolStateCompletedTime')
-  final ToolStateCompletedTime toolStateCompletedTime;
+  final ToolStateCompletedTime time;
   final List<FilePart>? attachments;
 
   static ToolStateCompleted fromJson(Map<String, dynamic> json) =>

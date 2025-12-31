@@ -14,7 +14,7 @@ class AssistantMessageTokens {
     required this.input,
     required this.output,
     required this.reasoning,
-    required this.assistantMessageTokensCache,
+    required this.cache,
   });
 
   factory AssistantMessageTokens.fromJson(Map<String, Object?> json) =>
@@ -23,8 +23,7 @@ class AssistantMessageTokens {
   final num input;
   final num output;
   final num reasoning;
-  @JsonKey(name: 'AssistantMessageTokensCache')
-  final AssistantMessageTokensCache assistantMessageTokensCache;
+  final AssistantMessageTokensCache cache;
 
   Map<String, Object?> toJson() => _$AssistantMessageTokensToJson(this);
 }

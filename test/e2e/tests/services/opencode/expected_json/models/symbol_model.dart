@@ -13,7 +13,7 @@ class SymbolModel {
   const SymbolModel({
     required this.name,
     required this.kind,
-    required this.symbolModelLocation,
+    required this.location,
   });
 
   factory SymbolModel.fromJson(Map<String, Object?> json) =>
@@ -21,8 +21,7 @@ class SymbolModel {
 
   final String name;
   final num kind;
-  @JsonKey(name: 'SymbolModelLocation')
-  final SymbolModelLocation symbolModelLocation;
+  final SymbolModelLocation location;
 
   Map<String, Object?> toJson() => _$SymbolModelToJson(this);
 }

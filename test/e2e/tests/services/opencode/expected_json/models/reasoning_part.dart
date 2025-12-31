@@ -16,7 +16,7 @@ class ReasoningPart {
     required this.messageId,
     required this.type,
     required this.text,
-    required this.reasoningPartTime,
+    required this.time,
     this.metadata,
   });
 
@@ -31,8 +31,7 @@ class ReasoningPart {
   final String type;
   final String text;
   final Map<String, dynamic>? metadata;
-  @JsonKey(name: 'ReasoningPartTime')
-  final ReasoningPartTime reasoningPartTime;
+  final ReasoningPartTime time;
 
   Map<String, Object?> toJson() => _$ReasoningPartToJson(this);
 }

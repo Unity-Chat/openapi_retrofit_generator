@@ -12,8 +12,7 @@ part 'config_experimental.g.dart';
 @Freezed()
 abstract class ConfigExperimental with _$ConfigExperimental {
   const factory ConfigExperimental({
-    @JsonKey(name: 'ConfigExperimentalHook')
-    ConfigExperimentalHook? configExperimentalHook,
+    ConfigExperimentalHook? hook,
     @JsonKey(name: 'disable_paste_summary') bool? disablePasteSummary,
   }) = _ConfigExperimental;
 

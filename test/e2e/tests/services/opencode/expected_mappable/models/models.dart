@@ -22,13 +22,13 @@ class Models with ModelsMappable {
     this.reasoning,
     this.temperature,
     this.toolCall,
-    this.modelsCost,
-    this.modelsLimit,
-    this.modelsModalities,
+    this.cost,
+    this.limit,
+    this.modalities,
     this.experimental,
     this.status,
     this.options,
-    this.modelsProvider,
+    this.provider,
   });
 
   final String? id;
@@ -40,17 +40,13 @@ class Models with ModelsMappable {
   final bool? temperature;
   @MappableField(key: 'tool_call')
   final bool? toolCall;
-  @MappableField(key: 'ModelsCost')
-  final ModelsCost? modelsCost;
-  @MappableField(key: 'ModelsLimit')
-  final ModelsLimit? modelsLimit;
-  @MappableField(key: 'ModelsModalities')
-  final ModelsModalities? modelsModalities;
+  final ModelsCost? cost;
+  final ModelsLimit? limit;
+  final ModelsModalities? modalities;
   final bool? experimental;
   final ModelsStatusStatus? status;
   final Map<String, dynamic>? options;
-  @MappableField(key: 'ModelsProvider')
-  final ModelsProvider? modelsProvider;
+  final ModelsProvider? provider;
 
   static Models fromJson(Map<String, dynamic> json) =>
       ModelsMapper.fromJson(json);

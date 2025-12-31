@@ -34,23 +34,16 @@ class DebugSchemaDataMapper extends ClassMapperBase<DebugSchemaData> {
   static DebugSchemaDataStatusStatus? _$status(DebugSchemaData v) => v.status;
   static const Field<DebugSchemaData, DebugSchemaDataStatusStatus> _f$status =
       Field('status', _$status, opt: true);
-  static DebugSchemaDataMetadata? _$debugSchemaDataMetadata(
-    DebugSchemaData v,
-  ) => v.debugSchemaDataMetadata;
-  static const Field<DebugSchemaData, DebugSchemaDataMetadata>
-  _f$debugSchemaDataMetadata = Field(
-    'debugSchemaDataMetadata',
-    _$debugSchemaDataMetadata,
-    key: r'DebugSchemaDataMetadata',
-    opt: true,
-  );
+  static DebugSchemaDataMetadata? _$metadata(DebugSchemaData v) => v.metadata;
+  static const Field<DebugSchemaData, DebugSchemaDataMetadata> _f$metadata =
+      Field('metadata', _$metadata, opt: true);
 
   @override
   final MappableFields<DebugSchemaData> fields = const {
     #name: _f$name,
     #id: _f$id,
     #status: _f$status,
-    #debugSchemaDataMetadata: _f$debugSchemaDataMetadata,
+    #metadata: _f$metadata,
   };
 
   static DebugSchemaData _instantiate(DecodingData data) {
@@ -58,7 +51,7 @@ class DebugSchemaDataMapper extends ClassMapperBase<DebugSchemaData> {
       name: data.dec(_f$name),
       id: data.dec(_f$id),
       status: data.dec(_f$status),
-      debugSchemaDataMetadata: data.dec(_f$debugSchemaDataMetadata),
+      metadata: data.dec(_f$metadata),
     );
   }
 
@@ -129,12 +122,12 @@ abstract class DebugSchemaDataCopyWith<$R, $In extends DebugSchemaData, $Out>
     DebugSchemaDataMetadata,
     DebugSchemaDataMetadata
   >?
-  get debugSchemaDataMetadata;
+  get metadata;
   $R call({
     String? name,
     int? id,
     DebugSchemaDataStatusStatus? status,
-    DebugSchemaDataMetadata? debugSchemaDataMetadata,
+    DebugSchemaDataMetadata? metadata,
   });
   DebugSchemaDataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -155,21 +148,19 @@ class _DebugSchemaDataCopyWithImpl<$R, $Out>
     DebugSchemaDataMetadata,
     DebugSchemaDataMetadata
   >?
-  get debugSchemaDataMetadata => $value.debugSchemaDataMetadata?.copyWith
-      .$chain((v) => call(debugSchemaDataMetadata: v));
+  get metadata => $value.metadata?.copyWith.$chain((v) => call(metadata: v));
   @override
   $R call({
     Object? name = $none,
     Object? id = $none,
     Object? status = $none,
-    Object? debugSchemaDataMetadata = $none,
+    Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
       if (name != $none) #name: name,
       if (id != $none) #id: id,
       if (status != $none) #status: status,
-      if (debugSchemaDataMetadata != $none)
-        #debugSchemaDataMetadata: debugSchemaDataMetadata,
+      if (metadata != $none) #metadata: metadata,
     }),
   );
   @override
@@ -177,10 +168,7 @@ class _DebugSchemaDataCopyWithImpl<$R, $Out>
     name: data.get(#name, or: $value.name),
     id: data.get(#id, or: $value.id),
     status: data.get(#status, or: $value.status),
-    debugSchemaDataMetadata: data.get(
-      #debugSchemaDataMetadata,
-      or: $value.debugSchemaDataMetadata,
-    ),
+    metadata: data.get(#metadata, or: $value.metadata),
   );
 
   @override

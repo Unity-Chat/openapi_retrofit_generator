@@ -18,7 +18,7 @@ abstract class TextPart with _$TextPart {
     required String type,
     required String text,
     bool? synthetic,
-    @JsonKey(name: 'TextPartTime') TextPartTime? textPartTime,
+    TextPartTime? time,
     Map<String, dynamic>? metadata,
   }) = _TextPart;
 

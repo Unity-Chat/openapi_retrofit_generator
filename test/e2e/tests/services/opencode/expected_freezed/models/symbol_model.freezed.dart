@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SymbolModel {
 
- String get name; num get kind;@JsonKey(name: 'SymbolModelLocation') SymbolModelLocation get symbolModelLocation;
+ String get name; num get kind; SymbolModelLocation get location;
 /// Create a copy of SymbolModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SymbolModelCopyWith<SymbolModel> get copyWith => _$SymbolModelCopyWithImpl<Symb
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SymbolModel&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.symbolModelLocation, symbolModelLocation) || other.symbolModelLocation == symbolModelLocation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SymbolModel&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.location, location) || other.location == location));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,kind,symbolModelLocation);
+int get hashCode => Object.hash(runtimeType,name,kind,location);
 
 @override
 String toString() {
-  return 'SymbolModel(name: $name, kind: $kind, symbolModelLocation: $symbolModelLocation)';
+  return 'SymbolModel(name: $name, kind: $kind, location: $location)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $SymbolModelCopyWith<$Res>  {
   factory $SymbolModelCopyWith(SymbolModel value, $Res Function(SymbolModel) _then) = _$SymbolModelCopyWithImpl;
 @useResult
 $Res call({
- String name, num kind,@JsonKey(name: 'SymbolModelLocation') SymbolModelLocation symbolModelLocation
+ String name, num kind, SymbolModelLocation location
 });
 
 
-$SymbolModelLocationCopyWith<$Res> get symbolModelLocation;
+$SymbolModelLocationCopyWith<$Res> get location;
 
 }
 /// @nodoc
@@ -65,11 +65,11 @@ class _$SymbolModelCopyWithImpl<$Res>
 
 /// Create a copy of SymbolModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? kind = null,Object? symbolModelLocation = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? kind = null,Object? location = null,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
-as num,symbolModelLocation: null == symbolModelLocation ? _self.symbolModelLocation : symbolModelLocation // ignore: cast_nullable_to_non_nullable
+as num,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as SymbolModelLocation,
   ));
 }
@@ -77,10 +77,10 @@ as SymbolModelLocation,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SymbolModelLocationCopyWith<$Res> get symbolModelLocation {
+$SymbolModelLocationCopyWith<$Res> get location {
   
-  return $SymbolModelLocationCopyWith<$Res>(_self.symbolModelLocation, (value) {
-    return _then(_self.copyWith(symbolModelLocation: value));
+  return $SymbolModelLocationCopyWith<$Res>(_self.location, (value) {
+    return _then(_self.copyWith(location: value));
   });
 }
 }
@@ -164,10 +164,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  num kind, @JsonKey(name: 'SymbolModelLocation')  SymbolModelLocation symbolModelLocation)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  num kind,  SymbolModelLocation location)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SymbolModel() when $default != null:
-return $default(_that.name,_that.kind,_that.symbolModelLocation);case _:
+return $default(_that.name,_that.kind,_that.location);case _:
   return orElse();
 
 }
@@ -185,10 +185,10 @@ return $default(_that.name,_that.kind,_that.symbolModelLocation);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  num kind, @JsonKey(name: 'SymbolModelLocation')  SymbolModelLocation symbolModelLocation)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  num kind,  SymbolModelLocation location)  $default,) {final _that = this;
 switch (_that) {
 case _SymbolModel():
-return $default(_that.name,_that.kind,_that.symbolModelLocation);case _:
+return $default(_that.name,_that.kind,_that.location);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,10 +205,10 @@ return $default(_that.name,_that.kind,_that.symbolModelLocation);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  num kind, @JsonKey(name: 'SymbolModelLocation')  SymbolModelLocation symbolModelLocation)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  num kind,  SymbolModelLocation location)?  $default,) {final _that = this;
 switch (_that) {
 case _SymbolModel() when $default != null:
-return $default(_that.name,_that.kind,_that.symbolModelLocation);case _:
+return $default(_that.name,_that.kind,_that.location);case _:
   return null;
 
 }
@@ -220,12 +220,12 @@ return $default(_that.name,_that.kind,_that.symbolModelLocation);case _:
 @JsonSerializable()
 
 class _SymbolModel implements SymbolModel {
-  const _SymbolModel({required this.name, required this.kind, @JsonKey(name: 'SymbolModelLocation') required this.symbolModelLocation});
+  const _SymbolModel({required this.name, required this.kind, required this.location});
   factory _SymbolModel.fromJson(Map<String, dynamic> json) => _$SymbolModelFromJson(json);
 
 @override final  String name;
 @override final  num kind;
-@override@JsonKey(name: 'SymbolModelLocation') final  SymbolModelLocation symbolModelLocation;
+@override final  SymbolModelLocation location;
 
 /// Create a copy of SymbolModel
 /// with the given fields replaced by the non-null parameter values.
@@ -240,16 +240,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SymbolModel&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.symbolModelLocation, symbolModelLocation) || other.symbolModelLocation == symbolModelLocation));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SymbolModel&&(identical(other.name, name) || other.name == name)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.location, location) || other.location == location));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,kind,symbolModelLocation);
+int get hashCode => Object.hash(runtimeType,name,kind,location);
 
 @override
 String toString() {
-  return 'SymbolModel(name: $name, kind: $kind, symbolModelLocation: $symbolModelLocation)';
+  return 'SymbolModel(name: $name, kind: $kind, location: $location)';
 }
 
 
@@ -260,11 +260,11 @@ abstract mixin class _$SymbolModelCopyWith<$Res> implements $SymbolModelCopyWith
   factory _$SymbolModelCopyWith(_SymbolModel value, $Res Function(_SymbolModel) _then) = __$SymbolModelCopyWithImpl;
 @override @useResult
 $Res call({
- String name, num kind,@JsonKey(name: 'SymbolModelLocation') SymbolModelLocation symbolModelLocation
+ String name, num kind, SymbolModelLocation location
 });
 
 
-@override $SymbolModelLocationCopyWith<$Res> get symbolModelLocation;
+@override $SymbolModelLocationCopyWith<$Res> get location;
 
 }
 /// @nodoc
@@ -277,11 +277,11 @@ class __$SymbolModelCopyWithImpl<$Res>
 
 /// Create a copy of SymbolModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? kind = null,Object? symbolModelLocation = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? kind = null,Object? location = null,}) {
   return _then(_SymbolModel(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,kind: null == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
-as num,symbolModelLocation: null == symbolModelLocation ? _self.symbolModelLocation : symbolModelLocation // ignore: cast_nullable_to_non_nullable
+as num,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as SymbolModelLocation,
   ));
 }
@@ -290,10 +290,10 @@ as SymbolModelLocation,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SymbolModelLocationCopyWith<$Res> get symbolModelLocation {
+$SymbolModelLocationCopyWith<$Res> get location {
   
-  return $SymbolModelLocationCopyWith<$Res>(_self.symbolModelLocation, (value) {
-    return _then(_self.copyWith(symbolModelLocation: value));
+  return $SymbolModelLocationCopyWith<$Res>(_self.location, (value) {
+    return _then(_self.copyWith(location: value));
   });
 }
 }

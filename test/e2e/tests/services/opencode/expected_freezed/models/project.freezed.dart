@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Project {
 
- String get id; String get worktree;@JsonKey(name: 'ProjectTime') ProjectTime get projectTime; String? get vcs;
+ String get id; String get worktree; ProjectTime get time; String? get vcs;
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProjectCopyWith<Project> get copyWith => _$ProjectCopyWithImpl<Project>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, id) || other.id == id)&&(identical(other.worktree, worktree) || other.worktree == worktree)&&(identical(other.projectTime, projectTime) || other.projectTime == projectTime)&&(identical(other.vcs, vcs) || other.vcs == vcs));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, id) || other.id == id)&&(identical(other.worktree, worktree) || other.worktree == worktree)&&(identical(other.time, time) || other.time == time)&&(identical(other.vcs, vcs) || other.vcs == vcs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,worktree,projectTime,vcs);
+int get hashCode => Object.hash(runtimeType,id,worktree,time,vcs);
 
 @override
 String toString() {
-  return 'Project(id: $id, worktree: $worktree, projectTime: $projectTime, vcs: $vcs)';
+  return 'Project(id: $id, worktree: $worktree, time: $time, vcs: $vcs)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ProjectCopyWith<$Res>  {
   factory $ProjectCopyWith(Project value, $Res Function(Project) _then) = _$ProjectCopyWithImpl;
 @useResult
 $Res call({
- String id, String worktree,@JsonKey(name: 'ProjectTime') ProjectTime projectTime, String? vcs
+ String id, String worktree, ProjectTime time, String? vcs
 });
 
 
-$ProjectTimeCopyWith<$Res> get projectTime;
+$ProjectTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -65,11 +65,11 @@ class _$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? worktree = null,Object? projectTime = null,Object? vcs = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? worktree = null,Object? time = null,Object? vcs = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,worktree: null == worktree ? _self.worktree : worktree // ignore: cast_nullable_to_non_nullable
-as String,projectTime: null == projectTime ? _self.projectTime : projectTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ProjectTime,vcs: freezed == vcs ? _self.vcs : vcs // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -78,10 +78,10 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ProjectTimeCopyWith<$Res> get projectTime {
+$ProjectTimeCopyWith<$Res> get time {
   
-  return $ProjectTimeCopyWith<$Res>(_self.projectTime, (value) {
-    return _then(_self.copyWith(projectTime: value));
+  return $ProjectTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }
@@ -165,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String worktree, @JsonKey(name: 'ProjectTime')  ProjectTime projectTime,  String? vcs)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String worktree,  ProjectTime time,  String? vcs)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
-return $default(_that.id,_that.worktree,_that.projectTime,_that.vcs);case _:
+return $default(_that.id,_that.worktree,_that.time,_that.vcs);case _:
   return orElse();
 
 }
@@ -186,10 +186,10 @@ return $default(_that.id,_that.worktree,_that.projectTime,_that.vcs);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String worktree, @JsonKey(name: 'ProjectTime')  ProjectTime projectTime,  String? vcs)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String worktree,  ProjectTime time,  String? vcs)  $default,) {final _that = this;
 switch (_that) {
 case _Project():
-return $default(_that.id,_that.worktree,_that.projectTime,_that.vcs);case _:
+return $default(_that.id,_that.worktree,_that.time,_that.vcs);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +206,10 @@ return $default(_that.id,_that.worktree,_that.projectTime,_that.vcs);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String worktree, @JsonKey(name: 'ProjectTime')  ProjectTime projectTime,  String? vcs)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String worktree,  ProjectTime time,  String? vcs)?  $default,) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
-return $default(_that.id,_that.worktree,_that.projectTime,_that.vcs);case _:
+return $default(_that.id,_that.worktree,_that.time,_that.vcs);case _:
   return null;
 
 }
@@ -221,12 +221,12 @@ return $default(_that.id,_that.worktree,_that.projectTime,_that.vcs);case _:
 @JsonSerializable()
 
 class _Project implements Project {
-  const _Project({required this.id, required this.worktree, @JsonKey(name: 'ProjectTime') required this.projectTime, this.vcs});
+  const _Project({required this.id, required this.worktree, required this.time, this.vcs});
   factory _Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
 
 @override final  String id;
 @override final  String worktree;
-@override@JsonKey(name: 'ProjectTime') final  ProjectTime projectTime;
+@override final  ProjectTime time;
 @override final  String? vcs;
 
 /// Create a copy of Project
@@ -242,16 +242,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.worktree, worktree) || other.worktree == worktree)&&(identical(other.projectTime, projectTime) || other.projectTime == projectTime)&&(identical(other.vcs, vcs) || other.vcs == vcs));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.worktree, worktree) || other.worktree == worktree)&&(identical(other.time, time) || other.time == time)&&(identical(other.vcs, vcs) || other.vcs == vcs));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,worktree,projectTime,vcs);
+int get hashCode => Object.hash(runtimeType,id,worktree,time,vcs);
 
 @override
 String toString() {
-  return 'Project(id: $id, worktree: $worktree, projectTime: $projectTime, vcs: $vcs)';
+  return 'Project(id: $id, worktree: $worktree, time: $time, vcs: $vcs)';
 }
 
 
@@ -262,11 +262,11 @@ abstract mixin class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) _then) = __$ProjectCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String worktree,@JsonKey(name: 'ProjectTime') ProjectTime projectTime, String? vcs
+ String id, String worktree, ProjectTime time, String? vcs
 });
 
 
-@override $ProjectTimeCopyWith<$Res> get projectTime;
+@override $ProjectTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -279,11 +279,11 @@ class __$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? worktree = null,Object? projectTime = null,Object? vcs = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? worktree = null,Object? time = null,Object? vcs = freezed,}) {
   return _then(_Project(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,worktree: null == worktree ? _self.worktree : worktree // ignore: cast_nullable_to_non_nullable
-as String,projectTime: null == projectTime ? _self.projectTime : projectTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ProjectTime,vcs: freezed == vcs ? _self.vcs : vcs // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -293,10 +293,10 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ProjectTimeCopyWith<$Res> get projectTime {
+$ProjectTimeCopyWith<$Res> get time {
   
-  return $ProjectTimeCopyWith<$Res>(_self.projectTime, (value) {
-    return _then(_self.copyWith(projectTime: value));
+  return $ProjectTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }

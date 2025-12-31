@@ -7,11 +7,11 @@ part of 'range.dart';
 // **************************************************************************
 
 Range _$RangeFromJson(Map<String, dynamic> json) => Range(
-  rangeStart: RangeStart.fromJson(json['RangeStart'] as Map<String, dynamic>),
-  rangeEnd: RangeEnd.fromJson(json['RangeEnd'] as Map<String, dynamic>),
+  start: RangeStart.fromJson(json['start'] as Map<String, dynamic>),
+  end: RangeEnd.fromJson(json['end'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$RangeToJson(Range instance) => <String, dynamic>{
-  'RangeStart': instance.rangeStart,
-  'RangeEnd': instance.rangeEnd,
+  'start': instance.start,
+  'end': instance.end,
 };

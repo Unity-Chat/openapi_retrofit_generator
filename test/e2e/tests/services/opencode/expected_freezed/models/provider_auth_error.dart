@@ -13,8 +13,7 @@ part 'provider_auth_error.g.dart';
 abstract class ProviderAuthError with _$ProviderAuthError {
   const factory ProviderAuthError({
     required String name,
-    @JsonKey(name: 'ProviderAuthErrorData')
-    required ProviderAuthErrorData providerAuthErrorData,
+    required ProviderAuthErrorData data,
   }) = _ProviderAuthError;
 
   factory ProviderAuthError.fromJson(Map<String, Object?> json) =>

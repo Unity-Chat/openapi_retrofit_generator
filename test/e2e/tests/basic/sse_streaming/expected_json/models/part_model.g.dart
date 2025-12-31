@@ -26,28 +26,28 @@ Map<String, dynamic> _$PartModelTextToJson(PartModelText instance) =>
 PartModelToolUse _$PartModelToolUseFromJson(Map<String, dynamic> json) =>
     PartModelToolUse(
       id: json['id'] as String,
-      toolName: json['toolName'] as String,
-      toolCallId: json['toolCallId'] as String,
-      toolInput: json['toolInput'],
+      toolName: json['tool_name'] as String,
+      toolCallId: json['tool_call_id'] as String,
+      toolInput: json['tool_input'],
       type: json['type'] as String,
     );
 
 Map<String, dynamic> _$PartModelToolUseToJson(PartModelToolUse instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'toolName': instance.toolName,
-      'toolCallId': instance.toolCallId,
-      'toolInput': instance.toolInput,
+      'tool_name': instance.toolName,
+      'tool_call_id': instance.toolCallId,
+      'tool_input': instance.toolInput,
       'type': instance.type,
     };
 
 PartModelToolResult _$PartModelToolResultFromJson(Map<String, dynamic> json) =>
     PartModelToolResult(
       id: json['id'] as String,
-      toolName: json['toolName'] as String,
-      toolCallId: json['toolCallId'] as String,
-      toolResult: json['toolResult'] as String,
-      isError: json['isError'] as bool,
+      toolName: json['tool_name'] as String,
+      toolCallId: json['tool_call_id'] as String,
+      toolResult: json['tool_result'] as String,
+      isError: json['is_error'] as bool,
       type: json['type'] as String,
     );
 
@@ -55,9 +55,9 @@ Map<String, dynamic> _$PartModelToolResultToJson(
   PartModelToolResult instance,
 ) => <String, dynamic>{
   'id': instance.id,
-  'toolName': instance.toolName,
-  'toolCallId': instance.toolCallId,
-  'toolResult': instance.toolResult,
-  'isError': instance.isError,
+  'tool_name': instance.toolName,
+  'tool_call_id': instance.toolCallId,
+  'tool_result': instance.toolResult,
+  'is_error': instance.isError,
   'type': instance.type,
 };

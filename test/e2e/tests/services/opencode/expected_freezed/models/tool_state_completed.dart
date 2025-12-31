@@ -18,8 +18,7 @@ abstract class ToolStateCompleted with _$ToolStateCompleted {
     required String output,
     required String title,
     required Map<String, dynamic> metadata,
-    @JsonKey(name: 'ToolStateCompletedTime')
-    required ToolStateCompletedTime toolStateCompletedTime,
+    required ToolStateCompletedTime time,
     List<FilePart>? attachments,
   }) = _ToolStateCompleted;
 

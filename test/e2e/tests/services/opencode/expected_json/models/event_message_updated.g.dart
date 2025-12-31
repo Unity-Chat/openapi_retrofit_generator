@@ -9,8 +9,8 @@ part of 'event_message_updated.dart';
 EventMessageUpdated _$EventMessageUpdatedFromJson(Map<String, dynamic> json) =>
     EventMessageUpdated(
       type: json['type'] as String,
-      eventMessageUpdatedProperties: EventMessageUpdatedProperties.fromJson(
-        json['EventMessageUpdatedProperties'] as Map<String, dynamic>,
+      properties: EventMessageUpdatedProperties.fromJson(
+        json['properties'] as Map<String, dynamic>,
       ),
     );
 
@@ -18,5 +18,5 @@ Map<String, dynamic> _$EventMessageUpdatedToJson(
   EventMessageUpdated instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  'EventMessageUpdatedProperties': instance.eventMessageUpdatedProperties,
+  'properties': instance.properties,
 };

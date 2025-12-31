@@ -13,8 +13,7 @@ part 'event_session_error.g.dart';
 abstract class EventSessionError with _$EventSessionError {
   const factory EventSessionError({
     required String type,
-    @JsonKey(name: 'EventSessionErrorProperties')
-    required EventSessionErrorProperties eventSessionErrorProperties,
+    required EventSessionErrorProperties properties,
   }) = _EventSessionError;
 
   factory EventSessionError.fromJson(Map<String, Object?> json) =>

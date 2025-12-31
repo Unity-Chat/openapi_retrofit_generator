@@ -27,26 +27,21 @@ class EventSessionDeletedMapper extends ClassMapperBase<EventSessionDeleted> {
     'type',
     _$type,
   );
-  static EventSessionDeletedProperties _$eventSessionDeletedProperties(
-    EventSessionDeleted v,
-  ) => v.eventSessionDeletedProperties;
+  static EventSessionDeletedProperties _$properties(EventSessionDeleted v) =>
+      v.properties;
   static const Field<EventSessionDeleted, EventSessionDeletedProperties>
-  _f$eventSessionDeletedProperties = Field(
-    'eventSessionDeletedProperties',
-    _$eventSessionDeletedProperties,
-    key: r'EventSessionDeletedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventSessionDeleted> fields = const {
     #type: _f$type,
-    #eventSessionDeletedProperties: _f$eventSessionDeletedProperties,
+    #properties: _f$properties,
   };
 
   static EventSessionDeleted _instantiate(DecodingData data) {
     return EventSessionDeleted(
       type: data.dec(_f$type),
-      eventSessionDeletedProperties: data.dec(_f$eventSessionDeletedProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -125,11 +120,8 @@ abstract class EventSessionDeletedCopyWith<
     EventSessionDeletedProperties,
     EventSessionDeletedProperties
   >
-  get eventSessionDeletedProperties;
-  $R call({
-    String? type,
-    EventSessionDeletedProperties? eventSessionDeletedProperties,
-  });
+  get properties;
+  $R call({String? type, EventSessionDeletedProperties? properties});
   EventSessionDeletedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -149,28 +141,19 @@ class _EventSessionDeletedCopyWithImpl<$R, $Out>
     EventSessionDeletedProperties,
     EventSessionDeletedProperties
   >
-  get eventSessionDeletedProperties => $value
-      .eventSessionDeletedProperties
-      .copyWith
-      .$chain((v) => call(eventSessionDeletedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventSessionDeletedProperties? eventSessionDeletedProperties,
-  }) => $apply(
+  $R call({String? type, EventSessionDeletedProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventSessionDeletedProperties != null)
-        #eventSessionDeletedProperties: eventSessionDeletedProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventSessionDeleted $make(CopyWithData data) => EventSessionDeleted(
     type: data.get(#type, or: $value.type),
-    eventSessionDeletedProperties: data.get(
-      #eventSessionDeletedProperties,
-      or: $value.eventSessionDeletedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

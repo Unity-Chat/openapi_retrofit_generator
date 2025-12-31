@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 mixin _$AgentConfig {
 
  String? get model; num? get temperature;@JsonKey(name: 'top_p') num? get topP; String? get prompt; Map<String, bool>? get tools; bool? get disable;/// Description of when to use the agent
- String? get description; dynamic get mode;@JsonKey(name: 'AgentConfigPermission') AgentConfigPermission? get agentConfigPermission;
+ String? get description; dynamic get mode; AgentConfigPermission? get permission;
 /// Create a copy of AgentConfig
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -29,16 +29,16 @@ $AgentConfigCopyWith<AgentConfig> get copyWith => _$AgentConfigCopyWithImpl<Agen
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgentConfig&&(identical(other.model, model) || other.model == model)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.topP, topP) || other.topP == topP)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&const DeepCollectionEquality().equals(other.tools, tools)&&(identical(other.disable, disable) || other.disable == disable)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.mode, mode)&&(identical(other.agentConfigPermission, agentConfigPermission) || other.agentConfigPermission == agentConfigPermission));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AgentConfig&&(identical(other.model, model) || other.model == model)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.topP, topP) || other.topP == topP)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&const DeepCollectionEquality().equals(other.tools, tools)&&(identical(other.disable, disable) || other.disable == disable)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.mode, mode)&&(identical(other.permission, permission) || other.permission == permission));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,model,temperature,topP,prompt,const DeepCollectionEquality().hash(tools),disable,description,const DeepCollectionEquality().hash(mode),agentConfigPermission);
+int get hashCode => Object.hash(runtimeType,model,temperature,topP,prompt,const DeepCollectionEquality().hash(tools),disable,description,const DeepCollectionEquality().hash(mode),permission);
 
 @override
 String toString() {
-  return 'AgentConfig(model: $model, temperature: $temperature, topP: $topP, prompt: $prompt, tools: $tools, disable: $disable, description: $description, mode: $mode, agentConfigPermission: $agentConfigPermission)';
+  return 'AgentConfig(model: $model, temperature: $temperature, topP: $topP, prompt: $prompt, tools: $tools, disable: $disable, description: $description, mode: $mode, permission: $permission)';
 }
 
 
@@ -49,11 +49,11 @@ abstract mixin class $AgentConfigCopyWith<$Res>  {
   factory $AgentConfigCopyWith(AgentConfig value, $Res Function(AgentConfig) _then) = _$AgentConfigCopyWithImpl;
 @useResult
 $Res call({
- String? model, num? temperature,@JsonKey(name: 'top_p') num? topP, String? prompt, Map<String, bool>? tools, bool? disable, String? description, dynamic mode,@JsonKey(name: 'AgentConfigPermission') AgentConfigPermission? agentConfigPermission
+ String? model, num? temperature,@JsonKey(name: 'top_p') num? topP, String? prompt, Map<String, bool>? tools, bool? disable, String? description, dynamic mode, AgentConfigPermission? permission
 });
 
 
-$AgentConfigPermissionCopyWith<$Res>? get agentConfigPermission;
+$AgentConfigPermissionCopyWith<$Res>? get permission;
 
 }
 /// @nodoc
@@ -66,7 +66,7 @@ class _$AgentConfigCopyWithImpl<$Res>
 
 /// Create a copy of AgentConfig
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? model = freezed,Object? temperature = freezed,Object? topP = freezed,Object? prompt = freezed,Object? tools = freezed,Object? disable = freezed,Object? description = freezed,Object? mode = freezed,Object? agentConfigPermission = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? model = freezed,Object? temperature = freezed,Object? topP = freezed,Object? prompt = freezed,Object? tools = freezed,Object? disable = freezed,Object? description = freezed,Object? mode = freezed,Object? permission = freezed,}) {
   return _then(_self.copyWith(
 model: freezed == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as String?,temperature: freezed == temperature ? _self.temperature : temperature // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ as String?,tools: freezed == tools ? _self.tools : tools // ignore: cast_nullabl
 as Map<String, bool>?,disable: freezed == disable ? _self.disable : disable // ignore: cast_nullable_to_non_nullable
 as bool?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,mode: freezed == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
-as dynamic,agentConfigPermission: freezed == agentConfigPermission ? _self.agentConfigPermission : agentConfigPermission // ignore: cast_nullable_to_non_nullable
+as dynamic,permission: freezed == permission ? _self.permission : permission // ignore: cast_nullable_to_non_nullable
 as AgentConfigPermission?,
   ));
 }
@@ -84,13 +84,13 @@ as AgentConfigPermission?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AgentConfigPermissionCopyWith<$Res>? get agentConfigPermission {
-    if (_self.agentConfigPermission == null) {
+$AgentConfigPermissionCopyWith<$Res>? get permission {
+    if (_self.permission == null) {
     return null;
   }
 
-  return $AgentConfigPermissionCopyWith<$Res>(_self.agentConfigPermission!, (value) {
-    return _then(_self.copyWith(agentConfigPermission: value));
+  return $AgentConfigPermissionCopyWith<$Res>(_self.permission!, (value) {
+    return _then(_self.copyWith(permission: value));
   });
 }
 }
@@ -174,10 +174,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? model,  num? temperature, @JsonKey(name: 'top_p')  num? topP,  String? prompt,  Map<String, bool>? tools,  bool? disable,  String? description,  dynamic mode, @JsonKey(name: 'AgentConfigPermission')  AgentConfigPermission? agentConfigPermission)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? model,  num? temperature, @JsonKey(name: 'top_p')  num? topP,  String? prompt,  Map<String, bool>? tools,  bool? disable,  String? description,  dynamic mode,  AgentConfigPermission? permission)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AgentConfig() when $default != null:
-return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tools,_that.disable,_that.description,_that.mode,_that.agentConfigPermission);case _:
+return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tools,_that.disable,_that.description,_that.mode,_that.permission);case _:
   return orElse();
 
 }
@@ -195,10 +195,10 @@ return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tool
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? model,  num? temperature, @JsonKey(name: 'top_p')  num? topP,  String? prompt,  Map<String, bool>? tools,  bool? disable,  String? description,  dynamic mode, @JsonKey(name: 'AgentConfigPermission')  AgentConfigPermission? agentConfigPermission)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? model,  num? temperature, @JsonKey(name: 'top_p')  num? topP,  String? prompt,  Map<String, bool>? tools,  bool? disable,  String? description,  dynamic mode,  AgentConfigPermission? permission)  $default,) {final _that = this;
 switch (_that) {
 case _AgentConfig():
-return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tools,_that.disable,_that.description,_that.mode,_that.agentConfigPermission);case _:
+return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tools,_that.disable,_that.description,_that.mode,_that.permission);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -215,10 +215,10 @@ return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tool
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? model,  num? temperature, @JsonKey(name: 'top_p')  num? topP,  String? prompt,  Map<String, bool>? tools,  bool? disable,  String? description,  dynamic mode, @JsonKey(name: 'AgentConfigPermission')  AgentConfigPermission? agentConfigPermission)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? model,  num? temperature, @JsonKey(name: 'top_p')  num? topP,  String? prompt,  Map<String, bool>? tools,  bool? disable,  String? description,  dynamic mode,  AgentConfigPermission? permission)?  $default,) {final _that = this;
 switch (_that) {
 case _AgentConfig() when $default != null:
-return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tools,_that.disable,_that.description,_that.mode,_that.agentConfigPermission);case _:
+return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tools,_that.disable,_that.description,_that.mode,_that.permission);case _:
   return null;
 
 }
@@ -230,7 +230,7 @@ return $default(_that.model,_that.temperature,_that.topP,_that.prompt,_that.tool
 @JsonSerializable()
 
 class _AgentConfig implements AgentConfig {
-  const _AgentConfig({this.model, this.temperature, @JsonKey(name: 'top_p') this.topP, this.prompt, final  Map<String, bool>? tools, this.disable, this.description, this.mode, @JsonKey(name: 'AgentConfigPermission') this.agentConfigPermission}): _tools = tools;
+  const _AgentConfig({this.model, this.temperature, @JsonKey(name: 'top_p') this.topP, this.prompt, final  Map<String, bool>? tools, this.disable, this.description, this.mode, this.permission}): _tools = tools;
   factory _AgentConfig.fromJson(Map<String, dynamic> json) => _$AgentConfigFromJson(json);
 
 @override final  String? model;
@@ -250,7 +250,7 @@ class _AgentConfig implements AgentConfig {
 /// Description of when to use the agent
 @override final  String? description;
 @override final  dynamic mode;
-@override@JsonKey(name: 'AgentConfigPermission') final  AgentConfigPermission? agentConfigPermission;
+@override final  AgentConfigPermission? permission;
 
 /// Create a copy of AgentConfig
 /// with the given fields replaced by the non-null parameter values.
@@ -265,16 +265,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgentConfig&&(identical(other.model, model) || other.model == model)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.topP, topP) || other.topP == topP)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&const DeepCollectionEquality().equals(other._tools, _tools)&&(identical(other.disable, disable) || other.disable == disable)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.mode, mode)&&(identical(other.agentConfigPermission, agentConfigPermission) || other.agentConfigPermission == agentConfigPermission));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AgentConfig&&(identical(other.model, model) || other.model == model)&&(identical(other.temperature, temperature) || other.temperature == temperature)&&(identical(other.topP, topP) || other.topP == topP)&&(identical(other.prompt, prompt) || other.prompt == prompt)&&const DeepCollectionEquality().equals(other._tools, _tools)&&(identical(other.disable, disable) || other.disable == disable)&&(identical(other.description, description) || other.description == description)&&const DeepCollectionEquality().equals(other.mode, mode)&&(identical(other.permission, permission) || other.permission == permission));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,model,temperature,topP,prompt,const DeepCollectionEquality().hash(_tools),disable,description,const DeepCollectionEquality().hash(mode),agentConfigPermission);
+int get hashCode => Object.hash(runtimeType,model,temperature,topP,prompt,const DeepCollectionEquality().hash(_tools),disable,description,const DeepCollectionEquality().hash(mode),permission);
 
 @override
 String toString() {
-  return 'AgentConfig(model: $model, temperature: $temperature, topP: $topP, prompt: $prompt, tools: $tools, disable: $disable, description: $description, mode: $mode, agentConfigPermission: $agentConfigPermission)';
+  return 'AgentConfig(model: $model, temperature: $temperature, topP: $topP, prompt: $prompt, tools: $tools, disable: $disable, description: $description, mode: $mode, permission: $permission)';
 }
 
 
@@ -285,11 +285,11 @@ abstract mixin class _$AgentConfigCopyWith<$Res> implements $AgentConfigCopyWith
   factory _$AgentConfigCopyWith(_AgentConfig value, $Res Function(_AgentConfig) _then) = __$AgentConfigCopyWithImpl;
 @override @useResult
 $Res call({
- String? model, num? temperature,@JsonKey(name: 'top_p') num? topP, String? prompt, Map<String, bool>? tools, bool? disable, String? description, dynamic mode,@JsonKey(name: 'AgentConfigPermission') AgentConfigPermission? agentConfigPermission
+ String? model, num? temperature,@JsonKey(name: 'top_p') num? topP, String? prompt, Map<String, bool>? tools, bool? disable, String? description, dynamic mode, AgentConfigPermission? permission
 });
 
 
-@override $AgentConfigPermissionCopyWith<$Res>? get agentConfigPermission;
+@override $AgentConfigPermissionCopyWith<$Res>? get permission;
 
 }
 /// @nodoc
@@ -302,7 +302,7 @@ class __$AgentConfigCopyWithImpl<$Res>
 
 /// Create a copy of AgentConfig
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? model = freezed,Object? temperature = freezed,Object? topP = freezed,Object? prompt = freezed,Object? tools = freezed,Object? disable = freezed,Object? description = freezed,Object? mode = freezed,Object? agentConfigPermission = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? model = freezed,Object? temperature = freezed,Object? topP = freezed,Object? prompt = freezed,Object? tools = freezed,Object? disable = freezed,Object? description = freezed,Object? mode = freezed,Object? permission = freezed,}) {
   return _then(_AgentConfig(
 model: freezed == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as String?,temperature: freezed == temperature ? _self.temperature : temperature // ignore: cast_nullable_to_non_nullable
@@ -312,7 +312,7 @@ as String?,tools: freezed == tools ? _self._tools : tools // ignore: cast_nullab
 as Map<String, bool>?,disable: freezed == disable ? _self.disable : disable // ignore: cast_nullable_to_non_nullable
 as bool?,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,mode: freezed == mode ? _self.mode : mode // ignore: cast_nullable_to_non_nullable
-as dynamic,agentConfigPermission: freezed == agentConfigPermission ? _self.agentConfigPermission : agentConfigPermission // ignore: cast_nullable_to_non_nullable
+as dynamic,permission: freezed == permission ? _self.permission : permission // ignore: cast_nullable_to_non_nullable
 as AgentConfigPermission?,
   ));
 }
@@ -321,13 +321,13 @@ as AgentConfigPermission?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$AgentConfigPermissionCopyWith<$Res>? get agentConfigPermission {
-    if (_self.agentConfigPermission == null) {
+$AgentConfigPermissionCopyWith<$Res>? get permission {
+    if (_self.permission == null) {
     return null;
   }
 
-  return $AgentConfigPermissionCopyWith<$Res>(_self.agentConfigPermission!, (value) {
-    return _then(_self.copyWith(agentConfigPermission: value));
+  return $AgentConfigPermissionCopyWith<$Res>(_self.permission!, (value) {
+    return _then(_self.copyWith(permission: value));
   });
 }
 }

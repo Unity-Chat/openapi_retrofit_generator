@@ -18,10 +18,10 @@ class Session with SessionMappable {
     required this.directory,
     required this.title,
     required this.version,
-    required this.sessionTime,
+    required this.time,
     this.parentId,
-    this.sessionShare,
-    this.sessionRevert,
+    this.share,
+    this.revert,
   });
 
   final String id;
@@ -30,14 +30,11 @@ class Session with SessionMappable {
   final String directory;
   final String title;
   final String version;
-  @MappableField(key: 'SessionTime')
-  final SessionTime sessionTime;
+  final SessionTime time;
   @MappableField(key: 'parentID')
   final String? parentId;
-  @MappableField(key: 'SessionShare')
-  final SessionShare? sessionShare;
-  @MappableField(key: 'SessionRevert')
-  final SessionRevert? sessionRevert;
+  final SessionShare? share;
+  final SessionRevert? revert;
 
   static Session fromJson(Map<String, dynamic> json) =>
       SessionMapper.fromJson(json);

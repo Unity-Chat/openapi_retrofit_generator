@@ -13,8 +13,7 @@ part 'event_session_deleted.g.dart';
 abstract class EventSessionDeleted with _$EventSessionDeleted {
   const factory EventSessionDeleted({
     required String type,
-    @JsonKey(name: 'EventSessionDeletedProperties')
-    required EventSessionDeletedProperties eventSessionDeletedProperties,
+    required EventSessionDeletedProperties properties,
   }) = _EventSessionDeleted;
 
   factory EventSessionDeleted.fromJson(Map<String, Object?> json) =>

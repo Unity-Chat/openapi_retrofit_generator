@@ -34,16 +34,9 @@ class SessionPromptRequestMapper extends ClassMapperBase<SessionPromptRequest> {
     key: r'messageID',
     opt: true,
   );
-  static SessionPromptRequestModel? _$sessionPromptRequestModel(
-    SessionPromptRequest v,
-  ) => v.sessionPromptRequestModel;
-  static const Field<SessionPromptRequest, SessionPromptRequestModel>
-  _f$sessionPromptRequestModel = Field(
-    'sessionPromptRequestModel',
-    _$sessionPromptRequestModel,
-    key: r'SessionPromptRequestModel',
-    opt: true,
-  );
+  static SessionPromptRequestModel? _$model(SessionPromptRequest v) => v.model;
+  static const Field<SessionPromptRequest, SessionPromptRequestModel> _f$model =
+      Field('model', _$model, opt: true);
   static String? _$agent(SessionPromptRequest v) => v.agent;
   static const Field<SessionPromptRequest, String> _f$agent = Field(
     'agent',
@@ -62,39 +55,32 @@ class SessionPromptRequestMapper extends ClassMapperBase<SessionPromptRequest> {
     _$tools,
     opt: true,
   );
-  static SessionPromptRequestAcpConnection? _$sessionPromptRequestAcpConnection(
+  static SessionPromptRequestAcpConnection? _$acpConnection(
     SessionPromptRequest v,
-  ) => v.sessionPromptRequestAcpConnection;
+  ) => v.acpConnection;
   static const Field<SessionPromptRequest, SessionPromptRequestAcpConnection>
-  _f$sessionPromptRequestAcpConnection = Field(
-    'sessionPromptRequestAcpConnection',
-    _$sessionPromptRequestAcpConnection,
-    key: r'SessionPromptRequestAcpConnection',
-    opt: true,
-  );
+  _f$acpConnection = Field('acpConnection', _$acpConnection, opt: true);
 
   @override
   final MappableFields<SessionPromptRequest> fields = const {
     #parts: _f$parts,
     #messageId: _f$messageId,
-    #sessionPromptRequestModel: _f$sessionPromptRequestModel,
+    #model: _f$model,
     #agent: _f$agent,
     #system: _f$system,
     #tools: _f$tools,
-    #sessionPromptRequestAcpConnection: _f$sessionPromptRequestAcpConnection,
+    #acpConnection: _f$acpConnection,
   };
 
   static SessionPromptRequest _instantiate(DecodingData data) {
     return SessionPromptRequest(
       parts: data.dec(_f$parts),
       messageId: data.dec(_f$messageId),
-      sessionPromptRequestModel: data.dec(_f$sessionPromptRequestModel),
+      model: data.dec(_f$model),
       agent: data.dec(_f$agent),
       system: data.dec(_f$system),
       tools: data.dec(_f$tools),
-      sessionPromptRequestAcpConnection: data.dec(
-        _f$sessionPromptRequestAcpConnection,
-      ),
+      acpConnection: data.dec(_f$acpConnection),
     );
   }
 
@@ -183,22 +169,22 @@ abstract class SessionPromptRequestCopyWith<
     SessionPromptRequestModel,
     SessionPromptRequestModel
   >?
-  get sessionPromptRequestModel;
+  get model;
   MapCopyWith<$R, String, bool, ObjectCopyWith<$R, bool, bool>>? get tools;
   SessionPromptRequestAcpConnectionCopyWith<
     $R,
     SessionPromptRequestAcpConnection,
     SessionPromptRequestAcpConnection
   >?
-  get sessionPromptRequestAcpConnection;
+  get acpConnection;
   $R call({
     List<SessionPromptRequestPartsParts>? parts,
     String? messageId,
-    SessionPromptRequestModel? sessionPromptRequestModel,
+    SessionPromptRequestModel? model,
     String? agent,
     String? system,
     Map<String, bool>? tools,
-    SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection,
+    SessionPromptRequestAcpConnection? acpConnection,
   });
   SessionPromptRequestCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -234,8 +220,7 @@ class _SessionPromptRequestCopyWithImpl<$R, $Out>
     SessionPromptRequestModel,
     SessionPromptRequestModel
   >?
-  get sessionPromptRequestModel => $value.sessionPromptRequestModel?.copyWith
-      .$chain((v) => call(sessionPromptRequestModel: v));
+  get model => $value.model?.copyWith.$chain((v) => call(model: v));
   @override
   MapCopyWith<$R, String, bool, ObjectCopyWith<$R, bool, bool>>? get tools =>
       $value.tools != null
@@ -251,47 +236,37 @@ class _SessionPromptRequestCopyWithImpl<$R, $Out>
     SessionPromptRequestAcpConnection,
     SessionPromptRequestAcpConnection
   >?
-  get sessionPromptRequestAcpConnection => $value
-      .sessionPromptRequestAcpConnection
-      ?.copyWith
-      .$chain((v) => call(sessionPromptRequestAcpConnection: v));
+  get acpConnection =>
+      $value.acpConnection?.copyWith.$chain((v) => call(acpConnection: v));
   @override
   $R call({
     List<SessionPromptRequestPartsParts>? parts,
     Object? messageId = $none,
-    Object? sessionPromptRequestModel = $none,
+    Object? model = $none,
     Object? agent = $none,
     Object? system = $none,
     Object? tools = $none,
-    Object? sessionPromptRequestAcpConnection = $none,
+    Object? acpConnection = $none,
   }) => $apply(
     FieldCopyWithData({
       if (parts != null) #parts: parts,
       if (messageId != $none) #messageId: messageId,
-      if (sessionPromptRequestModel != $none)
-        #sessionPromptRequestModel: sessionPromptRequestModel,
+      if (model != $none) #model: model,
       if (agent != $none) #agent: agent,
       if (system != $none) #system: system,
       if (tools != $none) #tools: tools,
-      if (sessionPromptRequestAcpConnection != $none)
-        #sessionPromptRequestAcpConnection: sessionPromptRequestAcpConnection,
+      if (acpConnection != $none) #acpConnection: acpConnection,
     }),
   );
   @override
   SessionPromptRequest $make(CopyWithData data) => SessionPromptRequest(
     parts: data.get(#parts, or: $value.parts),
     messageId: data.get(#messageId, or: $value.messageId),
-    sessionPromptRequestModel: data.get(
-      #sessionPromptRequestModel,
-      or: $value.sessionPromptRequestModel,
-    ),
+    model: data.get(#model, or: $value.model),
     agent: data.get(#agent, or: $value.agent),
     system: data.get(#system, or: $value.system),
     tools: data.get(#tools, or: $value.tools),
-    sessionPromptRequestAcpConnection: data.get(
-      #sessionPromptRequestAcpConnection,
-      or: $value.sessionPromptRequestAcpConnection,
-    ),
+    acpConnection: data.get(#acpConnection, or: $value.acpConnection),
   );
 
   @override

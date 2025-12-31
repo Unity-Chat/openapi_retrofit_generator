@@ -13,17 +13,13 @@ part 'api_v1_category_list_request.mapper.dart';
 class ApiV1CategoryListRequest with ApiV1CategoryListRequestMappable {
   const ApiV1CategoryListRequest({
     required this.includedField,
-    this.apiV1CategoryListRequestNestedIncluded,
-    this.apiV1CategoryListRequestAnchorReference,
+    this.nestedIncluded,
+    this.anchorReference,
   });
 
   final String includedField;
-  @MappableField(key: 'ApiV1CategoryListRequestNestedIncluded')
-  final ApiV1CategoryListRequestNestedIncluded?
-  apiV1CategoryListRequestNestedIncluded;
-  @MappableField(key: 'ApiV1CategoryListRequestAnchorReference')
-  final ApiV1CategoryListRequestAnchorReference?
-  apiV1CategoryListRequestAnchorReference;
+  final ApiV1CategoryListRequestNestedIncluded? nestedIncluded;
+  final ApiV1CategoryListRequestAnchorReference? anchorReference;
 
   static ApiV1CategoryListRequest fromJson(Map<String, dynamic> json) =>
       ApiV1CategoryListRequestMapper.fromJson(json);

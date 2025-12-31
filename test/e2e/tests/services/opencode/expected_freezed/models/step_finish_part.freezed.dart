@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StepFinishPart {
 
- String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; num get cost;@JsonKey(name: 'StepFinishPartTokens') StepFinishPartTokens get stepFinishPartTokens; String? get snapshot;
+ String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; num get cost; StepFinishPartTokens get tokens; String? get snapshot;
 /// Create a copy of StepFinishPart
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $StepFinishPartCopyWith<StepFinishPart> get copyWith => _$StepFinishPartCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StepFinishPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.stepFinishPartTokens, stepFinishPartTokens) || other.stepFinishPartTokens == stepFinishPartTokens)&&(identical(other.snapshot, snapshot) || other.snapshot == snapshot));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StepFinishPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.tokens, tokens) || other.tokens == tokens)&&(identical(other.snapshot, snapshot) || other.snapshot == snapshot));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,cost,stepFinishPartTokens,snapshot);
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,cost,tokens,snapshot);
 
 @override
 String toString() {
-  return 'StepFinishPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, cost: $cost, stepFinishPartTokens: $stepFinishPartTokens, snapshot: $snapshot)';
+  return 'StepFinishPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, cost: $cost, tokens: $tokens, snapshot: $snapshot)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $StepFinishPartCopyWith<$Res>  {
   factory $StepFinishPartCopyWith(StepFinishPart value, $Res Function(StepFinishPart) _then) = _$StepFinishPartCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, num cost,@JsonKey(name: 'StepFinishPartTokens') StepFinishPartTokens stepFinishPartTokens, String? snapshot
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, num cost, StepFinishPartTokens tokens, String? snapshot
 });
 
 
-$StepFinishPartTokensCopyWith<$Res> get stepFinishPartTokens;
+$StepFinishPartTokensCopyWith<$Res> get tokens;
 
 }
 /// @nodoc
@@ -65,14 +65,14 @@ class _$StepFinishPartCopyWithImpl<$Res>
 
 /// Create a copy of StepFinishPart
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? cost = null,Object? stepFinishPartTokens = null,Object? snapshot = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? cost = null,Object? tokens = null,Object? snapshot = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,cost: null == cost ? _self.cost : cost // ignore: cast_nullable_to_non_nullable
-as num,stepFinishPartTokens: null == stepFinishPartTokens ? _self.stepFinishPartTokens : stepFinishPartTokens // ignore: cast_nullable_to_non_nullable
+as num,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
 as StepFinishPartTokens,snapshot: freezed == snapshot ? _self.snapshot : snapshot // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -81,10 +81,10 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$StepFinishPartTokensCopyWith<$Res> get stepFinishPartTokens {
+$StepFinishPartTokensCopyWith<$Res> get tokens {
   
-  return $StepFinishPartTokensCopyWith<$Res>(_self.stepFinishPartTokens, (value) {
-    return _then(_self.copyWith(stepFinishPartTokens: value));
+  return $StepFinishPartTokensCopyWith<$Res>(_self.tokens, (value) {
+    return _then(_self.copyWith(tokens: value));
   });
 }
 }
@@ -168,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  num cost, @JsonKey(name: 'StepFinishPartTokens')  StepFinishPartTokens stepFinishPartTokens,  String? snapshot)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  num cost,  StepFinishPartTokens tokens,  String? snapshot)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StepFinishPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_that.stepFinishPartTokens,_that.snapshot);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_that.tokens,_that.snapshot);case _:
   return orElse();
 
 }
@@ -189,10 +189,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  num cost, @JsonKey(name: 'StepFinishPartTokens')  StepFinishPartTokens stepFinishPartTokens,  String? snapshot)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  num cost,  StepFinishPartTokens tokens,  String? snapshot)  $default,) {final _that = this;
 switch (_that) {
 case _StepFinishPart():
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_that.stepFinishPartTokens,_that.snapshot);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_that.tokens,_that.snapshot);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +209,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  num cost, @JsonKey(name: 'StepFinishPartTokens')  StepFinishPartTokens stepFinishPartTokens,  String? snapshot)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  num cost,  StepFinishPartTokens tokens,  String? snapshot)?  $default,) {final _that = this;
 switch (_that) {
 case _StepFinishPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_that.stepFinishPartTokens,_that.snapshot);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_that.tokens,_that.snapshot);case _:
   return null;
 
 }
@@ -224,7 +224,7 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.cost,_
 @JsonSerializable()
 
 class _StepFinishPart implements StepFinishPart {
-  const _StepFinishPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.cost, @JsonKey(name: 'StepFinishPartTokens') required this.stepFinishPartTokens, this.snapshot});
+  const _StepFinishPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.cost, required this.tokens, this.snapshot});
   factory _StepFinishPart.fromJson(Map<String, dynamic> json) => _$StepFinishPartFromJson(json);
 
 @override final  String id;
@@ -232,7 +232,7 @@ class _StepFinishPart implements StepFinishPart {
 @override@JsonKey(name: 'messageID') final  String messageId;
 @override final  String type;
 @override final  num cost;
-@override@JsonKey(name: 'StepFinishPartTokens') final  StepFinishPartTokens stepFinishPartTokens;
+@override final  StepFinishPartTokens tokens;
 @override final  String? snapshot;
 
 /// Create a copy of StepFinishPart
@@ -248,16 +248,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StepFinishPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.stepFinishPartTokens, stepFinishPartTokens) || other.stepFinishPartTokens == stepFinishPartTokens)&&(identical(other.snapshot, snapshot) || other.snapshot == snapshot));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StepFinishPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.tokens, tokens) || other.tokens == tokens)&&(identical(other.snapshot, snapshot) || other.snapshot == snapshot));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,cost,stepFinishPartTokens,snapshot);
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,cost,tokens,snapshot);
 
 @override
 String toString() {
-  return 'StepFinishPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, cost: $cost, stepFinishPartTokens: $stepFinishPartTokens, snapshot: $snapshot)';
+  return 'StepFinishPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, cost: $cost, tokens: $tokens, snapshot: $snapshot)';
 }
 
 
@@ -268,11 +268,11 @@ abstract mixin class _$StepFinishPartCopyWith<$Res> implements $StepFinishPartCo
   factory _$StepFinishPartCopyWith(_StepFinishPart value, $Res Function(_StepFinishPart) _then) = __$StepFinishPartCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, num cost,@JsonKey(name: 'StepFinishPartTokens') StepFinishPartTokens stepFinishPartTokens, String? snapshot
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, num cost, StepFinishPartTokens tokens, String? snapshot
 });
 
 
-@override $StepFinishPartTokensCopyWith<$Res> get stepFinishPartTokens;
+@override $StepFinishPartTokensCopyWith<$Res> get tokens;
 
 }
 /// @nodoc
@@ -285,14 +285,14 @@ class __$StepFinishPartCopyWithImpl<$Res>
 
 /// Create a copy of StepFinishPart
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? cost = null,Object? stepFinishPartTokens = null,Object? snapshot = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? cost = null,Object? tokens = null,Object? snapshot = freezed,}) {
   return _then(_StepFinishPart(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,cost: null == cost ? _self.cost : cost // ignore: cast_nullable_to_non_nullable
-as num,stepFinishPartTokens: null == stepFinishPartTokens ? _self.stepFinishPartTokens : stepFinishPartTokens // ignore: cast_nullable_to_non_nullable
+as num,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
 as StepFinishPartTokens,snapshot: freezed == snapshot ? _self.snapshot : snapshot // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
@@ -302,10 +302,10 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$StepFinishPartTokensCopyWith<$Res> get stepFinishPartTokens {
+$StepFinishPartTokensCopyWith<$Res> get tokens {
   
-  return $StepFinishPartTokensCopyWith<$Res>(_self.stepFinishPartTokens, (value) {
-    return _then(_self.copyWith(stepFinishPartTokens: value));
+  return $StepFinishPartTokensCopyWith<$Res>(_self.tokens, (value) {
+    return _then(_self.copyWith(tokens: value));
   });
 }
 }

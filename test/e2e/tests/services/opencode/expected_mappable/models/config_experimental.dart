@@ -10,13 +10,9 @@ part 'config_experimental.mapper.dart';
 
 @MappableClass()
 class ConfigExperimental with ConfigExperimentalMappable {
-  const ConfigExperimental({
-    this.configExperimentalHook,
-    this.disablePasteSummary,
-  });
+  const ConfigExperimental({this.hook, this.disablePasteSummary});
 
-  @MappableField(key: 'ConfigExperimentalHook')
-  final ConfigExperimentalHook? configExperimentalHook;
+  final ConfigExperimentalHook? hook;
   @MappableField(key: 'disable_paste_summary')
   final bool? disablePasteSummary;
 

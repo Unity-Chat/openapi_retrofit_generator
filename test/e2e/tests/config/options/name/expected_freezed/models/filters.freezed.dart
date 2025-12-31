@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Filters {
 
- String? get authorId; List<String>? get tags;@JsonKey(name: 'FiltersDateRange') FiltersDateRange? get filtersDateRange;
+ String? get authorId; List<String>? get tags; FiltersDateRange? get dateRange;
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $FiltersCopyWith<Filters> get copyWith => _$FiltersCopyWithImpl<Filters>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.filtersDateRange, filtersDateRange) || other.filtersDateRange == filtersDateRange));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other.tags, tags)&&(identical(other.dateRange, dateRange) || other.dateRange == dateRange));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(tags),filtersDateRange);
+int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(tags),dateRange);
 
 @override
 String toString() {
-  return 'Filters(authorId: $authorId, tags: $tags, filtersDateRange: $filtersDateRange)';
+  return 'Filters(authorId: $authorId, tags: $tags, dateRange: $dateRange)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $FiltersCopyWith<$Res>  {
   factory $FiltersCopyWith(Filters value, $Res Function(Filters) _then) = _$FiltersCopyWithImpl;
 @useResult
 $Res call({
- String? authorId, List<String>? tags,@JsonKey(name: 'FiltersDateRange') FiltersDateRange? filtersDateRange
+ String? authorId, List<String>? tags, FiltersDateRange? dateRange
 });
 
 
-$FiltersDateRangeCopyWith<$Res>? get filtersDateRange;
+$FiltersDateRangeCopyWith<$Res>? get dateRange;
 
 }
 /// @nodoc
@@ -65,11 +65,11 @@ class _$FiltersCopyWithImpl<$Res>
 
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? authorId = freezed,Object? tags = freezed,Object? filtersDateRange = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? authorId = freezed,Object? tags = freezed,Object? dateRange = freezed,}) {
   return _then(_self.copyWith(
 authorId: freezed == authorId ? _self.authorId : authorId // ignore: cast_nullable_to_non_nullable
 as String?,tags: freezed == tags ? _self.tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>?,filtersDateRange: freezed == filtersDateRange ? _self.filtersDateRange : filtersDateRange // ignore: cast_nullable_to_non_nullable
+as List<String>?,dateRange: freezed == dateRange ? _self.dateRange : dateRange // ignore: cast_nullable_to_non_nullable
 as FiltersDateRange?,
   ));
 }
@@ -77,13 +77,13 @@ as FiltersDateRange?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FiltersDateRangeCopyWith<$Res>? get filtersDateRange {
-    if (_self.filtersDateRange == null) {
+$FiltersDateRangeCopyWith<$Res>? get dateRange {
+    if (_self.dateRange == null) {
     return null;
   }
 
-  return $FiltersDateRangeCopyWith<$Res>(_self.filtersDateRange!, (value) {
-    return _then(_self.copyWith(filtersDateRange: value));
+  return $FiltersDateRangeCopyWith<$Res>(_self.dateRange!, (value) {
+    return _then(_self.copyWith(dateRange: value));
   });
 }
 }
@@ -167,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags, @JsonKey(name: 'FiltersDateRange')  FiltersDateRange? filtersDateRange)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags,  FiltersDateRange? dateRange)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Filters() when $default != null:
-return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
+return $default(_that.authorId,_that.tags,_that.dateRange);case _:
   return orElse();
 
 }
@@ -188,10 +188,10 @@ return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags, @JsonKey(name: 'FiltersDateRange')  FiltersDateRange? filtersDateRange)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? authorId,  List<String>? tags,  FiltersDateRange? dateRange)  $default,) {final _that = this;
 switch (_that) {
 case _Filters():
-return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
+return $default(_that.authorId,_that.tags,_that.dateRange);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +208,10 @@ return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? authorId,  List<String>? tags, @JsonKey(name: 'FiltersDateRange')  FiltersDateRange? filtersDateRange)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? authorId,  List<String>? tags,  FiltersDateRange? dateRange)?  $default,) {final _that = this;
 switch (_that) {
 case _Filters() when $default != null:
-return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
+return $default(_that.authorId,_that.tags,_that.dateRange);case _:
   return null;
 
 }
@@ -223,7 +223,7 @@ return $default(_that.authorId,_that.tags,_that.filtersDateRange);case _:
 @JsonSerializable()
 
 class _Filters implements Filters {
-  const _Filters({this.authorId, final  List<String>? tags, @JsonKey(name: 'FiltersDateRange') this.filtersDateRange}): _tags = tags;
+  const _Filters({this.authorId, final  List<String>? tags, this.dateRange}): _tags = tags;
   factory _Filters.fromJson(Map<String, dynamic> json) => _$FiltersFromJson(json);
 
 @override final  String? authorId;
@@ -236,7 +236,7 @@ class _Filters implements Filters {
   return EqualUnmodifiableListView(value);
 }
 
-@override@JsonKey(name: 'FiltersDateRange') final  FiltersDateRange? filtersDateRange;
+@override final  FiltersDateRange? dateRange;
 
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
@@ -251,16 +251,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.filtersDateRange, filtersDateRange) || other.filtersDateRange == filtersDateRange));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Filters&&(identical(other.authorId, authorId) || other.authorId == authorId)&&const DeepCollectionEquality().equals(other._tags, _tags)&&(identical(other.dateRange, dateRange) || other.dateRange == dateRange));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(_tags),filtersDateRange);
+int get hashCode => Object.hash(runtimeType,authorId,const DeepCollectionEquality().hash(_tags),dateRange);
 
 @override
 String toString() {
-  return 'Filters(authorId: $authorId, tags: $tags, filtersDateRange: $filtersDateRange)';
+  return 'Filters(authorId: $authorId, tags: $tags, dateRange: $dateRange)';
 }
 
 
@@ -271,11 +271,11 @@ abstract mixin class _$FiltersCopyWith<$Res> implements $FiltersCopyWith<$Res> {
   factory _$FiltersCopyWith(_Filters value, $Res Function(_Filters) _then) = __$FiltersCopyWithImpl;
 @override @useResult
 $Res call({
- String? authorId, List<String>? tags,@JsonKey(name: 'FiltersDateRange') FiltersDateRange? filtersDateRange
+ String? authorId, List<String>? tags, FiltersDateRange? dateRange
 });
 
 
-@override $FiltersDateRangeCopyWith<$Res>? get filtersDateRange;
+@override $FiltersDateRangeCopyWith<$Res>? get dateRange;
 
 }
 /// @nodoc
@@ -288,11 +288,11 @@ class __$FiltersCopyWithImpl<$Res>
 
 /// Create a copy of Filters
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? authorId = freezed,Object? tags = freezed,Object? filtersDateRange = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? authorId = freezed,Object? tags = freezed,Object? dateRange = freezed,}) {
   return _then(_Filters(
 authorId: freezed == authorId ? _self.authorId : authorId // ignore: cast_nullable_to_non_nullable
 as String?,tags: freezed == tags ? _self._tags : tags // ignore: cast_nullable_to_non_nullable
-as List<String>?,filtersDateRange: freezed == filtersDateRange ? _self.filtersDateRange : filtersDateRange // ignore: cast_nullable_to_non_nullable
+as List<String>?,dateRange: freezed == dateRange ? _self.dateRange : dateRange // ignore: cast_nullable_to_non_nullable
 as FiltersDateRange?,
   ));
 }
@@ -301,13 +301,13 @@ as FiltersDateRange?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FiltersDateRangeCopyWith<$Res>? get filtersDateRange {
-    if (_self.filtersDateRange == null) {
+$FiltersDateRangeCopyWith<$Res>? get dateRange {
+    if (_self.dateRange == null) {
     return null;
   }
 
-  return $FiltersDateRangeCopyWith<$Res>(_self.filtersDateRange!, (value) {
-    return _then(_self.copyWith(filtersDateRange: value));
+  return $FiltersDateRangeCopyWith<$Res>(_self.dateRange!, (value) {
+    return _then(_self.copyWith(dateRange: value));
   });
 }
 }

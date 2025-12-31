@@ -13,10 +13,10 @@ DebugSchemaData _$DebugSchemaDataFromJson(Map<String, dynamic> json) =>
       status: json['status'] == null
           ? null
           : DebugSchemaDataStatusStatus.fromJson(json['status'] as String),
-      debugSchemaDataMetadata: json['DebugSchemaDataMetadata'] == null
+      metadata: json['metadata'] == null
           ? null
           : DebugSchemaDataMetadata.fromJson(
-              json['DebugSchemaDataMetadata'] as Map<String, dynamic>,
+              json['metadata'] as Map<String, dynamic>,
             ),
     );
 
@@ -25,5 +25,5 @@ Map<String, dynamic> _$DebugSchemaDataToJson(DebugSchemaData instance) =>
       'name': ?instance.name,
       'id': ?instance.id,
       'status': ?instance.status,
-      'DebugSchemaDataMetadata': ?instance.debugSchemaDataMetadata,
+      'metadata': ?instance.metadata,
     };

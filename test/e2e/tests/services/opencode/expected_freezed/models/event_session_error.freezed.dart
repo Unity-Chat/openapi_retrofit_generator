@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventSessionError {
 
- String get type;@JsonKey(name: 'EventSessionErrorProperties') EventSessionErrorProperties get eventSessionErrorProperties;
+ String get type; EventSessionErrorProperties get properties;
 /// Create a copy of EventSessionError
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventSessionErrorCopyWith<EventSessionError> get copyWith => _$EventSessionErro
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionError&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionErrorProperties, eventSessionErrorProperties) || other.eventSessionErrorProperties == eventSessionErrorProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionError&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionErrorProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionError(type: $type, eventSessionErrorProperties: $eventSessionErrorProperties)';
+  return 'EventSessionError(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventSessionErrorCopyWith<$Res>  {
   factory $EventSessionErrorCopyWith(EventSessionError value, $Res Function(EventSessionError) _then) = _$EventSessionErrorCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionErrorProperties') EventSessionErrorProperties eventSessionErrorProperties
+ String type, EventSessionErrorProperties properties
 });
 
 
-$EventSessionErrorPropertiesCopyWith<$Res> get eventSessionErrorProperties;
+$EventSessionErrorPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventSessionErrorCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionError
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventSessionErrorProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionErrorProperties: null == eventSessionErrorProperties ? _self.eventSessionErrorProperties : eventSessionErrorProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionErrorProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventSessionErrorProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionErrorPropertiesCopyWith<$Res> get eventSessionErrorProperties {
+$EventSessionErrorPropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionErrorPropertiesCopyWith<$Res>(_self.eventSessionErrorProperties, (value) {
-    return _then(_self.copyWith(eventSessionErrorProperties: value));
+  return $EventSessionErrorPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionErrorProperties')  EventSessionErrorProperties eventSessionErrorProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventSessionErrorProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventSessionError() when $default != null:
-return $default(_that.type,_that.eventSessionErrorProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventSessionErrorProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionErrorProperties')  EventSessionErrorProperties eventSessionErrorProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventSessionErrorProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionError():
-return $default(_that.type,_that.eventSessionErrorProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventSessionErrorProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventSessionErrorProperties')  EventSessionErrorProperties eventSessionErrorProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventSessionErrorProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionError() when $default != null:
-return $default(_that.type,_that.eventSessionErrorProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventSessionErrorProperties);case _:
 @JsonSerializable()
 
 class _EventSessionError implements EventSessionError {
-  const _EventSessionError({required this.type, @JsonKey(name: 'EventSessionErrorProperties') required this.eventSessionErrorProperties});
+  const _EventSessionError({required this.type, required this.properties});
   factory _EventSessionError.fromJson(Map<String, dynamic> json) => _$EventSessionErrorFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventSessionErrorProperties') final  EventSessionErrorProperties eventSessionErrorProperties;
+@override final  EventSessionErrorProperties properties;
 
 /// Create a copy of EventSessionError
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionError&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionErrorProperties, eventSessionErrorProperties) || other.eventSessionErrorProperties == eventSessionErrorProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionError&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionErrorProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionError(type: $type, eventSessionErrorProperties: $eventSessionErrorProperties)';
+  return 'EventSessionError(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventSessionErrorCopyWith<$Res> implements $EventSessionE
   factory _$EventSessionErrorCopyWith(_EventSessionError value, $Res Function(_EventSessionError) _then) = __$EventSessionErrorCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionErrorProperties') EventSessionErrorProperties eventSessionErrorProperties
+ String type, EventSessionErrorProperties properties
 });
 
 
-@override $EventSessionErrorPropertiesCopyWith<$Res> get eventSessionErrorProperties;
+@override $EventSessionErrorPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventSessionErrorCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionError
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventSessionErrorProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventSessionError(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionErrorProperties: null == eventSessionErrorProperties ? _self.eventSessionErrorProperties : eventSessionErrorProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionErrorProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventSessionErrorProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionErrorPropertiesCopyWith<$Res> get eventSessionErrorProperties {
+$EventSessionErrorPropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionErrorPropertiesCopyWith<$Res>(_self.eventSessionErrorProperties, (value) {
-    return _then(_self.copyWith(eventSessionErrorProperties: value));
+  return $EventSessionErrorPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

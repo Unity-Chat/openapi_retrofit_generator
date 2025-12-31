@@ -14,11 +14,9 @@ _$SessionPromptRequestPartsPartsTextPartInputFromJson(
   type: json['type'] as String,
   text: json['text'] as String,
   synthetic: json['synthetic'] as bool?,
-  textPartInputTime: json['textPartInputTime'] == null
+  time: json['time'] == null
       ? null
-      : TextPartInputTime.fromJson(
-          json['textPartInputTime'] as Map<String, dynamic>,
-        ),
+      : TextPartInputTime.fromJson(json['time'] as Map<String, dynamic>),
   metadata: json['metadata'] as Map<String, dynamic>?,
 );
 
@@ -29,7 +27,7 @@ Map<String, dynamic> _$SessionPromptRequestPartsPartsTextPartInputToJson(
   'type': instance.type,
   'text': instance.text,
   'synthetic': instance.synthetic,
-  'textPartInputTime': instance.textPartInputTime,
+  'time': instance.time,
   'metadata': instance.metadata,
 };
 
@@ -65,11 +63,9 @@ _$SessionPromptRequestPartsPartsAgentPartInputFromJson(
   id: json['id'] as String?,
   type: json['type'] as String,
   name: json['name'] as String,
-  agentPartInputSource: json['agentPartInputSource'] == null
+  source: json['source'] == null
       ? null
-      : AgentPartInputSource.fromJson(
-          json['agentPartInputSource'] as Map<String, dynamic>,
-        ),
+      : AgentPartInputSource.fromJson(json['source'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$SessionPromptRequestPartsPartsAgentPartInputToJson(
@@ -78,5 +74,5 @@ Map<String, dynamic> _$SessionPromptRequestPartsPartsAgentPartInputToJson(
   'id': instance.id,
   'type': instance.type,
   'name': instance.name,
-  'agentPartInputSource': instance.agentPartInputSource,
+  'source': instance.source,
 };

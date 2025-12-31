@@ -35,12 +35,10 @@ class FileContentMapper extends ClassMapperBase<FileContent> {
     _$diff,
     opt: true,
   );
-  static FileContentPatch? _$fileContentPatch(FileContent v) =>
-      v.fileContentPatch;
-  static const Field<FileContent, FileContentPatch> _f$fileContentPatch = Field(
-    'fileContentPatch',
-    _$fileContentPatch,
-    key: r'FileContentPatch',
+  static FileContentPatch? _$patch(FileContent v) => v.patch;
+  static const Field<FileContent, FileContentPatch> _f$patch = Field(
+    'patch',
+    _$patch,
     opt: true,
   );
   static String? _$encoding(FileContent v) => v.encoding;
@@ -61,7 +59,7 @@ class FileContentMapper extends ClassMapperBase<FileContent> {
     #type: _f$type,
     #content: _f$content,
     #diff: _f$diff,
-    #fileContentPatch: _f$fileContentPatch,
+    #patch: _f$patch,
     #encoding: _f$encoding,
     #mimeType: _f$mimeType,
   };
@@ -71,7 +69,7 @@ class FileContentMapper extends ClassMapperBase<FileContent> {
       type: data.dec(_f$type),
       content: data.dec(_f$content),
       diff: data.dec(_f$diff),
-      fileContentPatch: data.dec(_f$fileContentPatch),
+      patch: data.dec(_f$patch),
       encoding: data.dec(_f$encoding),
       mimeType: data.dec(_f$mimeType),
     );
@@ -137,13 +135,12 @@ extension FileContentValueCopy<$R, $Out>
 
 abstract class FileContentCopyWith<$R, $In extends FileContent, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  FileContentPatchCopyWith<$R, FileContentPatch, FileContentPatch>?
-  get fileContentPatch;
+  FileContentPatchCopyWith<$R, FileContentPatch, FileContentPatch>? get patch;
   $R call({
     String? type,
     String? content,
     String? diff,
-    FileContentPatch? fileContentPatch,
+    FileContentPatch? patch,
     String? encoding,
     String? mimeType,
   });
@@ -159,16 +156,14 @@ class _FileContentCopyWithImpl<$R, $Out>
   late final ClassMapperBase<FileContent> $mapper =
       FileContentMapper.ensureInitialized();
   @override
-  FileContentPatchCopyWith<$R, FileContentPatch, FileContentPatch>?
-  get fileContentPatch => $value.fileContentPatch?.copyWith.$chain(
-    (v) => call(fileContentPatch: v),
-  );
+  FileContentPatchCopyWith<$R, FileContentPatch, FileContentPatch>? get patch =>
+      $value.patch?.copyWith.$chain((v) => call(patch: v));
   @override
   $R call({
     String? type,
     String? content,
     Object? diff = $none,
-    Object? fileContentPatch = $none,
+    Object? patch = $none,
     Object? encoding = $none,
     Object? mimeType = $none,
   }) => $apply(
@@ -176,7 +171,7 @@ class _FileContentCopyWithImpl<$R, $Out>
       if (type != null) #type: type,
       if (content != null) #content: content,
       if (diff != $none) #diff: diff,
-      if (fileContentPatch != $none) #fileContentPatch: fileContentPatch,
+      if (patch != $none) #patch: patch,
       if (encoding != $none) #encoding: encoding,
       if (mimeType != $none) #mimeType: mimeType,
     }),
@@ -186,7 +181,7 @@ class _FileContentCopyWithImpl<$R, $Out>
     type: data.get(#type, or: $value.type),
     content: data.get(#content, or: $value.content),
     diff: data.get(#diff, or: $value.diff),
-    fileContentPatch: data.get(#fileContentPatch, or: $value.fileContentPatch),
+    patch: data.get(#patch, or: $value.patch),
     encoding: data.get(#encoding, or: $value.encoding),
     mimeType: data.get(#mimeType, or: $value.mimeType),
   );

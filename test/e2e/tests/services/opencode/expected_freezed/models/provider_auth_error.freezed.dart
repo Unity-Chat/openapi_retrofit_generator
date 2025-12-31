@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProviderAuthError {
 
- String get name;@JsonKey(name: 'ProviderAuthErrorData') ProviderAuthErrorData get providerAuthErrorData;
+ String get name; ProviderAuthErrorData get data;
 /// Create a copy of ProviderAuthError
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProviderAuthErrorCopyWith<ProviderAuthError> get copyWith => _$ProviderAuthErro
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProviderAuthError&&(identical(other.name, name) || other.name == name)&&(identical(other.providerAuthErrorData, providerAuthErrorData) || other.providerAuthErrorData == providerAuthErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProviderAuthError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,providerAuthErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'ProviderAuthError(name: $name, providerAuthErrorData: $providerAuthErrorData)';
+  return 'ProviderAuthError(name: $name, data: $data)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ProviderAuthErrorCopyWith<$Res>  {
   factory $ProviderAuthErrorCopyWith(ProviderAuthError value, $Res Function(ProviderAuthError) _then) = _$ProviderAuthErrorCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(name: 'ProviderAuthErrorData') ProviderAuthErrorData providerAuthErrorData
+ String name, ProviderAuthErrorData data
 });
 
 
-$ProviderAuthErrorDataCopyWith<$Res> get providerAuthErrorData;
+$ProviderAuthErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$ProviderAuthErrorCopyWithImpl<$Res>
 
 /// Create a copy of ProviderAuthError
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? providerAuthErrorData = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? data = null,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,providerAuthErrorData: null == providerAuthErrorData ? _self.providerAuthErrorData : providerAuthErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as ProviderAuthErrorData,
   ));
 }
@@ -76,10 +76,10 @@ as ProviderAuthErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ProviderAuthErrorDataCopyWith<$Res> get providerAuthErrorData {
+$ProviderAuthErrorDataCopyWith<$Res> get data {
   
-  return $ProviderAuthErrorDataCopyWith<$Res>(_self.providerAuthErrorData, (value) {
-    return _then(_self.copyWith(providerAuthErrorData: value));
+  return $ProviderAuthErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'ProviderAuthErrorData')  ProviderAuthErrorData providerAuthErrorData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  ProviderAuthErrorData data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProviderAuthError() when $default != null:
-return $default(_that.name,_that.providerAuthErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.name,_that.providerAuthErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'ProviderAuthErrorData')  ProviderAuthErrorData providerAuthErrorData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  ProviderAuthErrorData data)  $default,) {final _that = this;
 switch (_that) {
 case _ProviderAuthError():
-return $default(_that.name,_that.providerAuthErrorData);case _:
+return $default(_that.name,_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.name,_that.providerAuthErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(name: 'ProviderAuthErrorData')  ProviderAuthErrorData providerAuthErrorData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  ProviderAuthErrorData data)?  $default,) {final _that = this;
 switch (_that) {
 case _ProviderAuthError() when $default != null:
-return $default(_that.name,_that.providerAuthErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.name,_that.providerAuthErrorData);case _:
 @JsonSerializable()
 
 class _ProviderAuthError implements ProviderAuthError {
-  const _ProviderAuthError({required this.name, @JsonKey(name: 'ProviderAuthErrorData') required this.providerAuthErrorData});
+  const _ProviderAuthError({required this.name, required this.data});
   factory _ProviderAuthError.fromJson(Map<String, dynamic> json) => _$ProviderAuthErrorFromJson(json);
 
 @override final  String name;
-@override@JsonKey(name: 'ProviderAuthErrorData') final  ProviderAuthErrorData providerAuthErrorData;
+@override final  ProviderAuthErrorData data;
 
 /// Create a copy of ProviderAuthError
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProviderAuthError&&(identical(other.name, name) || other.name == name)&&(identical(other.providerAuthErrorData, providerAuthErrorData) || other.providerAuthErrorData == providerAuthErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProviderAuthError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,providerAuthErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'ProviderAuthError(name: $name, providerAuthErrorData: $providerAuthErrorData)';
+  return 'ProviderAuthError(name: $name, data: $data)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$ProviderAuthErrorCopyWith<$Res> implements $ProviderAuthE
   factory _$ProviderAuthErrorCopyWith(_ProviderAuthError value, $Res Function(_ProviderAuthError) _then) = __$ProviderAuthErrorCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(name: 'ProviderAuthErrorData') ProviderAuthErrorData providerAuthErrorData
+ String name, ProviderAuthErrorData data
 });
 
 
-@override $ProviderAuthErrorDataCopyWith<$Res> get providerAuthErrorData;
+@override $ProviderAuthErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$ProviderAuthErrorCopyWithImpl<$Res>
 
 /// Create a copy of ProviderAuthError
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? providerAuthErrorData = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? data = null,}) {
   return _then(_ProviderAuthError(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,providerAuthErrorData: null == providerAuthErrorData ? _self.providerAuthErrorData : providerAuthErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as ProviderAuthErrorData,
   ));
 }
@@ -287,10 +287,10 @@ as ProviderAuthErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ProviderAuthErrorDataCopyWith<$Res> get providerAuthErrorData {
+$ProviderAuthErrorDataCopyWith<$Res> get data {
   
-  return $ProviderAuthErrorDataCopyWith<$Res>(_self.providerAuthErrorData, (value) {
-    return _then(_self.copyWith(providerAuthErrorData: value));
+  return $ProviderAuthErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

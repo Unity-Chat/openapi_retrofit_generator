@@ -12,15 +12,15 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => Config(
   keybinds: json['keybinds'] == null
       ? null
       : KeybindsConfig.fromJson(json['keybinds'] as Map<String, dynamic>),
-  configTui: json['ConfigTui'] == null
+  tui: json['tui'] == null
       ? null
-      : ConfigTui.fromJson(json['ConfigTui'] as Map<String, dynamic>),
+      : ConfigTui.fromJson(json['tui'] as Map<String, dynamic>),
   command: (json['command'] as Map<String, dynamic>?)?.map(
     (k, e) => MapEntry(k, Command.fromJson(e as Map<String, dynamic>)),
   ),
-  configWatcher: json['ConfigWatcher'] == null
+  watcher: json['watcher'] == null
       ? null
-      : ConfigWatcher.fromJson(json['ConfigWatcher'] as Map<String, dynamic>),
+      : ConfigWatcher.fromJson(json['watcher'] as Map<String, dynamic>),
   plugin: (json['plugin'] as List<dynamic>?)?.map((e) => e as String).toList(),
   snapshot: json['snapshot'] as bool?,
   share: json['share'] == null
@@ -58,18 +58,16 @@ Config _$ConfigFromJson(Map<String, dynamic> json) => Config(
   layout: json['layout'] == null
       ? null
       : LayoutConfig.fromJson(json['layout'] as String),
-  configPermission: json['ConfigPermission'] == null
+  permission: json['permission'] == null
       ? null
-      : ConfigPermission.fromJson(
-          json['ConfigPermission'] as Map<String, dynamic>,
-        ),
+      : ConfigPermission.fromJson(json['permission'] as Map<String, dynamic>),
   tools: (json['tools'] as Map<String, dynamic>?)?.map(
     (k, e) => MapEntry(k, e as bool),
   ),
-  configExperimental: json['ConfigExperimental'] == null
+  experimental: json['experimental'] == null
       ? null
       : ConfigExperimental.fromJson(
-          json['ConfigExperimental'] as Map<String, dynamic>,
+          json['experimental'] as Map<String, dynamic>,
         ),
 );
 
@@ -77,9 +75,9 @@ Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
   r'$schema': instance.schema,
   'theme': instance.theme,
   'keybinds': instance.keybinds,
-  'ConfigTui': instance.configTui,
+  'tui': instance.tui,
   'command': instance.command,
-  'ConfigWatcher': instance.configWatcher,
+  'watcher': instance.watcher,
   'plugin': instance.plugin,
   'snapshot': instance.snapshot,
   'share': instance.share,
@@ -97,7 +95,7 @@ Map<String, dynamic> _$ConfigToJson(Config instance) => <String, dynamic>{
   'lsp': instance.lsp,
   'instructions': instance.instructions,
   'layout': instance.layout,
-  'ConfigPermission': instance.configPermission,
+  'permission': instance.permission,
   'tools': instance.tools,
-  'ConfigExperimental': instance.configExperimental,
+  'experimental': instance.experimental,
 };

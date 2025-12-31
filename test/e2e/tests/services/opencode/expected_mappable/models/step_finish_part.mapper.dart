@@ -40,13 +40,10 @@ class StepFinishPartMapper extends ClassMapperBase<StepFinishPart> {
   static const Field<StepFinishPart, String> _f$type = Field('type', _$type);
   static num _$cost(StepFinishPart v) => v.cost;
   static const Field<StepFinishPart, num> _f$cost = Field('cost', _$cost);
-  static StepFinishPartTokens _$stepFinishPartTokens(StepFinishPart v) =>
-      v.stepFinishPartTokens;
-  static const Field<StepFinishPart, StepFinishPartTokens>
-  _f$stepFinishPartTokens = Field(
-    'stepFinishPartTokens',
-    _$stepFinishPartTokens,
-    key: r'StepFinishPartTokens',
+  static StepFinishPartTokens _$tokens(StepFinishPart v) => v.tokens;
+  static const Field<StepFinishPart, StepFinishPartTokens> _f$tokens = Field(
+    'tokens',
+    _$tokens,
   );
   static String? _$snapshot(StepFinishPart v) => v.snapshot;
   static const Field<StepFinishPart, String> _f$snapshot = Field(
@@ -62,7 +59,7 @@ class StepFinishPartMapper extends ClassMapperBase<StepFinishPart> {
     #messageId: _f$messageId,
     #type: _f$type,
     #cost: _f$cost,
-    #stepFinishPartTokens: _f$stepFinishPartTokens,
+    #tokens: _f$tokens,
     #snapshot: _f$snapshot,
   };
 
@@ -73,7 +70,7 @@ class StepFinishPartMapper extends ClassMapperBase<StepFinishPart> {
       messageId: data.dec(_f$messageId),
       type: data.dec(_f$type),
       cost: data.dec(_f$cost),
-      stepFinishPartTokens: data.dec(_f$stepFinishPartTokens),
+      tokens: data.dec(_f$tokens),
       snapshot: data.dec(_f$snapshot),
     );
   }
@@ -141,14 +138,14 @@ extension StepFinishPartValueCopy<$R, $Out>
 abstract class StepFinishPartCopyWith<$R, $In extends StepFinishPart, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   StepFinishPartTokensCopyWith<$R, StepFinishPartTokens, StepFinishPartTokens>
-  get stepFinishPartTokens;
+  get tokens;
   $R call({
     String? id,
     String? sessionId,
     String? messageId,
     String? type,
     num? cost,
-    StepFinishPartTokens? stepFinishPartTokens,
+    StepFinishPartTokens? tokens,
     String? snapshot,
   });
   StepFinishPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -166,9 +163,7 @@ class _StepFinishPartCopyWithImpl<$R, $Out>
       StepFinishPartMapper.ensureInitialized();
   @override
   StepFinishPartTokensCopyWith<$R, StepFinishPartTokens, StepFinishPartTokens>
-  get stepFinishPartTokens => $value.stepFinishPartTokens.copyWith.$chain(
-    (v) => call(stepFinishPartTokens: v),
-  );
+  get tokens => $value.tokens.copyWith.$chain((v) => call(tokens: v));
   @override
   $R call({
     String? id,
@@ -176,7 +171,7 @@ class _StepFinishPartCopyWithImpl<$R, $Out>
     String? messageId,
     String? type,
     num? cost,
-    StepFinishPartTokens? stepFinishPartTokens,
+    StepFinishPartTokens? tokens,
     Object? snapshot = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -185,8 +180,7 @@ class _StepFinishPartCopyWithImpl<$R, $Out>
       if (messageId != null) #messageId: messageId,
       if (type != null) #type: type,
       if (cost != null) #cost: cost,
-      if (stepFinishPartTokens != null)
-        #stepFinishPartTokens: stepFinishPartTokens,
+      if (tokens != null) #tokens: tokens,
       if (snapshot != $none) #snapshot: snapshot,
     }),
   );
@@ -197,10 +191,7 @@ class _StepFinishPartCopyWithImpl<$R, $Out>
     messageId: data.get(#messageId, or: $value.messageId),
     type: data.get(#type, or: $value.type),
     cost: data.get(#cost, or: $value.cost),
-    stepFinishPartTokens: data.get(
-      #stepFinishPartTokens,
-      or: $value.stepFinishPartTokens,
-    ),
+    tokens: data.get(#tokens, or: $value.tokens),
     snapshot: data.get(#snapshot, or: $value.snapshot),
   );
 

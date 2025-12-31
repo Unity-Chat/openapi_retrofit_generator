@@ -28,28 +28,22 @@ class EventSessionCompactedMapper
     'type',
     _$type,
   );
-  static EventSessionCompactedProperties _$eventSessionCompactedProperties(
+  static EventSessionCompactedProperties _$properties(
     EventSessionCompacted v,
-  ) => v.eventSessionCompactedProperties;
+  ) => v.properties;
   static const Field<EventSessionCompacted, EventSessionCompactedProperties>
-  _f$eventSessionCompactedProperties = Field(
-    'eventSessionCompactedProperties',
-    _$eventSessionCompactedProperties,
-    key: r'EventSessionCompactedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventSessionCompacted> fields = const {
     #type: _f$type,
-    #eventSessionCompactedProperties: _f$eventSessionCompactedProperties,
+    #properties: _f$properties,
   };
 
   static EventSessionCompacted _instantiate(DecodingData data) {
     return EventSessionCompacted(
       type: data.dec(_f$type),
-      eventSessionCompactedProperties: data.dec(
-        _f$eventSessionCompactedProperties,
-      ),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -128,11 +122,8 @@ abstract class EventSessionCompactedCopyWith<
     EventSessionCompactedProperties,
     EventSessionCompactedProperties
   >
-  get eventSessionCompactedProperties;
-  $R call({
-    String? type,
-    EventSessionCompactedProperties? eventSessionCompactedProperties,
-  });
+  get properties;
+  $R call({String? type, EventSessionCompactedProperties? properties});
   EventSessionCompactedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -152,28 +143,20 @@ class _EventSessionCompactedCopyWithImpl<$R, $Out>
     EventSessionCompactedProperties,
     EventSessionCompactedProperties
   >
-  get eventSessionCompactedProperties => $value
-      .eventSessionCompactedProperties
-      .copyWith
-      .$chain((v) => call(eventSessionCompactedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventSessionCompactedProperties? eventSessionCompactedProperties,
-  }) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (eventSessionCompactedProperties != null)
-        #eventSessionCompactedProperties: eventSessionCompactedProperties,
-    }),
-  );
+  $R call({String? type, EventSessionCompactedProperties? properties}) =>
+      $apply(
+        FieldCopyWithData({
+          if (type != null) #type: type,
+          if (properties != null) #properties: properties,
+        }),
+      );
   @override
   EventSessionCompacted $make(CopyWithData data) => EventSessionCompacted(
     type: data.get(#type, or: $value.type),
-    eventSessionCompactedProperties: data.get(
-      #eventSessionCompactedProperties,
-      or: $value.eventSessionCompactedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

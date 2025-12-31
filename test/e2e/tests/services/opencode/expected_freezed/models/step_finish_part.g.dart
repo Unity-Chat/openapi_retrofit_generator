@@ -13,8 +13,8 @@ _StepFinishPart _$StepFinishPartFromJson(Map<String, dynamic> json) =>
       messageId: json['messageID'] as String,
       type: json['type'] as String,
       cost: json['cost'] as num,
-      stepFinishPartTokens: StepFinishPartTokens.fromJson(
-        json['StepFinishPartTokens'] as Map<String, dynamic>,
+      tokens: StepFinishPartTokens.fromJson(
+        json['tokens'] as Map<String, dynamic>,
       ),
       snapshot: json['snapshot'] as String?,
     );
@@ -26,6 +26,6 @@ Map<String, dynamic> _$StepFinishPartToJson(_StepFinishPart instance) =>
       'messageID': instance.messageId,
       'type': instance.type,
       'cost': instance.cost,
-      'StepFinishPartTokens': instance.stepFinishPartTokens,
+      'tokens': instance.tokens,
       'snapshot': instance.snapshot,
     };

@@ -9,8 +9,8 @@ part of 'event_session_updated.dart';
 _EventSessionUpdated _$EventSessionUpdatedFromJson(Map<String, dynamic> json) =>
     _EventSessionUpdated(
       type: json['type'] as String,
-      eventSessionUpdatedProperties: EventSessionUpdatedProperties.fromJson(
-        json['EventSessionUpdatedProperties'] as Map<String, dynamic>,
+      properties: EventSessionUpdatedProperties.fromJson(
+        json['properties'] as Map<String, dynamic>,
       ),
     );
 
@@ -18,5 +18,5 @@ Map<String, dynamic> _$EventSessionUpdatedToJson(
   _EventSessionUpdated instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  'EventSessionUpdatedProperties': instance.eventSessionUpdatedProperties,
+  'properties': instance.properties,
 };

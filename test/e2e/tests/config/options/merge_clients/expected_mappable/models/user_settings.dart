@@ -13,16 +13,14 @@ part 'user_settings.mapper.dart';
 @MappableClass()
 class UserSettings with UserSettingsMappable {
   const UserSettings({
-    this.userSettingsNotifications,
-    this.userSettingsPrivacy,
+    this.notifications,
+    this.privacy,
     this.theme = UserSettingsThemeTheme.auto,
     this.language = 'en',
   });
 
-  @MappableField(key: 'UserSettingsNotifications')
-  final UserSettingsNotifications? userSettingsNotifications;
-  @MappableField(key: 'UserSettingsPrivacy')
-  final UserSettingsPrivacy? userSettingsPrivacy;
+  final UserSettingsNotifications? notifications;
+  final UserSettingsPrivacy? privacy;
   final UserSettingsThemeTheme theme;
   final String language;
 

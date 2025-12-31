@@ -11,12 +11,10 @@ part 'range.mapper.dart';
 
 @MappableClass()
 class Range with RangeMappable {
-  const Range({required this.rangeStart, required this.rangeEnd});
+  const Range({required this.start, required this.end});
 
-  @MappableField(key: 'RangeStart')
-  final RangeStart rangeStart;
-  @MappableField(key: 'RangeEnd')
-  final RangeEnd rangeEnd;
+  final RangeStart start;
+  final RangeEnd end;
 
   static Range fromJson(Map<String, dynamic> json) =>
       RangeMapper.fromJson(json);

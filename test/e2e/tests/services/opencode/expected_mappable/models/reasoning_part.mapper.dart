@@ -40,14 +40,11 @@ class ReasoningPartMapper extends ClassMapperBase<ReasoningPart> {
   static const Field<ReasoningPart, String> _f$type = Field('type', _$type);
   static String _$text(ReasoningPart v) => v.text;
   static const Field<ReasoningPart, String> _f$text = Field('text', _$text);
-  static ReasoningPartTime _$reasoningPartTime(ReasoningPart v) =>
-      v.reasoningPartTime;
-  static const Field<ReasoningPart, ReasoningPartTime> _f$reasoningPartTime =
-      Field(
-        'reasoningPartTime',
-        _$reasoningPartTime,
-        key: r'ReasoningPartTime',
-      );
+  static ReasoningPartTime _$time(ReasoningPart v) => v.time;
+  static const Field<ReasoningPart, ReasoningPartTime> _f$time = Field(
+    'time',
+    _$time,
+  );
   static Map<String, dynamic>? _$metadata(ReasoningPart v) => v.metadata;
   static const Field<ReasoningPart, Map<String, dynamic>> _f$metadata = Field(
     'metadata',
@@ -62,7 +59,7 @@ class ReasoningPartMapper extends ClassMapperBase<ReasoningPart> {
     #messageId: _f$messageId,
     #type: _f$type,
     #text: _f$text,
-    #reasoningPartTime: _f$reasoningPartTime,
+    #time: _f$time,
     #metadata: _f$metadata,
   };
 
@@ -73,7 +70,7 @@ class ReasoningPartMapper extends ClassMapperBase<ReasoningPart> {
       messageId: data.dec(_f$messageId),
       type: data.dec(_f$type),
       text: data.dec(_f$text),
-      reasoningPartTime: data.dec(_f$reasoningPartTime),
+      time: data.dec(_f$time),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -140,8 +137,7 @@ extension ReasoningPartValueCopy<$R, $Out>
 
 abstract class ReasoningPartCopyWith<$R, $In extends ReasoningPart, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ReasoningPartTimeCopyWith<$R, ReasoningPartTime, ReasoningPartTime>
-  get reasoningPartTime;
+  ReasoningPartTimeCopyWith<$R, ReasoningPartTime, ReasoningPartTime> get time;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   $R call({
@@ -150,7 +146,7 @@ abstract class ReasoningPartCopyWith<$R, $In extends ReasoningPart, $Out>
     String? messageId,
     String? type,
     String? text,
-    ReasoningPartTime? reasoningPartTime,
+    ReasoningPartTime? time,
     Map<String, dynamic>? metadata,
   });
   ReasoningPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
@@ -166,9 +162,7 @@ class _ReasoningPartCopyWithImpl<$R, $Out>
       ReasoningPartMapper.ensureInitialized();
   @override
   ReasoningPartTimeCopyWith<$R, ReasoningPartTime, ReasoningPartTime>
-  get reasoningPartTime => $value.reasoningPartTime.copyWith.$chain(
-    (v) => call(reasoningPartTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata => $value.metadata != null
@@ -185,7 +179,7 @@ class _ReasoningPartCopyWithImpl<$R, $Out>
     String? messageId,
     String? type,
     String? text,
-    ReasoningPartTime? reasoningPartTime,
+    ReasoningPartTime? time,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -194,7 +188,7 @@ class _ReasoningPartCopyWithImpl<$R, $Out>
       if (messageId != null) #messageId: messageId,
       if (type != null) #type: type,
       if (text != null) #text: text,
-      if (reasoningPartTime != null) #reasoningPartTime: reasoningPartTime,
+      if (time != null) #time: time,
       if (metadata != $none) #metadata: metadata,
     }),
   );
@@ -205,10 +199,7 @@ class _ReasoningPartCopyWithImpl<$R, $Out>
     messageId: data.get(#messageId, or: $value.messageId),
     type: data.get(#type, or: $value.type),
     text: data.get(#text, or: $value.text),
-    reasoningPartTime: data.get(
-      #reasoningPartTime,
-      or: $value.reasoningPartTime,
-    ),
+    time: data.get(#time, or: $value.time),
     metadata: data.get(#metadata, or: $value.metadata),
   );
 

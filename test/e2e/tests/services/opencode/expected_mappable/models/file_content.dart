@@ -14,7 +14,7 @@ class FileContent with FileContentMappable {
     required this.type,
     required this.content,
     this.diff,
-    this.fileContentPatch,
+    this.patch,
     this.encoding,
     this.mimeType,
   });
@@ -22,8 +22,7 @@ class FileContent with FileContentMappable {
   final String type;
   final String content;
   final String? diff;
-  @MappableField(key: 'FileContentPatch')
-  final FileContentPatch? fileContentPatch;
+  final FileContentPatch? patch;
   final String? encoding;
   final String? mimeType;
 

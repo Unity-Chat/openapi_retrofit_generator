@@ -13,8 +13,7 @@ part 'event_message_updated.g.dart';
 abstract class EventMessageUpdated with _$EventMessageUpdated {
   const factory EventMessageUpdated({
     required String type,
-    @JsonKey(name: 'EventMessageUpdatedProperties')
-    required EventMessageUpdatedProperties eventMessageUpdatedProperties,
+    required EventMessageUpdatedProperties properties,
   }) = _EventMessageUpdated;
 
   factory EventMessageUpdated.fromJson(Map<String, Object?> json) =>

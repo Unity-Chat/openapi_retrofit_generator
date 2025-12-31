@@ -14,7 +14,7 @@ class AgentPartInput {
     required this.type,
     required this.name,
     this.id,
-    this.agentPartInputSource,
+    this.source,
   });
 
   factory AgentPartInput.fromJson(Map<String, Object?> json) =>
@@ -23,8 +23,7 @@ class AgentPartInput {
   final String? id;
   final String type;
   final String name;
-  @JsonKey(name: 'AgentPartInputSource')
-  final AgentPartInputSource? agentPartInputSource;
+  final AgentPartInputSource? source;
 
   Map<String, Object?> toJson() => _$AgentPartInputToJson(this);
 }

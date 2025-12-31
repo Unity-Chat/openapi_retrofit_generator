@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventSessionUpdated {
 
- String get type;@JsonKey(name: 'EventSessionUpdatedProperties') EventSessionUpdatedProperties get eventSessionUpdatedProperties;
+ String get type; EventSessionUpdatedProperties get properties;
 /// Create a copy of EventSessionUpdated
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventSessionUpdatedCopyWith<EventSessionUpdated> get copyWith => _$EventSession
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionUpdatedProperties, eventSessionUpdatedProperties) || other.eventSessionUpdatedProperties == eventSessionUpdatedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionUpdatedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionUpdated(type: $type, eventSessionUpdatedProperties: $eventSessionUpdatedProperties)';
+  return 'EventSessionUpdated(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventSessionUpdatedCopyWith<$Res>  {
   factory $EventSessionUpdatedCopyWith(EventSessionUpdated value, $Res Function(EventSessionUpdated) _then) = _$EventSessionUpdatedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionUpdatedProperties') EventSessionUpdatedProperties eventSessionUpdatedProperties
+ String type, EventSessionUpdatedProperties properties
 });
 
 
-$EventSessionUpdatedPropertiesCopyWith<$Res> get eventSessionUpdatedProperties;
+$EventSessionUpdatedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventSessionUpdatedCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionUpdated
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventSessionUpdatedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionUpdatedProperties: null == eventSessionUpdatedProperties ? _self.eventSessionUpdatedProperties : eventSessionUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionUpdatedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventSessionUpdatedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionUpdatedPropertiesCopyWith<$Res> get eventSessionUpdatedProperties {
+$EventSessionUpdatedPropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionUpdatedPropertiesCopyWith<$Res>(_self.eventSessionUpdatedProperties, (value) {
-    return _then(_self.copyWith(eventSessionUpdatedProperties: value));
+  return $EventSessionUpdatedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionUpdatedProperties')  EventSessionUpdatedProperties eventSessionUpdatedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventSessionUpdatedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventSessionUpdated() when $default != null:
-return $default(_that.type,_that.eventSessionUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventSessionUpdatedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionUpdatedProperties')  EventSessionUpdatedProperties eventSessionUpdatedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventSessionUpdatedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionUpdated():
-return $default(_that.type,_that.eventSessionUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventSessionUpdatedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventSessionUpdatedProperties')  EventSessionUpdatedProperties eventSessionUpdatedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventSessionUpdatedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionUpdated() when $default != null:
-return $default(_that.type,_that.eventSessionUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventSessionUpdatedProperties);case _:
 @JsonSerializable()
 
 class _EventSessionUpdated implements EventSessionUpdated {
-  const _EventSessionUpdated({required this.type, @JsonKey(name: 'EventSessionUpdatedProperties') required this.eventSessionUpdatedProperties});
+  const _EventSessionUpdated({required this.type, required this.properties});
   factory _EventSessionUpdated.fromJson(Map<String, dynamic> json) => _$EventSessionUpdatedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventSessionUpdatedProperties') final  EventSessionUpdatedProperties eventSessionUpdatedProperties;
+@override final  EventSessionUpdatedProperties properties;
 
 /// Create a copy of EventSessionUpdated
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionUpdatedProperties, eventSessionUpdatedProperties) || other.eventSessionUpdatedProperties == eventSessionUpdatedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionUpdatedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionUpdated(type: $type, eventSessionUpdatedProperties: $eventSessionUpdatedProperties)';
+  return 'EventSessionUpdated(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventSessionUpdatedCopyWith<$Res> implements $EventSessio
   factory _$EventSessionUpdatedCopyWith(_EventSessionUpdated value, $Res Function(_EventSessionUpdated) _then) = __$EventSessionUpdatedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionUpdatedProperties') EventSessionUpdatedProperties eventSessionUpdatedProperties
+ String type, EventSessionUpdatedProperties properties
 });
 
 
-@override $EventSessionUpdatedPropertiesCopyWith<$Res> get eventSessionUpdatedProperties;
+@override $EventSessionUpdatedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventSessionUpdatedCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionUpdated
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventSessionUpdatedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventSessionUpdated(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionUpdatedProperties: null == eventSessionUpdatedProperties ? _self.eventSessionUpdatedProperties : eventSessionUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionUpdatedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventSessionUpdatedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionUpdatedPropertiesCopyWith<$Res> get eventSessionUpdatedProperties {
+$EventSessionUpdatedPropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionUpdatedPropertiesCopyWith<$Res>(_self.eventSessionUpdatedProperties, (value) {
-    return _then(_self.copyWith(eventSessionUpdatedProperties: value));
+  return $EventSessionUpdatedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

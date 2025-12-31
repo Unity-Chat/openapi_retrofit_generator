@@ -12,15 +12,14 @@ part 'event_installation_updated.g.dart';
 class EventInstallationUpdated {
   const EventInstallationUpdated({
     required this.type,
-    required this.eventInstallationUpdatedProperties,
+    required this.properties,
   });
 
   factory EventInstallationUpdated.fromJson(Map<String, Object?> json) =>
       _$EventInstallationUpdatedFromJson(json);
 
   final String type;
-  @JsonKey(name: 'EventInstallationUpdatedProperties')
-  final EventInstallationUpdatedProperties eventInstallationUpdatedProperties;
+  final EventInstallationUpdatedProperties properties;
 
   Map<String, Object?> toJson() => _$EventInstallationUpdatedToJson(this);
 }

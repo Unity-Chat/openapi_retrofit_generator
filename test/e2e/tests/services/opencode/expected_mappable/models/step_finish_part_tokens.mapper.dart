@@ -37,22 +37,16 @@ class StepFinishPartTokensMapper extends ClassMapperBase<StepFinishPartTokens> {
     'reasoning',
     _$reasoning,
   );
-  static StepFinishPartTokensCache _$stepFinishPartTokensCache(
-    StepFinishPartTokens v,
-  ) => v.stepFinishPartTokensCache;
-  static const Field<StepFinishPartTokens, StepFinishPartTokensCache>
-  _f$stepFinishPartTokensCache = Field(
-    'stepFinishPartTokensCache',
-    _$stepFinishPartTokensCache,
-    key: r'StepFinishPartTokensCache',
-  );
+  static StepFinishPartTokensCache _$cache(StepFinishPartTokens v) => v.cache;
+  static const Field<StepFinishPartTokens, StepFinishPartTokensCache> _f$cache =
+      Field('cache', _$cache);
 
   @override
   final MappableFields<StepFinishPartTokens> fields = const {
     #input: _f$input,
     #output: _f$output,
     #reasoning: _f$reasoning,
-    #stepFinishPartTokensCache: _f$stepFinishPartTokensCache,
+    #cache: _f$cache,
   };
 
   static StepFinishPartTokens _instantiate(DecodingData data) {
@@ -60,7 +54,7 @@ class StepFinishPartTokensMapper extends ClassMapperBase<StepFinishPartTokens> {
       input: data.dec(_f$input),
       output: data.dec(_f$output),
       reasoning: data.dec(_f$reasoning),
-      stepFinishPartTokensCache: data.dec(_f$stepFinishPartTokensCache),
+      cache: data.dec(_f$cache),
     );
   }
 
@@ -139,12 +133,12 @@ abstract class StepFinishPartTokensCopyWith<
     StepFinishPartTokensCache,
     StepFinishPartTokensCache
   >
-  get stepFinishPartTokensCache;
+  get cache;
   $R call({
     num? input,
     num? output,
     num? reasoning,
-    StepFinishPartTokensCache? stepFinishPartTokensCache,
+    StepFinishPartTokensCache? cache,
   });
   StepFinishPartTokensCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -165,21 +159,19 @@ class _StepFinishPartTokensCopyWithImpl<$R, $Out>
     StepFinishPartTokensCache,
     StepFinishPartTokensCache
   >
-  get stepFinishPartTokensCache => $value.stepFinishPartTokensCache.copyWith
-      .$chain((v) => call(stepFinishPartTokensCache: v));
+  get cache => $value.cache.copyWith.$chain((v) => call(cache: v));
   @override
   $R call({
     num? input,
     num? output,
     num? reasoning,
-    StepFinishPartTokensCache? stepFinishPartTokensCache,
+    StepFinishPartTokensCache? cache,
   }) => $apply(
     FieldCopyWithData({
       if (input != null) #input: input,
       if (output != null) #output: output,
       if (reasoning != null) #reasoning: reasoning,
-      if (stepFinishPartTokensCache != null)
-        #stepFinishPartTokensCache: stepFinishPartTokensCache,
+      if (cache != null) #cache: cache,
     }),
   );
   @override
@@ -187,10 +179,7 @@ class _StepFinishPartTokensCopyWithImpl<$R, $Out>
     input: data.get(#input, or: $value.input),
     output: data.get(#output, or: $value.output),
     reasoning: data.get(#reasoning, or: $value.reasoning),
-    stepFinishPartTokensCache: data.get(
-      #stepFinishPartTokensCache,
-      or: $value.stepFinishPartTokensCache,
-    ),
+    cache: data.get(#cache, or: $value.cache),
   );
 
   @override

@@ -17,7 +17,7 @@ class Permission with PermissionMappable {
     required this.messageId,
     required this.title,
     required this.metadata,
-    required this.permissionTime,
+    required this.time,
     this.pattern,
     this.callId,
   });
@@ -30,8 +30,7 @@ class Permission with PermissionMappable {
   final String messageId;
   final String title;
   final Map<String, dynamic> metadata;
-  @MappableField(key: 'PermissionTime')
-  final PermissionTime permissionTime;
+  final PermissionTime time;
   final dynamic pattern;
   @MappableField(key: 'callID')
   final String? callId;

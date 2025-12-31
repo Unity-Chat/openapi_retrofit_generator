@@ -17,7 +17,7 @@ class ToolStateCompleted {
     required this.output,
     required this.title,
     required this.metadata,
-    required this.toolStateCompletedTime,
+    required this.time,
     this.attachments,
   });
 
@@ -29,8 +29,7 @@ class ToolStateCompleted {
   final String output;
   final String title;
   final Map<String, dynamic> metadata;
-  @JsonKey(name: 'ToolStateCompletedTime')
-  final ToolStateCompletedTime toolStateCompletedTime;
+  final ToolStateCompletedTime time;
   final List<FilePart>? attachments;
 
   Map<String, Object?> toJson() => _$ToolStateCompletedToJson(this);

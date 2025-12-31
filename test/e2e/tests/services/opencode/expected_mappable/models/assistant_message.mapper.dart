@@ -34,13 +34,10 @@ class AssistantMessageMapper extends ClassMapperBase<AssistantMessage> {
   );
   static String _$role(AssistantMessage v) => v.role;
   static const Field<AssistantMessage, String> _f$role = Field('role', _$role);
-  static AssistantMessageTime _$assistantMessageTime(AssistantMessage v) =>
-      v.assistantMessageTime;
-  static const Field<AssistantMessage, AssistantMessageTime>
-  _f$assistantMessageTime = Field(
-    'assistantMessageTime',
-    _$assistantMessageTime,
-    key: r'AssistantMessageTime',
+  static AssistantMessageTime _$time(AssistantMessage v) => v.time;
+  static const Field<AssistantMessage, AssistantMessageTime> _f$time = Field(
+    'time',
+    _$time,
   );
   static List<String> _$system(AssistantMessage v) => v.system;
   static const Field<AssistantMessage, List<String>> _f$system = Field(
@@ -61,24 +58,16 @@ class AssistantMessageMapper extends ClassMapperBase<AssistantMessage> {
   );
   static String _$mode(AssistantMessage v) => v.mode;
   static const Field<AssistantMessage, String> _f$mode = Field('mode', _$mode);
-  static AssistantMessagePath _$assistantMessagePath(AssistantMessage v) =>
-      v.assistantMessagePath;
-  static const Field<AssistantMessage, AssistantMessagePath>
-  _f$assistantMessagePath = Field(
-    'assistantMessagePath',
-    _$assistantMessagePath,
-    key: r'AssistantMessagePath',
+  static AssistantMessagePath _$path(AssistantMessage v) => v.path;
+  static const Field<AssistantMessage, AssistantMessagePath> _f$path = Field(
+    'path',
+    _$path,
   );
   static num _$cost(AssistantMessage v) => v.cost;
   static const Field<AssistantMessage, num> _f$cost = Field('cost', _$cost);
-  static AssistantMessageTokens _$assistantMessageTokens(AssistantMessage v) =>
-      v.assistantMessageTokens;
-  static const Field<AssistantMessage, AssistantMessageTokens>
-  _f$assistantMessageTokens = Field(
-    'assistantMessageTokens',
-    _$assistantMessageTokens,
-    key: r'AssistantMessageTokens',
-  );
+  static AssistantMessageTokens _$tokens(AssistantMessage v) => v.tokens;
+  static const Field<AssistantMessage, AssistantMessageTokens> _f$tokens =
+      Field('tokens', _$tokens);
   static AssistantMessageErrorError? _$error(AssistantMessage v) => v.error;
   static const Field<AssistantMessage, AssistantMessageErrorError> _f$error =
       Field('error', _$error, opt: true);
@@ -94,14 +83,14 @@ class AssistantMessageMapper extends ClassMapperBase<AssistantMessage> {
     #id: _f$id,
     #sessionId: _f$sessionId,
     #role: _f$role,
-    #assistantMessageTime: _f$assistantMessageTime,
+    #time: _f$time,
     #system: _f$system,
     #modelId: _f$modelId,
     #providerId: _f$providerId,
     #mode: _f$mode,
-    #assistantMessagePath: _f$assistantMessagePath,
+    #path: _f$path,
     #cost: _f$cost,
-    #assistantMessageTokens: _f$assistantMessageTokens,
+    #tokens: _f$tokens,
     #error: _f$error,
     #summary: _f$summary,
   };
@@ -111,14 +100,14 @@ class AssistantMessageMapper extends ClassMapperBase<AssistantMessage> {
       id: data.dec(_f$id),
       sessionId: data.dec(_f$sessionId),
       role: data.dec(_f$role),
-      assistantMessageTime: data.dec(_f$assistantMessageTime),
+      time: data.dec(_f$time),
       system: data.dec(_f$system),
       modelId: data.dec(_f$modelId),
       providerId: data.dec(_f$providerId),
       mode: data.dec(_f$mode),
-      assistantMessagePath: data.dec(_f$assistantMessagePath),
+      path: data.dec(_f$path),
       cost: data.dec(_f$cost),
-      assistantMessageTokens: data.dec(_f$assistantMessageTokens),
+      tokens: data.dec(_f$tokens),
       error: data.dec(_f$error),
       summary: data.dec(_f$summary),
     );
@@ -187,28 +176,28 @@ extension AssistantMessageValueCopy<$R, $Out>
 abstract class AssistantMessageCopyWith<$R, $In extends AssistantMessage, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   AssistantMessageTimeCopyWith<$R, AssistantMessageTime, AssistantMessageTime>
-  get assistantMessageTime;
+  get time;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get system;
   AssistantMessagePathCopyWith<$R, AssistantMessagePath, AssistantMessagePath>
-  get assistantMessagePath;
+  get path;
   AssistantMessageTokensCopyWith<
     $R,
     AssistantMessageTokens,
     AssistantMessageTokens
   >
-  get assistantMessageTokens;
+  get tokens;
   $R call({
     String? id,
     String? sessionId,
     String? role,
-    AssistantMessageTime? assistantMessageTime,
+    AssistantMessageTime? time,
     List<String>? system,
     String? modelId,
     String? providerId,
     String? mode,
-    AssistantMessagePath? assistantMessagePath,
+    AssistantMessagePath? path,
     num? cost,
-    AssistantMessageTokens? assistantMessageTokens,
+    AssistantMessageTokens? tokens,
     AssistantMessageErrorError? error,
     bool? summary,
   });
@@ -227,9 +216,7 @@ class _AssistantMessageCopyWithImpl<$R, $Out>
       AssistantMessageMapper.ensureInitialized();
   @override
   AssistantMessageTimeCopyWith<$R, AssistantMessageTime, AssistantMessageTime>
-  get assistantMessageTime => $value.assistantMessageTime.copyWith.$chain(
-    (v) => call(assistantMessageTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get system =>
       ListCopyWith(
@@ -239,31 +226,27 @@ class _AssistantMessageCopyWithImpl<$R, $Out>
       );
   @override
   AssistantMessagePathCopyWith<$R, AssistantMessagePath, AssistantMessagePath>
-  get assistantMessagePath => $value.assistantMessagePath.copyWith.$chain(
-    (v) => call(assistantMessagePath: v),
-  );
+  get path => $value.path.copyWith.$chain((v) => call(path: v));
   @override
   AssistantMessageTokensCopyWith<
     $R,
     AssistantMessageTokens,
     AssistantMessageTokens
   >
-  get assistantMessageTokens => $value.assistantMessageTokens.copyWith.$chain(
-    (v) => call(assistantMessageTokens: v),
-  );
+  get tokens => $value.tokens.copyWith.$chain((v) => call(tokens: v));
   @override
   $R call({
     String? id,
     String? sessionId,
     String? role,
-    AssistantMessageTime? assistantMessageTime,
+    AssistantMessageTime? time,
     List<String>? system,
     String? modelId,
     String? providerId,
     String? mode,
-    AssistantMessagePath? assistantMessagePath,
+    AssistantMessagePath? path,
     num? cost,
-    AssistantMessageTokens? assistantMessageTokens,
+    AssistantMessageTokens? tokens,
     Object? error = $none,
     Object? summary = $none,
   }) => $apply(
@@ -271,17 +254,14 @@ class _AssistantMessageCopyWithImpl<$R, $Out>
       if (id != null) #id: id,
       if (sessionId != null) #sessionId: sessionId,
       if (role != null) #role: role,
-      if (assistantMessageTime != null)
-        #assistantMessageTime: assistantMessageTime,
+      if (time != null) #time: time,
       if (system != null) #system: system,
       if (modelId != null) #modelId: modelId,
       if (providerId != null) #providerId: providerId,
       if (mode != null) #mode: mode,
-      if (assistantMessagePath != null)
-        #assistantMessagePath: assistantMessagePath,
+      if (path != null) #path: path,
       if (cost != null) #cost: cost,
-      if (assistantMessageTokens != null)
-        #assistantMessageTokens: assistantMessageTokens,
+      if (tokens != null) #tokens: tokens,
       if (error != $none) #error: error,
       if (summary != $none) #summary: summary,
     }),
@@ -291,23 +271,14 @@ class _AssistantMessageCopyWithImpl<$R, $Out>
     id: data.get(#id, or: $value.id),
     sessionId: data.get(#sessionId, or: $value.sessionId),
     role: data.get(#role, or: $value.role),
-    assistantMessageTime: data.get(
-      #assistantMessageTime,
-      or: $value.assistantMessageTime,
-    ),
+    time: data.get(#time, or: $value.time),
     system: data.get(#system, or: $value.system),
     modelId: data.get(#modelId, or: $value.modelId),
     providerId: data.get(#providerId, or: $value.providerId),
     mode: data.get(#mode, or: $value.mode),
-    assistantMessagePath: data.get(
-      #assistantMessagePath,
-      or: $value.assistantMessagePath,
-    ),
+    path: data.get(#path, or: $value.path),
     cost: data.get(#cost, or: $value.cost),
-    assistantMessageTokens: data.get(
-      #assistantMessageTokens,
-      or: $value.assistantMessageTokens,
-    ),
+    tokens: data.get(#tokens, or: $value.tokens),
     error: data.get(#error, or: $value.error),
     summary: data.get(#summary, or: $value.summary),
   );

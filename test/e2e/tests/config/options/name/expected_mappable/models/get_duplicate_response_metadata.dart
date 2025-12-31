@@ -10,10 +10,9 @@ part 'get_duplicate_response_metadata.mapper.dart';
 
 @MappableClass()
 class GetDuplicateResponseMetadata with GetDuplicateResponseMetadataMappable {
-  const GetDuplicateResponseMetadata({this.getDuplicateResponseMetadataData});
+  const GetDuplicateResponseMetadata({this.data});
 
-  @MappableField(key: 'GetDuplicateResponseMetadataData')
-  final GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData;
+  final GetDuplicateResponseMetadataData? data;
 
   static GetDuplicateResponseMetadata fromJson(Map<String, dynamic> json) =>
       GetDuplicateResponseMetadataMapper.fromJson(json);

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DebugSchema {
 
-@JsonKey(includeIfNull: false) int? get id;@JsonKey(includeIfNull: false) String? get message;@JsonKey(includeIfNull: false, name: 'DebugSchemaData') DebugSchemaData? get debugSchemaData;
+@JsonKey(includeIfNull: false) int? get id;@JsonKey(includeIfNull: false) String? get message;@JsonKey(includeIfNull: false) DebugSchemaData? get data;
 /// Create a copy of DebugSchema
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DebugSchemaCopyWith<DebugSchema> get copyWith => _$DebugSchemaCopyWithImpl<Debu
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DebugSchema&&(identical(other.id, id) || other.id == id)&&(identical(other.message, message) || other.message == message)&&(identical(other.debugSchemaData, debugSchemaData) || other.debugSchemaData == debugSchemaData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DebugSchema&&(identical(other.id, id) || other.id == id)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,message,debugSchemaData);
+int get hashCode => Object.hash(runtimeType,id,message,data);
 
 @override
 String toString() {
-  return 'DebugSchema(id: $id, message: $message, debugSchemaData: $debugSchemaData)';
+  return 'DebugSchema(id: $id, message: $message, data: $data)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $DebugSchemaCopyWith<$Res>  {
   factory $DebugSchemaCopyWith(DebugSchema value, $Res Function(DebugSchema) _then) = _$DebugSchemaCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) String? message,@JsonKey(includeIfNull: false, name: 'DebugSchemaData') DebugSchemaData? debugSchemaData
+@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) String? message,@JsonKey(includeIfNull: false) DebugSchemaData? data
 });
 
 
-$DebugSchemaDataCopyWith<$Res>? get debugSchemaData;
+$DebugSchemaDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -65,11 +65,11 @@ class _$DebugSchemaCopyWithImpl<$Res>
 
 /// Create a copy of DebugSchema
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? message = freezed,Object? debugSchemaData = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = freezed,Object? message = freezed,Object? data = freezed,}) {
   return _then(_self.copyWith(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String?,debugSchemaData: freezed == debugSchemaData ? _self.debugSchemaData : debugSchemaData // ignore: cast_nullable_to_non_nullable
+as String?,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as DebugSchemaData?,
   ));
 }
@@ -77,13 +77,13 @@ as DebugSchemaData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DebugSchemaDataCopyWith<$Res>? get debugSchemaData {
-    if (_self.debugSchemaData == null) {
+$DebugSchemaDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
     return null;
   }
 
-  return $DebugSchemaDataCopyWith<$Res>(_self.debugSchemaData!, (value) {
-    return _then(_self.copyWith(debugSchemaData: value));
+  return $DebugSchemaDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -167,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  String? message, @JsonKey(includeIfNull: false, name: 'DebugSchemaData')  DebugSchemaData? debugSchemaData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  String? message, @JsonKey(includeIfNull: false)  DebugSchemaData? data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DebugSchema() when $default != null:
-return $default(_that.id,_that.message,_that.debugSchemaData);case _:
+return $default(_that.id,_that.message,_that.data);case _:
   return orElse();
 
 }
@@ -188,10 +188,10 @@ return $default(_that.id,_that.message,_that.debugSchemaData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  String? message, @JsonKey(includeIfNull: false, name: 'DebugSchemaData')  DebugSchemaData? debugSchemaData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  String? message, @JsonKey(includeIfNull: false)  DebugSchemaData? data)  $default,) {final _that = this;
 switch (_that) {
 case _DebugSchema():
-return $default(_that.id,_that.message,_that.debugSchemaData);case _:
+return $default(_that.id,_that.message,_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +208,10 @@ return $default(_that.id,_that.message,_that.debugSchemaData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  String? message, @JsonKey(includeIfNull: false, name: 'DebugSchemaData')  DebugSchemaData? debugSchemaData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(includeIfNull: false)  int? id, @JsonKey(includeIfNull: false)  String? message, @JsonKey(includeIfNull: false)  DebugSchemaData? data)?  $default,) {final _that = this;
 switch (_that) {
 case _DebugSchema() when $default != null:
-return $default(_that.id,_that.message,_that.debugSchemaData);case _:
+return $default(_that.id,_that.message,_that.data);case _:
   return null;
 
 }
@@ -223,12 +223,12 @@ return $default(_that.id,_that.message,_that.debugSchemaData);case _:
 @JsonSerializable()
 
 class _DebugSchema implements DebugSchema {
-  const _DebugSchema({@JsonKey(includeIfNull: false) this.id, @JsonKey(includeIfNull: false) this.message, @JsonKey(includeIfNull: false, name: 'DebugSchemaData') this.debugSchemaData});
+  const _DebugSchema({@JsonKey(includeIfNull: false) this.id, @JsonKey(includeIfNull: false) this.message, @JsonKey(includeIfNull: false) this.data});
   factory _DebugSchema.fromJson(Map<String, dynamic> json) => _$DebugSchemaFromJson(json);
 
 @override@JsonKey(includeIfNull: false) final  int? id;
 @override@JsonKey(includeIfNull: false) final  String? message;
-@override@JsonKey(includeIfNull: false, name: 'DebugSchemaData') final  DebugSchemaData? debugSchemaData;
+@override@JsonKey(includeIfNull: false) final  DebugSchemaData? data;
 
 /// Create a copy of DebugSchema
 /// with the given fields replaced by the non-null parameter values.
@@ -243,16 +243,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DebugSchema&&(identical(other.id, id) || other.id == id)&&(identical(other.message, message) || other.message == message)&&(identical(other.debugSchemaData, debugSchemaData) || other.debugSchemaData == debugSchemaData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DebugSchema&&(identical(other.id, id) || other.id == id)&&(identical(other.message, message) || other.message == message)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,message,debugSchemaData);
+int get hashCode => Object.hash(runtimeType,id,message,data);
 
 @override
 String toString() {
-  return 'DebugSchema(id: $id, message: $message, debugSchemaData: $debugSchemaData)';
+  return 'DebugSchema(id: $id, message: $message, data: $data)';
 }
 
 
@@ -263,11 +263,11 @@ abstract mixin class _$DebugSchemaCopyWith<$Res> implements $DebugSchemaCopyWith
   factory _$DebugSchemaCopyWith(_DebugSchema value, $Res Function(_DebugSchema) _then) = __$DebugSchemaCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) String? message,@JsonKey(includeIfNull: false, name: 'DebugSchemaData') DebugSchemaData? debugSchemaData
+@JsonKey(includeIfNull: false) int? id,@JsonKey(includeIfNull: false) String? message,@JsonKey(includeIfNull: false) DebugSchemaData? data
 });
 
 
-@override $DebugSchemaDataCopyWith<$Res>? get debugSchemaData;
+@override $DebugSchemaDataCopyWith<$Res>? get data;
 
 }
 /// @nodoc
@@ -280,11 +280,11 @@ class __$DebugSchemaCopyWithImpl<$Res>
 
 /// Create a copy of DebugSchema
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? message = freezed,Object? debugSchemaData = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = freezed,Object? message = freezed,Object? data = freezed,}) {
   return _then(_DebugSchema(
 id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int?,message: freezed == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
-as String?,debugSchemaData: freezed == debugSchemaData ? _self.debugSchemaData : debugSchemaData // ignore: cast_nullable_to_non_nullable
+as String?,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as DebugSchemaData?,
   ));
 }
@@ -293,13 +293,13 @@ as DebugSchemaData?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$DebugSchemaDataCopyWith<$Res>? get debugSchemaData {
-    if (_self.debugSchemaData == null) {
+$DebugSchemaDataCopyWith<$Res>? get data {
+    if (_self.data == null) {
     return null;
   }
 
-  return $DebugSchemaDataCopyWith<$Res>(_self.debugSchemaData!, (value) {
-    return _then(_self.copyWith(debugSchemaData: value));
+  return $DebugSchemaDataCopyWith<$Res>(_self.data!, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

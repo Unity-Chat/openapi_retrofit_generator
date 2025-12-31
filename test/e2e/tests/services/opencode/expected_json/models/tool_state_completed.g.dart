@@ -13,8 +13,8 @@ ToolStateCompleted _$ToolStateCompletedFromJson(Map<String, dynamic> json) =>
       output: json['output'] as String,
       title: json['title'] as String,
       metadata: json['metadata'] as Map<String, dynamic>,
-      toolStateCompletedTime: ToolStateCompletedTime.fromJson(
-        json['ToolStateCompletedTime'] as Map<String, dynamic>,
+      time: ToolStateCompletedTime.fromJson(
+        json['time'] as Map<String, dynamic>,
       ),
       attachments: (json['attachments'] as List<dynamic>?)
           ?.map((e) => FilePart.fromJson(e as Map<String, dynamic>))
@@ -28,6 +28,6 @@ Map<String, dynamic> _$ToolStateCompletedToJson(ToolStateCompleted instance) =>
       'output': instance.output,
       'title': instance.title,
       'metadata': instance.metadata,
-      'ToolStateCompletedTime': instance.toolStateCompletedTime,
+      'time': instance.time,
       'attachments': instance.attachments,
     };

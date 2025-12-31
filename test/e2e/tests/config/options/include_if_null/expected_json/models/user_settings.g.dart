@@ -7,16 +7,14 @@ part of 'user_settings.dart';
 // **************************************************************************
 
 UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) => UserSettings(
-  userSettingsNotifications: json['UserSettingsNotifications'] == null
+  notifications: json['notifications'] == null
       ? null
       : UserSettingsNotifications.fromJson(
-          json['UserSettingsNotifications'] as Map<String, dynamic>,
+          json['notifications'] as Map<String, dynamic>,
         ),
-  userSettingsPrivacy: json['UserSettingsPrivacy'] == null
+  privacy: json['privacy'] == null
       ? null
-      : UserSettingsPrivacy.fromJson(
-          json['UserSettingsPrivacy'] as Map<String, dynamic>,
-        ),
+      : UserSettingsPrivacy.fromJson(json['privacy'] as Map<String, dynamic>),
   theme: json['theme'] == null
       ? UserSettingsThemeTheme.auto
       : UserSettingsThemeTheme.fromJson(json['theme'] as String),
@@ -26,7 +24,7 @@ UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) => UserSettings(
 Map<String, dynamic> _$UserSettingsToJson(UserSettings instance) =>
     <String, dynamic>{
       'theme': instance.theme,
-      'UserSettingsNotifications': ?instance.userSettingsNotifications,
-      'UserSettingsPrivacy': ?instance.userSettingsPrivacy,
+      'notifications': ?instance.notifications,
+      'privacy': ?instance.privacy,
       'language': instance.language,
     };

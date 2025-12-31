@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: Reserved Field Name Test
+  version: 1.0.0
+paths:
+  /test:
+    get:
+      operationId: getTest
+      tags:
+        - test
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestModel'
+components:
+  schemas:
+    TestModel:
+      type: object
+      required:
+        - part
+        - set
+        - get
+        - dynamic
+      properties:
+        part:
+          type: string
+          description: Field named 'part' - reserved Dart keyword
+        set:
+          type: integer
+          description: Field named 'set' - reserved Dart keyword
+        get:
+          type: boolean
+          description: Field named 'get' - reserved Dart keyword
+        dynamic:
+          type: string
+          description: Field named 'dynamic' - reserved Dart keyword
+        normalField:
+          type: string
+          description: Normal field - should not need JsonKey

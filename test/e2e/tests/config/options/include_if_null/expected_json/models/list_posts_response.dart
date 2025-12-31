@@ -11,19 +11,15 @@ part 'list_posts_response.g.dart';
 
 @JsonSerializable()
 class ListPostsResponse {
-  const ListPostsResponse({
-    this.posts,
-    this.listPostsResponsePagination,
-    this.metadata,
-  });
+  const ListPostsResponse({this.posts, this.pagination, this.metadata});
 
   factory ListPostsResponse.fromJson(Map<String, Object?> json) =>
       _$ListPostsResponseFromJson(json);
 
   @JsonKey(includeIfNull: false)
   final List<PostModel>? posts;
-  @JsonKey(includeIfNull: false, name: 'ListPostsResponsePagination')
-  final ListPostsResponsePagination? listPostsResponsePagination;
+  @JsonKey(includeIfNull: false)
+  final ListPostsResponsePagination? pagination;
   @JsonKey(includeIfNull: false)
   final Map<String, String>? metadata;
 

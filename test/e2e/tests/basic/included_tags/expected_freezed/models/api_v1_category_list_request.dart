@@ -15,18 +15,10 @@ abstract class ApiV1CategoryListRequest with _$ApiV1CategoryListRequest {
   const factory ApiV1CategoryListRequest({
     /// This field should be included
     required String includedField,
-    @JsonKey(
-      includeIfNull: false,
-      name: 'ApiV1CategoryListRequestNestedIncluded',
-    )
-    ApiV1CategoryListRequestNestedIncluded?
-    apiV1CategoryListRequestNestedIncluded,
-    @JsonKey(
-      includeIfNull: false,
-      name: 'ApiV1CategoryListRequestAnchorReference',
-    )
-    ApiV1CategoryListRequestAnchorReference?
-    apiV1CategoryListRequestAnchorReference,
+    @JsonKey(includeIfNull: false)
+    ApiV1CategoryListRequestNestedIncluded? nestedIncluded,
+    @JsonKey(includeIfNull: false)
+    ApiV1CategoryListRequestAnchorReference? anchorReference,
   }) = _ApiV1CategoryListRequest;
 
   factory ApiV1CategoryListRequest.fromJson(Map<String, Object?> json) =>

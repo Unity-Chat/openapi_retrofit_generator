@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ToolStateCompleted {
 
- String get status; Map<String, dynamic> get input; String get output; String get title; Map<String, dynamic> get metadata;@JsonKey(name: 'ToolStateCompletedTime') ToolStateCompletedTime get toolStateCompletedTime; List<FilePart>? get attachments;
+ String get status; Map<String, dynamic> get input; String get output; String get title; Map<String, dynamic> get metadata; ToolStateCompletedTime get time; List<FilePart>? get attachments;
 /// Create a copy of ToolStateCompleted
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ToolStateCompletedCopyWith<ToolStateCompleted> get copyWith => _$ToolStateCompl
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ToolStateCompleted&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.output, output) || other.output == output)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.metadata, metadata)&&(identical(other.toolStateCompletedTime, toolStateCompletedTime) || other.toolStateCompletedTime == toolStateCompletedTime)&&const DeepCollectionEquality().equals(other.attachments, attachments));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ToolStateCompleted&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other.input, input)&&(identical(other.output, output) || other.output == output)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other.metadata, metadata)&&(identical(other.time, time) || other.time == time)&&const DeepCollectionEquality().equals(other.attachments, attachments));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(input),output,title,const DeepCollectionEquality().hash(metadata),toolStateCompletedTime,const DeepCollectionEquality().hash(attachments));
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(input),output,title,const DeepCollectionEquality().hash(metadata),time,const DeepCollectionEquality().hash(attachments));
 
 @override
 String toString() {
-  return 'ToolStateCompleted(status: $status, input: $input, output: $output, title: $title, metadata: $metadata, toolStateCompletedTime: $toolStateCompletedTime, attachments: $attachments)';
+  return 'ToolStateCompleted(status: $status, input: $input, output: $output, title: $title, metadata: $metadata, time: $time, attachments: $attachments)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ToolStateCompletedCopyWith<$Res>  {
   factory $ToolStateCompletedCopyWith(ToolStateCompleted value, $Res Function(ToolStateCompleted) _then) = _$ToolStateCompletedCopyWithImpl;
 @useResult
 $Res call({
- String status, Map<String, dynamic> input, String output, String title, Map<String, dynamic> metadata,@JsonKey(name: 'ToolStateCompletedTime') ToolStateCompletedTime toolStateCompletedTime, List<FilePart>? attachments
+ String status, Map<String, dynamic> input, String output, String title, Map<String, dynamic> metadata, ToolStateCompletedTime time, List<FilePart>? attachments
 });
 
 
-$ToolStateCompletedTimeCopyWith<$Res> get toolStateCompletedTime;
+$ToolStateCompletedTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -65,14 +65,14 @@ class _$ToolStateCompletedCopyWithImpl<$Res>
 
 /// Create a copy of ToolStateCompleted
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? input = null,Object? output = null,Object? title = null,Object? metadata = null,Object? toolStateCompletedTime = null,Object? attachments = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? input = null,Object? output = null,Object? title = null,Object? metadata = null,Object? time = null,Object? attachments = freezed,}) {
   return _then(_self.copyWith(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,output: null == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,metadata: null == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,toolStateCompletedTime: null == toolStateCompletedTime ? _self.toolStateCompletedTime : toolStateCompletedTime // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ToolStateCompletedTime,attachments: freezed == attachments ? _self.attachments : attachments // ignore: cast_nullable_to_non_nullable
 as List<FilePart>?,
   ));
@@ -81,10 +81,10 @@ as List<FilePart>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ToolStateCompletedTimeCopyWith<$Res> get toolStateCompletedTime {
+$ToolStateCompletedTimeCopyWith<$Res> get time {
   
-  return $ToolStateCompletedTimeCopyWith<$Res>(_self.toolStateCompletedTime, (value) {
-    return _then(_self.copyWith(toolStateCompletedTime: value));
+  return $ToolStateCompletedTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }
@@ -168,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String status,  Map<String, dynamic> input,  String output,  String title,  Map<String, dynamic> metadata, @JsonKey(name: 'ToolStateCompletedTime')  ToolStateCompletedTime toolStateCompletedTime,  List<FilePart>? attachments)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String status,  Map<String, dynamic> input,  String output,  String title,  Map<String, dynamic> metadata,  ToolStateCompletedTime time,  List<FilePart>? attachments)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ToolStateCompleted() when $default != null:
-return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata,_that.toolStateCompletedTime,_that.attachments);case _:
+return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata,_that.time,_that.attachments);case _:
   return orElse();
 
 }
@@ -189,10 +189,10 @@ return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String status,  Map<String, dynamic> input,  String output,  String title,  Map<String, dynamic> metadata, @JsonKey(name: 'ToolStateCompletedTime')  ToolStateCompletedTime toolStateCompletedTime,  List<FilePart>? attachments)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String status,  Map<String, dynamic> input,  String output,  String title,  Map<String, dynamic> metadata,  ToolStateCompletedTime time,  List<FilePart>? attachments)  $default,) {final _that = this;
 switch (_that) {
 case _ToolStateCompleted():
-return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata,_that.toolStateCompletedTime,_that.attachments);case _:
+return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata,_that.time,_that.attachments);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +209,10 @@ return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String status,  Map<String, dynamic> input,  String output,  String title,  Map<String, dynamic> metadata, @JsonKey(name: 'ToolStateCompletedTime')  ToolStateCompletedTime toolStateCompletedTime,  List<FilePart>? attachments)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String status,  Map<String, dynamic> input,  String output,  String title,  Map<String, dynamic> metadata,  ToolStateCompletedTime time,  List<FilePart>? attachments)?  $default,) {final _that = this;
 switch (_that) {
 case _ToolStateCompleted() when $default != null:
-return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata,_that.toolStateCompletedTime,_that.attachments);case _:
+return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata,_that.time,_that.attachments);case _:
   return null;
 
 }
@@ -224,7 +224,7 @@ return $default(_that.status,_that.input,_that.output,_that.title,_that.metadata
 @JsonSerializable()
 
 class _ToolStateCompleted implements ToolStateCompleted {
-  const _ToolStateCompleted({required this.status, required final  Map<String, dynamic> input, required this.output, required this.title, required final  Map<String, dynamic> metadata, @JsonKey(name: 'ToolStateCompletedTime') required this.toolStateCompletedTime, final  List<FilePart>? attachments}): _input = input,_metadata = metadata,_attachments = attachments;
+  const _ToolStateCompleted({required this.status, required final  Map<String, dynamic> input, required this.output, required this.title, required final  Map<String, dynamic> metadata, required this.time, final  List<FilePart>? attachments}): _input = input,_metadata = metadata,_attachments = attachments;
   factory _ToolStateCompleted.fromJson(Map<String, dynamic> json) => _$ToolStateCompletedFromJson(json);
 
 @override final  String status;
@@ -244,7 +244,7 @@ class _ToolStateCompleted implements ToolStateCompleted {
   return EqualUnmodifiableMapView(_metadata);
 }
 
-@override@JsonKey(name: 'ToolStateCompletedTime') final  ToolStateCompletedTime toolStateCompletedTime;
+@override final  ToolStateCompletedTime time;
  final  List<FilePart>? _attachments;
 @override List<FilePart>? get attachments {
   final value = _attachments;
@@ -268,16 +268,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToolStateCompleted&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._input, _input)&&(identical(other.output, output) || other.output == output)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._metadata, _metadata)&&(identical(other.toolStateCompletedTime, toolStateCompletedTime) || other.toolStateCompletedTime == toolStateCompletedTime)&&const DeepCollectionEquality().equals(other._attachments, _attachments));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ToolStateCompleted&&(identical(other.status, status) || other.status == status)&&const DeepCollectionEquality().equals(other._input, _input)&&(identical(other.output, output) || other.output == output)&&(identical(other.title, title) || other.title == title)&&const DeepCollectionEquality().equals(other._metadata, _metadata)&&(identical(other.time, time) || other.time == time)&&const DeepCollectionEquality().equals(other._attachments, _attachments));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_input),output,title,const DeepCollectionEquality().hash(_metadata),toolStateCompletedTime,const DeepCollectionEquality().hash(_attachments));
+int get hashCode => Object.hash(runtimeType,status,const DeepCollectionEquality().hash(_input),output,title,const DeepCollectionEquality().hash(_metadata),time,const DeepCollectionEquality().hash(_attachments));
 
 @override
 String toString() {
-  return 'ToolStateCompleted(status: $status, input: $input, output: $output, title: $title, metadata: $metadata, toolStateCompletedTime: $toolStateCompletedTime, attachments: $attachments)';
+  return 'ToolStateCompleted(status: $status, input: $input, output: $output, title: $title, metadata: $metadata, time: $time, attachments: $attachments)';
 }
 
 
@@ -288,11 +288,11 @@ abstract mixin class _$ToolStateCompletedCopyWith<$Res> implements $ToolStateCom
   factory _$ToolStateCompletedCopyWith(_ToolStateCompleted value, $Res Function(_ToolStateCompleted) _then) = __$ToolStateCompletedCopyWithImpl;
 @override @useResult
 $Res call({
- String status, Map<String, dynamic> input, String output, String title, Map<String, dynamic> metadata,@JsonKey(name: 'ToolStateCompletedTime') ToolStateCompletedTime toolStateCompletedTime, List<FilePart>? attachments
+ String status, Map<String, dynamic> input, String output, String title, Map<String, dynamic> metadata, ToolStateCompletedTime time, List<FilePart>? attachments
 });
 
 
-@override $ToolStateCompletedTimeCopyWith<$Res> get toolStateCompletedTime;
+@override $ToolStateCompletedTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -305,14 +305,14 @@ class __$ToolStateCompletedCopyWithImpl<$Res>
 
 /// Create a copy of ToolStateCompleted
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? input = null,Object? output = null,Object? title = null,Object? metadata = null,Object? toolStateCompletedTime = null,Object? attachments = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? input = null,Object? output = null,Object? title = null,Object? metadata = null,Object? time = null,Object? attachments = freezed,}) {
   return _then(_ToolStateCompleted(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as String,input: null == input ? _self._input : input // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>,output: null == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,metadata: null == metadata ? _self._metadata : metadata // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,toolStateCompletedTime: null == toolStateCompletedTime ? _self.toolStateCompletedTime : toolStateCompletedTime // ignore: cast_nullable_to_non_nullable
+as Map<String, dynamic>,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ToolStateCompletedTime,attachments: freezed == attachments ? _self._attachments : attachments // ignore: cast_nullable_to_non_nullable
 as List<FilePart>?,
   ));
@@ -322,10 +322,10 @@ as List<FilePart>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ToolStateCompletedTimeCopyWith<$Res> get toolStateCompletedTime {
+$ToolStateCompletedTimeCopyWith<$Res> get time {
   
-  return $ToolStateCompletedTimeCopyWith<$Res>(_self.toolStateCompletedTime, (value) {
-    return _then(_self.copyWith(toolStateCompletedTime: value));
+  return $ToolStateCompletedTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }

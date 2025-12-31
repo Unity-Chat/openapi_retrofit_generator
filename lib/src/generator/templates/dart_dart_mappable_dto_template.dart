@@ -135,10 +135,11 @@ String _generateVariantWrapperClasses(
     final wrapperClassName = '$className${variantName.toPascal}';
 
     // Generate direct properties
+    // Include @MappableField annotation only for actual renames (not case conversion)
     final directProperties = properties
         .map(
           (prop) =>
-              '${indentation(2)}final ${prop.toSuitableType()} ${prop.name};',
+              '${_jsonKey(prop)}${indentation(2)}final ${prop.toSuitableType()} ${prop.name};',
         )
         .join('\n');
 
@@ -219,7 +220,7 @@ String _parametersToString(List<UniversalType> parameters) {
       .join('\n');
 }
 
-/// if jsonKey is different from the name
+/// if jsonKey is different from the name, add @MappableField annotation
 String _jsonKey(UniversalType t) {
   final params = <String>[];
 
@@ -488,10 +489,11 @@ String _generateDiscriminatedWrapperClasses(
     final filteredProperties = variantProperties;
 
     // Generate direct properties instead of delegating getters
+    // Include @MappableField annotation only for actual renames (not case conversion)
     final directProperties = filteredProperties
         .map(
           (prop) =>
-              '${indentation(2)}final ${prop.toSuitableType()} ${prop.name};',
+              '${_jsonKey(prop)}${indentation(2)}final ${prop.toSuitableType()} ${prop.name};',
         )
         .join('\n');
 

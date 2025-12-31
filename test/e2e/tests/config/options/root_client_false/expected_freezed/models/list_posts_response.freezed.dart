@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ListPostsResponse {
 
- List<PostModel>? get posts;@JsonKey(name: 'ListPostsResponsePagination') ListPostsResponsePagination? get listPostsResponsePagination; Map<String, String>? get metadata;
+ List<PostModel>? get posts; ListPostsResponsePagination? get pagination; Map<String, String>? get metadata;
 /// Create a copy of ListPostsResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ListPostsResponseCopyWith<ListPostsResponse> get copyWith => _$ListPostsRespons
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPostsResponse&&const DeepCollectionEquality().equals(other.posts, posts)&&(identical(other.listPostsResponsePagination, listPostsResponsePagination) || other.listPostsResponsePagination == listPostsResponsePagination)&&const DeepCollectionEquality().equals(other.metadata, metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ListPostsResponse&&const DeepCollectionEquality().equals(other.posts, posts)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&const DeepCollectionEquality().equals(other.metadata, metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(posts),listPostsResponsePagination,const DeepCollectionEquality().hash(metadata));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(posts),pagination,const DeepCollectionEquality().hash(metadata));
 
 @override
 String toString() {
-  return 'ListPostsResponse(posts: $posts, listPostsResponsePagination: $listPostsResponsePagination, metadata: $metadata)';
+  return 'ListPostsResponse(posts: $posts, pagination: $pagination, metadata: $metadata)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ListPostsResponseCopyWith<$Res>  {
   factory $ListPostsResponseCopyWith(ListPostsResponse value, $Res Function(ListPostsResponse) _then) = _$ListPostsResponseCopyWithImpl;
 @useResult
 $Res call({
- List<PostModel>? posts,@JsonKey(name: 'ListPostsResponsePagination') ListPostsResponsePagination? listPostsResponsePagination, Map<String, String>? metadata
+ List<PostModel>? posts, ListPostsResponsePagination? pagination, Map<String, String>? metadata
 });
 
 
-$ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination;
+$ListPostsResponsePaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$ListPostsResponseCopyWithImpl<$Res>
 
 /// Create a copy of ListPostsResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? posts = freezed,Object? listPostsResponsePagination = freezed,Object? metadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? posts = freezed,Object? pagination = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 posts: freezed == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
-as List<PostModel>?,listPostsResponsePagination: freezed == listPostsResponsePagination ? _self.listPostsResponsePagination : listPostsResponsePagination // ignore: cast_nullable_to_non_nullable
+as List<PostModel>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as ListPostsResponsePagination?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, String>?,
   ));
@@ -77,13 +77,13 @@ as Map<String, String>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination {
-    if (_self.listPostsResponsePagination == null) {
+$ListPostsResponsePaginationCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
     return null;
   }
 
-  return $ListPostsResponsePaginationCopyWith<$Res>(_self.listPostsResponsePagination!, (value) {
-    return _then(_self.copyWith(listPostsResponsePagination: value));
+  return $ListPostsResponsePaginationCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
   });
 }
 }
@@ -167,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination')  ListPostsResponsePagination? listPostsResponsePagination,  Map<String, String>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<PostModel>? posts,  ListPostsResponsePagination? pagination,  Map<String, String>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ListPostsResponse() when $default != null:
-return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);case _:
+return $default(_that.posts,_that.pagination,_that.metadata);case _:
   return orElse();
 
 }
@@ -188,10 +188,10 @@ return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination')  ListPostsResponsePagination? listPostsResponsePagination,  Map<String, String>? metadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<PostModel>? posts,  ListPostsResponsePagination? pagination,  Map<String, String>? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _ListPostsResponse():
-return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);case _:
+return $default(_that.posts,_that.pagination,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -208,10 +208,10 @@ return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination')  ListPostsResponsePagination? listPostsResponsePagination,  Map<String, String>? metadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<PostModel>? posts,  ListPostsResponsePagination? pagination,  Map<String, String>? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _ListPostsResponse() when $default != null:
-return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);case _:
+return $default(_that.posts,_that.pagination,_that.metadata);case _:
   return null;
 
 }
@@ -223,7 +223,7 @@ return $default(_that.posts,_that.listPostsResponsePagination,_that.metadata);ca
 @JsonSerializable()
 
 class _ListPostsResponse implements ListPostsResponse {
-  const _ListPostsResponse({final  List<PostModel>? posts, @JsonKey(name: 'ListPostsResponsePagination') this.listPostsResponsePagination, final  Map<String, String>? metadata}): _posts = posts,_metadata = metadata;
+  const _ListPostsResponse({final  List<PostModel>? posts, this.pagination, final  Map<String, String>? metadata}): _posts = posts,_metadata = metadata;
   factory _ListPostsResponse.fromJson(Map<String, dynamic> json) => _$ListPostsResponseFromJson(json);
 
  final  List<PostModel>? _posts;
@@ -235,7 +235,7 @@ class _ListPostsResponse implements ListPostsResponse {
   return EqualUnmodifiableListView(value);
 }
 
-@override@JsonKey(name: 'ListPostsResponsePagination') final  ListPostsResponsePagination? listPostsResponsePagination;
+@override final  ListPostsResponsePagination? pagination;
  final  Map<String, String>? _metadata;
 @override Map<String, String>? get metadata {
   final value = _metadata;
@@ -259,16 +259,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListPostsResponse&&const DeepCollectionEquality().equals(other._posts, _posts)&&(identical(other.listPostsResponsePagination, listPostsResponsePagination) || other.listPostsResponsePagination == listPostsResponsePagination)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ListPostsResponse&&const DeepCollectionEquality().equals(other._posts, _posts)&&(identical(other.pagination, pagination) || other.pagination == pagination)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_posts),listPostsResponsePagination,const DeepCollectionEquality().hash(_metadata));
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_posts),pagination,const DeepCollectionEquality().hash(_metadata));
 
 @override
 String toString() {
-  return 'ListPostsResponse(posts: $posts, listPostsResponsePagination: $listPostsResponsePagination, metadata: $metadata)';
+  return 'ListPostsResponse(posts: $posts, pagination: $pagination, metadata: $metadata)';
 }
 
 
@@ -279,11 +279,11 @@ abstract mixin class _$ListPostsResponseCopyWith<$Res> implements $ListPostsResp
   factory _$ListPostsResponseCopyWith(_ListPostsResponse value, $Res Function(_ListPostsResponse) _then) = __$ListPostsResponseCopyWithImpl;
 @override @useResult
 $Res call({
- List<PostModel>? posts,@JsonKey(name: 'ListPostsResponsePagination') ListPostsResponsePagination? listPostsResponsePagination, Map<String, String>? metadata
+ List<PostModel>? posts, ListPostsResponsePagination? pagination, Map<String, String>? metadata
 });
 
 
-@override $ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination;
+@override $ListPostsResponsePaginationCopyWith<$Res>? get pagination;
 
 }
 /// @nodoc
@@ -296,10 +296,10 @@ class __$ListPostsResponseCopyWithImpl<$Res>
 
 /// Create a copy of ListPostsResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? posts = freezed,Object? listPostsResponsePagination = freezed,Object? metadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? posts = freezed,Object? pagination = freezed,Object? metadata = freezed,}) {
   return _then(_ListPostsResponse(
 posts: freezed == posts ? _self._posts : posts // ignore: cast_nullable_to_non_nullable
-as List<PostModel>?,listPostsResponsePagination: freezed == listPostsResponsePagination ? _self.listPostsResponsePagination : listPostsResponsePagination // ignore: cast_nullable_to_non_nullable
+as List<PostModel>?,pagination: freezed == pagination ? _self.pagination : pagination // ignore: cast_nullable_to_non_nullable
 as ListPostsResponsePagination?,metadata: freezed == metadata ? _self._metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, String>?,
   ));
@@ -309,13 +309,13 @@ as Map<String, String>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ListPostsResponsePaginationCopyWith<$Res>? get listPostsResponsePagination {
-    if (_self.listPostsResponsePagination == null) {
+$ListPostsResponsePaginationCopyWith<$Res>? get pagination {
+    if (_self.pagination == null) {
     return null;
   }
 
-  return $ListPostsResponsePaginationCopyWith<$Res>(_self.listPostsResponsePagination!, (value) {
-    return _then(_self.copyWith(listPostsResponsePagination: value));
+  return $ListPostsResponsePaginationCopyWith<$Res>(_self.pagination!, (value) {
+    return _then(_self.copyWith(pagination: value));
   });
 }
 }

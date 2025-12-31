@@ -16,7 +16,7 @@ class ClassWithNullableTypes with ClassWithNullableTypesMappable {
     required this.p2,
     required this.p2NullItem,
     required this.p2NullAll,
-    required this.classWithNullableTypesP3,
+    required this.p3,
     required this.requiredNullAnyOf,
     required this.p1AnyOf,
     required this.p2AnyOf,
@@ -33,7 +33,7 @@ class ClassWithNullableTypes with ClassWithNullableTypesMappable {
     this.p2Null,
     this.p1N,
     this.p2N,
-    this.classWithNullableTypesP3N,
+    this.p3N,
     this.p1List,
     this.p2List,
     this.p3List,
@@ -47,8 +47,7 @@ class ClassWithNullableTypes with ClassWithNullableTypesMappable {
   final List<List<String?>> p2NullItem;
   @MappableField(key: 'p2_null_all')
   final List<dynamic>? p2NullAll;
-  @MappableField(key: 'ClassWithNullableTypesP3')
-  final ClassWithNullableTypesP3 classWithNullableTypesP3;
+  final ClassWithNullableTypesP3 p3;
   @MappableField(key: 'required_null_anyOf')
   final dynamic requiredNullAnyOf;
   @MappableField(key: 'p1_anyOf')
@@ -81,8 +80,8 @@ class ClassWithNullableTypes with ClassWithNullableTypesMappable {
   final String? p1N;
   @MappableField(key: 'p2_n')
   final List<String?>? p2N;
-  @MappableField(key: 'ClassWithNullableTypesP3N')
-  final ClassWithNullableTypesP3N? classWithNullableTypesP3N;
+  @MappableField(key: 'p3_n')
+  final ClassWithNullableTypesP3N? p3N;
   @MappableField(key: 'p1_list')
   final String? p1List;
   @MappableField(key: 'p2_list')

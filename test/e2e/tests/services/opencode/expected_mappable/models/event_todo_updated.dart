@@ -10,14 +10,10 @@ part 'event_todo_updated.mapper.dart';
 
 @MappableClass()
 class EventTodoUpdated with EventTodoUpdatedMappable {
-  const EventTodoUpdated({
-    required this.type,
-    required this.eventTodoUpdatedProperties,
-  });
+  const EventTodoUpdated({required this.type, required this.properties});
 
   final String type;
-  @MappableField(key: 'EventTodoUpdatedProperties')
-  final EventTodoUpdatedProperties eventTodoUpdatedProperties;
+  final EventTodoUpdatedProperties properties;
 
   static EventTodoUpdated fromJson(Map<String, dynamic> json) =>
       EventTodoUpdatedMapper.fromJson(json);

@@ -71,13 +71,10 @@ class AgentConfigMapper extends ClassMapperBase<AgentConfig> {
     _$mode,
     opt: true,
   );
-  static AgentConfigPermission? _$agentConfigPermission(AgentConfig v) =>
-      v.agentConfigPermission;
-  static const Field<AgentConfig, AgentConfigPermission>
-  _f$agentConfigPermission = Field(
-    'agentConfigPermission',
-    _$agentConfigPermission,
-    key: r'AgentConfigPermission',
+  static AgentConfigPermission? _$permission(AgentConfig v) => v.permission;
+  static const Field<AgentConfig, AgentConfigPermission> _f$permission = Field(
+    'permission',
+    _$permission,
     opt: true,
   );
 
@@ -91,7 +88,7 @@ class AgentConfigMapper extends ClassMapperBase<AgentConfig> {
     #disable: _f$disable,
     #description: _f$description,
     #mode: _f$mode,
-    #agentConfigPermission: _f$agentConfigPermission,
+    #permission: _f$permission,
   };
 
   static AgentConfig _instantiate(DecodingData data) {
@@ -104,7 +101,7 @@ class AgentConfigMapper extends ClassMapperBase<AgentConfig> {
       disable: data.dec(_f$disable),
       description: data.dec(_f$description),
       mode: data.dec(_f$mode),
-      agentConfigPermission: data.dec(_f$agentConfigPermission),
+      permission: data.dec(_f$permission),
     );
   }
 
@@ -174,7 +171,7 @@ abstract class AgentConfigCopyWith<$R, $In extends AgentConfig, $Out>
     AgentConfigPermission,
     AgentConfigPermission
   >?
-  get agentConfigPermission;
+  get permission;
   $R call({
     String? model,
     num? temperature,
@@ -184,7 +181,7 @@ abstract class AgentConfigCopyWith<$R, $In extends AgentConfig, $Out>
     bool? disable,
     String? description,
     dynamic mode,
-    AgentConfigPermission? agentConfigPermission,
+    AgentConfigPermission? permission,
   });
   AgentConfigCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -212,9 +209,8 @@ class _AgentConfigCopyWithImpl<$R, $Out>
     AgentConfigPermission,
     AgentConfigPermission
   >?
-  get agentConfigPermission => $value.agentConfigPermission?.copyWith.$chain(
-    (v) => call(agentConfigPermission: v),
-  );
+  get permission =>
+      $value.permission?.copyWith.$chain((v) => call(permission: v));
   @override
   $R call({
     Object? model = $none,
@@ -225,7 +221,7 @@ class _AgentConfigCopyWithImpl<$R, $Out>
     Object? disable = $none,
     Object? description = $none,
     Object? mode = $none,
-    Object? agentConfigPermission = $none,
+    Object? permission = $none,
   }) => $apply(
     FieldCopyWithData({
       if (model != $none) #model: model,
@@ -236,8 +232,7 @@ class _AgentConfigCopyWithImpl<$R, $Out>
       if (disable != $none) #disable: disable,
       if (description != $none) #description: description,
       if (mode != $none) #mode: mode,
-      if (agentConfigPermission != $none)
-        #agentConfigPermission: agentConfigPermission,
+      if (permission != $none) #permission: permission,
     }),
   );
   @override
@@ -250,10 +245,7 @@ class _AgentConfigCopyWithImpl<$R, $Out>
     disable: data.get(#disable, or: $value.disable),
     description: data.get(#description, or: $value.description),
     mode: data.get(#mode, or: $value.mode),
-    agentConfigPermission: data.get(
-      #agentConfigPermission,
-      or: $value.agentConfigPermission,
-    ),
+    permission: data.get(#permission, or: $value.permission),
   );
 
   @override

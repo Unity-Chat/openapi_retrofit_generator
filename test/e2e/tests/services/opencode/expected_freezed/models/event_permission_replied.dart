@@ -13,8 +13,7 @@ part 'event_permission_replied.g.dart';
 abstract class EventPermissionReplied with _$EventPermissionReplied {
   const factory EventPermissionReplied({
     required String type,
-    @JsonKey(name: 'EventPermissionRepliedProperties')
-    required EventPermissionRepliedProperties eventPermissionRepliedProperties,
+    required EventPermissionRepliedProperties properties,
   }) = _EventPermissionReplied;
 
   factory EventPermissionReplied.fromJson(Map<String, Object?> json) =>

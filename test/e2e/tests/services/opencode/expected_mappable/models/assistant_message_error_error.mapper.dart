@@ -28,28 +28,25 @@ class AssistantMessageErrorErrorProviderAuthErrorMapper
   static String _$name(AssistantMessageErrorErrorProviderAuthError v) => v.name;
   static const Field<AssistantMessageErrorErrorProviderAuthError, String>
   _f$name = Field('name', _$name);
-  static ProviderAuthErrorData _$providerAuthErrorData(
+  static ProviderAuthErrorData _$data(
     AssistantMessageErrorErrorProviderAuthError v,
-  ) => v.providerAuthErrorData;
+  ) => v.data;
   static const Field<
     AssistantMessageErrorErrorProviderAuthError,
     ProviderAuthErrorData
   >
-  _f$providerAuthErrorData = Field(
-    'providerAuthErrorData',
-    _$providerAuthErrorData,
-  );
+  _f$data = Field('data', _$data);
 
   @override
   final MappableFields<AssistantMessageErrorErrorProviderAuthError> fields =
-      const {#name: _f$name, #providerAuthErrorData: _f$providerAuthErrorData};
+      const {#name: _f$name, #data: _f$data};
 
   static AssistantMessageErrorErrorProviderAuthError _instantiate(
     DecodingData data,
   ) {
     return AssistantMessageErrorErrorProviderAuthError(
       name: data.dec(_f$name),
-      providerAuthErrorData: data.dec(_f$providerAuthErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -150,8 +147,8 @@ abstract class AssistantMessageErrorErrorProviderAuthErrorCopyWith<
     ProviderAuthErrorData,
     ProviderAuthErrorData
   >
-  get providerAuthErrorData;
-  $R call({String? name, ProviderAuthErrorData? providerAuthErrorData});
+  get data;
+  $R call({String? name, ProviderAuthErrorData? data});
   AssistantMessageErrorErrorProviderAuthErrorCopyWith<$R2, $In, $Out2>
   $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -181,26 +178,19 @@ class _AssistantMessageErrorErrorProviderAuthErrorCopyWithImpl<$R, $Out>
     ProviderAuthErrorData,
     ProviderAuthErrorData
   >
-  get providerAuthErrorData => $value.providerAuthErrorData.copyWith.$chain(
-    (v) => call(providerAuthErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, ProviderAuthErrorData? providerAuthErrorData}) =>
-      $apply(
-        FieldCopyWithData({
-          if (name != null) #name: name,
-          if (providerAuthErrorData != null)
-            #providerAuthErrorData: providerAuthErrorData,
-        }),
-      );
+  $R call({String? name, ProviderAuthErrorData? data}) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (data != null) #data: data,
+    }),
+  );
   @override
   AssistantMessageErrorErrorProviderAuthError $make(CopyWithData data) =>
       AssistantMessageErrorErrorProviderAuthError(
         name: data.get(#name, or: $value.name),
-        providerAuthErrorData: data.get(
-          #providerAuthErrorData,
-          or: $value.providerAuthErrorData,
-        ),
+        data: data.get(#data, or: $value.data),
       );
 
   @override
@@ -238,16 +228,15 @@ class AssistantMessageErrorErrorUnknownErrorMapper
   static String _$name(AssistantMessageErrorErrorUnknownError v) => v.name;
   static const Field<AssistantMessageErrorErrorUnknownError, String> _f$name =
       Field('name', _$name);
-  static UnknownErrorData _$unknownErrorData(
-    AssistantMessageErrorErrorUnknownError v,
-  ) => v.unknownErrorData;
+  static UnknownErrorData _$data(AssistantMessageErrorErrorUnknownError v) =>
+      v.data;
   static const Field<AssistantMessageErrorErrorUnknownError, UnknownErrorData>
-  _f$unknownErrorData = Field('unknownErrorData', _$unknownErrorData);
+  _f$data = Field('data', _$data);
 
   @override
   final MappableFields<AssistantMessageErrorErrorUnknownError> fields = const {
     #name: _f$name,
-    #unknownErrorData: _f$unknownErrorData,
+    #data: _f$data,
   };
 
   static AssistantMessageErrorErrorUnknownError _instantiate(
@@ -255,7 +244,7 @@ class AssistantMessageErrorErrorUnknownErrorMapper
   ) {
     return AssistantMessageErrorErrorUnknownError(
       name: data.dec(_f$name),
-      unknownErrorData: data.dec(_f$unknownErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -338,9 +327,8 @@ abstract class AssistantMessageErrorErrorUnknownErrorCopyWith<
   $Out
 >
     implements ClassCopyWith<$R, $In, $Out> {
-  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData>
-  get unknownErrorData;
-  $R call({String? name, UnknownErrorData? unknownErrorData});
+  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData> get data;
+  $R call({String? name, UnknownErrorData? data});
   AssistantMessageErrorErrorUnknownErrorCopyWith<$R2, $In, $Out2>
   $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -363,24 +351,20 @@ class _AssistantMessageErrorErrorUnknownErrorCopyWithImpl<$R, $Out>
   late final ClassMapperBase<AssistantMessageErrorErrorUnknownError> $mapper =
       AssistantMessageErrorErrorUnknownErrorMapper.ensureInitialized();
   @override
-  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData>
-  get unknownErrorData =>
-      $value.unknownErrorData.copyWith.$chain((v) => call(unknownErrorData: v));
+  UnknownErrorDataCopyWith<$R, UnknownErrorData, UnknownErrorData> get data =>
+      $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, UnknownErrorData? unknownErrorData}) => $apply(
+  $R call({String? name, UnknownErrorData? data}) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
-      if (unknownErrorData != null) #unknownErrorData: unknownErrorData,
+      if (data != null) #data: data,
     }),
   );
   @override
   AssistantMessageErrorErrorUnknownError $make(CopyWithData data) =>
       AssistantMessageErrorErrorUnknownError(
         name: data.get(#name, or: $value.name),
-        unknownErrorData: data.get(
-          #unknownErrorData,
-          or: $value.unknownErrorData,
-        ),
+        data: data.get(#data, or: $value.data),
       );
 
   @override
@@ -618,31 +602,25 @@ class AssistantMessageErrorErrorMessageAbortedErrorMapper
       v.name;
   static const Field<AssistantMessageErrorErrorMessageAbortedError, String>
   _f$name = Field('name', _$name);
-  static MessageAbortedErrorData _$messageAbortedErrorData(
+  static MessageAbortedErrorData _$data(
     AssistantMessageErrorErrorMessageAbortedError v,
-  ) => v.messageAbortedErrorData;
+  ) => v.data;
   static const Field<
     AssistantMessageErrorErrorMessageAbortedError,
     MessageAbortedErrorData
   >
-  _f$messageAbortedErrorData = Field(
-    'messageAbortedErrorData',
-    _$messageAbortedErrorData,
-  );
+  _f$data = Field('data', _$data);
 
   @override
   final MappableFields<AssistantMessageErrorErrorMessageAbortedError> fields =
-      const {
-        #name: _f$name,
-        #messageAbortedErrorData: _f$messageAbortedErrorData,
-      };
+      const {#name: _f$name, #data: _f$data};
 
   static AssistantMessageErrorErrorMessageAbortedError _instantiate(
     DecodingData data,
   ) {
     return AssistantMessageErrorErrorMessageAbortedError(
       name: data.dec(_f$name),
-      messageAbortedErrorData: data.dec(_f$messageAbortedErrorData),
+      data: data.dec(_f$data),
     );
   }
 
@@ -743,8 +721,8 @@ abstract class AssistantMessageErrorErrorMessageAbortedErrorCopyWith<
     MessageAbortedErrorData,
     MessageAbortedErrorData
   >
-  get messageAbortedErrorData;
-  $R call({String? name, MessageAbortedErrorData? messageAbortedErrorData});
+  get data;
+  $R call({String? name, MessageAbortedErrorData? data});
   AssistantMessageErrorErrorMessageAbortedErrorCopyWith<$R2, $In, $Out2>
   $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -778,26 +756,19 @@ class _AssistantMessageErrorErrorMessageAbortedErrorCopyWithImpl<$R, $Out>
     MessageAbortedErrorData,
     MessageAbortedErrorData
   >
-  get messageAbortedErrorData => $value.messageAbortedErrorData.copyWith.$chain(
-    (v) => call(messageAbortedErrorData: v),
-  );
+  get data => $value.data.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({String? name, MessageAbortedErrorData? messageAbortedErrorData}) =>
-      $apply(
-        FieldCopyWithData({
-          if (name != null) #name: name,
-          if (messageAbortedErrorData != null)
-            #messageAbortedErrorData: messageAbortedErrorData,
-        }),
-      );
+  $R call({String? name, MessageAbortedErrorData? data}) => $apply(
+    FieldCopyWithData({
+      if (name != null) #name: name,
+      if (data != null) #data: data,
+    }),
+  );
   @override
   AssistantMessageErrorErrorMessageAbortedError $make(CopyWithData data) =>
       AssistantMessageErrorErrorMessageAbortedError(
         name: data.get(#name, or: $value.name),
-        messageAbortedErrorData: data.get(
-          #messageAbortedErrorData,
-          or: $value.messageAbortedErrorData,
-        ),
+        data: data.get(#data, or: $value.data),
       );
 
   @override

@@ -41,12 +41,8 @@ class SessionMapper extends ClassMapperBase<Session> {
   static const Field<Session, String> _f$title = Field('title', _$title);
   static String _$version(Session v) => v.version;
   static const Field<Session, String> _f$version = Field('version', _$version);
-  static SessionTime _$sessionTime(Session v) => v.sessionTime;
-  static const Field<Session, SessionTime> _f$sessionTime = Field(
-    'sessionTime',
-    _$sessionTime,
-    key: r'SessionTime',
-  );
+  static SessionTime _$time(Session v) => v.time;
+  static const Field<Session, SessionTime> _f$time = Field('time', _$time);
   static String? _$parentId(Session v) => v.parentId;
   static const Field<Session, String> _f$parentId = Field(
     'parentId',
@@ -54,18 +50,16 @@ class SessionMapper extends ClassMapperBase<Session> {
     key: r'parentID',
     opt: true,
   );
-  static SessionShare? _$sessionShare(Session v) => v.sessionShare;
-  static const Field<Session, SessionShare> _f$sessionShare = Field(
-    'sessionShare',
-    _$sessionShare,
-    key: r'SessionShare',
+  static SessionShare? _$share(Session v) => v.share;
+  static const Field<Session, SessionShare> _f$share = Field(
+    'share',
+    _$share,
     opt: true,
   );
-  static SessionRevert? _$sessionRevert(Session v) => v.sessionRevert;
-  static const Field<Session, SessionRevert> _f$sessionRevert = Field(
-    'sessionRevert',
-    _$sessionRevert,
-    key: r'SessionRevert',
+  static SessionRevert? _$revert(Session v) => v.revert;
+  static const Field<Session, SessionRevert> _f$revert = Field(
+    'revert',
+    _$revert,
     opt: true,
   );
 
@@ -76,10 +70,10 @@ class SessionMapper extends ClassMapperBase<Session> {
     #directory: _f$directory,
     #title: _f$title,
     #version: _f$version,
-    #sessionTime: _f$sessionTime,
+    #time: _f$time,
     #parentId: _f$parentId,
-    #sessionShare: _f$sessionShare,
-    #sessionRevert: _f$sessionRevert,
+    #share: _f$share,
+    #revert: _f$revert,
   };
 
   static Session _instantiate(DecodingData data) {
@@ -89,10 +83,10 @@ class SessionMapper extends ClassMapperBase<Session> {
       directory: data.dec(_f$directory),
       title: data.dec(_f$title),
       version: data.dec(_f$version),
-      sessionTime: data.dec(_f$sessionTime),
+      time: data.dec(_f$time),
       parentId: data.dec(_f$parentId),
-      sessionShare: data.dec(_f$sessionShare),
-      sessionRevert: data.dec(_f$sessionRevert),
+      share: data.dec(_f$share),
+      revert: data.dec(_f$revert),
     );
   }
 
@@ -153,19 +147,19 @@ extension SessionValueCopy<$R, $Out> on ObjectCopyWith<$R, Session, $Out> {
 
 abstract class SessionCopyWith<$R, $In extends Session, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  SessionTimeCopyWith<$R, SessionTime, SessionTime> get sessionTime;
-  SessionShareCopyWith<$R, SessionShare, SessionShare>? get sessionShare;
-  SessionRevertCopyWith<$R, SessionRevert, SessionRevert>? get sessionRevert;
+  SessionTimeCopyWith<$R, SessionTime, SessionTime> get time;
+  SessionShareCopyWith<$R, SessionShare, SessionShare>? get share;
+  SessionRevertCopyWith<$R, SessionRevert, SessionRevert>? get revert;
   $R call({
     String? id,
     String? projectId,
     String? directory,
     String? title,
     String? version,
-    SessionTime? sessionTime,
+    SessionTime? time,
     String? parentId,
-    SessionShare? sessionShare,
-    SessionRevert? sessionRevert,
+    SessionShare? share,
+    SessionRevert? revert,
   });
   SessionCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -179,14 +173,14 @@ class _SessionCopyWithImpl<$R, $Out>
   late final ClassMapperBase<Session> $mapper =
       SessionMapper.ensureInitialized();
   @override
-  SessionTimeCopyWith<$R, SessionTime, SessionTime> get sessionTime =>
-      $value.sessionTime.copyWith.$chain((v) => call(sessionTime: v));
+  SessionTimeCopyWith<$R, SessionTime, SessionTime> get time =>
+      $value.time.copyWith.$chain((v) => call(time: v));
   @override
-  SessionShareCopyWith<$R, SessionShare, SessionShare>? get sessionShare =>
-      $value.sessionShare?.copyWith.$chain((v) => call(sessionShare: v));
+  SessionShareCopyWith<$R, SessionShare, SessionShare>? get share =>
+      $value.share?.copyWith.$chain((v) => call(share: v));
   @override
-  SessionRevertCopyWith<$R, SessionRevert, SessionRevert>? get sessionRevert =>
-      $value.sessionRevert?.copyWith.$chain((v) => call(sessionRevert: v));
+  SessionRevertCopyWith<$R, SessionRevert, SessionRevert>? get revert =>
+      $value.revert?.copyWith.$chain((v) => call(revert: v));
   @override
   $R call({
     String? id,
@@ -194,10 +188,10 @@ class _SessionCopyWithImpl<$R, $Out>
     String? directory,
     String? title,
     String? version,
-    SessionTime? sessionTime,
+    SessionTime? time,
     Object? parentId = $none,
-    Object? sessionShare = $none,
-    Object? sessionRevert = $none,
+    Object? share = $none,
+    Object? revert = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -205,10 +199,10 @@ class _SessionCopyWithImpl<$R, $Out>
       if (directory != null) #directory: directory,
       if (title != null) #title: title,
       if (version != null) #version: version,
-      if (sessionTime != null) #sessionTime: sessionTime,
+      if (time != null) #time: time,
       if (parentId != $none) #parentId: parentId,
-      if (sessionShare != $none) #sessionShare: sessionShare,
-      if (sessionRevert != $none) #sessionRevert: sessionRevert,
+      if (share != $none) #share: share,
+      if (revert != $none) #revert: revert,
     }),
   );
   @override
@@ -218,10 +212,10 @@ class _SessionCopyWithImpl<$R, $Out>
     directory: data.get(#directory, or: $value.directory),
     title: data.get(#title, or: $value.title),
     version: data.get(#version, or: $value.version),
-    sessionTime: data.get(#sessionTime, or: $value.sessionTime),
+    time: data.get(#time, or: $value.time),
     parentId: data.get(#parentId, or: $value.parentId),
-    sessionShare: data.get(#sessionShare, or: $value.sessionShare),
-    sessionRevert: data.get(#sessionRevert, or: $value.sessionRevert),
+    share: data.get(#share, or: $value.share),
+    revert: data.get(#revert, or: $value.revert),
   );
 
   @override

@@ -92,11 +92,11 @@ class Event {
 @MappableClass()
 class EventEventInstallationUpdated with EventEventInstallationUpdatedMappable {
   final String type;
-  final EventInstallationUpdatedProperties eventInstallationUpdatedProperties;
+  final EventInstallationUpdatedProperties properties;
 
   const EventEventInstallationUpdated({
     required this.type,
-    required this.eventInstallationUpdatedProperties,
+    required this.properties,
   });
 }
 
@@ -104,66 +104,66 @@ class EventEventInstallationUpdated with EventEventInstallationUpdatedMappable {
 class EventEventLspClientDiagnostics
     with EventEventLspClientDiagnosticsMappable {
   final String type;
-  final EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties;
+  final EventLspClientDiagnosticsProperties properties;
 
   const EventEventLspClientDiagnostics({
     required this.type,
-    required this.eventLspClientDiagnosticsProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventMessageUpdated with EventEventMessageUpdatedMappable {
   final String type;
-  final EventMessageUpdatedProperties eventMessageUpdatedProperties;
+  final EventMessageUpdatedProperties properties;
 
   const EventEventMessageUpdated({
     required this.type,
-    required this.eventMessageUpdatedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventMessageRemoved with EventEventMessageRemovedMappable {
   final String type;
-  final EventMessageRemovedProperties eventMessageRemovedProperties;
+  final EventMessageRemovedProperties properties;
 
   const EventEventMessageRemoved({
     required this.type,
-    required this.eventMessageRemovedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventMessagePartUpdated with EventEventMessagePartUpdatedMappable {
   final String type;
-  final EventMessagePartUpdatedProperties eventMessagePartUpdatedProperties;
+  final EventMessagePartUpdatedProperties properties;
 
   const EventEventMessagePartUpdated({
     required this.type,
-    required this.eventMessagePartUpdatedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventMessagePartRemoved with EventEventMessagePartRemovedMappable {
   final String type;
-  final EventMessagePartRemovedProperties eventMessagePartRemovedProperties;
+  final EventMessagePartRemovedProperties properties;
 
   const EventEventMessagePartRemoved({
     required this.type,
-    required this.eventMessagePartRemovedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventSessionCompacted with EventEventSessionCompactedMappable {
   final String type;
-  final EventSessionCompactedProperties eventSessionCompactedProperties;
+  final EventSessionCompactedProperties properties;
 
   const EventEventSessionCompacted({
     required this.type,
-    required this.eventSessionCompactedProperties,
+    required this.properties,
   });
 }
 
@@ -181,89 +181,77 @@ class EventEventPermissionUpdated with EventEventPermissionUpdatedMappable {
 @MappableClass()
 class EventEventPermissionReplied with EventEventPermissionRepliedMappable {
   final String type;
-  final EventPermissionRepliedProperties eventPermissionRepliedProperties;
+  final EventPermissionRepliedProperties properties;
 
   const EventEventPermissionReplied({
     required this.type,
-    required this.eventPermissionRepliedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventFileEdited with EventEventFileEditedMappable {
   final String type;
-  final EventFileEditedProperties eventFileEditedProperties;
+  final EventFileEditedProperties properties;
 
-  const EventEventFileEdited({
-    required this.type,
-    required this.eventFileEditedProperties,
-  });
+  const EventEventFileEdited({required this.type, required this.properties});
 }
 
 @MappableClass()
 class EventEventFileWatcherUpdated with EventEventFileWatcherUpdatedMappable {
   final String type;
-  final EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties;
+  final EventFileWatcherUpdatedProperties properties;
 
   const EventEventFileWatcherUpdated({
     required this.type,
-    required this.eventFileWatcherUpdatedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventTodoUpdated with EventEventTodoUpdatedMappable {
   final String type;
-  final EventTodoUpdatedProperties eventTodoUpdatedProperties;
+  final EventTodoUpdatedProperties properties;
 
-  const EventEventTodoUpdated({
-    required this.type,
-    required this.eventTodoUpdatedProperties,
-  });
+  const EventEventTodoUpdated({required this.type, required this.properties});
 }
 
 @MappableClass()
 class EventEventSessionIdle with EventEventSessionIdleMappable {
   final String type;
-  final EventSessionIdleProperties eventSessionIdleProperties;
+  final EventSessionIdleProperties properties;
 
-  const EventEventSessionIdle({
-    required this.type,
-    required this.eventSessionIdleProperties,
-  });
+  const EventEventSessionIdle({required this.type, required this.properties});
 }
 
 @MappableClass()
 class EventEventSessionUpdated with EventEventSessionUpdatedMappable {
   final String type;
-  final EventSessionUpdatedProperties eventSessionUpdatedProperties;
+  final EventSessionUpdatedProperties properties;
 
   const EventEventSessionUpdated({
     required this.type,
-    required this.eventSessionUpdatedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventSessionDeleted with EventEventSessionDeletedMappable {
   final String type;
-  final EventSessionDeletedProperties eventSessionDeletedProperties;
+  final EventSessionDeletedProperties properties;
 
   const EventEventSessionDeleted({
     required this.type,
-    required this.eventSessionDeletedProperties,
+    required this.properties,
   });
 }
 
 @MappableClass()
 class EventEventSessionError with EventEventSessionErrorMappable {
   final String type;
-  final EventSessionErrorProperties eventSessionErrorProperties;
+  final EventSessionErrorProperties properties;
 
-  const EventEventSessionError({
-    required this.type,
-    required this.eventSessionErrorProperties,
-  });
+  const EventEventSessionError({required this.type, required this.properties});
 }
 
 @MappableClass()
@@ -280,10 +268,7 @@ class EventEventServerConnected with EventEventServerConnectedMappable {
 @MappableClass()
 class EventEventIdeInstalled with EventEventIdeInstalledMappable {
   final String type;
-  final EventIdeInstalledProperties eventIdeInstalledProperties;
+  final EventIdeInstalledProperties properties;
 
-  const EventEventIdeInstalled({
-    required this.type,
-    required this.eventIdeInstalledProperties,
-  });
+  const EventEventIdeInstalled({required this.type, required this.properties});
 }

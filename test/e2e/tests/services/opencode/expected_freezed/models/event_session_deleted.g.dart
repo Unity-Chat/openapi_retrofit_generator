@@ -9,8 +9,8 @@ part of 'event_session_deleted.dart';
 _EventSessionDeleted _$EventSessionDeletedFromJson(Map<String, dynamic> json) =>
     _EventSessionDeleted(
       type: json['type'] as String,
-      eventSessionDeletedProperties: EventSessionDeletedProperties.fromJson(
-        json['EventSessionDeletedProperties'] as Map<String, dynamic>,
+      properties: EventSessionDeletedProperties.fromJson(
+        json['properties'] as Map<String, dynamic>,
       ),
     );
 
@@ -18,5 +18,5 @@ Map<String, dynamic> _$EventSessionDeletedToJson(
   _EventSessionDeleted instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  'EventSessionDeletedProperties': instance.eventSessionDeletedProperties,
+  'properties': instance.properties,
 };

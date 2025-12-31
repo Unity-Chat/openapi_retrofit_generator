@@ -26,27 +26,24 @@ class SymbolModelMapper extends ClassMapperBase<SymbolModel> {
   static const Field<SymbolModel, String> _f$name = Field('name', _$name);
   static num _$kind(SymbolModel v) => v.kind;
   static const Field<SymbolModel, num> _f$kind = Field('kind', _$kind);
-  static SymbolModelLocation _$symbolModelLocation(SymbolModel v) =>
-      v.symbolModelLocation;
-  static const Field<SymbolModel, SymbolModelLocation> _f$symbolModelLocation =
-      Field(
-        'symbolModelLocation',
-        _$symbolModelLocation,
-        key: r'SymbolModelLocation',
-      );
+  static SymbolModelLocation _$location(SymbolModel v) => v.location;
+  static const Field<SymbolModel, SymbolModelLocation> _f$location = Field(
+    'location',
+    _$location,
+  );
 
   @override
   final MappableFields<SymbolModel> fields = const {
     #name: _f$name,
     #kind: _f$kind,
-    #symbolModelLocation: _f$symbolModelLocation,
+    #location: _f$location,
   };
 
   static SymbolModel _instantiate(DecodingData data) {
     return SymbolModel(
       name: data.dec(_f$name),
       kind: data.dec(_f$kind),
-      symbolModelLocation: data.dec(_f$symbolModelLocation),
+      location: data.dec(_f$location),
     );
   }
 
@@ -111,8 +108,8 @@ extension SymbolModelValueCopy<$R, $Out>
 abstract class SymbolModelCopyWith<$R, $In extends SymbolModel, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   SymbolModelLocationCopyWith<$R, SymbolModelLocation, SymbolModelLocation>
-  get symbolModelLocation;
-  $R call({String? name, num? kind, SymbolModelLocation? symbolModelLocation});
+  get location;
+  $R call({String? name, num? kind, SymbolModelLocation? location});
   SymbolModelCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -126,30 +123,20 @@ class _SymbolModelCopyWithImpl<$R, $Out>
       SymbolModelMapper.ensureInitialized();
   @override
   SymbolModelLocationCopyWith<$R, SymbolModelLocation, SymbolModelLocation>
-  get symbolModelLocation => $value.symbolModelLocation.copyWith.$chain(
-    (v) => call(symbolModelLocation: v),
-  );
+  get location => $value.location.copyWith.$chain((v) => call(location: v));
   @override
-  $R call({
-    String? name,
-    num? kind,
-    SymbolModelLocation? symbolModelLocation,
-  }) => $apply(
+  $R call({String? name, num? kind, SymbolModelLocation? location}) => $apply(
     FieldCopyWithData({
       if (name != null) #name: name,
       if (kind != null) #kind: kind,
-      if (symbolModelLocation != null)
-        #symbolModelLocation: symbolModelLocation,
+      if (location != null) #location: location,
     }),
   );
   @override
   SymbolModel $make(CopyWithData data) => SymbolModel(
     name: data.get(#name, or: $value.name),
     kind: data.get(#kind, or: $value.kind),
-    symbolModelLocation: data.get(
-      #symbolModelLocation,
-      or: $value.symbolModelLocation,
-    ),
+    location: data.get(#location, or: $value.location),
   );
 
   @override

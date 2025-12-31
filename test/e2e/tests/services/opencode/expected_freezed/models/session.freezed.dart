@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Session {
 
- String get id;@JsonKey(name: 'projectID') String get projectId; String get directory; String get title; String get version;@JsonKey(name: 'SessionTime') SessionTime get sessionTime;@JsonKey(name: 'parentID') String? get parentId;@JsonKey(name: 'SessionShare') SessionShare? get sessionShare;@JsonKey(name: 'SessionRevert') SessionRevert? get sessionRevert;
+ String get id;@JsonKey(name: 'projectID') String get projectId; String get directory; String get title; String get version; SessionTime get time;@JsonKey(name: 'parentID') String? get parentId; SessionShare? get share; SessionRevert? get revert;
 /// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SessionCopyWith<Session> get copyWith => _$SessionCopyWithImpl<Session>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Session&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.directory, directory) || other.directory == directory)&&(identical(other.title, title) || other.title == title)&&(identical(other.version, version) || other.version == version)&&(identical(other.sessionTime, sessionTime) || other.sessionTime == sessionTime)&&(identical(other.parentId, parentId) || other.parentId == parentId)&&(identical(other.sessionShare, sessionShare) || other.sessionShare == sessionShare)&&(identical(other.sessionRevert, sessionRevert) || other.sessionRevert == sessionRevert));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Session&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.directory, directory) || other.directory == directory)&&(identical(other.title, title) || other.title == title)&&(identical(other.version, version) || other.version == version)&&(identical(other.time, time) || other.time == time)&&(identical(other.parentId, parentId) || other.parentId == parentId)&&(identical(other.share, share) || other.share == share)&&(identical(other.revert, revert) || other.revert == revert));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,projectId,directory,title,version,sessionTime,parentId,sessionShare,sessionRevert);
+int get hashCode => Object.hash(runtimeType,id,projectId,directory,title,version,time,parentId,share,revert);
 
 @override
 String toString() {
-  return 'Session(id: $id, projectId: $projectId, directory: $directory, title: $title, version: $version, sessionTime: $sessionTime, parentId: $parentId, sessionShare: $sessionShare, sessionRevert: $sessionRevert)';
+  return 'Session(id: $id, projectId: $projectId, directory: $directory, title: $title, version: $version, time: $time, parentId: $parentId, share: $share, revert: $revert)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $SessionCopyWith<$Res>  {
   factory $SessionCopyWith(Session value, $Res Function(Session) _then) = _$SessionCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'projectID') String projectId, String directory, String title, String version,@JsonKey(name: 'SessionTime') SessionTime sessionTime,@JsonKey(name: 'parentID') String? parentId,@JsonKey(name: 'SessionShare') SessionShare? sessionShare,@JsonKey(name: 'SessionRevert') SessionRevert? sessionRevert
+ String id,@JsonKey(name: 'projectID') String projectId, String directory, String title, String version, SessionTime time,@JsonKey(name: 'parentID') String? parentId, SessionShare? share, SessionRevert? revert
 });
 
 
-$SessionTimeCopyWith<$Res> get sessionTime;$SessionShareCopyWith<$Res>? get sessionShare;$SessionRevertCopyWith<$Res>? get sessionRevert;
+$SessionTimeCopyWith<$Res> get time;$SessionShareCopyWith<$Res>? get share;$SessionRevertCopyWith<$Res>? get revert;
 
 }
 /// @nodoc
@@ -65,17 +65,17 @@ class _$SessionCopyWithImpl<$Res>
 
 /// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? projectId = null,Object? directory = null,Object? title = null,Object? version = null,Object? sessionTime = null,Object? parentId = freezed,Object? sessionShare = freezed,Object? sessionRevert = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? projectId = null,Object? directory = null,Object? title = null,Object? version = null,Object? time = null,Object? parentId = freezed,Object? share = freezed,Object? revert = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String,directory: null == directory ? _self.directory : directory // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
-as String,sessionTime: null == sessionTime ? _self.sessionTime : sessionTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as SessionTime,parentId: freezed == parentId ? _self.parentId : parentId // ignore: cast_nullable_to_non_nullable
-as String?,sessionShare: freezed == sessionShare ? _self.sessionShare : sessionShare // ignore: cast_nullable_to_non_nullable
-as SessionShare?,sessionRevert: freezed == sessionRevert ? _self.sessionRevert : sessionRevert // ignore: cast_nullable_to_non_nullable
+as String?,share: freezed == share ? _self.share : share // ignore: cast_nullable_to_non_nullable
+as SessionShare?,revert: freezed == revert ? _self.revert : revert // ignore: cast_nullable_to_non_nullable
 as SessionRevert?,
   ));
 }
@@ -83,34 +83,34 @@ as SessionRevert?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionTimeCopyWith<$Res> get sessionTime {
+$SessionTimeCopyWith<$Res> get time {
   
-  return $SessionTimeCopyWith<$Res>(_self.sessionTime, (value) {
-    return _then(_self.copyWith(sessionTime: value));
+  return $SessionTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }/// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionShareCopyWith<$Res>? get sessionShare {
-    if (_self.sessionShare == null) {
+$SessionShareCopyWith<$Res>? get share {
+    if (_self.share == null) {
     return null;
   }
 
-  return $SessionShareCopyWith<$Res>(_self.sessionShare!, (value) {
-    return _then(_self.copyWith(sessionShare: value));
+  return $SessionShareCopyWith<$Res>(_self.share!, (value) {
+    return _then(_self.copyWith(share: value));
   });
 }/// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionRevertCopyWith<$Res>? get sessionRevert {
-    if (_self.sessionRevert == null) {
+$SessionRevertCopyWith<$Res>? get revert {
+    if (_self.revert == null) {
     return null;
   }
 
-  return $SessionRevertCopyWith<$Res>(_self.sessionRevert!, (value) {
-    return _then(_self.copyWith(sessionRevert: value));
+  return $SessionRevertCopyWith<$Res>(_self.revert!, (value) {
+    return _then(_self.copyWith(revert: value));
   });
 }
 }
@@ -194,10 +194,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'projectID')  String projectId,  String directory,  String title,  String version, @JsonKey(name: 'SessionTime')  SessionTime sessionTime, @JsonKey(name: 'parentID')  String? parentId, @JsonKey(name: 'SessionShare')  SessionShare? sessionShare, @JsonKey(name: 'SessionRevert')  SessionRevert? sessionRevert)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'projectID')  String projectId,  String directory,  String title,  String version,  SessionTime time, @JsonKey(name: 'parentID')  String? parentId,  SessionShare? share,  SessionRevert? revert)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Session() when $default != null:
-return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.version,_that.sessionTime,_that.parentId,_that.sessionShare,_that.sessionRevert);case _:
+return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.version,_that.time,_that.parentId,_that.share,_that.revert);case _:
   return orElse();
 
 }
@@ -215,10 +215,10 @@ return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.versi
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'projectID')  String projectId,  String directory,  String title,  String version, @JsonKey(name: 'SessionTime')  SessionTime sessionTime, @JsonKey(name: 'parentID')  String? parentId, @JsonKey(name: 'SessionShare')  SessionShare? sessionShare, @JsonKey(name: 'SessionRevert')  SessionRevert? sessionRevert)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'projectID')  String projectId,  String directory,  String title,  String version,  SessionTime time, @JsonKey(name: 'parentID')  String? parentId,  SessionShare? share,  SessionRevert? revert)  $default,) {final _that = this;
 switch (_that) {
 case _Session():
-return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.version,_that.sessionTime,_that.parentId,_that.sessionShare,_that.sessionRevert);case _:
+return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.version,_that.time,_that.parentId,_that.share,_that.revert);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -235,10 +235,10 @@ return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.versi
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'projectID')  String projectId,  String directory,  String title,  String version, @JsonKey(name: 'SessionTime')  SessionTime sessionTime, @JsonKey(name: 'parentID')  String? parentId, @JsonKey(name: 'SessionShare')  SessionShare? sessionShare, @JsonKey(name: 'SessionRevert')  SessionRevert? sessionRevert)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'projectID')  String projectId,  String directory,  String title,  String version,  SessionTime time, @JsonKey(name: 'parentID')  String? parentId,  SessionShare? share,  SessionRevert? revert)?  $default,) {final _that = this;
 switch (_that) {
 case _Session() when $default != null:
-return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.version,_that.sessionTime,_that.parentId,_that.sessionShare,_that.sessionRevert);case _:
+return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.version,_that.time,_that.parentId,_that.share,_that.revert);case _:
   return null;
 
 }
@@ -250,7 +250,7 @@ return $default(_that.id,_that.projectId,_that.directory,_that.title,_that.versi
 @JsonSerializable()
 
 class _Session implements Session {
-  const _Session({required this.id, @JsonKey(name: 'projectID') required this.projectId, required this.directory, required this.title, required this.version, @JsonKey(name: 'SessionTime') required this.sessionTime, @JsonKey(name: 'parentID') this.parentId, @JsonKey(name: 'SessionShare') this.sessionShare, @JsonKey(name: 'SessionRevert') this.sessionRevert});
+  const _Session({required this.id, @JsonKey(name: 'projectID') required this.projectId, required this.directory, required this.title, required this.version, required this.time, @JsonKey(name: 'parentID') this.parentId, this.share, this.revert});
   factory _Session.fromJson(Map<String, dynamic> json) => _$SessionFromJson(json);
 
 @override final  String id;
@@ -258,10 +258,10 @@ class _Session implements Session {
 @override final  String directory;
 @override final  String title;
 @override final  String version;
-@override@JsonKey(name: 'SessionTime') final  SessionTime sessionTime;
+@override final  SessionTime time;
 @override@JsonKey(name: 'parentID') final  String? parentId;
-@override@JsonKey(name: 'SessionShare') final  SessionShare? sessionShare;
-@override@JsonKey(name: 'SessionRevert') final  SessionRevert? sessionRevert;
+@override final  SessionShare? share;
+@override final  SessionRevert? revert;
 
 /// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
@@ -276,16 +276,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Session&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.directory, directory) || other.directory == directory)&&(identical(other.title, title) || other.title == title)&&(identical(other.version, version) || other.version == version)&&(identical(other.sessionTime, sessionTime) || other.sessionTime == sessionTime)&&(identical(other.parentId, parentId) || other.parentId == parentId)&&(identical(other.sessionShare, sessionShare) || other.sessionShare == sessionShare)&&(identical(other.sessionRevert, sessionRevert) || other.sessionRevert == sessionRevert));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Session&&(identical(other.id, id) || other.id == id)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.directory, directory) || other.directory == directory)&&(identical(other.title, title) || other.title == title)&&(identical(other.version, version) || other.version == version)&&(identical(other.time, time) || other.time == time)&&(identical(other.parentId, parentId) || other.parentId == parentId)&&(identical(other.share, share) || other.share == share)&&(identical(other.revert, revert) || other.revert == revert));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,projectId,directory,title,version,sessionTime,parentId,sessionShare,sessionRevert);
+int get hashCode => Object.hash(runtimeType,id,projectId,directory,title,version,time,parentId,share,revert);
 
 @override
 String toString() {
-  return 'Session(id: $id, projectId: $projectId, directory: $directory, title: $title, version: $version, sessionTime: $sessionTime, parentId: $parentId, sessionShare: $sessionShare, sessionRevert: $sessionRevert)';
+  return 'Session(id: $id, projectId: $projectId, directory: $directory, title: $title, version: $version, time: $time, parentId: $parentId, share: $share, revert: $revert)';
 }
 
 
@@ -296,11 +296,11 @@ abstract mixin class _$SessionCopyWith<$Res> implements $SessionCopyWith<$Res> {
   factory _$SessionCopyWith(_Session value, $Res Function(_Session) _then) = __$SessionCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'projectID') String projectId, String directory, String title, String version,@JsonKey(name: 'SessionTime') SessionTime sessionTime,@JsonKey(name: 'parentID') String? parentId,@JsonKey(name: 'SessionShare') SessionShare? sessionShare,@JsonKey(name: 'SessionRevert') SessionRevert? sessionRevert
+ String id,@JsonKey(name: 'projectID') String projectId, String directory, String title, String version, SessionTime time,@JsonKey(name: 'parentID') String? parentId, SessionShare? share, SessionRevert? revert
 });
 
 
-@override $SessionTimeCopyWith<$Res> get sessionTime;@override $SessionShareCopyWith<$Res>? get sessionShare;@override $SessionRevertCopyWith<$Res>? get sessionRevert;
+@override $SessionTimeCopyWith<$Res> get time;@override $SessionShareCopyWith<$Res>? get share;@override $SessionRevertCopyWith<$Res>? get revert;
 
 }
 /// @nodoc
@@ -313,17 +313,17 @@ class __$SessionCopyWithImpl<$Res>
 
 /// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? projectId = null,Object? directory = null,Object? title = null,Object? version = null,Object? sessionTime = null,Object? parentId = freezed,Object? sessionShare = freezed,Object? sessionRevert = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? projectId = null,Object? directory = null,Object? title = null,Object? version = null,Object? time = null,Object? parentId = freezed,Object? share = freezed,Object? revert = freezed,}) {
   return _then(_Session(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,projectId: null == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
 as String,directory: null == directory ? _self.directory : directory // ignore: cast_nullable_to_non_nullable
 as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
 as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
-as String,sessionTime: null == sessionTime ? _self.sessionTime : sessionTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as SessionTime,parentId: freezed == parentId ? _self.parentId : parentId // ignore: cast_nullable_to_non_nullable
-as String?,sessionShare: freezed == sessionShare ? _self.sessionShare : sessionShare // ignore: cast_nullable_to_non_nullable
-as SessionShare?,sessionRevert: freezed == sessionRevert ? _self.sessionRevert : sessionRevert // ignore: cast_nullable_to_non_nullable
+as String?,share: freezed == share ? _self.share : share // ignore: cast_nullable_to_non_nullable
+as SessionShare?,revert: freezed == revert ? _self.revert : revert // ignore: cast_nullable_to_non_nullable
 as SessionRevert?,
   ));
 }
@@ -332,34 +332,34 @@ as SessionRevert?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionTimeCopyWith<$Res> get sessionTime {
+$SessionTimeCopyWith<$Res> get time {
   
-  return $SessionTimeCopyWith<$Res>(_self.sessionTime, (value) {
-    return _then(_self.copyWith(sessionTime: value));
+  return $SessionTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }/// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionShareCopyWith<$Res>? get sessionShare {
-    if (_self.sessionShare == null) {
+$SessionShareCopyWith<$Res>? get share {
+    if (_self.share == null) {
     return null;
   }
 
-  return $SessionShareCopyWith<$Res>(_self.sessionShare!, (value) {
-    return _then(_self.copyWith(sessionShare: value));
+  return $SessionShareCopyWith<$Res>(_self.share!, (value) {
+    return _then(_self.copyWith(share: value));
   });
 }/// Create a copy of Session
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionRevertCopyWith<$Res>? get sessionRevert {
-    if (_self.sessionRevert == null) {
+$SessionRevertCopyWith<$Res>? get revert {
+    if (_self.revert == null) {
     return null;
   }
 
-  return $SessionRevertCopyWith<$Res>(_self.sessionRevert!, (value) {
-    return _then(_self.copyWith(sessionRevert: value));
+  return $SessionRevertCopyWith<$Res>(_self.revert!, (value) {
+    return _then(_self.copyWith(revert: value));
   });
 }
 }

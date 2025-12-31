@@ -13,8 +13,8 @@ part 'find_text_response.g.dart';
 @JsonSerializable()
 class FindTextResponse {
   const FindTextResponse({
-    required this.findTextResponsePath,
-    required this.findTextResponseLines,
+    required this.path,
+    required this.lines,
     required this.lineNumber,
     required this.absoluteOffset,
     required this.submatches,
@@ -23,10 +23,8 @@ class FindTextResponse {
   factory FindTextResponse.fromJson(Map<String, Object?> json) =>
       _$FindTextResponseFromJson(json);
 
-  @JsonKey(name: 'FindTextResponsePath')
-  final FindTextResponsePath findTextResponsePath;
-  @JsonKey(name: 'FindTextResponseLines')
-  final FindTextResponseLines findTextResponseLines;
+  final FindTextResponsePath path;
+  final FindTextResponseLines lines;
   @JsonKey(name: 'line_number')
   final num lineNumber;
   @JsonKey(name: 'absolute_offset')

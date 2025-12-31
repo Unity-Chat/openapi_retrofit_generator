@@ -11,10 +11,10 @@ part 'post_api_v1_request.mapper.dart';
 
 @MappableClass()
 class PostApiV1Request with PostApiV1RequestMappable {
-  const PostApiV1Request({required this.postApiV1RequestP1Class, this.p2Enum});
+  const PostApiV1Request({required this.p1Class, this.p2Enum});
 
-  @MappableField(key: 'PostApiV1RequestP1Class')
-  final PostApiV1RequestP1Class postApiV1RequestP1Class;
+  @MappableField(key: 'p1_class')
+  final PostApiV1RequestP1Class p1Class;
   @MappableField(key: 'p2_enum')
   final PostApiV1RequestP2EnumP2Enum? p2Enum;
 

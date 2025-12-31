@@ -10,7 +10,7 @@ part 'debug_schema.g.dart';
 
 @JsonSerializable()
 class DebugSchema {
-  const DebugSchema({this.id, this.message, this.debugSchemaData});
+  const DebugSchema({this.id, this.message, this.data});
 
   factory DebugSchema.fromJson(Map<String, Object?> json) =>
       _$DebugSchemaFromJson(json);
@@ -19,8 +19,8 @@ class DebugSchema {
   final int? id;
   @JsonKey(includeIfNull: false)
   final String? message;
-  @JsonKey(includeIfNull: false, name: 'DebugSchemaData')
-  final DebugSchemaData? debugSchemaData;
+  @JsonKey(includeIfNull: false)
+  final DebugSchemaData? data;
 
   Map<String, Object?> toJson() => _$DebugSchemaToJson(this);
 }

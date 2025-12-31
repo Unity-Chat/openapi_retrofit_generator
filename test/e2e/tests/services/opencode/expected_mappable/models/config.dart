@@ -26,9 +26,9 @@ class Config with ConfigMappable {
     this.schema,
     this.theme,
     this.keybinds,
-    this.configTui,
+    this.tui,
     this.command,
-    this.configWatcher,
+    this.watcher,
     this.plugin,
     this.snapshot,
     this.share,
@@ -46,20 +46,18 @@ class Config with ConfigMappable {
     this.lsp,
     this.instructions,
     this.layout,
-    this.configPermission,
+    this.permission,
     this.tools,
-    this.configExperimental,
+    this.experimental,
   });
 
   @MappableField(key: '\$schema')
   final String? schema;
   final String? theme;
   final KeybindsConfig? keybinds;
-  @MappableField(key: 'ConfigTui')
-  final ConfigTui? configTui;
+  final ConfigTui? tui;
   final Map<String, Command>? command;
-  @MappableField(key: 'ConfigWatcher')
-  final ConfigWatcher? configWatcher;
+  final ConfigWatcher? watcher;
   final List<String>? plugin;
   final bool? snapshot;
   final ConfigShareShare? share;
@@ -79,11 +77,9 @@ class Config with ConfigMappable {
   final Map<String, LspLsp>? lsp;
   final List<String>? instructions;
   final LayoutConfig? layout;
-  @MappableField(key: 'ConfigPermission')
-  final ConfigPermission? configPermission;
+  final ConfigPermission? permission;
   final Map<String, bool>? tools;
-  @MappableField(key: 'ConfigExperimental')
-  final ConfigExperimental? configExperimental;
+  final ConfigExperimental? experimental;
 
   static Config fromJson(Map<String, dynamic> json) =>
       ConfigMapper.fromJson(json);

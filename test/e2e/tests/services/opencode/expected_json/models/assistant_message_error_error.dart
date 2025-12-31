@@ -34,11 +34,11 @@ class AssistantMessageErrorError {
 @JsonSerializable()
 class AssistantMessageErrorErrorProviderAuthError {
   final String name;
-  final ProviderAuthErrorData providerAuthErrorData;
+  final ProviderAuthErrorData data;
 
   const AssistantMessageErrorErrorProviderAuthError({
     required this.name,
-    required this.providerAuthErrorData,
+    required this.data,
   });
 
   factory AssistantMessageErrorErrorProviderAuthError.fromJson(
@@ -52,11 +52,11 @@ class AssistantMessageErrorErrorProviderAuthError {
 @JsonSerializable()
 class AssistantMessageErrorErrorUnknownError {
   final String name;
-  final UnknownErrorData unknownErrorData;
+  final UnknownErrorData data;
 
   const AssistantMessageErrorErrorUnknownError({
     required this.name,
-    required this.unknownErrorData,
+    required this.data,
   });
 
   factory AssistantMessageErrorErrorUnknownError.fromJson(
@@ -88,11 +88,11 @@ class AssistantMessageErrorErrorMessageOutputLengthError {
 @JsonSerializable()
 class AssistantMessageErrorErrorMessageAbortedError {
   final String name;
-  final MessageAbortedErrorData messageAbortedErrorData;
+  final MessageAbortedErrorData data;
 
   const AssistantMessageErrorErrorMessageAbortedError({
     required this.name,
-    required this.messageAbortedErrorData,
+    required this.data,
   });
 
   factory AssistantMessageErrorErrorMessageAbortedError.fromJson(

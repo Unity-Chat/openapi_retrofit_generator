@@ -30,28 +30,22 @@ class EventMessagePartRemovedMapper
     'type',
     _$type,
   );
-  static EventMessagePartRemovedProperties _$eventMessagePartRemovedProperties(
+  static EventMessagePartRemovedProperties _$properties(
     EventMessagePartRemoved v,
-  ) => v.eventMessagePartRemovedProperties;
+  ) => v.properties;
   static const Field<EventMessagePartRemoved, EventMessagePartRemovedProperties>
-  _f$eventMessagePartRemovedProperties = Field(
-    'eventMessagePartRemovedProperties',
-    _$eventMessagePartRemovedProperties,
-    key: r'EventMessagePartRemovedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventMessagePartRemoved> fields = const {
     #type: _f$type,
-    #eventMessagePartRemovedProperties: _f$eventMessagePartRemovedProperties,
+    #properties: _f$properties,
   };
 
   static EventMessagePartRemoved _instantiate(DecodingData data) {
     return EventMessagePartRemoved(
       type: data.dec(_f$type),
-      eventMessagePartRemovedProperties: data.dec(
-        _f$eventMessagePartRemovedProperties,
-      ),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -130,11 +124,8 @@ abstract class EventMessagePartRemovedCopyWith<
     EventMessagePartRemovedProperties,
     EventMessagePartRemovedProperties
   >
-  get eventMessagePartRemovedProperties;
-  $R call({
-    String? type,
-    EventMessagePartRemovedProperties? eventMessagePartRemovedProperties,
-  });
+  get properties;
+  $R call({String? type, EventMessagePartRemovedProperties? properties});
   EventMessagePartRemovedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -155,28 +146,20 @@ class _EventMessagePartRemovedCopyWithImpl<$R, $Out>
     EventMessagePartRemovedProperties,
     EventMessagePartRemovedProperties
   >
-  get eventMessagePartRemovedProperties => $value
-      .eventMessagePartRemovedProperties
-      .copyWith
-      .$chain((v) => call(eventMessagePartRemovedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventMessagePartRemovedProperties? eventMessagePartRemovedProperties,
-  }) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (eventMessagePartRemovedProperties != null)
-        #eventMessagePartRemovedProperties: eventMessagePartRemovedProperties,
-    }),
-  );
+  $R call({String? type, EventMessagePartRemovedProperties? properties}) =>
+      $apply(
+        FieldCopyWithData({
+          if (type != null) #type: type,
+          if (properties != null) #properties: properties,
+        }),
+      );
   @override
   EventMessagePartRemoved $make(CopyWithData data) => EventMessagePartRemoved(
     type: data.get(#type, or: $value.type),
-    eventMessagePartRemovedProperties: data.get(
-      #eventMessagePartRemovedProperties,
-      or: $value.eventMessagePartRemovedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

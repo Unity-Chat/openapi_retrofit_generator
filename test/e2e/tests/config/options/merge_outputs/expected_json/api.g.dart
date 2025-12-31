@@ -125,16 +125,14 @@ Map<String, dynamic> _$PatchUserRequestToJson(PatchUserRequest instance) =>
     };
 
 UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) => UserSettings(
-  userSettingsNotifications: json['UserSettingsNotifications'] == null
+  notifications: json['notifications'] == null
       ? null
       : UserSettingsNotifications.fromJson(
-          json['UserSettingsNotifications'] as Map<String, dynamic>,
+          json['notifications'] as Map<String, dynamic>,
         ),
-  userSettingsPrivacy: json['UserSettingsPrivacy'] == null
+  privacy: json['privacy'] == null
       ? null
-      : UserSettingsPrivacy.fromJson(
-          json['UserSettingsPrivacy'] as Map<String, dynamic>,
-        ),
+      : UserSettingsPrivacy.fromJson(json['privacy'] as Map<String, dynamic>),
   theme: json['theme'] == null
       ? UserSettingsThemeTheme.auto
       : UserSettingsThemeTheme.fromJson(json['theme'] as String),
@@ -144,8 +142,8 @@ UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) => UserSettings(
 Map<String, dynamic> _$UserSettingsToJson(UserSettings instance) =>
     <String, dynamic>{
       'theme': instance.theme,
-      'UserSettingsNotifications': instance.userSettingsNotifications,
-      'UserSettingsPrivacy': instance.userSettingsPrivacy,
+      'notifications': instance.notifications,
+      'privacy': instance.privacy,
       'language': instance.language,
     };
 
@@ -774,15 +772,15 @@ Map<String, dynamic> _$OrganizationEntityToJson(OrganizationEntity instance) =>
 Data _$DataFromJson(Map<String, dynamic> json) => Data(
   id: json['id'] as String,
   value: json['value'] as String,
-  dataNested: json['DataNested'] == null
+  nested: json['nested'] == null
       ? null
-      : DataNested.fromJson(json['DataNested'] as Map<String, dynamic>),
+      : DataNested.fromJson(json['nested'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
   'id': instance.id,
   'value': instance.value,
-  'DataNested': instance.dataNested,
+  'nested': instance.nested,
 };
 
 Error _$ErrorFromJson(Map<String, dynamic> json) => Error(
@@ -840,10 +838,10 @@ ListPostsResponse _$ListPostsResponseFromJson(Map<String, dynamic> json) =>
       posts: (json['posts'] as List<dynamic>?)
           ?.map((e) => PostModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      listPostsResponsePagination: json['ListPostsResponsePagination'] == null
+      pagination: json['pagination'] == null
           ? null
           : ListPostsResponsePagination.fromJson(
-              json['ListPostsResponsePagination'] as Map<String, dynamic>,
+              json['pagination'] as Map<String, dynamic>,
             ),
       metadata: (json['metadata'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
@@ -853,7 +851,7 @@ ListPostsResponse _$ListPostsResponseFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$ListPostsResponseToJson(ListPostsResponse instance) =>
     <String, dynamic>{
       'posts': instance.posts,
-      'ListPostsResponsePagination': instance.listPostsResponsePagination,
+      'pagination': instance.pagination,
       'metadata': instance.metadata,
     };
 
@@ -874,17 +872,15 @@ Map<String, dynamic> _$FiltersDateRangeToJson(FiltersDateRange instance) =>
 Filters _$FiltersFromJson(Map<String, dynamic> json) => Filters(
   authorId: json['authorId'] as String?,
   tags: (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList(),
-  filtersDateRange: json['FiltersDateRange'] == null
+  dateRange: json['dateRange'] == null
       ? null
-      : FiltersDateRange.fromJson(
-          json['FiltersDateRange'] as Map<String, dynamic>,
-        ),
+      : FiltersDateRange.fromJson(json['dateRange'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$FiltersToJson(Filters instance) => <String, dynamic>{
   'authorId': instance.authorId,
   'tags': instance.tags,
-  'FiltersDateRange': instance.filtersDateRange,
+  'dateRange': instance.dateRange,
 };
 
 CreatePostRequest _$CreatePostRequestFromJson(Map<String, dynamic> json) =>
@@ -1008,19 +1004,16 @@ Map<String, dynamic> _$GetDuplicateResponseMetadataDataToJson(
 GetDuplicateResponseMetadata _$GetDuplicateResponseMetadataFromJson(
   Map<String, dynamic> json,
 ) => GetDuplicateResponseMetadata(
-  getDuplicateResponseMetadataData:
-      json['GetDuplicateResponseMetadataData'] == null
+  data: json['data'] == null
       ? null
       : GetDuplicateResponseMetadataData.fromJson(
-          json['GetDuplicateResponseMetadataData'] as Map<String, dynamic>,
+          json['data'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic> _$GetDuplicateResponseMetadataToJson(
   GetDuplicateResponseMetadata instance,
-) => <String, dynamic>{
-  'GetDuplicateResponseMetadataData': instance.getDuplicateResponseMetadataData,
-};
+) => <String, dynamic>{'data': instance.data};
 
 GetDuplicateResponse _$GetDuplicateResponseFromJson(
   Map<String, dynamic> json,
@@ -1028,19 +1021,16 @@ GetDuplicateResponse _$GetDuplicateResponseFromJson(
   data: json['data'] == null
       ? null
       : Data.fromJson(json['data'] as Map<String, dynamic>),
-  getDuplicateResponseMetadata: json['GetDuplicateResponseMetadata'] == null
+  metadata: json['metadata'] == null
       ? null
       : GetDuplicateResponseMetadata.fromJson(
-          json['GetDuplicateResponseMetadata'] as Map<String, dynamic>,
+          json['metadata'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic> _$GetDuplicateResponseToJson(
   GetDuplicateResponse instance,
-) => <String, dynamic>{
-  'data': instance.data,
-  'GetDuplicateResponseMetadata': instance.getDuplicateResponseMetadata,
-};
+) => <String, dynamic>{'data': instance.data, 'metadata': instance.metadata};
 
 UserSettingsNotifications _$UserSettingsNotificationsFromJson(
   Map<String, dynamic> json,

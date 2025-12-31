@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventSessionCompacted {
 
- String get type;@JsonKey(name: 'EventSessionCompactedProperties') EventSessionCompactedProperties get eventSessionCompactedProperties;
+ String get type; EventSessionCompactedProperties get properties;
 /// Create a copy of EventSessionCompacted
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventSessionCompactedCopyWith<EventSessionCompacted> get copyWith => _$EventSes
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionCompacted&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionCompactedProperties, eventSessionCompactedProperties) || other.eventSessionCompactedProperties == eventSessionCompactedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventSessionCompacted&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionCompactedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionCompacted(type: $type, eventSessionCompactedProperties: $eventSessionCompactedProperties)';
+  return 'EventSessionCompacted(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventSessionCompactedCopyWith<$Res>  {
   factory $EventSessionCompactedCopyWith(EventSessionCompacted value, $Res Function(EventSessionCompacted) _then) = _$EventSessionCompactedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionCompactedProperties') EventSessionCompactedProperties eventSessionCompactedProperties
+ String type, EventSessionCompactedProperties properties
 });
 
 
-$EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties;
+$EventSessionCompactedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventSessionCompactedCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionCompacted
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventSessionCompactedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionCompactedProperties: null == eventSessionCompactedProperties ? _self.eventSessionCompactedProperties : eventSessionCompactedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionCompactedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventSessionCompactedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties {
+$EventSessionCompactedPropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionCompactedPropertiesCopyWith<$Res>(_self.eventSessionCompactedProperties, (value) {
-    return _then(_self.copyWith(eventSessionCompactedProperties: value));
+  return $EventSessionCompactedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionCompactedProperties')  EventSessionCompactedProperties eventSessionCompactedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventSessionCompactedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventSessionCompacted() when $default != null:
-return $default(_that.type,_that.eventSessionCompactedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventSessionCompactedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventSessionCompactedProperties')  EventSessionCompactedProperties eventSessionCompactedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventSessionCompactedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionCompacted():
-return $default(_that.type,_that.eventSessionCompactedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventSessionCompactedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventSessionCompactedProperties')  EventSessionCompactedProperties eventSessionCompactedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventSessionCompactedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventSessionCompacted() when $default != null:
-return $default(_that.type,_that.eventSessionCompactedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventSessionCompactedProperties);case _:
 @JsonSerializable()
 
 class _EventSessionCompacted implements EventSessionCompacted {
-  const _EventSessionCompacted({required this.type, @JsonKey(name: 'EventSessionCompactedProperties') required this.eventSessionCompactedProperties});
+  const _EventSessionCompacted({required this.type, required this.properties});
   factory _EventSessionCompacted.fromJson(Map<String, dynamic> json) => _$EventSessionCompactedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventSessionCompactedProperties') final  EventSessionCompactedProperties eventSessionCompactedProperties;
+@override final  EventSessionCompactedProperties properties;
 
 /// Create a copy of EventSessionCompacted
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionCompacted&&(identical(other.type, type) || other.type == type)&&(identical(other.eventSessionCompactedProperties, eventSessionCompactedProperties) || other.eventSessionCompactedProperties == eventSessionCompactedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventSessionCompacted&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventSessionCompactedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventSessionCompacted(type: $type, eventSessionCompactedProperties: $eventSessionCompactedProperties)';
+  return 'EventSessionCompacted(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventSessionCompactedCopyWith<$Res> implements $EventSess
   factory _$EventSessionCompactedCopyWith(_EventSessionCompacted value, $Res Function(_EventSessionCompacted) _then) = __$EventSessionCompactedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventSessionCompactedProperties') EventSessionCompactedProperties eventSessionCompactedProperties
+ String type, EventSessionCompactedProperties properties
 });
 
 
-@override $EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties;
+@override $EventSessionCompactedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventSessionCompactedCopyWithImpl<$Res>
 
 /// Create a copy of EventSessionCompacted
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventSessionCompactedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventSessionCompacted(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventSessionCompactedProperties: null == eventSessionCompactedProperties ? _self.eventSessionCompactedProperties : eventSessionCompactedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventSessionCompactedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventSessionCompactedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventSessionCompactedPropertiesCopyWith<$Res> get eventSessionCompactedProperties {
+$EventSessionCompactedPropertiesCopyWith<$Res> get properties {
   
-  return $EventSessionCompactedPropertiesCopyWith<$Res>(_self.eventSessionCompactedProperties, (value) {
-    return _then(_self.copyWith(eventSessionCompactedProperties: value));
+  return $EventSessionCompactedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

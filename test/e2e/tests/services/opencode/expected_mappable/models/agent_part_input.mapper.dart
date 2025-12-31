@@ -32,13 +32,10 @@ class AgentPartInputMapper extends ClassMapperBase<AgentPartInput> {
     _$id,
     opt: true,
   );
-  static AgentPartInputSource? _$agentPartInputSource(AgentPartInput v) =>
-      v.agentPartInputSource;
-  static const Field<AgentPartInput, AgentPartInputSource>
-  _f$agentPartInputSource = Field(
-    'agentPartInputSource',
-    _$agentPartInputSource,
-    key: r'AgentPartInputSource',
+  static AgentPartInputSource? _$source(AgentPartInput v) => v.source;
+  static const Field<AgentPartInput, AgentPartInputSource> _f$source = Field(
+    'source',
+    _$source,
     opt: true,
   );
 
@@ -47,7 +44,7 @@ class AgentPartInputMapper extends ClassMapperBase<AgentPartInput> {
     #type: _f$type,
     #name: _f$name,
     #id: _f$id,
-    #agentPartInputSource: _f$agentPartInputSource,
+    #source: _f$source,
   };
 
   static AgentPartInput _instantiate(DecodingData data) {
@@ -55,7 +52,7 @@ class AgentPartInputMapper extends ClassMapperBase<AgentPartInput> {
       type: data.dec(_f$type),
       name: data.dec(_f$name),
       id: data.dec(_f$id),
-      agentPartInputSource: data.dec(_f$agentPartInputSource),
+      source: data.dec(_f$source),
     );
   }
 
@@ -122,12 +119,12 @@ extension AgentPartInputValueCopy<$R, $Out>
 abstract class AgentPartInputCopyWith<$R, $In extends AgentPartInput, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   AgentPartInputSourceCopyWith<$R, AgentPartInputSource, AgentPartInputSource>?
-  get agentPartInputSource;
+  get source;
   $R call({
     String? type,
     String? name,
     String? id,
-    AgentPartInputSource? agentPartInputSource,
+    AgentPartInputSource? source,
   });
   AgentPartInputCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -144,22 +141,19 @@ class _AgentPartInputCopyWithImpl<$R, $Out>
       AgentPartInputMapper.ensureInitialized();
   @override
   AgentPartInputSourceCopyWith<$R, AgentPartInputSource, AgentPartInputSource>?
-  get agentPartInputSource => $value.agentPartInputSource?.copyWith.$chain(
-    (v) => call(agentPartInputSource: v),
-  );
+  get source => $value.source?.copyWith.$chain((v) => call(source: v));
   @override
   $R call({
     String? type,
     String? name,
     Object? id = $none,
-    Object? agentPartInputSource = $none,
+    Object? source = $none,
   }) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
       if (name != null) #name: name,
       if (id != $none) #id: id,
-      if (agentPartInputSource != $none)
-        #agentPartInputSource: agentPartInputSource,
+      if (source != $none) #source: source,
     }),
   );
   @override
@@ -167,10 +161,7 @@ class _AgentPartInputCopyWithImpl<$R, $Out>
     type: data.get(#type, or: $value.type),
     name: data.get(#name, or: $value.name),
     id: data.get(#id, or: $value.id),
-    agentPartInputSource: data.get(
-      #agentPartInputSource,
-      or: $value.agentPartInputSource,
-    ),
+    source: data.get(#source, or: $value.source),
   );
 
   @override

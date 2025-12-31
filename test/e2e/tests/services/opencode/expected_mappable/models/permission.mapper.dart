@@ -45,11 +45,10 @@ class PermissionMapper extends ClassMapperBase<Permission> {
     'metadata',
     _$metadata,
   );
-  static PermissionTime _$permissionTime(Permission v) => v.permissionTime;
-  static const Field<Permission, PermissionTime> _f$permissionTime = Field(
-    'permissionTime',
-    _$permissionTime,
-    key: r'PermissionTime',
+  static PermissionTime _$time(Permission v) => v.time;
+  static const Field<Permission, PermissionTime> _f$time = Field(
+    'time',
+    _$time,
   );
   static dynamic _$pattern(Permission v) => v.pattern;
   static const Field<Permission, dynamic> _f$pattern = Field(
@@ -73,7 +72,7 @@ class PermissionMapper extends ClassMapperBase<Permission> {
     #messageId: _f$messageId,
     #title: _f$title,
     #metadata: _f$metadata,
-    #permissionTime: _f$permissionTime,
+    #time: _f$time,
     #pattern: _f$pattern,
     #callId: _f$callId,
   };
@@ -86,7 +85,7 @@ class PermissionMapper extends ClassMapperBase<Permission> {
       messageId: data.dec(_f$messageId),
       title: data.dec(_f$title),
       metadata: data.dec(_f$metadata),
-      permissionTime: data.dec(_f$permissionTime),
+      time: data.dec(_f$time),
       pattern: data.dec(_f$pattern),
       callId: data.dec(_f$callId),
     );
@@ -154,7 +153,7 @@ abstract class PermissionCopyWith<$R, $In extends Permission, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>
   get metadata;
-  PermissionTimeCopyWith<$R, PermissionTime, PermissionTime> get permissionTime;
+  PermissionTimeCopyWith<$R, PermissionTime, PermissionTime> get time;
   $R call({
     String? id,
     String? type,
@@ -162,7 +161,7 @@ abstract class PermissionCopyWith<$R, $In extends Permission, $Out>
     String? messageId,
     String? title,
     Map<String, dynamic>? metadata,
-    PermissionTime? permissionTime,
+    PermissionTime? time,
     dynamic pattern,
     String? callId,
   });
@@ -185,9 +184,8 @@ class _PermissionCopyWithImpl<$R, $Out>
     (v) => call(metadata: v),
   );
   @override
-  PermissionTimeCopyWith<$R, PermissionTime, PermissionTime>
-  get permissionTime =>
-      $value.permissionTime.copyWith.$chain((v) => call(permissionTime: v));
+  PermissionTimeCopyWith<$R, PermissionTime, PermissionTime> get time =>
+      $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? id,
@@ -196,7 +194,7 @@ class _PermissionCopyWithImpl<$R, $Out>
     String? messageId,
     String? title,
     Map<String, dynamic>? metadata,
-    PermissionTime? permissionTime,
+    PermissionTime? time,
     Object? pattern = $none,
     Object? callId = $none,
   }) => $apply(
@@ -207,7 +205,7 @@ class _PermissionCopyWithImpl<$R, $Out>
       if (messageId != null) #messageId: messageId,
       if (title != null) #title: title,
       if (metadata != null) #metadata: metadata,
-      if (permissionTime != null) #permissionTime: permissionTime,
+      if (time != null) #time: time,
       if (pattern != $none) #pattern: pattern,
       if (callId != $none) #callId: callId,
     }),
@@ -220,7 +218,7 @@ class _PermissionCopyWithImpl<$R, $Out>
     messageId: data.get(#messageId, or: $value.messageId),
     title: data.get(#title, or: $value.title),
     metadata: data.get(#metadata, or: $value.metadata),
-    permissionTime: data.get(#permissionTime, or: $value.permissionTime),
+    time: data.get(#time, or: $value.time),
     pattern: data.get(#pattern, or: $value.pattern),
     callId: data.get(#callId, or: $value.callId),
   );

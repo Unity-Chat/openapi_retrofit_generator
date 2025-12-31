@@ -39,11 +39,11 @@ class EventSessionErrorPropertiesErrorError {
 @JsonSerializable()
 class EventSessionErrorPropertiesErrorErrorProviderAuthError {
   final String name;
-  final ProviderAuthErrorData providerAuthErrorData;
+  final ProviderAuthErrorData data;
 
   const EventSessionErrorPropertiesErrorErrorProviderAuthError({
     required this.name,
-    required this.providerAuthErrorData,
+    required this.data,
   });
 
   factory EventSessionErrorPropertiesErrorErrorProviderAuthError.fromJson(
@@ -57,11 +57,11 @@ class EventSessionErrorPropertiesErrorErrorProviderAuthError {
 @JsonSerializable()
 class EventSessionErrorPropertiesErrorErrorUnknownError {
   final String name;
-  final UnknownErrorData unknownErrorData;
+  final UnknownErrorData data;
 
   const EventSessionErrorPropertiesErrorErrorUnknownError({
     required this.name,
-    required this.unknownErrorData,
+    required this.data,
   });
 
   factory EventSessionErrorPropertiesErrorErrorUnknownError.fromJson(
@@ -97,11 +97,11 @@ class EventSessionErrorPropertiesErrorErrorMessageOutputLengthError {
 @JsonSerializable()
 class EventSessionErrorPropertiesErrorErrorMessageAbortedError {
   final String name;
-  final MessageAbortedErrorData messageAbortedErrorData;
+  final MessageAbortedErrorData data;
 
   const EventSessionErrorPropertiesErrorErrorMessageAbortedError({
     required this.name,
-    required this.messageAbortedErrorData,
+    required this.data,
   });
 
   factory EventSessionErrorPropertiesErrorErrorMessageAbortedError.fromJson(

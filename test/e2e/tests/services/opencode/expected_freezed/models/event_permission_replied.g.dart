@@ -10,8 +10,8 @@ _EventPermissionReplied _$EventPermissionRepliedFromJson(
   Map<String, dynamic> json,
 ) => _EventPermissionReplied(
   type: json['type'] as String,
-  eventPermissionRepliedProperties: EventPermissionRepliedProperties.fromJson(
-    json['EventPermissionRepliedProperties'] as Map<String, dynamic>,
+  properties: EventPermissionRepliedProperties.fromJson(
+    json['properties'] as Map<String, dynamic>,
   ),
 );
 
@@ -19,5 +19,5 @@ Map<String, dynamic> _$EventPermissionRepliedToJson(
   _EventPermissionReplied instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  'EventPermissionRepliedProperties': instance.eventPermissionRepliedProperties,
+  'properties': instance.properties,
 };

@@ -10,17 +10,13 @@ part 'event_session_updated.g.dart';
 
 @JsonSerializable()
 class EventSessionUpdated {
-  const EventSessionUpdated({
-    required this.type,
-    required this.eventSessionUpdatedProperties,
-  });
+  const EventSessionUpdated({required this.type, required this.properties});
 
   factory EventSessionUpdated.fromJson(Map<String, Object?> json) =>
       _$EventSessionUpdatedFromJson(json);
 
   final String type;
-  @JsonKey(name: 'EventSessionUpdatedProperties')
-  final EventSessionUpdatedProperties eventSessionUpdatedProperties;
+  final EventSessionUpdatedProperties properties;
 
   Map<String, Object?> toJson() => _$EventSessionUpdatedToJson(this);
 }

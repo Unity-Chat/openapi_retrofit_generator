@@ -14,14 +14,13 @@ class AssistantMessageTokens with AssistantMessageTokensMappable {
     required this.input,
     required this.output,
     required this.reasoning,
-    required this.assistantMessageTokensCache,
+    required this.cache,
   });
 
   final num input;
   final num output;
   final num reasoning;
-  @MappableField(key: 'AssistantMessageTokensCache')
-  final AssistantMessageTokensCache assistantMessageTokensCache;
+  final AssistantMessageTokensCache cache;
 
   static AssistantMessageTokens fromJson(Map<String, dynamic> json) =>
       AssistantMessageTokensMapper.fromJson(json);

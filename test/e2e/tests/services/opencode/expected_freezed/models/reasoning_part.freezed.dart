@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ReasoningPart {
 
- String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; String get text;@JsonKey(name: 'ReasoningPartTime') ReasoningPartTime get reasoningPartTime; Map<String, dynamic>? get metadata;
+ String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; String get text; ReasoningPartTime get time; Map<String, dynamic>? get metadata;
 /// Create a copy of ReasoningPart
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ReasoningPartCopyWith<ReasoningPart> get copyWith => _$ReasoningPartCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasoningPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.reasoningPartTime, reasoningPartTime) || other.reasoningPartTime == reasoningPartTime)&&const DeepCollectionEquality().equals(other.metadata, metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ReasoningPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.time, time) || other.time == time)&&const DeepCollectionEquality().equals(other.metadata, metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,reasoningPartTime,const DeepCollectionEquality().hash(metadata));
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,time,const DeepCollectionEquality().hash(metadata));
 
 @override
 String toString() {
-  return 'ReasoningPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, reasoningPartTime: $reasoningPartTime, metadata: $metadata)';
+  return 'ReasoningPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, time: $time, metadata: $metadata)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ReasoningPartCopyWith<$Res>  {
   factory $ReasoningPartCopyWith(ReasoningPart value, $Res Function(ReasoningPart) _then) = _$ReasoningPartCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text,@JsonKey(name: 'ReasoningPartTime') ReasoningPartTime reasoningPartTime, Map<String, dynamic>? metadata
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text, ReasoningPartTime time, Map<String, dynamic>? metadata
 });
 
 
-$ReasoningPartTimeCopyWith<$Res> get reasoningPartTime;
+$ReasoningPartTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -65,14 +65,14 @@ class _$ReasoningPartCopyWithImpl<$Res>
 
 /// Create a copy of ReasoningPart
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? reasoningPartTime = null,Object? metadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? time = null,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
-as String,reasoningPartTime: null == reasoningPartTime ? _self.reasoningPartTime : reasoningPartTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ReasoningPartTime,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -81,10 +81,10 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ReasoningPartTimeCopyWith<$Res> get reasoningPartTime {
+$ReasoningPartTimeCopyWith<$Res> get time {
   
-  return $ReasoningPartTimeCopyWith<$Res>(_self.reasoningPartTime, (value) {
-    return _then(_self.copyWith(reasoningPartTime: value));
+  return $ReasoningPartTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }
@@ -168,10 +168,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text, @JsonKey(name: 'ReasoningPartTime')  ReasoningPartTime reasoningPartTime,  Map<String, dynamic>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  ReasoningPartTime time,  Map<String, dynamic>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ReasoningPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.reasoningPartTime,_that.metadata);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.time,_that.metadata);case _:
   return orElse();
 
 }
@@ -189,10 +189,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text, @JsonKey(name: 'ReasoningPartTime')  ReasoningPartTime reasoningPartTime,  Map<String, dynamic>? metadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  ReasoningPartTime time,  Map<String, dynamic>? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _ReasoningPart():
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.reasoningPartTime,_that.metadata);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.time,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +209,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text, @JsonKey(name: 'ReasoningPartTime')  ReasoningPartTime reasoningPartTime,  Map<String, dynamic>? metadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  ReasoningPartTime time,  Map<String, dynamic>? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _ReasoningPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.reasoningPartTime,_that.metadata);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.time,_that.metadata);case _:
   return null;
 
 }
@@ -224,7 +224,7 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_
 @JsonSerializable()
 
 class _ReasoningPart implements ReasoningPart {
-  const _ReasoningPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.text, @JsonKey(name: 'ReasoningPartTime') required this.reasoningPartTime, final  Map<String, dynamic>? metadata}): _metadata = metadata;
+  const _ReasoningPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.text, required this.time, final  Map<String, dynamic>? metadata}): _metadata = metadata;
   factory _ReasoningPart.fromJson(Map<String, dynamic> json) => _$ReasoningPartFromJson(json);
 
 @override final  String id;
@@ -232,7 +232,7 @@ class _ReasoningPart implements ReasoningPart {
 @override@JsonKey(name: 'messageID') final  String messageId;
 @override final  String type;
 @override final  String text;
-@override@JsonKey(name: 'ReasoningPartTime') final  ReasoningPartTime reasoningPartTime;
+@override final  ReasoningPartTime time;
  final  Map<String, dynamic>? _metadata;
 @override Map<String, dynamic>? get metadata {
   final value = _metadata;
@@ -256,16 +256,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReasoningPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.reasoningPartTime, reasoningPartTime) || other.reasoningPartTime == reasoningPartTime)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReasoningPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.time, time) || other.time == time)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,reasoningPartTime,const DeepCollectionEquality().hash(_metadata));
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,time,const DeepCollectionEquality().hash(_metadata));
 
 @override
 String toString() {
-  return 'ReasoningPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, reasoningPartTime: $reasoningPartTime, metadata: $metadata)';
+  return 'ReasoningPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, time: $time, metadata: $metadata)';
 }
 
 
@@ -276,11 +276,11 @@ abstract mixin class _$ReasoningPartCopyWith<$Res> implements $ReasoningPartCopy
   factory _$ReasoningPartCopyWith(_ReasoningPart value, $Res Function(_ReasoningPart) _then) = __$ReasoningPartCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text,@JsonKey(name: 'ReasoningPartTime') ReasoningPartTime reasoningPartTime, Map<String, dynamic>? metadata
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text, ReasoningPartTime time, Map<String, dynamic>? metadata
 });
 
 
-@override $ReasoningPartTimeCopyWith<$Res> get reasoningPartTime;
+@override $ReasoningPartTimeCopyWith<$Res> get time;
 
 }
 /// @nodoc
@@ -293,14 +293,14 @@ class __$ReasoningPartCopyWithImpl<$Res>
 
 /// Create a copy of ReasoningPart
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? reasoningPartTime = null,Object? metadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? time = null,Object? metadata = freezed,}) {
   return _then(_ReasoningPart(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
 as String,messageId: null == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
-as String,reasoningPartTime: null == reasoningPartTime ? _self.reasoningPartTime : reasoningPartTime // ignore: cast_nullable_to_non_nullable
+as String,time: null == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as ReasoningPartTime,metadata: freezed == metadata ? _self._metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -310,10 +310,10 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$ReasoningPartTimeCopyWith<$Res> get reasoningPartTime {
+$ReasoningPartTimeCopyWith<$Res> get time {
   
-  return $ReasoningPartTimeCopyWith<$Res>(_self.reasoningPartTime, (value) {
-    return _then(_self.copyWith(reasoningPartTime: value));
+  return $ReasoningPartTimeCopyWith<$Res>(_self.time, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }

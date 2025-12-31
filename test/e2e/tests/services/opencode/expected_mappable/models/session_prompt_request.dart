@@ -15,23 +15,21 @@ class SessionPromptRequest with SessionPromptRequestMappable {
   const SessionPromptRequest({
     required this.parts,
     this.messageId,
-    this.sessionPromptRequestModel,
+    this.model,
     this.agent,
     this.system,
     this.tools,
-    this.sessionPromptRequestAcpConnection,
+    this.acpConnection,
   });
 
   final List<SessionPromptRequestPartsParts> parts;
   @MappableField(key: 'messageID')
   final String? messageId;
-  @MappableField(key: 'SessionPromptRequestModel')
-  final SessionPromptRequestModel? sessionPromptRequestModel;
+  final SessionPromptRequestModel? model;
   final String? agent;
   final String? system;
   final Map<String, bool>? tools;
-  @MappableField(key: 'SessionPromptRequestAcpConnection')
-  final SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection;
+  final SessionPromptRequestAcpConnection? acpConnection;
 
   static SessionPromptRequest fromJson(Map<String, dynamic> json) =>
       SessionPromptRequestMapper.fromJson(json);

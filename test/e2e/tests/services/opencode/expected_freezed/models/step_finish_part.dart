@@ -17,8 +17,7 @@ abstract class StepFinishPart with _$StepFinishPart {
     @JsonKey(name: 'messageID') required String messageId,
     required String type,
     required num cost,
-    @JsonKey(name: 'StepFinishPartTokens')
-    required StepFinishPartTokens stepFinishPartTokens,
+    required StepFinishPartTokens tokens,
     String? snapshot,
   }) = _StepFinishPart;
 

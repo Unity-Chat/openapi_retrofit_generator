@@ -28,11 +28,13 @@ class PartModelTextPartMapper extends ClassMapperBase<PartModelTextPart> {
   static const Field<PartModelTextPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelTextPart v) => v.messageId;
   static const Field<PartModelTextPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelTextPart v) => v.type;
   static const Field<PartModelTextPart, String> _f$type = Field('type', _$type);
@@ -43,10 +45,10 @@ class PartModelTextPartMapper extends ClassMapperBase<PartModelTextPart> {
     'synthetic',
     _$synthetic,
   );
-  static TextPartTime? _$textPartTime(PartModelTextPart v) => v.textPartTime;
-  static const Field<PartModelTextPart, TextPartTime> _f$textPartTime = Field(
-    'textPartTime',
-    _$textPartTime,
+  static TextPartTime? _$time(PartModelTextPart v) => v.time;
+  static const Field<PartModelTextPart, TextPartTime> _f$time = Field(
+    'time',
+    _$time,
   );
   static Map<String, dynamic>? _$metadata(PartModelTextPart v) => v.metadata;
   static const Field<PartModelTextPart, Map<String, dynamic>> _f$metadata =
@@ -60,7 +62,7 @@ class PartModelTextPartMapper extends ClassMapperBase<PartModelTextPart> {
     #type: _f$type,
     #text: _f$text,
     #synthetic: _f$synthetic,
-    #textPartTime: _f$textPartTime,
+    #time: _f$time,
     #metadata: _f$metadata,
   };
 
@@ -72,7 +74,7 @@ class PartModelTextPartMapper extends ClassMapperBase<PartModelTextPart> {
       type: data.dec(_f$type),
       text: data.dec(_f$text),
       synthetic: data.dec(_f$synthetic),
-      textPartTime: data.dec(_f$textPartTime),
+      time: data.dec(_f$time),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -148,7 +150,7 @@ abstract class PartModelTextPartCopyWith<
   $Out
 >
     implements ClassCopyWith<$R, $In, $Out> {
-  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get textPartTime;
+  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get time;
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   $R call({
@@ -158,7 +160,7 @@ abstract class PartModelTextPartCopyWith<
     String? type,
     String? text,
     bool? synthetic,
-    TextPartTime? textPartTime,
+    TextPartTime? time,
     Map<String, dynamic>? metadata,
   });
   PartModelTextPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -175,8 +177,8 @@ class _PartModelTextPartCopyWithImpl<$R, $Out>
   late final ClassMapperBase<PartModelTextPart> $mapper =
       PartModelTextPartMapper.ensureInitialized();
   @override
-  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get textPartTime =>
-      $value.textPartTime?.copyWith.$chain((v) => call(textPartTime: v));
+  TextPartTimeCopyWith<$R, TextPartTime, TextPartTime>? get time =>
+      $value.time?.copyWith.$chain((v) => call(time: v));
   @override
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata => $value.metadata != null
@@ -194,7 +196,7 @@ class _PartModelTextPartCopyWithImpl<$R, $Out>
     String? type,
     String? text,
     Object? synthetic = $none,
-    Object? textPartTime = $none,
+    Object? time = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -204,7 +206,7 @@ class _PartModelTextPartCopyWithImpl<$R, $Out>
       if (type != null) #type: type,
       if (text != null) #text: text,
       if (synthetic != $none) #synthetic: synthetic,
-      if (textPartTime != $none) #textPartTime: textPartTime,
+      if (time != $none) #time: time,
       if (metadata != $none) #metadata: metadata,
     }),
   );
@@ -216,7 +218,7 @@ class _PartModelTextPartCopyWithImpl<$R, $Out>
     type: data.get(#type, or: $value.type),
     text: data.get(#text, or: $value.text),
     synthetic: data.get(#synthetic, or: $value.synthetic),
-    textPartTime: data.get(#textPartTime, or: $value.textPartTime),
+    time: data.get(#time, or: $value.time),
     metadata: data.get(#metadata, or: $value.metadata),
   );
 
@@ -248,11 +250,13 @@ class PartModelReasoningPartMapper
   static const Field<PartModelReasoningPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelReasoningPart v) => v.messageId;
   static const Field<PartModelReasoningPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelReasoningPart v) => v.type;
   static const Field<PartModelReasoningPart, String> _f$type = Field(
@@ -268,10 +272,11 @@ class PartModelReasoningPartMapper
       v.metadata;
   static const Field<PartModelReasoningPart, Map<String, dynamic>> _f$metadata =
       Field('metadata', _$metadata);
-  static ReasoningPartTime _$reasoningPartTime(PartModelReasoningPart v) =>
-      v.reasoningPartTime;
-  static const Field<PartModelReasoningPart, ReasoningPartTime>
-  _f$reasoningPartTime = Field('reasoningPartTime', _$reasoningPartTime);
+  static ReasoningPartTime _$time(PartModelReasoningPart v) => v.time;
+  static const Field<PartModelReasoningPart, ReasoningPartTime> _f$time = Field(
+    'time',
+    _$time,
+  );
 
   @override
   final MappableFields<PartModelReasoningPart> fields = const {
@@ -281,7 +286,7 @@ class PartModelReasoningPartMapper
     #type: _f$type,
     #text: _f$text,
     #metadata: _f$metadata,
-    #reasoningPartTime: _f$reasoningPartTime,
+    #time: _f$time,
   };
 
   static PartModelReasoningPart _instantiate(DecodingData data) {
@@ -292,7 +297,7 @@ class PartModelReasoningPartMapper
       type: data.dec(_f$type),
       text: data.dec(_f$text),
       metadata: data.dec(_f$metadata),
-      reasoningPartTime: data.dec(_f$reasoningPartTime),
+      time: data.dec(_f$time),
     );
   }
 
@@ -368,8 +373,7 @@ abstract class PartModelReasoningPartCopyWith<
     implements ClassCopyWith<$R, $In, $Out> {
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
-  ReasoningPartTimeCopyWith<$R, ReasoningPartTime, ReasoningPartTime>
-  get reasoningPartTime;
+  ReasoningPartTimeCopyWith<$R, ReasoningPartTime, ReasoningPartTime> get time;
   $R call({
     String? id,
     String? sessionId,
@@ -377,7 +381,7 @@ abstract class PartModelReasoningPartCopyWith<
     String? type,
     String? text,
     Map<String, dynamic>? metadata,
-    ReasoningPartTime? reasoningPartTime,
+    ReasoningPartTime? time,
   });
   PartModelReasoningPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -404,9 +408,7 @@ class _PartModelReasoningPartCopyWithImpl<$R, $Out>
       : null;
   @override
   ReasoningPartTimeCopyWith<$R, ReasoningPartTime, ReasoningPartTime>
-  get reasoningPartTime => $value.reasoningPartTime.copyWith.$chain(
-    (v) => call(reasoningPartTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? id,
@@ -415,7 +417,7 @@ class _PartModelReasoningPartCopyWithImpl<$R, $Out>
     String? type,
     String? text,
     Object? metadata = $none,
-    ReasoningPartTime? reasoningPartTime,
+    ReasoningPartTime? time,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -424,7 +426,7 @@ class _PartModelReasoningPartCopyWithImpl<$R, $Out>
       if (type != null) #type: type,
       if (text != null) #text: text,
       if (metadata != $none) #metadata: metadata,
-      if (reasoningPartTime != null) #reasoningPartTime: reasoningPartTime,
+      if (time != null) #time: time,
     }),
   );
   @override
@@ -435,10 +437,7 @@ class _PartModelReasoningPartCopyWithImpl<$R, $Out>
     type: data.get(#type, or: $value.type),
     text: data.get(#text, or: $value.text),
     metadata: data.get(#metadata, or: $value.metadata),
-    reasoningPartTime: data.get(
-      #reasoningPartTime,
-      or: $value.reasoningPartTime,
-    ),
+    time: data.get(#time, or: $value.time),
   );
 
   @override
@@ -467,11 +466,13 @@ class PartModelFilePartMapper extends ClassMapperBase<PartModelFilePart> {
   static const Field<PartModelFilePart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelFilePart v) => v.messageId;
   static const Field<PartModelFilePart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelFilePart v) => v.type;
   static const Field<PartModelFilePart, String> _f$type = Field('type', _$type);
@@ -669,11 +670,13 @@ class PartModelToolPartMapper extends ClassMapperBase<PartModelToolPart> {
   static const Field<PartModelToolPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelToolPart v) => v.messageId;
   static const Field<PartModelToolPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelToolPart v) => v.type;
   static const Field<PartModelToolPart, String> _f$type = Field('type', _$type);
@@ -681,6 +684,7 @@ class PartModelToolPartMapper extends ClassMapperBase<PartModelToolPart> {
   static const Field<PartModelToolPart, String> _f$callId = Field(
     'callId',
     _$callId,
+    key: r'callID',
   );
   static String _$tool(PartModelToolPart v) => v.tool;
   static const Field<PartModelToolPart, String> _f$tool = Field('tool', _$tool);
@@ -884,11 +888,13 @@ class PartModelStepStartPartMapper
   static const Field<PartModelStepStartPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelStepStartPart v) => v.messageId;
   static const Field<PartModelStepStartPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelStepStartPart v) => v.type;
   static const Field<PartModelStepStartPart, String> _f$type = Field(
@@ -1066,11 +1072,13 @@ class PartModelStepFinishPartMapper
   static const Field<PartModelStepFinishPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelStepFinishPart v) => v.messageId;
   static const Field<PartModelStepFinishPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelStepFinishPart v) => v.type;
   static const Field<PartModelStepFinishPart, String> _f$type = Field(
@@ -1087,14 +1095,9 @@ class PartModelStepFinishPartMapper
     'cost',
     _$cost,
   );
-  static StepFinishPartTokens _$stepFinishPartTokens(
-    PartModelStepFinishPart v,
-  ) => v.stepFinishPartTokens;
-  static const Field<PartModelStepFinishPart, StepFinishPartTokens>
-  _f$stepFinishPartTokens = Field(
-    'stepFinishPartTokens',
-    _$stepFinishPartTokens,
-  );
+  static StepFinishPartTokens _$tokens(PartModelStepFinishPart v) => v.tokens;
+  static const Field<PartModelStepFinishPart, StepFinishPartTokens> _f$tokens =
+      Field('tokens', _$tokens);
 
   @override
   final MappableFields<PartModelStepFinishPart> fields = const {
@@ -1104,7 +1107,7 @@ class PartModelStepFinishPartMapper
     #type: _f$type,
     #snapshot: _f$snapshot,
     #cost: _f$cost,
-    #stepFinishPartTokens: _f$stepFinishPartTokens,
+    #tokens: _f$tokens,
   };
 
   static PartModelStepFinishPart _instantiate(DecodingData data) {
@@ -1115,7 +1118,7 @@ class PartModelStepFinishPartMapper
       type: data.dec(_f$type),
       snapshot: data.dec(_f$snapshot),
       cost: data.dec(_f$cost),
-      stepFinishPartTokens: data.dec(_f$stepFinishPartTokens),
+      tokens: data.dec(_f$tokens),
     );
   }
 
@@ -1190,7 +1193,7 @@ abstract class PartModelStepFinishPartCopyWith<
 >
     implements ClassCopyWith<$R, $In, $Out> {
   StepFinishPartTokensCopyWith<$R, StepFinishPartTokens, StepFinishPartTokens>
-  get stepFinishPartTokens;
+  get tokens;
   $R call({
     String? id,
     String? sessionId,
@@ -1198,7 +1201,7 @@ abstract class PartModelStepFinishPartCopyWith<
     String? type,
     String? snapshot,
     num? cost,
-    StepFinishPartTokens? stepFinishPartTokens,
+    StepFinishPartTokens? tokens,
   });
   PartModelStepFinishPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -1216,9 +1219,7 @@ class _PartModelStepFinishPartCopyWithImpl<$R, $Out>
       PartModelStepFinishPartMapper.ensureInitialized();
   @override
   StepFinishPartTokensCopyWith<$R, StepFinishPartTokens, StepFinishPartTokens>
-  get stepFinishPartTokens => $value.stepFinishPartTokens.copyWith.$chain(
-    (v) => call(stepFinishPartTokens: v),
-  );
+  get tokens => $value.tokens.copyWith.$chain((v) => call(tokens: v));
   @override
   $R call({
     String? id,
@@ -1227,7 +1228,7 @@ class _PartModelStepFinishPartCopyWithImpl<$R, $Out>
     String? type,
     Object? snapshot = $none,
     num? cost,
-    StepFinishPartTokens? stepFinishPartTokens,
+    StepFinishPartTokens? tokens,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -1236,8 +1237,7 @@ class _PartModelStepFinishPartCopyWithImpl<$R, $Out>
       if (type != null) #type: type,
       if (snapshot != $none) #snapshot: snapshot,
       if (cost != null) #cost: cost,
-      if (stepFinishPartTokens != null)
-        #stepFinishPartTokens: stepFinishPartTokens,
+      if (tokens != null) #tokens: tokens,
     }),
   );
   @override
@@ -1248,10 +1248,7 @@ class _PartModelStepFinishPartCopyWithImpl<$R, $Out>
     type: data.get(#type, or: $value.type),
     snapshot: data.get(#snapshot, or: $value.snapshot),
     cost: data.get(#cost, or: $value.cost),
-    stepFinishPartTokens: data.get(
-      #stepFinishPartTokens,
-      or: $value.stepFinishPartTokens,
-    ),
+    tokens: data.get(#tokens, or: $value.tokens),
   );
 
   @override
@@ -1281,11 +1278,13 @@ class PartModelSnapshotPartMapper
   static const Field<PartModelSnapshotPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelSnapshotPart v) => v.messageId;
   static const Field<PartModelSnapshotPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelSnapshotPart v) => v.type;
   static const Field<PartModelSnapshotPart, String> _f$type = Field(
@@ -1458,11 +1457,13 @@ class PartModelPatchPartMapper extends ClassMapperBase<PartModelPatchPart> {
   static const Field<PartModelPatchPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelPatchPart v) => v.messageId;
   static const Field<PartModelPatchPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelPatchPart v) => v.type;
   static const Field<PartModelPatchPart, String> _f$type = Field(
@@ -1656,11 +1657,13 @@ class PartModelAgentPartMapper extends ClassMapperBase<PartModelAgentPart> {
   static const Field<PartModelAgentPart, String> _f$sessionId = Field(
     'sessionId',
     _$sessionId,
+    key: r'sessionID',
   );
   static String _$messageId(PartModelAgentPart v) => v.messageId;
   static const Field<PartModelAgentPart, String> _f$messageId = Field(
     'messageId',
     _$messageId,
+    key: r'messageID',
   );
   static String _$type(PartModelAgentPart v) => v.type;
   static const Field<PartModelAgentPart, String> _f$type = Field(
@@ -1672,10 +1675,11 @@ class PartModelAgentPartMapper extends ClassMapperBase<PartModelAgentPart> {
     'name',
     _$name,
   );
-  static AgentPartSource? _$agentPartSource(PartModelAgentPart v) =>
-      v.agentPartSource;
-  static const Field<PartModelAgentPart, AgentPartSource> _f$agentPartSource =
-      Field('agentPartSource', _$agentPartSource);
+  static AgentPartSource? _$source(PartModelAgentPart v) => v.source;
+  static const Field<PartModelAgentPart, AgentPartSource> _f$source = Field(
+    'source',
+    _$source,
+  );
 
   @override
   final MappableFields<PartModelAgentPart> fields = const {
@@ -1684,7 +1688,7 @@ class PartModelAgentPartMapper extends ClassMapperBase<PartModelAgentPart> {
     #messageId: _f$messageId,
     #type: _f$type,
     #name: _f$name,
-    #agentPartSource: _f$agentPartSource,
+    #source: _f$source,
   };
 
   static PartModelAgentPart _instantiate(DecodingData data) {
@@ -1694,7 +1698,7 @@ class PartModelAgentPartMapper extends ClassMapperBase<PartModelAgentPart> {
       messageId: data.dec(_f$messageId),
       type: data.dec(_f$type),
       name: data.dec(_f$name),
-      agentPartSource: data.dec(_f$agentPartSource),
+      source: data.dec(_f$source),
     );
   }
 
@@ -1769,15 +1773,14 @@ abstract class PartModelAgentPartCopyWith<
   $Out
 >
     implements ClassCopyWith<$R, $In, $Out> {
-  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>?
-  get agentPartSource;
+  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>? get source;
   $R call({
     String? id,
     String? sessionId,
     String? messageId,
     String? type,
     String? name,
-    AgentPartSource? agentPartSource,
+    AgentPartSource? source,
   });
   PartModelAgentPartCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -1793,9 +1796,8 @@ class _PartModelAgentPartCopyWithImpl<$R, $Out>
   late final ClassMapperBase<PartModelAgentPart> $mapper =
       PartModelAgentPartMapper.ensureInitialized();
   @override
-  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>?
-  get agentPartSource =>
-      $value.agentPartSource?.copyWith.$chain((v) => call(agentPartSource: v));
+  AgentPartSourceCopyWith<$R, AgentPartSource, AgentPartSource>? get source =>
+      $value.source?.copyWith.$chain((v) => call(source: v));
   @override
   $R call({
     String? id,
@@ -1803,7 +1805,7 @@ class _PartModelAgentPartCopyWithImpl<$R, $Out>
     String? messageId,
     String? type,
     String? name,
-    Object? agentPartSource = $none,
+    Object? source = $none,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
@@ -1811,7 +1813,7 @@ class _PartModelAgentPartCopyWithImpl<$R, $Out>
       if (messageId != null) #messageId: messageId,
       if (type != null) #type: type,
       if (name != null) #name: name,
-      if (agentPartSource != $none) #agentPartSource: agentPartSource,
+      if (source != $none) #source: source,
     }),
   );
   @override
@@ -1821,7 +1823,7 @@ class _PartModelAgentPartCopyWithImpl<$R, $Out>
     messageId: data.get(#messageId, or: $value.messageId),
     type: data.get(#type, or: $value.type),
     name: data.get(#name, or: $value.name),
-    agentPartSource: data.get(#agentPartSource, or: $value.agentPartSource),
+    source: data.get(#source, or: $value.source),
   );
 
   @override

@@ -15,9 +15,7 @@ _ClassWithNullableTypes _$ClassWithNullableTypesFromJson(
       .map((e) => (e as List<dynamic>).map((e) => e as String?).toList())
       .toList(),
   p2NullAll: json['p2_null_all'] as List<dynamic>?,
-  classWithNullableTypesP3: ClassWithNullableTypesP3.fromJson(
-    json['ClassWithNullableTypesP3'] as Map<String, dynamic>,
-  ),
+  p3: ClassWithNullableTypesP3.fromJson(json['p3'] as Map<String, dynamic>),
   requiredNullAnyOf: json['required_null_anyOf'],
   p1AnyOf: json['p1_anyOf'],
   p2AnyOf: json['p2_anyOf'],
@@ -36,10 +34,10 @@ _ClassWithNullableTypes _$ClassWithNullableTypesFromJson(
   p2Null: json['p2_null'] as List<dynamic>?,
   p1N: json['p1_n'] as String?,
   p2N: (json['p2_n'] as List<dynamic>?)?.map((e) => e as String?).toList(),
-  classWithNullableTypesP3N: json['ClassWithNullableTypesP3N'] == null
+  p3N: json['p3_n'] == null
       ? null
       : ClassWithNullableTypesP3N.fromJson(
-          json['ClassWithNullableTypesP3N'] as Map<String, dynamic>,
+          json['p3_n'] as Map<String, dynamic>,
         ),
   p1List: json['p1_list'] as String?,
   p2List: json['p2_list'] as List<dynamic>?,
@@ -55,7 +53,7 @@ Map<String, dynamic> _$ClassWithNullableTypesToJson(
   'p2': instance.p2,
   'p2_null_item': instance.p2NullItem,
   'p2_null_all': instance.p2NullAll,
-  'ClassWithNullableTypesP3': instance.classWithNullableTypesP3,
+  'p3': instance.p3,
   'required_null_anyOf': instance.requiredNullAnyOf,
   'p1_anyOf': instance.p1AnyOf,
   'p2_anyOf': instance.p2AnyOf,
@@ -72,7 +70,7 @@ Map<String, dynamic> _$ClassWithNullableTypesToJson(
   'p2_null': instance.p2Null,
   'p1_n': instance.p1N,
   'p2_n': instance.p2N,
-  'ClassWithNullableTypesP3N': instance.classWithNullableTypesP3N,
+  'p3_n': instance.p3N,
   'p1_list': instance.p1List,
   'p2_list': instance.p2List,
   'p3_list': instance.p3List,

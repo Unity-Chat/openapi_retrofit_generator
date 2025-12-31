@@ -10,17 +10,13 @@ part 'event_session_deleted.g.dart';
 
 @JsonSerializable()
 class EventSessionDeleted {
-  const EventSessionDeleted({
-    required this.type,
-    required this.eventSessionDeletedProperties,
-  });
+  const EventSessionDeleted({required this.type, required this.properties});
 
   factory EventSessionDeleted.fromJson(Map<String, Object?> json) =>
       _$EventSessionDeletedFromJson(json);
 
   final String type;
-  @JsonKey(name: 'EventSessionDeletedProperties')
-  final EventSessionDeletedProperties eventSessionDeletedProperties;
+  final EventSessionDeletedProperties properties;
 
   Map<String, Object?> toJson() => _$EventSessionDeletedToJson(this);
 }

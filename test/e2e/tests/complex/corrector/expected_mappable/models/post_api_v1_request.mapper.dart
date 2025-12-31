@@ -23,28 +23,22 @@ class PostApiV1RequestMapper extends ClassMapperBase<PostApiV1Request> {
   @override
   final String id = 'PostApiV1Request';
 
-  static PostApiV1RequestP1Class _$postApiV1RequestP1Class(
-    PostApiV1Request v,
-  ) => v.postApiV1RequestP1Class;
-  static const Field<PostApiV1Request, PostApiV1RequestP1Class>
-  _f$postApiV1RequestP1Class = Field(
-    'postApiV1RequestP1Class',
-    _$postApiV1RequestP1Class,
-    key: r'PostApiV1RequestP1Class',
-  );
+  static PostApiV1RequestP1Class _$p1Class(PostApiV1Request v) => v.p1Class;
+  static const Field<PostApiV1Request, PostApiV1RequestP1Class> _f$p1Class =
+      Field('p1Class', _$p1Class, key: r'p1_class');
   static PostApiV1RequestP2EnumP2Enum? _$p2Enum(PostApiV1Request v) => v.p2Enum;
   static const Field<PostApiV1Request, PostApiV1RequestP2EnumP2Enum> _f$p2Enum =
       Field('p2Enum', _$p2Enum, key: r'p2_enum', opt: true);
 
   @override
   final MappableFields<PostApiV1Request> fields = const {
-    #postApiV1RequestP1Class: _f$postApiV1RequestP1Class,
+    #p1Class: _f$p1Class,
     #p2Enum: _f$p2Enum,
   };
 
   static PostApiV1Request _instantiate(DecodingData data) {
     return PostApiV1Request(
-      postApiV1RequestP1Class: data.dec(_f$postApiV1RequestP1Class),
+      p1Class: data.dec(_f$p1Class),
       p2Enum: data.dec(_f$p2Enum),
     );
   }
@@ -116,9 +110,9 @@ abstract class PostApiV1RequestCopyWith<$R, $In extends PostApiV1Request, $Out>
     PostApiV1RequestP1Class,
     PostApiV1RequestP1Class
   >
-  get postApiV1RequestP1Class;
+  get p1Class;
   $R call({
-    PostApiV1RequestP1Class? postApiV1RequestP1Class,
+    PostApiV1RequestP1Class? p1Class,
     PostApiV1RequestP2EnumP2Enum? p2Enum,
   });
   PostApiV1RequestCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -140,26 +134,17 @@ class _PostApiV1RequestCopyWithImpl<$R, $Out>
     PostApiV1RequestP1Class,
     PostApiV1RequestP1Class
   >
-  get postApiV1RequestP1Class => $value.postApiV1RequestP1Class.copyWith.$chain(
-    (v) => call(postApiV1RequestP1Class: v),
-  );
+  get p1Class => $value.p1Class.copyWith.$chain((v) => call(p1Class: v));
   @override
-  $R call({
-    PostApiV1RequestP1Class? postApiV1RequestP1Class,
-    Object? p2Enum = $none,
-  }) => $apply(
+  $R call({PostApiV1RequestP1Class? p1Class, Object? p2Enum = $none}) => $apply(
     FieldCopyWithData({
-      if (postApiV1RequestP1Class != null)
-        #postApiV1RequestP1Class: postApiV1RequestP1Class,
+      if (p1Class != null) #p1Class: p1Class,
       if (p2Enum != $none) #p2Enum: p2Enum,
     }),
   );
   @override
   PostApiV1Request $make(CopyWithData data) => PostApiV1Request(
-    postApiV1RequestP1Class: data.get(
-      #postApiV1RequestP1Class,
-      or: $value.postApiV1RequestP1Class,
-    ),
+    p1Class: data.get(#p1Class, or: $value.p1Class),
     p2Enum: data.get(#p2Enum, or: $value.p2Enum),
   );
 

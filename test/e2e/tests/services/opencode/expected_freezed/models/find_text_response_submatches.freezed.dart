@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FindTextResponseSubmatches {
 
-@JsonKey(name: 'FindTextResponseSubmatchesMatch') FindTextResponseSubmatchesMatch get findTextResponseSubmatchesMatch; num get start; num get end;
+ FindTextResponseSubmatchesMatch get match; num get start; num get end;
 /// Create a copy of FindTextResponseSubmatches
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $FindTextResponseSubmatchesCopyWith<FindTextResponseSubmatches> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FindTextResponseSubmatches&&(identical(other.findTextResponseSubmatchesMatch, findTextResponseSubmatchesMatch) || other.findTextResponseSubmatchesMatch == findTextResponseSubmatchesMatch)&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FindTextResponseSubmatches&&(identical(other.match, match) || other.match == match)&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,findTextResponseSubmatchesMatch,start,end);
+int get hashCode => Object.hash(runtimeType,match,start,end);
 
 @override
 String toString() {
-  return 'FindTextResponseSubmatches(findTextResponseSubmatchesMatch: $findTextResponseSubmatchesMatch, start: $start, end: $end)';
+  return 'FindTextResponseSubmatches(match: $match, start: $start, end: $end)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $FindTextResponseSubmatchesCopyWith<$Res>  {
   factory $FindTextResponseSubmatchesCopyWith(FindTextResponseSubmatches value, $Res Function(FindTextResponseSubmatches) _then) = _$FindTextResponseSubmatchesCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'FindTextResponseSubmatchesMatch') FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch, num start, num end
+ FindTextResponseSubmatchesMatch match, num start, num end
 });
 
 
-$FindTextResponseSubmatchesMatchCopyWith<$Res> get findTextResponseSubmatchesMatch;
+$FindTextResponseSubmatchesMatchCopyWith<$Res> get match;
 
 }
 /// @nodoc
@@ -65,9 +65,9 @@ class _$FindTextResponseSubmatchesCopyWithImpl<$Res>
 
 /// Create a copy of FindTextResponseSubmatches
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? findTextResponseSubmatchesMatch = null,Object? start = null,Object? end = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? match = null,Object? start = null,Object? end = null,}) {
   return _then(_self.copyWith(
-findTextResponseSubmatchesMatch: null == findTextResponseSubmatchesMatch ? _self.findTextResponseSubmatchesMatch : findTextResponseSubmatchesMatch // ignore: cast_nullable_to_non_nullable
+match: null == match ? _self.match : match // ignore: cast_nullable_to_non_nullable
 as FindTextResponseSubmatchesMatch,start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
 as num,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
 as num,
@@ -77,10 +77,10 @@ as num,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FindTextResponseSubmatchesMatchCopyWith<$Res> get findTextResponseSubmatchesMatch {
+$FindTextResponseSubmatchesMatchCopyWith<$Res> get match {
   
-  return $FindTextResponseSubmatchesMatchCopyWith<$Res>(_self.findTextResponseSubmatchesMatch, (value) {
-    return _then(_self.copyWith(findTextResponseSubmatchesMatch: value));
+  return $FindTextResponseSubmatchesMatchCopyWith<$Res>(_self.match, (value) {
+    return _then(_self.copyWith(match: value));
   });
 }
 }
@@ -164,10 +164,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'FindTextResponseSubmatchesMatch')  FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch,  num start,  num end)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( FindTextResponseSubmatchesMatch match,  num start,  num end)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FindTextResponseSubmatches() when $default != null:
-return $default(_that.findTextResponseSubmatchesMatch,_that.start,_that.end);case _:
+return $default(_that.match,_that.start,_that.end);case _:
   return orElse();
 
 }
@@ -185,10 +185,10 @@ return $default(_that.findTextResponseSubmatchesMatch,_that.start,_that.end);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'FindTextResponseSubmatchesMatch')  FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch,  num start,  num end)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( FindTextResponseSubmatchesMatch match,  num start,  num end)  $default,) {final _that = this;
 switch (_that) {
 case _FindTextResponseSubmatches():
-return $default(_that.findTextResponseSubmatchesMatch,_that.start,_that.end);case _:
+return $default(_that.match,_that.start,_that.end);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,10 +205,10 @@ return $default(_that.findTextResponseSubmatchesMatch,_that.start,_that.end);cas
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'FindTextResponseSubmatchesMatch')  FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch,  num start,  num end)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( FindTextResponseSubmatchesMatch match,  num start,  num end)?  $default,) {final _that = this;
 switch (_that) {
 case _FindTextResponseSubmatches() when $default != null:
-return $default(_that.findTextResponseSubmatchesMatch,_that.start,_that.end);case _:
+return $default(_that.match,_that.start,_that.end);case _:
   return null;
 
 }
@@ -220,10 +220,10 @@ return $default(_that.findTextResponseSubmatchesMatch,_that.start,_that.end);cas
 @JsonSerializable()
 
 class _FindTextResponseSubmatches implements FindTextResponseSubmatches {
-  const _FindTextResponseSubmatches({@JsonKey(name: 'FindTextResponseSubmatchesMatch') required this.findTextResponseSubmatchesMatch, required this.start, required this.end});
+  const _FindTextResponseSubmatches({required this.match, required this.start, required this.end});
   factory _FindTextResponseSubmatches.fromJson(Map<String, dynamic> json) => _$FindTextResponseSubmatchesFromJson(json);
 
-@override@JsonKey(name: 'FindTextResponseSubmatchesMatch') final  FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch;
+@override final  FindTextResponseSubmatchesMatch match;
 @override final  num start;
 @override final  num end;
 
@@ -240,16 +240,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FindTextResponseSubmatches&&(identical(other.findTextResponseSubmatchesMatch, findTextResponseSubmatchesMatch) || other.findTextResponseSubmatchesMatch == findTextResponseSubmatchesMatch)&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FindTextResponseSubmatches&&(identical(other.match, match) || other.match == match)&&(identical(other.start, start) || other.start == start)&&(identical(other.end, end) || other.end == end));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,findTextResponseSubmatchesMatch,start,end);
+int get hashCode => Object.hash(runtimeType,match,start,end);
 
 @override
 String toString() {
-  return 'FindTextResponseSubmatches(findTextResponseSubmatchesMatch: $findTextResponseSubmatchesMatch, start: $start, end: $end)';
+  return 'FindTextResponseSubmatches(match: $match, start: $start, end: $end)';
 }
 
 
@@ -260,11 +260,11 @@ abstract mixin class _$FindTextResponseSubmatchesCopyWith<$Res> implements $Find
   factory _$FindTextResponseSubmatchesCopyWith(_FindTextResponseSubmatches value, $Res Function(_FindTextResponseSubmatches) _then) = __$FindTextResponseSubmatchesCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'FindTextResponseSubmatchesMatch') FindTextResponseSubmatchesMatch findTextResponseSubmatchesMatch, num start, num end
+ FindTextResponseSubmatchesMatch match, num start, num end
 });
 
 
-@override $FindTextResponseSubmatchesMatchCopyWith<$Res> get findTextResponseSubmatchesMatch;
+@override $FindTextResponseSubmatchesMatchCopyWith<$Res> get match;
 
 }
 /// @nodoc
@@ -277,9 +277,9 @@ class __$FindTextResponseSubmatchesCopyWithImpl<$Res>
 
 /// Create a copy of FindTextResponseSubmatches
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? findTextResponseSubmatchesMatch = null,Object? start = null,Object? end = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? match = null,Object? start = null,Object? end = null,}) {
   return _then(_FindTextResponseSubmatches(
-findTextResponseSubmatchesMatch: null == findTextResponseSubmatchesMatch ? _self.findTextResponseSubmatchesMatch : findTextResponseSubmatchesMatch // ignore: cast_nullable_to_non_nullable
+match: null == match ? _self.match : match // ignore: cast_nullable_to_non_nullable
 as FindTextResponseSubmatchesMatch,start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
 as num,end: null == end ? _self.end : end // ignore: cast_nullable_to_non_nullable
 as num,
@@ -290,10 +290,10 @@ as num,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FindTextResponseSubmatchesMatchCopyWith<$Res> get findTextResponseSubmatchesMatch {
+$FindTextResponseSubmatchesMatchCopyWith<$Res> get match {
   
-  return $FindTextResponseSubmatchesMatchCopyWith<$Res>(_self.findTextResponseSubmatchesMatch, (value) {
-    return _then(_self.copyWith(findTextResponseSubmatchesMatch: value));
+  return $FindTextResponseSubmatchesMatchCopyWith<$Res>(_self.match, (value) {
+    return _then(_self.copyWith(match: value));
   });
 }
 }

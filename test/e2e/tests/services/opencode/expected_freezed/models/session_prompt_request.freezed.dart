@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SessionPromptRequest {
 
- List<SessionPromptRequestPartsParts> get parts;@JsonKey(name: 'messageID') String? get messageId;@JsonKey(name: 'SessionPromptRequestModel') SessionPromptRequestModel? get sessionPromptRequestModel; String? get agent; String? get system; Map<String, bool>? get tools;@JsonKey(name: 'SessionPromptRequestAcpConnection') SessionPromptRequestAcpConnection? get sessionPromptRequestAcpConnection;
+ List<SessionPromptRequestPartsParts> get parts;@JsonKey(name: 'messageID') String? get messageId; SessionPromptRequestModel? get model; String? get agent; String? get system; Map<String, bool>? get tools; SessionPromptRequestAcpConnection? get acpConnection;
 /// Create a copy of SessionPromptRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $SessionPromptRequestCopyWith<SessionPromptRequest> get copyWith => _$SessionPro
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SessionPromptRequest&&const DeepCollectionEquality().equals(other.parts, parts)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.sessionPromptRequestModel, sessionPromptRequestModel) || other.sessionPromptRequestModel == sessionPromptRequestModel)&&(identical(other.agent, agent) || other.agent == agent)&&(identical(other.system, system) || other.system == system)&&const DeepCollectionEquality().equals(other.tools, tools)&&(identical(other.sessionPromptRequestAcpConnection, sessionPromptRequestAcpConnection) || other.sessionPromptRequestAcpConnection == sessionPromptRequestAcpConnection));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SessionPromptRequest&&const DeepCollectionEquality().equals(other.parts, parts)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.model, model) || other.model == model)&&(identical(other.agent, agent) || other.agent == agent)&&(identical(other.system, system) || other.system == system)&&const DeepCollectionEquality().equals(other.tools, tools)&&(identical(other.acpConnection, acpConnection) || other.acpConnection == acpConnection));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(parts),messageId,sessionPromptRequestModel,agent,system,const DeepCollectionEquality().hash(tools),sessionPromptRequestAcpConnection);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(parts),messageId,model,agent,system,const DeepCollectionEquality().hash(tools),acpConnection);
 
 @override
 String toString() {
-  return 'SessionPromptRequest(parts: $parts, messageId: $messageId, sessionPromptRequestModel: $sessionPromptRequestModel, agent: $agent, system: $system, tools: $tools, sessionPromptRequestAcpConnection: $sessionPromptRequestAcpConnection)';
+  return 'SessionPromptRequest(parts: $parts, messageId: $messageId, model: $model, agent: $agent, system: $system, tools: $tools, acpConnection: $acpConnection)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $SessionPromptRequestCopyWith<$Res>  {
   factory $SessionPromptRequestCopyWith(SessionPromptRequest value, $Res Function(SessionPromptRequest) _then) = _$SessionPromptRequestCopyWithImpl;
 @useResult
 $Res call({
- List<SessionPromptRequestPartsParts> parts,@JsonKey(name: 'messageID') String? messageId,@JsonKey(name: 'SessionPromptRequestModel') SessionPromptRequestModel? sessionPromptRequestModel, String? agent, String? system, Map<String, bool>? tools,@JsonKey(name: 'SessionPromptRequestAcpConnection') SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection
+ List<SessionPromptRequestPartsParts> parts,@JsonKey(name: 'messageID') String? messageId, SessionPromptRequestModel? model, String? agent, String? system, Map<String, bool>? tools, SessionPromptRequestAcpConnection? acpConnection
 });
 
 
-$SessionPromptRequestModelCopyWith<$Res>? get sessionPromptRequestModel;$SessionPromptRequestAcpConnectionCopyWith<$Res>? get sessionPromptRequestAcpConnection;
+$SessionPromptRequestModelCopyWith<$Res>? get model;$SessionPromptRequestAcpConnectionCopyWith<$Res>? get acpConnection;
 
 }
 /// @nodoc
@@ -65,15 +65,15 @@ class _$SessionPromptRequestCopyWithImpl<$Res>
 
 /// Create a copy of SessionPromptRequest
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? parts = null,Object? messageId = freezed,Object? sessionPromptRequestModel = freezed,Object? agent = freezed,Object? system = freezed,Object? tools = freezed,Object? sessionPromptRequestAcpConnection = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? parts = null,Object? messageId = freezed,Object? model = freezed,Object? agent = freezed,Object? system = freezed,Object? tools = freezed,Object? acpConnection = freezed,}) {
   return _then(_self.copyWith(
 parts: null == parts ? _self.parts : parts // ignore: cast_nullable_to_non_nullable
 as List<SessionPromptRequestPartsParts>,messageId: freezed == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
-as String?,sessionPromptRequestModel: freezed == sessionPromptRequestModel ? _self.sessionPromptRequestModel : sessionPromptRequestModel // ignore: cast_nullable_to_non_nullable
+as String?,model: freezed == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as SessionPromptRequestModel?,agent: freezed == agent ? _self.agent : agent // ignore: cast_nullable_to_non_nullable
 as String?,system: freezed == system ? _self.system : system // ignore: cast_nullable_to_non_nullable
 as String?,tools: freezed == tools ? _self.tools : tools // ignore: cast_nullable_to_non_nullable
-as Map<String, bool>?,sessionPromptRequestAcpConnection: freezed == sessionPromptRequestAcpConnection ? _self.sessionPromptRequestAcpConnection : sessionPromptRequestAcpConnection // ignore: cast_nullable_to_non_nullable
+as Map<String, bool>?,acpConnection: freezed == acpConnection ? _self.acpConnection : acpConnection // ignore: cast_nullable_to_non_nullable
 as SessionPromptRequestAcpConnection?,
   ));
 }
@@ -81,25 +81,25 @@ as SessionPromptRequestAcpConnection?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionPromptRequestModelCopyWith<$Res>? get sessionPromptRequestModel {
-    if (_self.sessionPromptRequestModel == null) {
+$SessionPromptRequestModelCopyWith<$Res>? get model {
+    if (_self.model == null) {
     return null;
   }
 
-  return $SessionPromptRequestModelCopyWith<$Res>(_self.sessionPromptRequestModel!, (value) {
-    return _then(_self.copyWith(sessionPromptRequestModel: value));
+  return $SessionPromptRequestModelCopyWith<$Res>(_self.model!, (value) {
+    return _then(_self.copyWith(model: value));
   });
 }/// Create a copy of SessionPromptRequest
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionPromptRequestAcpConnectionCopyWith<$Res>? get sessionPromptRequestAcpConnection {
-    if (_self.sessionPromptRequestAcpConnection == null) {
+$SessionPromptRequestAcpConnectionCopyWith<$Res>? get acpConnection {
+    if (_self.acpConnection == null) {
     return null;
   }
 
-  return $SessionPromptRequestAcpConnectionCopyWith<$Res>(_self.sessionPromptRequestAcpConnection!, (value) {
-    return _then(_self.copyWith(sessionPromptRequestAcpConnection: value));
+  return $SessionPromptRequestAcpConnectionCopyWith<$Res>(_self.acpConnection!, (value) {
+    return _then(_self.copyWith(acpConnection: value));
   });
 }
 }
@@ -183,10 +183,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID')  String? messageId, @JsonKey(name: 'SessionPromptRequestModel')  SessionPromptRequestModel? sessionPromptRequestModel,  String? agent,  String? system,  Map<String, bool>? tools, @JsonKey(name: 'SessionPromptRequestAcpConnection')  SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID')  String? messageId,  SessionPromptRequestModel? model,  String? agent,  String? system,  Map<String, bool>? tools,  SessionPromptRequestAcpConnection? acpConnection)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _SessionPromptRequest() when $default != null:
-return $default(_that.parts,_that.messageId,_that.sessionPromptRequestModel,_that.agent,_that.system,_that.tools,_that.sessionPromptRequestAcpConnection);case _:
+return $default(_that.parts,_that.messageId,_that.model,_that.agent,_that.system,_that.tools,_that.acpConnection);case _:
   return orElse();
 
 }
@@ -204,10 +204,10 @@ return $default(_that.parts,_that.messageId,_that.sessionPromptRequestModel,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID')  String? messageId, @JsonKey(name: 'SessionPromptRequestModel')  SessionPromptRequestModel? sessionPromptRequestModel,  String? agent,  String? system,  Map<String, bool>? tools, @JsonKey(name: 'SessionPromptRequestAcpConnection')  SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID')  String? messageId,  SessionPromptRequestModel? model,  String? agent,  String? system,  Map<String, bool>? tools,  SessionPromptRequestAcpConnection? acpConnection)  $default,) {final _that = this;
 switch (_that) {
 case _SessionPromptRequest():
-return $default(_that.parts,_that.messageId,_that.sessionPromptRequestModel,_that.agent,_that.system,_that.tools,_that.sessionPromptRequestAcpConnection);case _:
+return $default(_that.parts,_that.messageId,_that.model,_that.agent,_that.system,_that.tools,_that.acpConnection);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -224,10 +224,10 @@ return $default(_that.parts,_that.messageId,_that.sessionPromptRequestModel,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID')  String? messageId, @JsonKey(name: 'SessionPromptRequestModel')  SessionPromptRequestModel? sessionPromptRequestModel,  String? agent,  String? system,  Map<String, bool>? tools, @JsonKey(name: 'SessionPromptRequestAcpConnection')  SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID')  String? messageId,  SessionPromptRequestModel? model,  String? agent,  String? system,  Map<String, bool>? tools,  SessionPromptRequestAcpConnection? acpConnection)?  $default,) {final _that = this;
 switch (_that) {
 case _SessionPromptRequest() when $default != null:
-return $default(_that.parts,_that.messageId,_that.sessionPromptRequestModel,_that.agent,_that.system,_that.tools,_that.sessionPromptRequestAcpConnection);case _:
+return $default(_that.parts,_that.messageId,_that.model,_that.agent,_that.system,_that.tools,_that.acpConnection);case _:
   return null;
 
 }
@@ -239,7 +239,7 @@ return $default(_that.parts,_that.messageId,_that.sessionPromptRequestModel,_tha
 @JsonSerializable()
 
 class _SessionPromptRequest implements SessionPromptRequest {
-  const _SessionPromptRequest({required final  List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID') this.messageId, @JsonKey(name: 'SessionPromptRequestModel') this.sessionPromptRequestModel, this.agent, this.system, final  Map<String, bool>? tools, @JsonKey(name: 'SessionPromptRequestAcpConnection') this.sessionPromptRequestAcpConnection}): _parts = parts,_tools = tools;
+  const _SessionPromptRequest({required final  List<SessionPromptRequestPartsParts> parts, @JsonKey(name: 'messageID') this.messageId, this.model, this.agent, this.system, final  Map<String, bool>? tools, this.acpConnection}): _parts = parts,_tools = tools;
   factory _SessionPromptRequest.fromJson(Map<String, dynamic> json) => _$SessionPromptRequestFromJson(json);
 
  final  List<SessionPromptRequestPartsParts> _parts;
@@ -250,7 +250,7 @@ class _SessionPromptRequest implements SessionPromptRequest {
 }
 
 @override@JsonKey(name: 'messageID') final  String? messageId;
-@override@JsonKey(name: 'SessionPromptRequestModel') final  SessionPromptRequestModel? sessionPromptRequestModel;
+@override final  SessionPromptRequestModel? model;
 @override final  String? agent;
 @override final  String? system;
  final  Map<String, bool>? _tools;
@@ -262,7 +262,7 @@ class _SessionPromptRequest implements SessionPromptRequest {
   return EqualUnmodifiableMapView(value);
 }
 
-@override@JsonKey(name: 'SessionPromptRequestAcpConnection') final  SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection;
+@override final  SessionPromptRequestAcpConnection? acpConnection;
 
 /// Create a copy of SessionPromptRequest
 /// with the given fields replaced by the non-null parameter values.
@@ -277,16 +277,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SessionPromptRequest&&const DeepCollectionEquality().equals(other._parts, _parts)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.sessionPromptRequestModel, sessionPromptRequestModel) || other.sessionPromptRequestModel == sessionPromptRequestModel)&&(identical(other.agent, agent) || other.agent == agent)&&(identical(other.system, system) || other.system == system)&&const DeepCollectionEquality().equals(other._tools, _tools)&&(identical(other.sessionPromptRequestAcpConnection, sessionPromptRequestAcpConnection) || other.sessionPromptRequestAcpConnection == sessionPromptRequestAcpConnection));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SessionPromptRequest&&const DeepCollectionEquality().equals(other._parts, _parts)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.model, model) || other.model == model)&&(identical(other.agent, agent) || other.agent == agent)&&(identical(other.system, system) || other.system == system)&&const DeepCollectionEquality().equals(other._tools, _tools)&&(identical(other.acpConnection, acpConnection) || other.acpConnection == acpConnection));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_parts),messageId,sessionPromptRequestModel,agent,system,const DeepCollectionEquality().hash(_tools),sessionPromptRequestAcpConnection);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_parts),messageId,model,agent,system,const DeepCollectionEquality().hash(_tools),acpConnection);
 
 @override
 String toString() {
-  return 'SessionPromptRequest(parts: $parts, messageId: $messageId, sessionPromptRequestModel: $sessionPromptRequestModel, agent: $agent, system: $system, tools: $tools, sessionPromptRequestAcpConnection: $sessionPromptRequestAcpConnection)';
+  return 'SessionPromptRequest(parts: $parts, messageId: $messageId, model: $model, agent: $agent, system: $system, tools: $tools, acpConnection: $acpConnection)';
 }
 
 
@@ -297,11 +297,11 @@ abstract mixin class _$SessionPromptRequestCopyWith<$Res> implements $SessionPro
   factory _$SessionPromptRequestCopyWith(_SessionPromptRequest value, $Res Function(_SessionPromptRequest) _then) = __$SessionPromptRequestCopyWithImpl;
 @override @useResult
 $Res call({
- List<SessionPromptRequestPartsParts> parts,@JsonKey(name: 'messageID') String? messageId,@JsonKey(name: 'SessionPromptRequestModel') SessionPromptRequestModel? sessionPromptRequestModel, String? agent, String? system, Map<String, bool>? tools,@JsonKey(name: 'SessionPromptRequestAcpConnection') SessionPromptRequestAcpConnection? sessionPromptRequestAcpConnection
+ List<SessionPromptRequestPartsParts> parts,@JsonKey(name: 'messageID') String? messageId, SessionPromptRequestModel? model, String? agent, String? system, Map<String, bool>? tools, SessionPromptRequestAcpConnection? acpConnection
 });
 
 
-@override $SessionPromptRequestModelCopyWith<$Res>? get sessionPromptRequestModel;@override $SessionPromptRequestAcpConnectionCopyWith<$Res>? get sessionPromptRequestAcpConnection;
+@override $SessionPromptRequestModelCopyWith<$Res>? get model;@override $SessionPromptRequestAcpConnectionCopyWith<$Res>? get acpConnection;
 
 }
 /// @nodoc
@@ -314,15 +314,15 @@ class __$SessionPromptRequestCopyWithImpl<$Res>
 
 /// Create a copy of SessionPromptRequest
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? parts = null,Object? messageId = freezed,Object? sessionPromptRequestModel = freezed,Object? agent = freezed,Object? system = freezed,Object? tools = freezed,Object? sessionPromptRequestAcpConnection = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? parts = null,Object? messageId = freezed,Object? model = freezed,Object? agent = freezed,Object? system = freezed,Object? tools = freezed,Object? acpConnection = freezed,}) {
   return _then(_SessionPromptRequest(
 parts: null == parts ? _self._parts : parts // ignore: cast_nullable_to_non_nullable
 as List<SessionPromptRequestPartsParts>,messageId: freezed == messageId ? _self.messageId : messageId // ignore: cast_nullable_to_non_nullable
-as String?,sessionPromptRequestModel: freezed == sessionPromptRequestModel ? _self.sessionPromptRequestModel : sessionPromptRequestModel // ignore: cast_nullable_to_non_nullable
+as String?,model: freezed == model ? _self.model : model // ignore: cast_nullable_to_non_nullable
 as SessionPromptRequestModel?,agent: freezed == agent ? _self.agent : agent // ignore: cast_nullable_to_non_nullable
 as String?,system: freezed == system ? _self.system : system // ignore: cast_nullable_to_non_nullable
 as String?,tools: freezed == tools ? _self._tools : tools // ignore: cast_nullable_to_non_nullable
-as Map<String, bool>?,sessionPromptRequestAcpConnection: freezed == sessionPromptRequestAcpConnection ? _self.sessionPromptRequestAcpConnection : sessionPromptRequestAcpConnection // ignore: cast_nullable_to_non_nullable
+as Map<String, bool>?,acpConnection: freezed == acpConnection ? _self.acpConnection : acpConnection // ignore: cast_nullable_to_non_nullable
 as SessionPromptRequestAcpConnection?,
   ));
 }
@@ -331,25 +331,25 @@ as SessionPromptRequestAcpConnection?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionPromptRequestModelCopyWith<$Res>? get sessionPromptRequestModel {
-    if (_self.sessionPromptRequestModel == null) {
+$SessionPromptRequestModelCopyWith<$Res>? get model {
+    if (_self.model == null) {
     return null;
   }
 
-  return $SessionPromptRequestModelCopyWith<$Res>(_self.sessionPromptRequestModel!, (value) {
-    return _then(_self.copyWith(sessionPromptRequestModel: value));
+  return $SessionPromptRequestModelCopyWith<$Res>(_self.model!, (value) {
+    return _then(_self.copyWith(model: value));
   });
 }/// Create a copy of SessionPromptRequest
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$SessionPromptRequestAcpConnectionCopyWith<$Res>? get sessionPromptRequestAcpConnection {
-    if (_self.sessionPromptRequestAcpConnection == null) {
+$SessionPromptRequestAcpConnectionCopyWith<$Res>? get acpConnection {
+    if (_self.acpConnection == null) {
     return null;
   }
 
-  return $SessionPromptRequestAcpConnectionCopyWith<$Res>(_self.sessionPromptRequestAcpConnection!, (value) {
-    return _then(_self.copyWith(sessionPromptRequestAcpConnection: value));
+  return $SessionPromptRequestAcpConnectionCopyWith<$Res>(_self.acpConnection!, (value) {
+    return _then(_self.copyWith(acpConnection: value));
   });
 }
 }

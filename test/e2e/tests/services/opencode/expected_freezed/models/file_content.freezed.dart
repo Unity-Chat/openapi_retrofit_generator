@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FileContent {
 
- String get type; String get content; String? get diff;@JsonKey(name: 'FileContentPatch') FileContentPatch? get fileContentPatch; String? get encoding; String? get mimeType;
+ String get type; String get content; String? get diff; FileContentPatch? get patch; String? get encoding; String? get mimeType;
 /// Create a copy of FileContent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $FileContentCopyWith<FileContent> get copyWith => _$FileContentCopyWithImpl<File
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is FileContent&&(identical(other.type, type) || other.type == type)&&(identical(other.content, content) || other.content == content)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.fileContentPatch, fileContentPatch) || other.fileContentPatch == fileContentPatch)&&(identical(other.encoding, encoding) || other.encoding == encoding)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is FileContent&&(identical(other.type, type) || other.type == type)&&(identical(other.content, content) || other.content == content)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.patch, patch) || other.patch == patch)&&(identical(other.encoding, encoding) || other.encoding == encoding)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,content,diff,fileContentPatch,encoding,mimeType);
+int get hashCode => Object.hash(runtimeType,type,content,diff,patch,encoding,mimeType);
 
 @override
 String toString() {
-  return 'FileContent(type: $type, content: $content, diff: $diff, fileContentPatch: $fileContentPatch, encoding: $encoding, mimeType: $mimeType)';
+  return 'FileContent(type: $type, content: $content, diff: $diff, patch: $patch, encoding: $encoding, mimeType: $mimeType)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $FileContentCopyWith<$Res>  {
   factory $FileContentCopyWith(FileContent value, $Res Function(FileContent) _then) = _$FileContentCopyWithImpl;
 @useResult
 $Res call({
- String type, String content, String? diff,@JsonKey(name: 'FileContentPatch') FileContentPatch? fileContentPatch, String? encoding, String? mimeType
+ String type, String content, String? diff, FileContentPatch? patch, String? encoding, String? mimeType
 });
 
 
-$FileContentPatchCopyWith<$Res>? get fileContentPatch;
+$FileContentPatchCopyWith<$Res>? get patch;
 
 }
 /// @nodoc
@@ -65,12 +65,12 @@ class _$FileContentCopyWithImpl<$Res>
 
 /// Create a copy of FileContent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? content = null,Object? diff = freezed,Object? fileContentPatch = freezed,Object? encoding = freezed,Object? mimeType = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? content = null,Object? diff = freezed,Object? patch = freezed,Object? encoding = freezed,Object? mimeType = freezed,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,diff: freezed == diff ? _self.diff : diff // ignore: cast_nullable_to_non_nullable
-as String?,fileContentPatch: freezed == fileContentPatch ? _self.fileContentPatch : fileContentPatch // ignore: cast_nullable_to_non_nullable
+as String?,patch: freezed == patch ? _self.patch : patch // ignore: cast_nullable_to_non_nullable
 as FileContentPatch?,encoding: freezed == encoding ? _self.encoding : encoding // ignore: cast_nullable_to_non_nullable
 as String?,mimeType: freezed == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -80,13 +80,13 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FileContentPatchCopyWith<$Res>? get fileContentPatch {
-    if (_self.fileContentPatch == null) {
+$FileContentPatchCopyWith<$Res>? get patch {
+    if (_self.patch == null) {
     return null;
   }
 
-  return $FileContentPatchCopyWith<$Res>(_self.fileContentPatch!, (value) {
-    return _then(_self.copyWith(fileContentPatch: value));
+  return $FileContentPatchCopyWith<$Res>(_self.patch!, (value) {
+    return _then(_self.copyWith(patch: value));
   });
 }
 }
@@ -170,10 +170,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String content,  String? diff, @JsonKey(name: 'FileContentPatch')  FileContentPatch? fileContentPatch,  String? encoding,  String? mimeType)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  String content,  String? diff,  FileContentPatch? patch,  String? encoding,  String? mimeType)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FileContent() when $default != null:
-return $default(_that.type,_that.content,_that.diff,_that.fileContentPatch,_that.encoding,_that.mimeType);case _:
+return $default(_that.type,_that.content,_that.diff,_that.patch,_that.encoding,_that.mimeType);case _:
   return orElse();
 
 }
@@ -191,10 +191,10 @@ return $default(_that.type,_that.content,_that.diff,_that.fileContentPatch,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String content,  String? diff, @JsonKey(name: 'FileContentPatch')  FileContentPatch? fileContentPatch,  String? encoding,  String? mimeType)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  String content,  String? diff,  FileContentPatch? patch,  String? encoding,  String? mimeType)  $default,) {final _that = this;
 switch (_that) {
 case _FileContent():
-return $default(_that.type,_that.content,_that.diff,_that.fileContentPatch,_that.encoding,_that.mimeType);case _:
+return $default(_that.type,_that.content,_that.diff,_that.patch,_that.encoding,_that.mimeType);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -211,10 +211,10 @@ return $default(_that.type,_that.content,_that.diff,_that.fileContentPatch,_that
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String content,  String? diff, @JsonKey(name: 'FileContentPatch')  FileContentPatch? fileContentPatch,  String? encoding,  String? mimeType)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  String content,  String? diff,  FileContentPatch? patch,  String? encoding,  String? mimeType)?  $default,) {final _that = this;
 switch (_that) {
 case _FileContent() when $default != null:
-return $default(_that.type,_that.content,_that.diff,_that.fileContentPatch,_that.encoding,_that.mimeType);case _:
+return $default(_that.type,_that.content,_that.diff,_that.patch,_that.encoding,_that.mimeType);case _:
   return null;
 
 }
@@ -226,13 +226,13 @@ return $default(_that.type,_that.content,_that.diff,_that.fileContentPatch,_that
 @JsonSerializable()
 
 class _FileContent implements FileContent {
-  const _FileContent({required this.type, required this.content, this.diff, @JsonKey(name: 'FileContentPatch') this.fileContentPatch, this.encoding, this.mimeType});
+  const _FileContent({required this.type, required this.content, this.diff, this.patch, this.encoding, this.mimeType});
   factory _FileContent.fromJson(Map<String, dynamic> json) => _$FileContentFromJson(json);
 
 @override final  String type;
 @override final  String content;
 @override final  String? diff;
-@override@JsonKey(name: 'FileContentPatch') final  FileContentPatch? fileContentPatch;
+@override final  FileContentPatch? patch;
 @override final  String? encoding;
 @override final  String? mimeType;
 
@@ -249,16 +249,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FileContent&&(identical(other.type, type) || other.type == type)&&(identical(other.content, content) || other.content == content)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.fileContentPatch, fileContentPatch) || other.fileContentPatch == fileContentPatch)&&(identical(other.encoding, encoding) || other.encoding == encoding)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _FileContent&&(identical(other.type, type) || other.type == type)&&(identical(other.content, content) || other.content == content)&&(identical(other.diff, diff) || other.diff == diff)&&(identical(other.patch, patch) || other.patch == patch)&&(identical(other.encoding, encoding) || other.encoding == encoding)&&(identical(other.mimeType, mimeType) || other.mimeType == mimeType));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,content,diff,fileContentPatch,encoding,mimeType);
+int get hashCode => Object.hash(runtimeType,type,content,diff,patch,encoding,mimeType);
 
 @override
 String toString() {
-  return 'FileContent(type: $type, content: $content, diff: $diff, fileContentPatch: $fileContentPatch, encoding: $encoding, mimeType: $mimeType)';
+  return 'FileContent(type: $type, content: $content, diff: $diff, patch: $patch, encoding: $encoding, mimeType: $mimeType)';
 }
 
 
@@ -269,11 +269,11 @@ abstract mixin class _$FileContentCopyWith<$Res> implements $FileContentCopyWith
   factory _$FileContentCopyWith(_FileContent value, $Res Function(_FileContent) _then) = __$FileContentCopyWithImpl;
 @override @useResult
 $Res call({
- String type, String content, String? diff,@JsonKey(name: 'FileContentPatch') FileContentPatch? fileContentPatch, String? encoding, String? mimeType
+ String type, String content, String? diff, FileContentPatch? patch, String? encoding, String? mimeType
 });
 
 
-@override $FileContentPatchCopyWith<$Res>? get fileContentPatch;
+@override $FileContentPatchCopyWith<$Res>? get patch;
 
 }
 /// @nodoc
@@ -286,12 +286,12 @@ class __$FileContentCopyWithImpl<$Res>
 
 /// Create a copy of FileContent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? content = null,Object? diff = freezed,Object? fileContentPatch = freezed,Object? encoding = freezed,Object? mimeType = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? content = null,Object? diff = freezed,Object? patch = freezed,Object? encoding = freezed,Object? mimeType = freezed,}) {
   return _then(_FileContent(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as String,diff: freezed == diff ? _self.diff : diff // ignore: cast_nullable_to_non_nullable
-as String?,fileContentPatch: freezed == fileContentPatch ? _self.fileContentPatch : fileContentPatch // ignore: cast_nullable_to_non_nullable
+as String?,patch: freezed == patch ? _self.patch : patch // ignore: cast_nullable_to_non_nullable
 as FileContentPatch?,encoding: freezed == encoding ? _self.encoding : encoding // ignore: cast_nullable_to_non_nullable
 as String?,mimeType: freezed == mimeType ? _self.mimeType : mimeType // ignore: cast_nullable_to_non_nullable
 as String?,
@@ -302,13 +302,13 @@ as String?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$FileContentPatchCopyWith<$Res>? get fileContentPatch {
-    if (_self.fileContentPatch == null) {
+$FileContentPatchCopyWith<$Res>? get patch {
+    if (_self.patch == null) {
     return null;
   }
 
-  return $FileContentPatchCopyWith<$Res>(_self.fileContentPatch!, (value) {
-    return _then(_self.copyWith(fileContentPatch: value));
+  return $FileContentPatchCopyWith<$Res>(_self.patch!, (value) {
+    return _then(_self.copyWith(patch: value));
   });
 }
 }

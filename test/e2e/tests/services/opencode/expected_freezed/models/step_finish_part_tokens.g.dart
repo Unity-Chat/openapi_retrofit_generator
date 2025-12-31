@@ -12,8 +12,8 @@ _StepFinishPartTokens _$StepFinishPartTokensFromJson(
   input: json['input'] as num,
   output: json['output'] as num,
   reasoning: json['reasoning'] as num,
-  stepFinishPartTokensCache: StepFinishPartTokensCache.fromJson(
-    json['StepFinishPartTokensCache'] as Map<String, dynamic>,
+  cache: StepFinishPartTokensCache.fromJson(
+    json['cache'] as Map<String, dynamic>,
   ),
 );
 
@@ -23,5 +23,5 @@ Map<String, dynamic> _$StepFinishPartTokensToJson(
   'input': instance.input,
   'output': instance.output,
   'reasoning': instance.reasoning,
-  'StepFinishPartTokensCache': instance.stepFinishPartTokensCache,
+  'cache': instance.cache,
 };

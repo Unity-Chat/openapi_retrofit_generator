@@ -9,15 +9,13 @@ part of 'project.dart';
 _Project _$ProjectFromJson(Map<String, dynamic> json) => _Project(
   id: json['id'] as String,
   worktree: json['worktree'] as String,
-  projectTime: ProjectTime.fromJson(
-    json['ProjectTime'] as Map<String, dynamic>,
-  ),
+  time: ProjectTime.fromJson(json['time'] as Map<String, dynamic>),
   vcs: json['vcs'] as String?,
 );
 
 Map<String, dynamic> _$ProjectToJson(_Project instance) => <String, dynamic>{
   'id': instance.id,
   'worktree': instance.worktree,
-  'ProjectTime': instance.projectTime,
+  'time': instance.time,
   'vcs': instance.vcs,
 };

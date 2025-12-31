@@ -10,12 +10,11 @@ part 'filters.mapper.dart';
 
 @MappableClass()
 class Filters with FiltersMappable {
-  const Filters({this.authorId, this.tags, this.filtersDateRange});
+  const Filters({this.authorId, this.tags, this.dateRange});
 
   final String? authorId;
   final List<String>? tags;
-  @MappableField(key: 'FiltersDateRange')
-  final FiltersDateRange? filtersDateRange;
+  final FiltersDateRange? dateRange;
 
   static Filters fromJson(Map<String, dynamic> json) =>
       FiltersMapper.fromJson(json);

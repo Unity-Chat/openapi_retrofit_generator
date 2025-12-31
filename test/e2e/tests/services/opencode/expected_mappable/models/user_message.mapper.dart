@@ -32,11 +32,10 @@ class UserMessageMapper extends ClassMapperBase<UserMessage> {
   );
   static String _$role(UserMessage v) => v.role;
   static const Field<UserMessage, String> _f$role = Field('role', _$role);
-  static UserMessageTime _$userMessageTime(UserMessage v) => v.userMessageTime;
-  static const Field<UserMessage, UserMessageTime> _f$userMessageTime = Field(
-    'userMessageTime',
-    _$userMessageTime,
-    key: r'UserMessageTime',
+  static UserMessageTime _$time(UserMessage v) => v.time;
+  static const Field<UserMessage, UserMessageTime> _f$time = Field(
+    'time',
+    _$time,
   );
 
   @override
@@ -44,7 +43,7 @@ class UserMessageMapper extends ClassMapperBase<UserMessage> {
     #id: _f$id,
     #sessionId: _f$sessionId,
     #role: _f$role,
-    #userMessageTime: _f$userMessageTime,
+    #time: _f$time,
   };
 
   static UserMessage _instantiate(DecodingData data) {
@@ -52,7 +51,7 @@ class UserMessageMapper extends ClassMapperBase<UserMessage> {
       id: data.dec(_f$id),
       sessionId: data.dec(_f$sessionId),
       role: data.dec(_f$role),
-      userMessageTime: data.dec(_f$userMessageTime),
+      time: data.dec(_f$time),
     );
   }
 
@@ -116,14 +115,8 @@ extension UserMessageValueCopy<$R, $Out>
 
 abstract class UserMessageCopyWith<$R, $In extends UserMessage, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime>
-  get userMessageTime;
-  $R call({
-    String? id,
-    String? sessionId,
-    String? role,
-    UserMessageTime? userMessageTime,
-  });
+  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime> get time;
+  $R call({String? id, String? sessionId, String? role, UserMessageTime? time});
   UserMessageCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -136,21 +129,20 @@ class _UserMessageCopyWithImpl<$R, $Out>
   late final ClassMapperBase<UserMessage> $mapper =
       UserMessageMapper.ensureInitialized();
   @override
-  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime>
-  get userMessageTime =>
-      $value.userMessageTime.copyWith.$chain((v) => call(userMessageTime: v));
+  UserMessageTimeCopyWith<$R, UserMessageTime, UserMessageTime> get time =>
+      $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? id,
     String? sessionId,
     String? role,
-    UserMessageTime? userMessageTime,
+    UserMessageTime? time,
   }) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (sessionId != null) #sessionId: sessionId,
       if (role != null) #role: role,
-      if (userMessageTime != null) #userMessageTime: userMessageTime,
+      if (time != null) #time: time,
     }),
   );
   @override
@@ -158,7 +150,7 @@ class _UserMessageCopyWithImpl<$R, $Out>
     id: data.get(#id, or: $value.id),
     sessionId: data.get(#sessionId, or: $value.sessionId),
     role: data.get(#role, or: $value.role),
-    userMessageTime: data.get(#userMessageTime, or: $value.userMessageTime),
+    time: data.get(#time, or: $value.time),
   );
 
   @override

@@ -15,7 +15,7 @@ abstract class UserMessage with _$UserMessage {
     required String id,
     @JsonKey(name: 'sessionID') required String sessionId,
     required String role,
-    @JsonKey(name: 'UserMessageTime') required UserMessageTime userMessageTime,
+    required UserMessageTime time,
   }) = _UserMessage;
 
   factory UserMessage.fromJson(Map<String, Object?> json) =>

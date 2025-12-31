@@ -17,10 +17,10 @@ _AgentConfig _$AgentConfigFromJson(Map<String, dynamic> json) => _AgentConfig(
   disable: json['disable'] as bool?,
   description: json['description'] as String?,
   mode: json['mode'],
-  agentConfigPermission: json['AgentConfigPermission'] == null
+  permission: json['permission'] == null
       ? null
       : AgentConfigPermission.fromJson(
-          json['AgentConfigPermission'] as Map<String, dynamic>,
+          json['permission'] as Map<String, dynamic>,
         ),
 );
 
@@ -34,5 +34,5 @@ Map<String, dynamic> _$AgentConfigToJson(_AgentConfig instance) =>
       'disable': instance.disable,
       'description': instance.description,
       'mode': instance.mode,
-      'AgentConfigPermission': instance.agentConfigPermission,
+      'permission': instance.permission,
     };

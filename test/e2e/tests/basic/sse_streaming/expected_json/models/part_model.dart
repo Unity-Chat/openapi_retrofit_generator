@@ -65,8 +65,11 @@ class PartModelText extends PartModel {
 @JsonSerializable()
 class PartModelToolUse extends PartModel {
   final String id;
+  @JsonKey(name: 'tool_name')
   final String toolName;
+  @JsonKey(name: 'tool_call_id')
   final String toolCallId;
+  @JsonKey(name: 'tool_input')
   final dynamic toolInput;
   final String type;
 
@@ -88,9 +91,13 @@ class PartModelToolUse extends PartModel {
 @JsonSerializable()
 class PartModelToolResult extends PartModel {
   final String id;
+  @JsonKey(name: 'tool_name')
   final String toolName;
+  @JsonKey(name: 'tool_call_id')
   final String toolCallId;
+  @JsonKey(name: 'tool_result')
   final String toolResult;
+  @JsonKey(name: 'is_error')
   final bool isError;
   final String type;
 

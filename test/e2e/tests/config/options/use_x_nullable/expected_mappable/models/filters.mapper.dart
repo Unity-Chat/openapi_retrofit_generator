@@ -34,11 +34,10 @@ class FiltersMapper extends ClassMapperBase<Filters> {
     _$tags,
     opt: true,
   );
-  static FiltersDateRange? _$filtersDateRange(Filters v) => v.filtersDateRange;
-  static const Field<Filters, FiltersDateRange> _f$filtersDateRange = Field(
-    'filtersDateRange',
-    _$filtersDateRange,
-    key: r'FiltersDateRange',
+  static FiltersDateRange? _$dateRange(Filters v) => v.dateRange;
+  static const Field<Filters, FiltersDateRange> _f$dateRange = Field(
+    'dateRange',
+    _$dateRange,
     opt: true,
   );
 
@@ -46,14 +45,14 @@ class FiltersMapper extends ClassMapperBase<Filters> {
   final MappableFields<Filters> fields = const {
     #authorId: _f$authorId,
     #tags: _f$tags,
-    #filtersDateRange: _f$filtersDateRange,
+    #dateRange: _f$dateRange,
   };
 
   static Filters _instantiate(DecodingData data) {
     return Filters(
       authorId: data.dec(_f$authorId),
       tags: data.dec(_f$tags),
-      filtersDateRange: data.dec(_f$filtersDateRange),
+      dateRange: data.dec(_f$dateRange),
     );
   }
 
@@ -116,12 +115,8 @@ abstract class FiltersCopyWith<$R, $In extends Filters, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get tags;
   FiltersDateRangeCopyWith<$R, FiltersDateRange, FiltersDateRange>?
-  get filtersDateRange;
-  $R call({
-    String? authorId,
-    List<String>? tags,
-    FiltersDateRange? filtersDateRange,
-  });
+  get dateRange;
+  $R call({String? authorId, List<String>? tags, FiltersDateRange? dateRange});
   FiltersCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -144,26 +139,24 @@ class _FiltersCopyWithImpl<$R, $Out>
       : null;
   @override
   FiltersDateRangeCopyWith<$R, FiltersDateRange, FiltersDateRange>?
-  get filtersDateRange => $value.filtersDateRange?.copyWith.$chain(
-    (v) => call(filtersDateRange: v),
-  );
+  get dateRange => $value.dateRange?.copyWith.$chain((v) => call(dateRange: v));
   @override
   $R call({
     Object? authorId = $none,
     Object? tags = $none,
-    Object? filtersDateRange = $none,
+    Object? dateRange = $none,
   }) => $apply(
     FieldCopyWithData({
       if (authorId != $none) #authorId: authorId,
       if (tags != $none) #tags: tags,
-      if (filtersDateRange != $none) #filtersDateRange: filtersDateRange,
+      if (dateRange != $none) #dateRange: dateRange,
     }),
   );
   @override
   Filters $make(CopyWithData data) => Filters(
     authorId: data.get(#authorId, or: $value.authorId),
     tags: data.get(#tags, or: $value.tags),
-    filtersDateRange: data.get(#filtersDateRange, or: $value.filtersDateRange),
+    dateRange: data.get(#dateRange, or: $value.dateRange),
   );
 
   @override

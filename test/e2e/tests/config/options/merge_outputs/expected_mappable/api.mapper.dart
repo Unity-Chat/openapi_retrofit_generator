@@ -1354,25 +1354,16 @@ class UserSettingsMapper extends ClassMapperBase<UserSettings> {
   @override
   final String id = 'UserSettings';
 
-  static UserSettingsNotifications? _$userSettingsNotifications(
-    UserSettings v,
-  ) => v.userSettingsNotifications;
-  static const Field<UserSettings, UserSettingsNotifications>
-  _f$userSettingsNotifications = Field(
-    'userSettingsNotifications',
-    _$userSettingsNotifications,
-    key: r'UserSettingsNotifications',
+  static UserSettingsNotifications? _$notifications(UserSettings v) =>
+      v.notifications;
+  static const Field<UserSettings, UserSettingsNotifications> _f$notifications =
+      Field('notifications', _$notifications, opt: true);
+  static UserSettingsPrivacy? _$privacy(UserSettings v) => v.privacy;
+  static const Field<UserSettings, UserSettingsPrivacy> _f$privacy = Field(
+    'privacy',
+    _$privacy,
     opt: true,
   );
-  static UserSettingsPrivacy? _$userSettingsPrivacy(UserSettings v) =>
-      v.userSettingsPrivacy;
-  static const Field<UserSettings, UserSettingsPrivacy> _f$userSettingsPrivacy =
-      Field(
-        'userSettingsPrivacy',
-        _$userSettingsPrivacy,
-        key: r'UserSettingsPrivacy',
-        opt: true,
-      );
   static UserSettingsThemeTheme _$theme(UserSettings v) => v.theme;
   static const Field<UserSettings, UserSettingsThemeTheme> _f$theme = Field(
     'theme',
@@ -1390,16 +1381,16 @@ class UserSettingsMapper extends ClassMapperBase<UserSettings> {
 
   @override
   final MappableFields<UserSettings> fields = const {
-    #userSettingsNotifications: _f$userSettingsNotifications,
-    #userSettingsPrivacy: _f$userSettingsPrivacy,
+    #notifications: _f$notifications,
+    #privacy: _f$privacy,
     #theme: _f$theme,
     #language: _f$language,
   };
 
   static UserSettings _instantiate(DecodingData data) {
     return UserSettings(
-      userSettingsNotifications: data.dec(_f$userSettingsNotifications),
-      userSettingsPrivacy: data.dec(_f$userSettingsPrivacy),
+      notifications: data.dec(_f$notifications),
+      privacy: data.dec(_f$privacy),
       theme: data.dec(_f$theme),
       language: data.dec(_f$language),
     );
@@ -1472,12 +1463,12 @@ abstract class UserSettingsCopyWith<$R, $In extends UserSettings, $Out>
     UserSettingsNotifications,
     UserSettingsNotifications
   >?
-  get userSettingsNotifications;
+  get notifications;
   UserSettingsPrivacyCopyWith<$R, UserSettingsPrivacy, UserSettingsPrivacy>?
-  get userSettingsPrivacy;
+  get privacy;
   $R call({
-    UserSettingsNotifications? userSettingsNotifications,
-    UserSettingsPrivacy? userSettingsPrivacy,
+    UserSettingsNotifications? notifications,
+    UserSettingsPrivacy? privacy,
     UserSettingsThemeTheme? theme,
     String? language,
   });
@@ -1498,39 +1489,29 @@ class _UserSettingsCopyWithImpl<$R, $Out>
     UserSettingsNotifications,
     UserSettingsNotifications
   >?
-  get userSettingsNotifications => $value.userSettingsNotifications?.copyWith
-      .$chain((v) => call(userSettingsNotifications: v));
+  get notifications =>
+      $value.notifications?.copyWith.$chain((v) => call(notifications: v));
   @override
   UserSettingsPrivacyCopyWith<$R, UserSettingsPrivacy, UserSettingsPrivacy>?
-  get userSettingsPrivacy => $value.userSettingsPrivacy?.copyWith.$chain(
-    (v) => call(userSettingsPrivacy: v),
-  );
+  get privacy => $value.privacy?.copyWith.$chain((v) => call(privacy: v));
   @override
   $R call({
-    Object? userSettingsNotifications = $none,
-    Object? userSettingsPrivacy = $none,
+    Object? notifications = $none,
+    Object? privacy = $none,
     UserSettingsThemeTheme? theme,
     String? language,
   }) => $apply(
     FieldCopyWithData({
-      if (userSettingsNotifications != $none)
-        #userSettingsNotifications: userSettingsNotifications,
-      if (userSettingsPrivacy != $none)
-        #userSettingsPrivacy: userSettingsPrivacy,
+      if (notifications != $none) #notifications: notifications,
+      if (privacy != $none) #privacy: privacy,
       if (theme != null) #theme: theme,
       if (language != null) #language: language,
     }),
   );
   @override
   UserSettings $make(CopyWithData data) => UserSettings(
-    userSettingsNotifications: data.get(
-      #userSettingsNotifications,
-      or: $value.userSettingsNotifications,
-    ),
-    userSettingsPrivacy: data.get(
-      #userSettingsPrivacy,
-      or: $value.userSettingsPrivacy,
-    ),
+    notifications: data.get(#notifications, or: $value.notifications),
+    privacy: data.get(#privacy, or: $value.privacy),
     theme: data.get(#theme, or: $value.theme),
     language: data.get(#language, or: $value.language),
   );
@@ -8559,11 +8540,10 @@ class DataMapper extends ClassMapperBase<Data> {
   static const Field<Data, String> _f$id = Field('id', _$id);
   static String _$value(Data v) => v.value;
   static const Field<Data, String> _f$value = Field('value', _$value);
-  static DataNested? _$dataNested(Data v) => v.dataNested;
-  static const Field<Data, DataNested> _f$dataNested = Field(
-    'dataNested',
-    _$dataNested,
-    key: r'DataNested',
+  static DataNested? _$nested(Data v) => v.nested;
+  static const Field<Data, DataNested> _f$nested = Field(
+    'nested',
+    _$nested,
     opt: true,
   );
 
@@ -8571,14 +8551,14 @@ class DataMapper extends ClassMapperBase<Data> {
   final MappableFields<Data> fields = const {
     #id: _f$id,
     #value: _f$value,
-    #dataNested: _f$dataNested,
+    #nested: _f$nested,
   };
 
   static Data _instantiate(DecodingData data) {
     return Data(
       id: data.dec(_f$id),
       value: data.dec(_f$value),
-      dataNested: data.dec(_f$dataNested),
+      nested: data.dec(_f$nested),
     );
   }
 
@@ -8628,8 +8608,8 @@ extension DataValueCopy<$R, $Out> on ObjectCopyWith<$R, Data, $Out> {
 
 abstract class DataCopyWith<$R, $In extends Data, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  DataNestedCopyWith<$R, DataNested, DataNested>? get dataNested;
-  $R call({String? id, String? value, DataNested? dataNested});
+  DataNestedCopyWith<$R, DataNested, DataNested>? get nested;
+  $R call({String? id, String? value, DataNested? nested});
   DataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -8640,21 +8620,21 @@ class _DataCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Data, $Out>
   @override
   late final ClassMapperBase<Data> $mapper = DataMapper.ensureInitialized();
   @override
-  DataNestedCopyWith<$R, DataNested, DataNested>? get dataNested =>
-      $value.dataNested?.copyWith.$chain((v) => call(dataNested: v));
+  DataNestedCopyWith<$R, DataNested, DataNested>? get nested =>
+      $value.nested?.copyWith.$chain((v) => call(nested: v));
   @override
-  $R call({String? id, String? value, Object? dataNested = $none}) => $apply(
+  $R call({String? id, String? value, Object? nested = $none}) => $apply(
     FieldCopyWithData({
       if (id != null) #id: id,
       if (value != null) #value: value,
-      if (dataNested != $none) #dataNested: dataNested,
+      if (nested != $none) #nested: nested,
     }),
   );
   @override
   Data $make(CopyWithData data) => Data(
     id: data.get(#id, or: $value.id),
     value: data.get(#value, or: $value.value),
-    dataNested: data.get(#dataNested, or: $value.dataNested),
+    nested: data.get(#nested, or: $value.nested),
   );
 
   @override
@@ -9549,16 +9529,10 @@ class ListPostsResponseMapper extends ClassMapperBase<ListPostsResponse> {
     _$posts,
     opt: true,
   );
-  static ListPostsResponsePagination? _$listPostsResponsePagination(
-    ListPostsResponse v,
-  ) => v.listPostsResponsePagination;
+  static ListPostsResponsePagination? _$pagination(ListPostsResponse v) =>
+      v.pagination;
   static const Field<ListPostsResponse, ListPostsResponsePagination>
-  _f$listPostsResponsePagination = Field(
-    'listPostsResponsePagination',
-    _$listPostsResponsePagination,
-    key: r'ListPostsResponsePagination',
-    opt: true,
-  );
+  _f$pagination = Field('pagination', _$pagination, opt: true);
   static Map<String, String>? _$metadata(ListPostsResponse v) => v.metadata;
   static const Field<ListPostsResponse, Map<String, String>> _f$metadata =
       Field('metadata', _$metadata, opt: true);
@@ -9566,14 +9540,14 @@ class ListPostsResponseMapper extends ClassMapperBase<ListPostsResponse> {
   @override
   final MappableFields<ListPostsResponse> fields = const {
     #posts: _f$posts,
-    #listPostsResponsePagination: _f$listPostsResponsePagination,
+    #pagination: _f$pagination,
     #metadata: _f$metadata,
   };
 
   static ListPostsResponse _instantiate(DecodingData data) {
     return ListPostsResponse(
       posts: data.dec(_f$posts),
-      listPostsResponsePagination: data.dec(_f$listPostsResponsePagination),
+      pagination: data.dec(_f$pagination),
       metadata: data.dec(_f$metadata),
     );
   }
@@ -9656,12 +9630,12 @@ abstract class ListPostsResponseCopyWith<
     ListPostsResponsePagination,
     ListPostsResponsePagination
   >?
-  get listPostsResponsePagination;
+  get pagination;
   MapCopyWith<$R, String, String, ObjectCopyWith<$R, String, String>>?
   get metadata;
   $R call({
     List<PostModel>? posts,
-    ListPostsResponsePagination? listPostsResponsePagination,
+    ListPostsResponsePagination? pagination,
     Map<String, String>? metadata,
   });
   ListPostsResponseCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -9692,10 +9666,8 @@ class _ListPostsResponseCopyWithImpl<$R, $Out>
     ListPostsResponsePagination,
     ListPostsResponsePagination
   >?
-  get listPostsResponsePagination => $value
-      .listPostsResponsePagination
-      ?.copyWith
-      .$chain((v) => call(listPostsResponsePagination: v));
+  get pagination =>
+      $value.pagination?.copyWith.$chain((v) => call(pagination: v));
   @override
   MapCopyWith<$R, String, String, ObjectCopyWith<$R, String, String>>?
   get metadata => $value.metadata != null
@@ -9708,23 +9680,19 @@ class _ListPostsResponseCopyWithImpl<$R, $Out>
   @override
   $R call({
     Object? posts = $none,
-    Object? listPostsResponsePagination = $none,
+    Object? pagination = $none,
     Object? metadata = $none,
   }) => $apply(
     FieldCopyWithData({
       if (posts != $none) #posts: posts,
-      if (listPostsResponsePagination != $none)
-        #listPostsResponsePagination: listPostsResponsePagination,
+      if (pagination != $none) #pagination: pagination,
       if (metadata != $none) #metadata: metadata,
     }),
   );
   @override
   ListPostsResponse $make(CopyWithData data) => ListPostsResponse(
     posts: data.get(#posts, or: $value.posts),
-    listPostsResponsePagination: data.get(
-      #listPostsResponsePagination,
-      or: $value.listPostsResponsePagination,
-    ),
+    pagination: data.get(#pagination, or: $value.pagination),
     metadata: data.get(#metadata, or: $value.metadata),
   );
 
@@ -9893,11 +9861,10 @@ class FiltersMapper extends ClassMapperBase<Filters> {
     _$tags,
     opt: true,
   );
-  static FiltersDateRange? _$filtersDateRange(Filters v) => v.filtersDateRange;
-  static const Field<Filters, FiltersDateRange> _f$filtersDateRange = Field(
-    'filtersDateRange',
-    _$filtersDateRange,
-    key: r'FiltersDateRange',
+  static FiltersDateRange? _$dateRange(Filters v) => v.dateRange;
+  static const Field<Filters, FiltersDateRange> _f$dateRange = Field(
+    'dateRange',
+    _$dateRange,
     opt: true,
   );
 
@@ -9905,14 +9872,14 @@ class FiltersMapper extends ClassMapperBase<Filters> {
   final MappableFields<Filters> fields = const {
     #authorId: _f$authorId,
     #tags: _f$tags,
-    #filtersDateRange: _f$filtersDateRange,
+    #dateRange: _f$dateRange,
   };
 
   static Filters _instantiate(DecodingData data) {
     return Filters(
       authorId: data.dec(_f$authorId),
       tags: data.dec(_f$tags),
-      filtersDateRange: data.dec(_f$filtersDateRange),
+      dateRange: data.dec(_f$dateRange),
     );
   }
 
@@ -9975,12 +9942,8 @@ abstract class FiltersCopyWith<$R, $In extends Filters, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get tags;
   FiltersDateRangeCopyWith<$R, FiltersDateRange, FiltersDateRange>?
-  get filtersDateRange;
-  $R call({
-    String? authorId,
-    List<String>? tags,
-    FiltersDateRange? filtersDateRange,
-  });
+  get dateRange;
+  $R call({String? authorId, List<String>? tags, FiltersDateRange? dateRange});
   FiltersCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -10003,26 +9966,24 @@ class _FiltersCopyWithImpl<$R, $Out>
       : null;
   @override
   FiltersDateRangeCopyWith<$R, FiltersDateRange, FiltersDateRange>?
-  get filtersDateRange => $value.filtersDateRange?.copyWith.$chain(
-    (v) => call(filtersDateRange: v),
-  );
+  get dateRange => $value.dateRange?.copyWith.$chain((v) => call(dateRange: v));
   @override
   $R call({
     Object? authorId = $none,
     Object? tags = $none,
-    Object? filtersDateRange = $none,
+    Object? dateRange = $none,
   }) => $apply(
     FieldCopyWithData({
       if (authorId != $none) #authorId: authorId,
       if (tags != $none) #tags: tags,
-      if (filtersDateRange != $none) #filtersDateRange: filtersDateRange,
+      if (dateRange != $none) #dateRange: dateRange,
     }),
   );
   @override
   Filters $make(CopyWithData data) => Filters(
     authorId: data.get(#authorId, or: $value.authorId),
     tags: data.get(#tags, or: $value.tags),
-    filtersDateRange: data.get(#filtersDateRange, or: $value.filtersDateRange),
+    dateRange: data.get(#dateRange, or: $value.dateRange),
   );
 
   @override
@@ -11194,31 +11155,22 @@ class GetDuplicateResponseMetadataMapper
   @override
   final String id = 'GetDuplicateResponseMetadata';
 
-  static GetDuplicateResponseMetadataData? _$getDuplicateResponseMetadataData(
+  static GetDuplicateResponseMetadataData? _$data(
     GetDuplicateResponseMetadata v,
-  ) => v.getDuplicateResponseMetadataData;
+  ) => v.data;
   static const Field<
     GetDuplicateResponseMetadata,
     GetDuplicateResponseMetadataData
   >
-  _f$getDuplicateResponseMetadataData = Field(
-    'getDuplicateResponseMetadataData',
-    _$getDuplicateResponseMetadataData,
-    key: r'GetDuplicateResponseMetadataData',
-    opt: true,
-  );
+  _f$data = Field('data', _$data, opt: true);
 
   @override
   final MappableFields<GetDuplicateResponseMetadata> fields = const {
-    #getDuplicateResponseMetadataData: _f$getDuplicateResponseMetadataData,
+    #data: _f$data,
   };
 
   static GetDuplicateResponseMetadata _instantiate(DecodingData data) {
-    return GetDuplicateResponseMetadata(
-      getDuplicateResponseMetadataData: data.dec(
-        _f$getDuplicateResponseMetadataData,
-      ),
-    );
+    return GetDuplicateResponseMetadata(data: data.dec(_f$data));
   }
 
   @override
@@ -11299,8 +11251,8 @@ abstract class GetDuplicateResponseMetadataCopyWith<
     GetDuplicateResponseMetadataData,
     GetDuplicateResponseMetadataData
   >?
-  get getDuplicateResponseMetadataData;
-  $R call({GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData});
+  get data;
+  $R call({GetDuplicateResponseMetadataData? data});
   GetDuplicateResponseMetadataCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -11329,25 +11281,13 @@ class _GetDuplicateResponseMetadataCopyWithImpl<$R, $Out>
     GetDuplicateResponseMetadataData,
     GetDuplicateResponseMetadataData
   >?
-  get getDuplicateResponseMetadataData => $value
-      .getDuplicateResponseMetadataData
-      ?.copyWith
-      .$chain((v) => call(getDuplicateResponseMetadataData: v));
+  get data => $value.data?.copyWith.$chain((v) => call(data: v));
   @override
-  $R call({Object? getDuplicateResponseMetadataData = $none}) => $apply(
-    FieldCopyWithData({
-      if (getDuplicateResponseMetadataData != $none)
-        #getDuplicateResponseMetadataData: getDuplicateResponseMetadataData,
-    }),
-  );
+  $R call({Object? data = $none}) =>
+      $apply(FieldCopyWithData({if (data != $none) #data: data}));
   @override
   GetDuplicateResponseMetadata $make(CopyWithData data) =>
-      GetDuplicateResponseMetadata(
-        getDuplicateResponseMetadataData: data.get(
-          #getDuplicateResponseMetadataData,
-          or: $value.getDuplicateResponseMetadataData,
-        ),
-      );
+      GetDuplicateResponseMetadata(data: data.get(#data, or: $value.data));
 
   @override
   GetDuplicateResponseMetadataCopyWith<$R2, GetDuplicateResponseMetadata, $Out2>
@@ -11377,27 +11317,21 @@ class GetDuplicateResponseMapper extends ClassMapperBase<GetDuplicateResponse> {
     _$data,
     opt: true,
   );
-  static GetDuplicateResponseMetadata? _$getDuplicateResponseMetadata(
-    GetDuplicateResponse v,
-  ) => v.getDuplicateResponseMetadata;
+  static GetDuplicateResponseMetadata? _$metadata(GetDuplicateResponse v) =>
+      v.metadata;
   static const Field<GetDuplicateResponse, GetDuplicateResponseMetadata>
-  _f$getDuplicateResponseMetadata = Field(
-    'getDuplicateResponseMetadata',
-    _$getDuplicateResponseMetadata,
-    key: r'GetDuplicateResponseMetadata',
-    opt: true,
-  );
+  _f$metadata = Field('metadata', _$metadata, opt: true);
 
   @override
   final MappableFields<GetDuplicateResponse> fields = const {
     #data: _f$data,
-    #getDuplicateResponseMetadata: _f$getDuplicateResponseMetadata,
+    #metadata: _f$metadata,
   };
 
   static GetDuplicateResponse _instantiate(DecodingData data) {
     return GetDuplicateResponse(
       data: data.dec(_f$data),
-      getDuplicateResponseMetadata: data.dec(_f$getDuplicateResponseMetadata),
+      metadata: data.dec(_f$metadata),
     );
   }
 
@@ -11477,11 +11411,8 @@ abstract class GetDuplicateResponseCopyWith<
     GetDuplicateResponseMetadata,
     GetDuplicateResponseMetadata
   >?
-  get getDuplicateResponseMetadata;
-  $R call({
-    Data? data,
-    GetDuplicateResponseMetadata? getDuplicateResponseMetadata,
-  });
+  get metadata;
+  $R call({Data? data, GetDuplicateResponseMetadata? metadata});
   GetDuplicateResponseCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -11504,28 +11435,18 @@ class _GetDuplicateResponseCopyWithImpl<$R, $Out>
     GetDuplicateResponseMetadata,
     GetDuplicateResponseMetadata
   >?
-  get getDuplicateResponseMetadata => $value
-      .getDuplicateResponseMetadata
-      ?.copyWith
-      .$chain((v) => call(getDuplicateResponseMetadata: v));
+  get metadata => $value.metadata?.copyWith.$chain((v) => call(metadata: v));
   @override
-  $R call({
-    Object? data = $none,
-    Object? getDuplicateResponseMetadata = $none,
-  }) => $apply(
+  $R call({Object? data = $none, Object? metadata = $none}) => $apply(
     FieldCopyWithData({
       if (data != $none) #data: data,
-      if (getDuplicateResponseMetadata != $none)
-        #getDuplicateResponseMetadata: getDuplicateResponseMetadata,
+      if (metadata != $none) #metadata: metadata,
     }),
   );
   @override
   GetDuplicateResponse $make(CopyWithData data) => GetDuplicateResponse(
     data: data.get(#data, or: $value.data),
-    getDuplicateResponseMetadata: data.get(
-      #getDuplicateResponseMetadata,
-      or: $value.getDuplicateResponseMetadata,
-    ),
+    metadata: data.get(#metadata, or: $value.metadata),
   );
 
   @override

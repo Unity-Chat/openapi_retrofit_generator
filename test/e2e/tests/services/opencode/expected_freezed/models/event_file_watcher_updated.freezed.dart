@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventFileWatcherUpdated {
 
- String get type;@JsonKey(name: 'EventFileWatcherUpdatedProperties') EventFileWatcherUpdatedProperties get eventFileWatcherUpdatedProperties;
+ String get type; EventFileWatcherUpdatedProperties get properties;
 /// Create a copy of EventFileWatcherUpdated
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventFileWatcherUpdatedCopyWith<EventFileWatcherUpdated> get copyWith => _$Even
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventFileWatcherUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventFileWatcherUpdatedProperties, eventFileWatcherUpdatedProperties) || other.eventFileWatcherUpdatedProperties == eventFileWatcherUpdatedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventFileWatcherUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventFileWatcherUpdatedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventFileWatcherUpdated(type: $type, eventFileWatcherUpdatedProperties: $eventFileWatcherUpdatedProperties)';
+  return 'EventFileWatcherUpdated(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventFileWatcherUpdatedCopyWith<$Res>  {
   factory $EventFileWatcherUpdatedCopyWith(EventFileWatcherUpdated value, $Res Function(EventFileWatcherUpdated) _then) = _$EventFileWatcherUpdatedCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventFileWatcherUpdatedProperties') EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties
+ String type, EventFileWatcherUpdatedProperties properties
 });
 
 
-$EventFileWatcherUpdatedPropertiesCopyWith<$Res> get eventFileWatcherUpdatedProperties;
+$EventFileWatcherUpdatedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventFileWatcherUpdatedCopyWithImpl<$Res>
 
 /// Create a copy of EventFileWatcherUpdated
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventFileWatcherUpdatedProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventFileWatcherUpdatedProperties: null == eventFileWatcherUpdatedProperties ? _self.eventFileWatcherUpdatedProperties : eventFileWatcherUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventFileWatcherUpdatedProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventFileWatcherUpdatedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventFileWatcherUpdatedPropertiesCopyWith<$Res> get eventFileWatcherUpdatedProperties {
+$EventFileWatcherUpdatedPropertiesCopyWith<$Res> get properties {
   
-  return $EventFileWatcherUpdatedPropertiesCopyWith<$Res>(_self.eventFileWatcherUpdatedProperties, (value) {
-    return _then(_self.copyWith(eventFileWatcherUpdatedProperties: value));
+  return $EventFileWatcherUpdatedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventFileWatcherUpdatedProperties')  EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventFileWatcherUpdatedProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventFileWatcherUpdated() when $default != null:
-return $default(_that.type,_that.eventFileWatcherUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventFileWatcherUpdatedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventFileWatcherUpdatedProperties')  EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventFileWatcherUpdatedProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventFileWatcherUpdated():
-return $default(_that.type,_that.eventFileWatcherUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventFileWatcherUpdatedProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventFileWatcherUpdatedProperties')  EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventFileWatcherUpdatedProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventFileWatcherUpdated() when $default != null:
-return $default(_that.type,_that.eventFileWatcherUpdatedProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventFileWatcherUpdatedProperties);case _:
 @JsonSerializable()
 
 class _EventFileWatcherUpdated implements EventFileWatcherUpdated {
-  const _EventFileWatcherUpdated({required this.type, @JsonKey(name: 'EventFileWatcherUpdatedProperties') required this.eventFileWatcherUpdatedProperties});
+  const _EventFileWatcherUpdated({required this.type, required this.properties});
   factory _EventFileWatcherUpdated.fromJson(Map<String, dynamic> json) => _$EventFileWatcherUpdatedFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventFileWatcherUpdatedProperties') final  EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties;
+@override final  EventFileWatcherUpdatedProperties properties;
 
 /// Create a copy of EventFileWatcherUpdated
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventFileWatcherUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.eventFileWatcherUpdatedProperties, eventFileWatcherUpdatedProperties) || other.eventFileWatcherUpdatedProperties == eventFileWatcherUpdatedProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventFileWatcherUpdated&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventFileWatcherUpdatedProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventFileWatcherUpdated(type: $type, eventFileWatcherUpdatedProperties: $eventFileWatcherUpdatedProperties)';
+  return 'EventFileWatcherUpdated(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventFileWatcherUpdatedCopyWith<$Res> implements $EventFi
   factory _$EventFileWatcherUpdatedCopyWith(_EventFileWatcherUpdated value, $Res Function(_EventFileWatcherUpdated) _then) = __$EventFileWatcherUpdatedCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventFileWatcherUpdatedProperties') EventFileWatcherUpdatedProperties eventFileWatcherUpdatedProperties
+ String type, EventFileWatcherUpdatedProperties properties
 });
 
 
-@override $EventFileWatcherUpdatedPropertiesCopyWith<$Res> get eventFileWatcherUpdatedProperties;
+@override $EventFileWatcherUpdatedPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventFileWatcherUpdatedCopyWithImpl<$Res>
 
 /// Create a copy of EventFileWatcherUpdated
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventFileWatcherUpdatedProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventFileWatcherUpdated(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventFileWatcherUpdatedProperties: null == eventFileWatcherUpdatedProperties ? _self.eventFileWatcherUpdatedProperties : eventFileWatcherUpdatedProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventFileWatcherUpdatedProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventFileWatcherUpdatedProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventFileWatcherUpdatedPropertiesCopyWith<$Res> get eventFileWatcherUpdatedProperties {
+$EventFileWatcherUpdatedPropertiesCopyWith<$Res> get properties {
   
-  return $EventFileWatcherUpdatedPropertiesCopyWith<$Res>(_self.eventFileWatcherUpdatedProperties, (value) {
-    return _then(_self.copyWith(eventFileWatcherUpdatedProperties: value));
+  return $EventFileWatcherUpdatedPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

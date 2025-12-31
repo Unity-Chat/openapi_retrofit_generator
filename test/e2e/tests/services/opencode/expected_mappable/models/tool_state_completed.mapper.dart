@@ -46,15 +46,9 @@ class ToolStateCompletedMapper extends ClassMapperBase<ToolStateCompleted> {
   static Map<String, dynamic> _$metadata(ToolStateCompleted v) => v.metadata;
   static const Field<ToolStateCompleted, Map<String, dynamic>> _f$metadata =
       Field('metadata', _$metadata);
-  static ToolStateCompletedTime _$toolStateCompletedTime(
-    ToolStateCompleted v,
-  ) => v.toolStateCompletedTime;
-  static const Field<ToolStateCompleted, ToolStateCompletedTime>
-  _f$toolStateCompletedTime = Field(
-    'toolStateCompletedTime',
-    _$toolStateCompletedTime,
-    key: r'ToolStateCompletedTime',
-  );
+  static ToolStateCompletedTime _$time(ToolStateCompleted v) => v.time;
+  static const Field<ToolStateCompleted, ToolStateCompletedTime> _f$time =
+      Field('time', _$time);
   static List<FilePart>? _$attachments(ToolStateCompleted v) => v.attachments;
   static const Field<ToolStateCompleted, List<FilePart>> _f$attachments = Field(
     'attachments',
@@ -69,7 +63,7 @@ class ToolStateCompletedMapper extends ClassMapperBase<ToolStateCompleted> {
     #output: _f$output,
     #title: _f$title,
     #metadata: _f$metadata,
-    #toolStateCompletedTime: _f$toolStateCompletedTime,
+    #time: _f$time,
     #attachments: _f$attachments,
   };
 
@@ -80,7 +74,7 @@ class ToolStateCompletedMapper extends ClassMapperBase<ToolStateCompleted> {
       output: data.dec(_f$output),
       title: data.dec(_f$title),
       metadata: data.dec(_f$metadata),
-      toolStateCompletedTime: data.dec(_f$toolStateCompletedTime),
+      time: data.dec(_f$time),
       attachments: data.dec(_f$attachments),
     );
   }
@@ -165,7 +159,7 @@ abstract class ToolStateCompletedCopyWith<
     ToolStateCompletedTime,
     ToolStateCompletedTime
   >
-  get toolStateCompletedTime;
+  get time;
   ListCopyWith<$R, FilePart, FilePartCopyWith<$R, FilePart, FilePart>>?
   get attachments;
   $R call({
@@ -174,7 +168,7 @@ abstract class ToolStateCompletedCopyWith<
     String? output,
     String? title,
     Map<String, dynamic>? metadata,
-    ToolStateCompletedTime? toolStateCompletedTime,
+    ToolStateCompletedTime? time,
     List<FilePart>? attachments,
   });
   ToolStateCompletedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -210,9 +204,7 @@ class _ToolStateCompletedCopyWithImpl<$R, $Out>
     ToolStateCompletedTime,
     ToolStateCompletedTime
   >
-  get toolStateCompletedTime => $value.toolStateCompletedTime.copyWith.$chain(
-    (v) => call(toolStateCompletedTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   ListCopyWith<$R, FilePart, FilePartCopyWith<$R, FilePart, FilePart>>?
   get attachments => $value.attachments != null
@@ -229,7 +221,7 @@ class _ToolStateCompletedCopyWithImpl<$R, $Out>
     String? output,
     String? title,
     Map<String, dynamic>? metadata,
-    ToolStateCompletedTime? toolStateCompletedTime,
+    ToolStateCompletedTime? time,
     Object? attachments = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -238,8 +230,7 @@ class _ToolStateCompletedCopyWithImpl<$R, $Out>
       if (output != null) #output: output,
       if (title != null) #title: title,
       if (metadata != null) #metadata: metadata,
-      if (toolStateCompletedTime != null)
-        #toolStateCompletedTime: toolStateCompletedTime,
+      if (time != null) #time: time,
       if (attachments != $none) #attachments: attachments,
     }),
   );
@@ -250,10 +241,7 @@ class _ToolStateCompletedCopyWithImpl<$R, $Out>
     output: data.get(#output, or: $value.output),
     title: data.get(#title, or: $value.title),
     metadata: data.get(#metadata, or: $value.metadata),
-    toolStateCompletedTime: data.get(
-      #toolStateCompletedTime,
-      or: $value.toolStateCompletedTime,
-    ),
+    time: data.get(#time, or: $value.time),
     attachments: data.get(#attachments, or: $value.attachments),
   );
 

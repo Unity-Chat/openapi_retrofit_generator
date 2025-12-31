@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TextPart {
 
- String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; String get text; bool? get synthetic;@JsonKey(name: 'TextPartTime') TextPartTime? get textPartTime; Map<String, dynamic>? get metadata;
+ String get id;@JsonKey(name: 'sessionID') String get sessionId;@JsonKey(name: 'messageID') String get messageId; String get type; String get text; bool? get synthetic; TextPartTime? get time; Map<String, dynamic>? get metadata;
 /// Create a copy of TextPart
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $TextPartCopyWith<TextPart> get copyWith => _$TextPartCopyWithImpl<TextPart>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TextPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.synthetic, synthetic) || other.synthetic == synthetic)&&(identical(other.textPartTime, textPartTime) || other.textPartTime == textPartTime)&&const DeepCollectionEquality().equals(other.metadata, metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TextPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.synthetic, synthetic) || other.synthetic == synthetic)&&(identical(other.time, time) || other.time == time)&&const DeepCollectionEquality().equals(other.metadata, metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,synthetic,textPartTime,const DeepCollectionEquality().hash(metadata));
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,synthetic,time,const DeepCollectionEquality().hash(metadata));
 
 @override
 String toString() {
-  return 'TextPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, synthetic: $synthetic, textPartTime: $textPartTime, metadata: $metadata)';
+  return 'TextPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, synthetic: $synthetic, time: $time, metadata: $metadata)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $TextPartCopyWith<$Res>  {
   factory $TextPartCopyWith(TextPart value, $Res Function(TextPart) _then) = _$TextPartCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text, bool? synthetic,@JsonKey(name: 'TextPartTime') TextPartTime? textPartTime, Map<String, dynamic>? metadata
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text, bool? synthetic, TextPartTime? time, Map<String, dynamic>? metadata
 });
 
 
-$TextPartTimeCopyWith<$Res>? get textPartTime;
+$TextPartTimeCopyWith<$Res>? get time;
 
 }
 /// @nodoc
@@ -65,7 +65,7 @@ class _$TextPartCopyWithImpl<$Res>
 
 /// Create a copy of TextPart
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? synthetic = freezed,Object? textPartTime = freezed,Object? metadata = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? synthetic = freezed,Object? time = freezed,Object? metadata = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
@@ -73,7 +73,7 @@ as String,messageId: null == messageId ? _self.messageId : messageId // ignore: 
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,synthetic: freezed == synthetic ? _self.synthetic : synthetic // ignore: cast_nullable_to_non_nullable
-as bool?,textPartTime: freezed == textPartTime ? _self.textPartTime : textPartTime // ignore: cast_nullable_to_non_nullable
+as bool?,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as TextPartTime?,metadata: freezed == metadata ? _self.metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -82,13 +82,13 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$TextPartTimeCopyWith<$Res>? get textPartTime {
-    if (_self.textPartTime == null) {
+$TextPartTimeCopyWith<$Res>? get time {
+    if (_self.time == null) {
     return null;
   }
 
-  return $TextPartTimeCopyWith<$Res>(_self.textPartTime!, (value) {
-    return _then(_self.copyWith(textPartTime: value));
+  return $TextPartTimeCopyWith<$Res>(_self.time!, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }
@@ -172,10 +172,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  bool? synthetic, @JsonKey(name: 'TextPartTime')  TextPartTime? textPartTime,  Map<String, dynamic>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  bool? synthetic,  TextPartTime? time,  Map<String, dynamic>? metadata)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _TextPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.synthetic,_that.textPartTime,_that.metadata);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.synthetic,_that.time,_that.metadata);case _:
   return orElse();
 
 }
@@ -193,10 +193,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  bool? synthetic, @JsonKey(name: 'TextPartTime')  TextPartTime? textPartTime,  Map<String, dynamic>? metadata)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  bool? synthetic,  TextPartTime? time,  Map<String, dynamic>? metadata)  $default,) {final _that = this;
 switch (_that) {
 case _TextPart():
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.synthetic,_that.textPartTime,_that.metadata);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.synthetic,_that.time,_that.metadata);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -213,10 +213,10 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  bool? synthetic, @JsonKey(name: 'TextPartTime')  TextPartTime? textPartTime,  Map<String, dynamic>? metadata)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(name: 'sessionID')  String sessionId, @JsonKey(name: 'messageID')  String messageId,  String type,  String text,  bool? synthetic,  TextPartTime? time,  Map<String, dynamic>? metadata)?  $default,) {final _that = this;
 switch (_that) {
 case _TextPart() when $default != null:
-return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.synthetic,_that.textPartTime,_that.metadata);case _:
+return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_that.synthetic,_that.time,_that.metadata);case _:
   return null;
 
 }
@@ -228,7 +228,7 @@ return $default(_that.id,_that.sessionId,_that.messageId,_that.type,_that.text,_
 @JsonSerializable()
 
 class _TextPart implements TextPart {
-  const _TextPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.text, this.synthetic, @JsonKey(name: 'TextPartTime') this.textPartTime, final  Map<String, dynamic>? metadata}): _metadata = metadata;
+  const _TextPart({required this.id, @JsonKey(name: 'sessionID') required this.sessionId, @JsonKey(name: 'messageID') required this.messageId, required this.type, required this.text, this.synthetic, this.time, final  Map<String, dynamic>? metadata}): _metadata = metadata;
   factory _TextPart.fromJson(Map<String, dynamic> json) => _$TextPartFromJson(json);
 
 @override final  String id;
@@ -237,7 +237,7 @@ class _TextPart implements TextPart {
 @override final  String type;
 @override final  String text;
 @override final  bool? synthetic;
-@override@JsonKey(name: 'TextPartTime') final  TextPartTime? textPartTime;
+@override final  TextPartTime? time;
  final  Map<String, dynamic>? _metadata;
 @override Map<String, dynamic>? get metadata {
   final value = _metadata;
@@ -261,16 +261,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TextPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.synthetic, synthetic) || other.synthetic == synthetic)&&(identical(other.textPartTime, textPartTime) || other.textPartTime == textPartTime)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TextPart&&(identical(other.id, id) || other.id == id)&&(identical(other.sessionId, sessionId) || other.sessionId == sessionId)&&(identical(other.messageId, messageId) || other.messageId == messageId)&&(identical(other.type, type) || other.type == type)&&(identical(other.text, text) || other.text == text)&&(identical(other.synthetic, synthetic) || other.synthetic == synthetic)&&(identical(other.time, time) || other.time == time)&&const DeepCollectionEquality().equals(other._metadata, _metadata));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,synthetic,textPartTime,const DeepCollectionEquality().hash(_metadata));
+int get hashCode => Object.hash(runtimeType,id,sessionId,messageId,type,text,synthetic,time,const DeepCollectionEquality().hash(_metadata));
 
 @override
 String toString() {
-  return 'TextPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, synthetic: $synthetic, textPartTime: $textPartTime, metadata: $metadata)';
+  return 'TextPart(id: $id, sessionId: $sessionId, messageId: $messageId, type: $type, text: $text, synthetic: $synthetic, time: $time, metadata: $metadata)';
 }
 
 
@@ -281,11 +281,11 @@ abstract mixin class _$TextPartCopyWith<$Res> implements $TextPartCopyWith<$Res>
   factory _$TextPartCopyWith(_TextPart value, $Res Function(_TextPart) _then) = __$TextPartCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text, bool? synthetic,@JsonKey(name: 'TextPartTime') TextPartTime? textPartTime, Map<String, dynamic>? metadata
+ String id,@JsonKey(name: 'sessionID') String sessionId,@JsonKey(name: 'messageID') String messageId, String type, String text, bool? synthetic, TextPartTime? time, Map<String, dynamic>? metadata
 });
 
 
-@override $TextPartTimeCopyWith<$Res>? get textPartTime;
+@override $TextPartTimeCopyWith<$Res>? get time;
 
 }
 /// @nodoc
@@ -298,7 +298,7 @@ class __$TextPartCopyWithImpl<$Res>
 
 /// Create a copy of TextPart
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? synthetic = freezed,Object? textPartTime = freezed,Object? metadata = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? sessionId = null,Object? messageId = null,Object? type = null,Object? text = null,Object? synthetic = freezed,Object? time = freezed,Object? metadata = freezed,}) {
   return _then(_TextPart(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,sessionId: null == sessionId ? _self.sessionId : sessionId // ignore: cast_nullable_to_non_nullable
@@ -306,7 +306,7 @@ as String,messageId: null == messageId ? _self.messageId : messageId // ignore: 
 as String,type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
 as String,text: null == text ? _self.text : text // ignore: cast_nullable_to_non_nullable
 as String,synthetic: freezed == synthetic ? _self.synthetic : synthetic // ignore: cast_nullable_to_non_nullable
-as bool?,textPartTime: freezed == textPartTime ? _self.textPartTime : textPartTime // ignore: cast_nullable_to_non_nullable
+as bool?,time: freezed == time ? _self.time : time // ignore: cast_nullable_to_non_nullable
 as TextPartTime?,metadata: freezed == metadata ? _self._metadata : metadata // ignore: cast_nullable_to_non_nullable
 as Map<String, dynamic>?,
   ));
@@ -316,13 +316,13 @@ as Map<String, dynamic>?,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$TextPartTimeCopyWith<$Res>? get textPartTime {
-    if (_self.textPartTime == null) {
+$TextPartTimeCopyWith<$Res>? get time {
+    if (_self.time == null) {
     return null;
   }
 
-  return $TextPartTimeCopyWith<$Res>(_self.textPartTime!, (value) {
-    return _then(_self.copyWith(textPartTime: value));
+  return $TextPartTimeCopyWith<$Res>(_self.time!, (value) {
+    return _then(_self.copyWith(time: value));
   });
 }
 }

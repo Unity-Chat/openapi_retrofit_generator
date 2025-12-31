@@ -16,7 +16,7 @@ class StepFinishPart with StepFinishPartMappable {
     required this.messageId,
     required this.type,
     required this.cost,
-    required this.stepFinishPartTokens,
+    required this.tokens,
     this.snapshot,
   });
 
@@ -27,8 +27,7 @@ class StepFinishPart with StepFinishPartMappable {
   final String messageId;
   final String type;
   final num cost;
-  @MappableField(key: 'StepFinishPartTokens')
-  final StepFinishPartTokens stepFinishPartTokens;
+  final StepFinishPartTokens tokens;
   final String? snapshot;
 
   static StepFinishPart fromJson(Map<String, dynamic> json) =>

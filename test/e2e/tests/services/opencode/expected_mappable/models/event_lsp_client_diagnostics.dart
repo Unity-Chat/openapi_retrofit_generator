@@ -12,12 +12,11 @@ part 'event_lsp_client_diagnostics.mapper.dart';
 class EventLspClientDiagnostics with EventLspClientDiagnosticsMappable {
   const EventLspClientDiagnostics({
     required this.type,
-    required this.eventLspClientDiagnosticsProperties,
+    required this.properties,
   });
 
   final String type;
-  @MappableField(key: 'EventLspClientDiagnosticsProperties')
-  final EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties;
+  final EventLspClientDiagnosticsProperties properties;
 
   static EventLspClientDiagnostics fromJson(Map<String, dynamic> json) =>
       EventLspClientDiagnosticsMapper.fromJson(json);

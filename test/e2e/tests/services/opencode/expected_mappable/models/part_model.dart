@@ -49,12 +49,14 @@ class PartModel {
 @MappableClass()
 class PartModelTextPart with PartModelTextPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String text;
   final bool? synthetic;
-  final TextPartTime? textPartTime;
+  final TextPartTime? time;
   final Map<String, dynamic>? metadata;
 
   const PartModelTextPart({
@@ -64,7 +66,7 @@ class PartModelTextPart with PartModelTextPartMappable {
     required this.type,
     required this.text,
     required this.synthetic,
-    required this.textPartTime,
+    required this.time,
     required this.metadata,
   });
 }
@@ -72,12 +74,14 @@ class PartModelTextPart with PartModelTextPartMappable {
 @MappableClass()
 class PartModelReasoningPart with PartModelReasoningPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String text;
   final Map<String, dynamic>? metadata;
-  final ReasoningPartTime reasoningPartTime;
+  final ReasoningPartTime time;
 
   const PartModelReasoningPart({
     required this.id,
@@ -86,14 +90,16 @@ class PartModelReasoningPart with PartModelReasoningPartMappable {
     required this.type,
     required this.text,
     required this.metadata,
-    required this.reasoningPartTime,
+    required this.time,
   });
 }
 
 @MappableClass()
 class PartModelFilePart with PartModelFilePartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String mime;
@@ -116,9 +122,12 @@ class PartModelFilePart with PartModelFilePartMappable {
 @MappableClass()
 class PartModelToolPart with PartModelToolPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
+  @MappableField(key: 'callID')
   final String callId;
   final String tool;
   final ToolState state;
@@ -139,7 +148,9 @@ class PartModelToolPart with PartModelToolPartMappable {
 @MappableClass()
 class PartModelStepStartPart with PartModelStepStartPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String? snapshot;
@@ -156,12 +167,14 @@ class PartModelStepStartPart with PartModelStepStartPartMappable {
 @MappableClass()
 class PartModelStepFinishPart with PartModelStepFinishPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String? snapshot;
   final num cost;
-  final StepFinishPartTokens stepFinishPartTokens;
+  final StepFinishPartTokens tokens;
 
   const PartModelStepFinishPart({
     required this.id,
@@ -170,14 +183,16 @@ class PartModelStepFinishPart with PartModelStepFinishPartMappable {
     required this.type,
     required this.snapshot,
     required this.cost,
-    required this.stepFinishPartTokens,
+    required this.tokens,
   });
 }
 
 @MappableClass()
 class PartModelSnapshotPart with PartModelSnapshotPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String snapshot;
@@ -194,7 +209,9 @@ class PartModelSnapshotPart with PartModelSnapshotPartMappable {
 @MappableClass()
 class PartModelPatchPart with PartModelPatchPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String hash;
@@ -213,11 +230,13 @@ class PartModelPatchPart with PartModelPatchPartMappable {
 @MappableClass()
 class PartModelAgentPart with PartModelAgentPartMappable {
   final String id;
+  @MappableField(key: 'sessionID')
   final String sessionId;
+  @MappableField(key: 'messageID')
   final String messageId;
   final String type;
   final String name;
-  final AgentPartSource? agentPartSource;
+  final AgentPartSource? source;
 
   const PartModelAgentPart({
     required this.id,
@@ -225,6 +244,6 @@ class PartModelAgentPart with PartModelAgentPartMappable {
     required this.messageId,
     required this.type,
     required this.name,
-    required this.agentPartSource,
+    required this.source,
   });
 }

@@ -24,26 +24,21 @@ class EventSessionIdleMapper extends ClassMapperBase<EventSessionIdle> {
 
   static String _$type(EventSessionIdle v) => v.type;
   static const Field<EventSessionIdle, String> _f$type = Field('type', _$type);
-  static EventSessionIdleProperties _$eventSessionIdleProperties(
-    EventSessionIdle v,
-  ) => v.eventSessionIdleProperties;
+  static EventSessionIdleProperties _$properties(EventSessionIdle v) =>
+      v.properties;
   static const Field<EventSessionIdle, EventSessionIdleProperties>
-  _f$eventSessionIdleProperties = Field(
-    'eventSessionIdleProperties',
-    _$eventSessionIdleProperties,
-    key: r'EventSessionIdleProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventSessionIdle> fields = const {
     #type: _f$type,
-    #eventSessionIdleProperties: _f$eventSessionIdleProperties,
+    #properties: _f$properties,
   };
 
   static EventSessionIdle _instantiate(DecodingData data) {
     return EventSessionIdle(
       type: data.dec(_f$type),
-      eventSessionIdleProperties: data.dec(_f$eventSessionIdleProperties),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -114,11 +109,8 @@ abstract class EventSessionIdleCopyWith<$R, $In extends EventSessionIdle, $Out>
     EventSessionIdleProperties,
     EventSessionIdleProperties
   >
-  get eventSessionIdleProperties;
-  $R call({
-    String? type,
-    EventSessionIdleProperties? eventSessionIdleProperties,
-  });
+  get properties;
+  $R call({String? type, EventSessionIdleProperties? properties});
   EventSessionIdleCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -138,26 +130,19 @@ class _EventSessionIdleCopyWithImpl<$R, $Out>
     EventSessionIdleProperties,
     EventSessionIdleProperties
   >
-  get eventSessionIdleProperties => $value.eventSessionIdleProperties.copyWith
-      .$chain((v) => call(eventSessionIdleProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventSessionIdleProperties? eventSessionIdleProperties,
-  }) => $apply(
+  $R call({String? type, EventSessionIdleProperties? properties}) => $apply(
     FieldCopyWithData({
       if (type != null) #type: type,
-      if (eventSessionIdleProperties != null)
-        #eventSessionIdleProperties: eventSessionIdleProperties,
+      if (properties != null) #properties: properties,
     }),
   );
   @override
   EventSessionIdle $make(CopyWithData data) => EventSessionIdle(
     type: data.get(#type, or: $value.type),
-    eventSessionIdleProperties: data.get(
-      #eventSessionIdleProperties,
-      or: $value.eventSessionIdleProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

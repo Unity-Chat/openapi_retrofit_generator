@@ -11,14 +11,12 @@ part 'range.g.dart';
 
 @JsonSerializable()
 class Range {
-  const Range({required this.rangeStart, required this.rangeEnd});
+  const Range({required this.start, required this.end});
 
   factory Range.fromJson(Map<String, Object?> json) => _$RangeFromJson(json);
 
-  @JsonKey(name: 'RangeStart')
-  final RangeStart rangeStart;
-  @JsonKey(name: 'RangeEnd')
-  final RangeEnd rangeEnd;
+  final RangeStart start;
+  final RangeEnd end;
 
   Map<String, Object?> toJson() => _$RangeToJson(this);
 }

@@ -14,7 +14,7 @@ abstract class Data with _$Data {
   const factory Data({
     required String id,
     required String value,
-    @JsonKey(name: 'DataNested') DataNested? dataNested,
+    DataNested? nested,
   }) = _Data;
 
   factory Data.fromJson(Map<String, Object?> json) => _$DataFromJson(json);

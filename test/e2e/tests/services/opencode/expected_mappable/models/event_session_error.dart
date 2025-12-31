@@ -10,14 +10,10 @@ part 'event_session_error.mapper.dart';
 
 @MappableClass()
 class EventSessionError with EventSessionErrorMappable {
-  const EventSessionError({
-    required this.type,
-    required this.eventSessionErrorProperties,
-  });
+  const EventSessionError({required this.type, required this.properties});
 
   final String type;
-  @MappableField(key: 'EventSessionErrorProperties')
-  final EventSessionErrorProperties eventSessionErrorProperties;
+  final EventSessionErrorProperties properties;
 
   static EventSessionError fromJson(Map<String, dynamic> json) =>
       EventSessionErrorMapper.fromJson(json);

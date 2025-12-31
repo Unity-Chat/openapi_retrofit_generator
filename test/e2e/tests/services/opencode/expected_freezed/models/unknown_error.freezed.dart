@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UnknownError {
 
- String get name;@JsonKey(name: 'UnknownErrorData') UnknownErrorData get unknownErrorData;
+ String get name; UnknownErrorData get data;
 /// Create a copy of UnknownError
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UnknownErrorCopyWith<UnknownError> get copyWith => _$UnknownErrorCopyWithImpl<U
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnknownError&&(identical(other.name, name) || other.name == name)&&(identical(other.unknownErrorData, unknownErrorData) || other.unknownErrorData == unknownErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UnknownError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,unknownErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'UnknownError(name: $name, unknownErrorData: $unknownErrorData)';
+  return 'UnknownError(name: $name, data: $data)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $UnknownErrorCopyWith<$Res>  {
   factory $UnknownErrorCopyWith(UnknownError value, $Res Function(UnknownError) _then) = _$UnknownErrorCopyWithImpl;
 @useResult
 $Res call({
- String name,@JsonKey(name: 'UnknownErrorData') UnknownErrorData unknownErrorData
+ String name, UnknownErrorData data
 });
 
 
-$UnknownErrorDataCopyWith<$Res> get unknownErrorData;
+$UnknownErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$UnknownErrorCopyWithImpl<$Res>
 
 /// Create a copy of UnknownError
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? unknownErrorData = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? data = null,}) {
   return _then(_self.copyWith(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,unknownErrorData: null == unknownErrorData ? _self.unknownErrorData : unknownErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as UnknownErrorData,
   ));
 }
@@ -76,10 +76,10 @@ as UnknownErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UnknownErrorDataCopyWith<$Res> get unknownErrorData {
+$UnknownErrorDataCopyWith<$Res> get data {
   
-  return $UnknownErrorDataCopyWith<$Res>(_self.unknownErrorData, (value) {
-    return _then(_self.copyWith(unknownErrorData: value));
+  return $UnknownErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'UnknownErrorData')  UnknownErrorData unknownErrorData)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String name,  UnknownErrorData data)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UnknownError() when $default != null:
-return $default(_that.name,_that.unknownErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.name,_that.unknownErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name, @JsonKey(name: 'UnknownErrorData')  UnknownErrorData unknownErrorData)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String name,  UnknownErrorData data)  $default,) {final _that = this;
 switch (_that) {
 case _UnknownError():
-return $default(_that.name,_that.unknownErrorData);case _:
+return $default(_that.name,_that.data);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.name,_that.unknownErrorData);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name, @JsonKey(name: 'UnknownErrorData')  UnknownErrorData unknownErrorData)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String name,  UnknownErrorData data)?  $default,) {final _that = this;
 switch (_that) {
 case _UnknownError() when $default != null:
-return $default(_that.name,_that.unknownErrorData);case _:
+return $default(_that.name,_that.data);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.name,_that.unknownErrorData);case _:
 @JsonSerializable()
 
 class _UnknownError implements UnknownError {
-  const _UnknownError({required this.name, @JsonKey(name: 'UnknownErrorData') required this.unknownErrorData});
+  const _UnknownError({required this.name, required this.data});
   factory _UnknownError.fromJson(Map<String, dynamic> json) => _$UnknownErrorFromJson(json);
 
 @override final  String name;
-@override@JsonKey(name: 'UnknownErrorData') final  UnknownErrorData unknownErrorData;
+@override final  UnknownErrorData data;
 
 /// Create a copy of UnknownError
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnknownError&&(identical(other.name, name) || other.name == name)&&(identical(other.unknownErrorData, unknownErrorData) || other.unknownErrorData == unknownErrorData));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UnknownError&&(identical(other.name, name) || other.name == name)&&(identical(other.data, data) || other.data == data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,name,unknownErrorData);
+int get hashCode => Object.hash(runtimeType,name,data);
 
 @override
 String toString() {
-  return 'UnknownError(name: $name, unknownErrorData: $unknownErrorData)';
+  return 'UnknownError(name: $name, data: $data)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$UnknownErrorCopyWith<$Res> implements $UnknownErrorCopyWi
   factory _$UnknownErrorCopyWith(_UnknownError value, $Res Function(_UnknownError) _then) = __$UnknownErrorCopyWithImpl;
 @override @useResult
 $Res call({
- String name,@JsonKey(name: 'UnknownErrorData') UnknownErrorData unknownErrorData
+ String name, UnknownErrorData data
 });
 
 
-@override $UnknownErrorDataCopyWith<$Res> get unknownErrorData;
+@override $UnknownErrorDataCopyWith<$Res> get data;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$UnknownErrorCopyWithImpl<$Res>
 
 /// Create a copy of UnknownError
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? unknownErrorData = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? data = null,}) {
   return _then(_UnknownError(
 name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,unknownErrorData: null == unknownErrorData ? _self.unknownErrorData : unknownErrorData // ignore: cast_nullable_to_non_nullable
+as String,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as UnknownErrorData,
   ));
 }
@@ -287,10 +287,10 @@ as UnknownErrorData,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$UnknownErrorDataCopyWith<$Res> get unknownErrorData {
+$UnknownErrorDataCopyWith<$Res> get data {
   
-  return $UnknownErrorDataCopyWith<$Res>(_self.unknownErrorData, (value) {
-    return _then(_self.copyWith(unknownErrorData: value));
+  return $UnknownErrorDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }

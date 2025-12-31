@@ -10,12 +10,11 @@ part 'data.mapper.dart';
 
 @MappableClass()
 class Data with DataMappable {
-  const Data({required this.id, required this.value, this.dataNested});
+  const Data({required this.id, required this.value, this.nested});
 
   final String id;
   final String value;
-  @MappableField(key: 'DataNested')
-  final DataNested? dataNested;
+  final DataNested? nested;
 
   static Data fromJson(Map<String, dynamic> json) => DataMapper.fromJson(json);
 }

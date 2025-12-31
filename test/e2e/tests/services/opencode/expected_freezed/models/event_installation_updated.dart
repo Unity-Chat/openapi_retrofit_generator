@@ -13,9 +13,7 @@ part 'event_installation_updated.g.dart';
 abstract class EventInstallationUpdated with _$EventInstallationUpdated {
   const factory EventInstallationUpdated({
     required String type,
-    @JsonKey(name: 'EventInstallationUpdatedProperties')
-    required EventInstallationUpdatedProperties
-    eventInstallationUpdatedProperties,
+    required EventInstallationUpdatedProperties properties,
   }) = _EventInstallationUpdated;
 
   factory EventInstallationUpdated.fromJson(Map<String, Object?> json) =>

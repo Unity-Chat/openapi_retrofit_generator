@@ -28,28 +28,22 @@ class EventPermissionRepliedMapper
     'type',
     _$type,
   );
-  static EventPermissionRepliedProperties _$eventPermissionRepliedProperties(
+  static EventPermissionRepliedProperties _$properties(
     EventPermissionReplied v,
-  ) => v.eventPermissionRepliedProperties;
+  ) => v.properties;
   static const Field<EventPermissionReplied, EventPermissionRepliedProperties>
-  _f$eventPermissionRepliedProperties = Field(
-    'eventPermissionRepliedProperties',
-    _$eventPermissionRepliedProperties,
-    key: r'EventPermissionRepliedProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventPermissionReplied> fields = const {
     #type: _f$type,
-    #eventPermissionRepliedProperties: _f$eventPermissionRepliedProperties,
+    #properties: _f$properties,
   };
 
   static EventPermissionReplied _instantiate(DecodingData data) {
     return EventPermissionReplied(
       type: data.dec(_f$type),
-      eventPermissionRepliedProperties: data.dec(
-        _f$eventPermissionRepliedProperties,
-      ),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -128,11 +122,8 @@ abstract class EventPermissionRepliedCopyWith<
     EventPermissionRepliedProperties,
     EventPermissionRepliedProperties
   >
-  get eventPermissionRepliedProperties;
-  $R call({
-    String? type,
-    EventPermissionRepliedProperties? eventPermissionRepliedProperties,
-  });
+  get properties;
+  $R call({String? type, EventPermissionRepliedProperties? properties});
   EventPermissionRepliedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -153,28 +144,20 @@ class _EventPermissionRepliedCopyWithImpl<$R, $Out>
     EventPermissionRepliedProperties,
     EventPermissionRepliedProperties
   >
-  get eventPermissionRepliedProperties => $value
-      .eventPermissionRepliedProperties
-      .copyWith
-      .$chain((v) => call(eventPermissionRepliedProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventPermissionRepliedProperties? eventPermissionRepliedProperties,
-  }) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (eventPermissionRepliedProperties != null)
-        #eventPermissionRepliedProperties: eventPermissionRepliedProperties,
-    }),
-  );
+  $R call({String? type, EventPermissionRepliedProperties? properties}) =>
+      $apply(
+        FieldCopyWithData({
+          if (type != null) #type: type,
+          if (properties != null) #properties: properties,
+        }),
+      );
   @override
   EventPermissionReplied $make(CopyWithData data) => EventPermissionReplied(
     type: data.get(#type, or: $value.type),
-    eventPermissionRepliedProperties: data.get(
-      #eventPermissionRepliedProperties,
-      or: $value.eventPermissionRepliedProperties,
-    ),
+    properties: data.get(#properties, or: $value.properties),
   );
 
   @override

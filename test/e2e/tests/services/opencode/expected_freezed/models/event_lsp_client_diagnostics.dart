@@ -13,9 +13,7 @@ part 'event_lsp_client_diagnostics.g.dart';
 abstract class EventLspClientDiagnostics with _$EventLspClientDiagnostics {
   const factory EventLspClientDiagnostics({
     required String type,
-    @JsonKey(name: 'EventLspClientDiagnosticsProperties')
-    required EventLspClientDiagnosticsProperties
-    eventLspClientDiagnosticsProperties,
+    required EventLspClientDiagnosticsProperties properties,
   }) = _EventLspClientDiagnostics;
 
   factory EventLspClientDiagnostics.fromJson(Map<String, Object?> json) =>

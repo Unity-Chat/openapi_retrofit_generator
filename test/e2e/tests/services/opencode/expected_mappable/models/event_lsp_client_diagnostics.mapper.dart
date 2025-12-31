@@ -30,32 +30,25 @@ class EventLspClientDiagnosticsMapper
     'type',
     _$type,
   );
-  static EventLspClientDiagnosticsProperties
-  _$eventLspClientDiagnosticsProperties(EventLspClientDiagnostics v) =>
-      v.eventLspClientDiagnosticsProperties;
+  static EventLspClientDiagnosticsProperties _$properties(
+    EventLspClientDiagnostics v,
+  ) => v.properties;
   static const Field<
     EventLspClientDiagnostics,
     EventLspClientDiagnosticsProperties
   >
-  _f$eventLspClientDiagnosticsProperties = Field(
-    'eventLspClientDiagnosticsProperties',
-    _$eventLspClientDiagnosticsProperties,
-    key: r'EventLspClientDiagnosticsProperties',
-  );
+  _f$properties = Field('properties', _$properties);
 
   @override
   final MappableFields<EventLspClientDiagnostics> fields = const {
     #type: _f$type,
-    #eventLspClientDiagnosticsProperties:
-        _f$eventLspClientDiagnosticsProperties,
+    #properties: _f$properties,
   };
 
   static EventLspClientDiagnostics _instantiate(DecodingData data) {
     return EventLspClientDiagnostics(
       type: data.dec(_f$type),
-      eventLspClientDiagnosticsProperties: data.dec(
-        _f$eventLspClientDiagnosticsProperties,
-      ),
+      properties: data.dec(_f$properties),
     );
   }
 
@@ -138,11 +131,8 @@ abstract class EventLspClientDiagnosticsCopyWith<
     EventLspClientDiagnosticsProperties,
     EventLspClientDiagnosticsProperties
   >
-  get eventLspClientDiagnosticsProperties;
-  $R call({
-    String? type,
-    EventLspClientDiagnosticsProperties? eventLspClientDiagnosticsProperties,
-  });
+  get properties;
+  $R call({String? type, EventLspClientDiagnosticsProperties? properties});
   EventLspClientDiagnosticsCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
   );
@@ -163,30 +153,21 @@ class _EventLspClientDiagnosticsCopyWithImpl<$R, $Out>
     EventLspClientDiagnosticsProperties,
     EventLspClientDiagnosticsProperties
   >
-  get eventLspClientDiagnosticsProperties => $value
-      .eventLspClientDiagnosticsProperties
-      .copyWith
-      .$chain((v) => call(eventLspClientDiagnosticsProperties: v));
+  get properties =>
+      $value.properties.copyWith.$chain((v) => call(properties: v));
   @override
-  $R call({
-    String? type,
-    EventLspClientDiagnosticsProperties? eventLspClientDiagnosticsProperties,
-  }) => $apply(
-    FieldCopyWithData({
-      if (type != null) #type: type,
-      if (eventLspClientDiagnosticsProperties != null)
-        #eventLspClientDiagnosticsProperties:
-            eventLspClientDiagnosticsProperties,
-    }),
-  );
+  $R call({String? type, EventLspClientDiagnosticsProperties? properties}) =>
+      $apply(
+        FieldCopyWithData({
+          if (type != null) #type: type,
+          if (properties != null) #properties: properties,
+        }),
+      );
   @override
   EventLspClientDiagnostics $make(CopyWithData data) =>
       EventLspClientDiagnostics(
         type: data.get(#type, or: $value.type),
-        eventLspClientDiagnosticsProperties: data.get(
-          #eventLspClientDiagnosticsProperties,
-          or: $value.eventLspClientDiagnosticsProperties,
-        ),
+        properties: data.get(#properties, or: $value.properties),
       );
 
   @override

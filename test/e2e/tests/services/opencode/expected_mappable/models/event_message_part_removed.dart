@@ -10,14 +10,10 @@ part 'event_message_part_removed.mapper.dart';
 
 @MappableClass()
 class EventMessagePartRemoved with EventMessagePartRemovedMappable {
-  const EventMessagePartRemoved({
-    required this.type,
-    required this.eventMessagePartRemovedProperties,
-  });
+  const EventMessagePartRemoved({required this.type, required this.properties});
 
   final String type;
-  @MappableField(key: 'EventMessagePartRemovedProperties')
-  final EventMessagePartRemovedProperties eventMessagePartRemovedProperties;
+  final EventMessagePartRemovedProperties properties;
 
   static EventMessagePartRemoved fromJson(Map<String, dynamic> json) =>
       EventMessagePartRemovedMapper.fromJson(json);

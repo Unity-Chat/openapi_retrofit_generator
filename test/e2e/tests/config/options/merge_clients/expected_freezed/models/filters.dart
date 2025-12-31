@@ -14,7 +14,7 @@ abstract class Filters with _$Filters {
   const factory Filters({
     String? authorId,
     List<String>? tags,
-    @JsonKey(name: 'FiltersDateRange') FiltersDateRange? filtersDateRange,
+    FiltersDateRange? dateRange,
   }) = _Filters;
 
   factory Filters.fromJson(Map<String, Object?> json) =>

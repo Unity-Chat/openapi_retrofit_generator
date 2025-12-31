@@ -13,17 +13,15 @@ part 'find_text_response.mapper.dart';
 @MappableClass()
 class FindTextResponse with FindTextResponseMappable {
   const FindTextResponse({
-    required this.findTextResponsePath,
-    required this.findTextResponseLines,
+    required this.path,
+    required this.lines,
     required this.lineNumber,
     required this.absoluteOffset,
     required this.submatches,
   });
 
-  @MappableField(key: 'FindTextResponsePath')
-  final FindTextResponsePath findTextResponsePath;
-  @MappableField(key: 'FindTextResponseLines')
-  final FindTextResponseLines findTextResponseLines;
+  final FindTextResponsePath path;
+  final FindTextResponseLines lines;
   @MappableField(key: 'line_number')
   final num lineNumber;
   @MappableField(key: 'absolute_offset')

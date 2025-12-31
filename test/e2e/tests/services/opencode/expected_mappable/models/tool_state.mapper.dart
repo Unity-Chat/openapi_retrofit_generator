@@ -178,14 +178,9 @@ class ToolStateToolStateRunningMapper
       v.metadata;
   static const Field<ToolStateToolStateRunning, Map<String, dynamic>>
   _f$metadata = Field('metadata', _$metadata);
-  static ToolStateRunningTime _$toolStateRunningTime(
-    ToolStateToolStateRunning v,
-  ) => v.toolStateRunningTime;
-  static const Field<ToolStateToolStateRunning, ToolStateRunningTime>
-  _f$toolStateRunningTime = Field(
-    'toolStateRunningTime',
-    _$toolStateRunningTime,
-  );
+  static ToolStateRunningTime _$time(ToolStateToolStateRunning v) => v.time;
+  static const Field<ToolStateToolStateRunning, ToolStateRunningTime> _f$time =
+      Field('time', _$time);
 
   @override
   final MappableFields<ToolStateToolStateRunning> fields = const {
@@ -193,7 +188,7 @@ class ToolStateToolStateRunningMapper
     #input: _f$input,
     #title: _f$title,
     #metadata: _f$metadata,
-    #toolStateRunningTime: _f$toolStateRunningTime,
+    #time: _f$time,
   };
 
   static ToolStateToolStateRunning _instantiate(DecodingData data) {
@@ -202,7 +197,7 @@ class ToolStateToolStateRunningMapper
       input: data.dec(_f$input),
       title: data.dec(_f$title),
       metadata: data.dec(_f$metadata),
-      toolStateRunningTime: data.dec(_f$toolStateRunningTime),
+      time: data.dec(_f$time),
     );
   }
 
@@ -283,13 +278,13 @@ abstract class ToolStateToolStateRunningCopyWith<
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   ToolStateRunningTimeCopyWith<$R, ToolStateRunningTime, ToolStateRunningTime>
-  get toolStateRunningTime;
+  get time;
   $R call({
     String? status,
     dynamic input,
     String? title,
     Map<String, dynamic>? metadata,
-    ToolStateRunningTime? toolStateRunningTime,
+    ToolStateRunningTime? time,
   });
   ToolStateToolStateRunningCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -316,24 +311,21 @@ class _ToolStateToolStateRunningCopyWithImpl<$R, $Out>
       : null;
   @override
   ToolStateRunningTimeCopyWith<$R, ToolStateRunningTime, ToolStateRunningTime>
-  get toolStateRunningTime => $value.toolStateRunningTime.copyWith.$chain(
-    (v) => call(toolStateRunningTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? status,
     Object? input = $none,
     Object? title = $none,
     Object? metadata = $none,
-    ToolStateRunningTime? toolStateRunningTime,
+    ToolStateRunningTime? time,
   }) => $apply(
     FieldCopyWithData({
       if (status != null) #status: status,
       if (input != $none) #input: input,
       if (title != $none) #title: title,
       if (metadata != $none) #metadata: metadata,
-      if (toolStateRunningTime != null)
-        #toolStateRunningTime: toolStateRunningTime,
+      if (time != null) #time: time,
     }),
   );
   @override
@@ -343,10 +335,7 @@ class _ToolStateToolStateRunningCopyWithImpl<$R, $Out>
         input: data.get(#input, or: $value.input),
         title: data.get(#title, or: $value.title),
         metadata: data.get(#metadata, or: $value.metadata),
-        toolStateRunningTime: data.get(
-          #toolStateRunningTime,
-          or: $value.toolStateRunningTime,
-        ),
+        time: data.get(#time, or: $value.time),
       );
 
   @override
@@ -396,14 +385,9 @@ class ToolStateToolStateCompletedMapper
       v.metadata;
   static const Field<ToolStateToolStateCompleted, Map<String, dynamic>>
   _f$metadata = Field('metadata', _$metadata);
-  static ToolStateCompletedTime _$toolStateCompletedTime(
-    ToolStateToolStateCompleted v,
-  ) => v.toolStateCompletedTime;
+  static ToolStateCompletedTime _$time(ToolStateToolStateCompleted v) => v.time;
   static const Field<ToolStateToolStateCompleted, ToolStateCompletedTime>
-  _f$toolStateCompletedTime = Field(
-    'toolStateCompletedTime',
-    _$toolStateCompletedTime,
-  );
+  _f$time = Field('time', _$time);
   static List<FilePart>? _$attachments(ToolStateToolStateCompleted v) =>
       v.attachments;
   static const Field<ToolStateToolStateCompleted, List<FilePart>>
@@ -416,7 +400,7 @@ class ToolStateToolStateCompletedMapper
     #output: _f$output,
     #title: _f$title,
     #metadata: _f$metadata,
-    #toolStateCompletedTime: _f$toolStateCompletedTime,
+    #time: _f$time,
     #attachments: _f$attachments,
   };
 
@@ -427,7 +411,7 @@ class ToolStateToolStateCompletedMapper
       output: data.dec(_f$output),
       title: data.dec(_f$title),
       metadata: data.dec(_f$metadata),
-      toolStateCompletedTime: data.dec(_f$toolStateCompletedTime),
+      time: data.dec(_f$time),
       attachments: data.dec(_f$attachments),
     );
   }
@@ -515,7 +499,7 @@ abstract class ToolStateToolStateCompletedCopyWith<
     ToolStateCompletedTime,
     ToolStateCompletedTime
   >
-  get toolStateCompletedTime;
+  get time;
   ListCopyWith<$R, FilePart, FilePartCopyWith<$R, FilePart, FilePart>>?
   get attachments;
   $R call({
@@ -524,7 +508,7 @@ abstract class ToolStateToolStateCompletedCopyWith<
     String? output,
     String? title,
     Map<String, dynamic>? metadata,
-    ToolStateCompletedTime? toolStateCompletedTime,
+    ToolStateCompletedTime? time,
     List<FilePart>? attachments,
   });
   ToolStateToolStateCompletedCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
@@ -569,9 +553,7 @@ class _ToolStateToolStateCompletedCopyWithImpl<$R, $Out>
     ToolStateCompletedTime,
     ToolStateCompletedTime
   >
-  get toolStateCompletedTime => $value.toolStateCompletedTime.copyWith.$chain(
-    (v) => call(toolStateCompletedTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   ListCopyWith<$R, FilePart, FilePartCopyWith<$R, FilePart, FilePart>>?
   get attachments => $value.attachments != null
@@ -588,7 +570,7 @@ class _ToolStateToolStateCompletedCopyWithImpl<$R, $Out>
     String? output,
     String? title,
     Map<String, dynamic>? metadata,
-    ToolStateCompletedTime? toolStateCompletedTime,
+    ToolStateCompletedTime? time,
     Object? attachments = $none,
   }) => $apply(
     FieldCopyWithData({
@@ -597,8 +579,7 @@ class _ToolStateToolStateCompletedCopyWithImpl<$R, $Out>
       if (output != null) #output: output,
       if (title != null) #title: title,
       if (metadata != null) #metadata: metadata,
-      if (toolStateCompletedTime != null)
-        #toolStateCompletedTime: toolStateCompletedTime,
+      if (time != null) #time: time,
       if (attachments != $none) #attachments: attachments,
     }),
   );
@@ -610,10 +591,7 @@ class _ToolStateToolStateCompletedCopyWithImpl<$R, $Out>
         output: data.get(#output, or: $value.output),
         title: data.get(#title, or: $value.title),
         metadata: data.get(#metadata, or: $value.metadata),
-        toolStateCompletedTime: data.get(
-          #toolStateCompletedTime,
-          or: $value.toolStateCompletedTime,
-        ),
+        time: data.get(#time, or: $value.time),
         attachments: data.get(#attachments, or: $value.attachments),
       );
 
@@ -658,10 +636,9 @@ class ToolStateToolStateErrorMapper
       v.metadata;
   static const Field<ToolStateToolStateError, Map<String, dynamic>>
   _f$metadata = Field('metadata', _$metadata);
-  static ToolStateErrorTime _$toolStateErrorTime(ToolStateToolStateError v) =>
-      v.toolStateErrorTime;
-  static const Field<ToolStateToolStateError, ToolStateErrorTime>
-  _f$toolStateErrorTime = Field('toolStateErrorTime', _$toolStateErrorTime);
+  static ToolStateErrorTime _$time(ToolStateToolStateError v) => v.time;
+  static const Field<ToolStateToolStateError, ToolStateErrorTime> _f$time =
+      Field('time', _$time);
 
   @override
   final MappableFields<ToolStateToolStateError> fields = const {
@@ -669,7 +646,7 @@ class ToolStateToolStateErrorMapper
     #input: _f$input,
     #error: _f$error,
     #metadata: _f$metadata,
-    #toolStateErrorTime: _f$toolStateErrorTime,
+    #time: _f$time,
   };
 
   static ToolStateToolStateError _instantiate(DecodingData data) {
@@ -678,7 +655,7 @@ class ToolStateToolStateErrorMapper
       input: data.dec(_f$input),
       error: data.dec(_f$error),
       metadata: data.dec(_f$metadata),
-      toolStateErrorTime: data.dec(_f$toolStateErrorTime),
+      time: data.dec(_f$time),
     );
   }
 
@@ -757,13 +734,13 @@ abstract class ToolStateToolStateErrorCopyWith<
   MapCopyWith<$R, String, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>?
   get metadata;
   ToolStateErrorTimeCopyWith<$R, ToolStateErrorTime, ToolStateErrorTime>
-  get toolStateErrorTime;
+  get time;
   $R call({
     String? status,
     Map<String, dynamic>? input,
     String? error,
     Map<String, dynamic>? metadata,
-    ToolStateErrorTime? toolStateErrorTime,
+    ToolStateErrorTime? time,
   });
   ToolStateToolStateErrorCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
     Then<$Out2, $R2> t,
@@ -797,23 +774,21 @@ class _ToolStateToolStateErrorCopyWithImpl<$R, $Out>
       : null;
   @override
   ToolStateErrorTimeCopyWith<$R, ToolStateErrorTime, ToolStateErrorTime>
-  get toolStateErrorTime => $value.toolStateErrorTime.copyWith.$chain(
-    (v) => call(toolStateErrorTime: v),
-  );
+  get time => $value.time.copyWith.$chain((v) => call(time: v));
   @override
   $R call({
     String? status,
     Map<String, dynamic>? input,
     String? error,
     Object? metadata = $none,
-    ToolStateErrorTime? toolStateErrorTime,
+    ToolStateErrorTime? time,
   }) => $apply(
     FieldCopyWithData({
       if (status != null) #status: status,
       if (input != null) #input: input,
       if (error != null) #error: error,
       if (metadata != $none) #metadata: metadata,
-      if (toolStateErrorTime != null) #toolStateErrorTime: toolStateErrorTime,
+      if (time != null) #time: time,
     }),
   );
   @override
@@ -822,10 +797,7 @@ class _ToolStateToolStateErrorCopyWithImpl<$R, $Out>
     input: data.get(#input, or: $value.input),
     error: data.get(#error, or: $value.error),
     metadata: data.get(#metadata, or: $value.metadata),
-    toolStateErrorTime: data.get(
-      #toolStateErrorTime,
-      or: $value.toolStateErrorTime,
-    ),
+    time: data.get(#time, or: $value.time),
   );
 
   @override

@@ -10,7 +10,7 @@ part 'filters.g.dart';
 
 @JsonSerializable()
 class Filters {
-  const Filters({this.authorId, this.tags, this.filtersDateRange});
+  const Filters({this.authorId, this.tags, this.dateRange});
 
   factory Filters.fromJson(Map<String, Object?> json) =>
       _$FiltersFromJson(json);
@@ -19,8 +19,8 @@ class Filters {
   final String? authorId;
   @JsonKey(includeIfNull: false)
   final List<String>? tags;
-  @JsonKey(includeIfNull: false, name: 'FiltersDateRange')
-  final FiltersDateRange? filtersDateRange;
+  @JsonKey(includeIfNull: false)
+  final FiltersDateRange? dateRange;
 
   Map<String, Object?> toJson() => _$FiltersToJson(this);
 }

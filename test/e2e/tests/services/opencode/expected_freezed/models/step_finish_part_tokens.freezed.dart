@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StepFinishPartTokens {
 
- num get input; num get output; num get reasoning;@JsonKey(name: 'StepFinishPartTokensCache') StepFinishPartTokensCache get stepFinishPartTokensCache;
+ num get input; num get output; num get reasoning; StepFinishPartTokensCache get cache;
 /// Create a copy of StepFinishPartTokens
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $StepFinishPartTokensCopyWith<StepFinishPartTokens> get copyWith => _$StepFinish
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StepFinishPartTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.stepFinishPartTokensCache, stepFinishPartTokensCache) || other.stepFinishPartTokensCache == stepFinishPartTokensCache));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StepFinishPartTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.cache, cache) || other.cache == cache));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,input,output,reasoning,stepFinishPartTokensCache);
+int get hashCode => Object.hash(runtimeType,input,output,reasoning,cache);
 
 @override
 String toString() {
-  return 'StepFinishPartTokens(input: $input, output: $output, reasoning: $reasoning, stepFinishPartTokensCache: $stepFinishPartTokensCache)';
+  return 'StepFinishPartTokens(input: $input, output: $output, reasoning: $reasoning, cache: $cache)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $StepFinishPartTokensCopyWith<$Res>  {
   factory $StepFinishPartTokensCopyWith(StepFinishPartTokens value, $Res Function(StepFinishPartTokens) _then) = _$StepFinishPartTokensCopyWithImpl;
 @useResult
 $Res call({
- num input, num output, num reasoning,@JsonKey(name: 'StepFinishPartTokensCache') StepFinishPartTokensCache stepFinishPartTokensCache
+ num input, num output, num reasoning, StepFinishPartTokensCache cache
 });
 
 
-$StepFinishPartTokensCacheCopyWith<$Res> get stepFinishPartTokensCache;
+$StepFinishPartTokensCacheCopyWith<$Res> get cache;
 
 }
 /// @nodoc
@@ -65,12 +65,12 @@ class _$StepFinishPartTokensCopyWithImpl<$Res>
 
 /// Create a copy of StepFinishPartTokens
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? stepFinishPartTokensCache = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? cache = null,}) {
   return _then(_self.copyWith(
 input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
 as num,output: null == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
 as num,reasoning: null == reasoning ? _self.reasoning : reasoning // ignore: cast_nullable_to_non_nullable
-as num,stepFinishPartTokensCache: null == stepFinishPartTokensCache ? _self.stepFinishPartTokensCache : stepFinishPartTokensCache // ignore: cast_nullable_to_non_nullable
+as num,cache: null == cache ? _self.cache : cache // ignore: cast_nullable_to_non_nullable
 as StepFinishPartTokensCache,
   ));
 }
@@ -78,10 +78,10 @@ as StepFinishPartTokensCache,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$StepFinishPartTokensCacheCopyWith<$Res> get stepFinishPartTokensCache {
+$StepFinishPartTokensCacheCopyWith<$Res> get cache {
   
-  return $StepFinishPartTokensCacheCopyWith<$Res>(_self.stepFinishPartTokensCache, (value) {
-    return _then(_self.copyWith(stepFinishPartTokensCache: value));
+  return $StepFinishPartTokensCacheCopyWith<$Res>(_self.cache, (value) {
+    return _then(_self.copyWith(cache: value));
   });
 }
 }
@@ -165,10 +165,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning, @JsonKey(name: 'StepFinishPartTokensCache')  StepFinishPartTokensCache stepFinishPartTokensCache)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning,  StepFinishPartTokensCache cache)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _StepFinishPartTokens() when $default != null:
-return $default(_that.input,_that.output,_that.reasoning,_that.stepFinishPartTokensCache);case _:
+return $default(_that.input,_that.output,_that.reasoning,_that.cache);case _:
   return orElse();
 
 }
@@ -186,10 +186,10 @@ return $default(_that.input,_that.output,_that.reasoning,_that.stepFinishPartTok
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning, @JsonKey(name: 'StepFinishPartTokensCache')  StepFinishPartTokensCache stepFinishPartTokensCache)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( num input,  num output,  num reasoning,  StepFinishPartTokensCache cache)  $default,) {final _that = this;
 switch (_that) {
 case _StepFinishPartTokens():
-return $default(_that.input,_that.output,_that.reasoning,_that.stepFinishPartTokensCache);case _:
+return $default(_that.input,_that.output,_that.reasoning,_that.cache);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -206,10 +206,10 @@ return $default(_that.input,_that.output,_that.reasoning,_that.stepFinishPartTok
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( num input,  num output,  num reasoning, @JsonKey(name: 'StepFinishPartTokensCache')  StepFinishPartTokensCache stepFinishPartTokensCache)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( num input,  num output,  num reasoning,  StepFinishPartTokensCache cache)?  $default,) {final _that = this;
 switch (_that) {
 case _StepFinishPartTokens() when $default != null:
-return $default(_that.input,_that.output,_that.reasoning,_that.stepFinishPartTokensCache);case _:
+return $default(_that.input,_that.output,_that.reasoning,_that.cache);case _:
   return null;
 
 }
@@ -221,13 +221,13 @@ return $default(_that.input,_that.output,_that.reasoning,_that.stepFinishPartTok
 @JsonSerializable()
 
 class _StepFinishPartTokens implements StepFinishPartTokens {
-  const _StepFinishPartTokens({required this.input, required this.output, required this.reasoning, @JsonKey(name: 'StepFinishPartTokensCache') required this.stepFinishPartTokensCache});
+  const _StepFinishPartTokens({required this.input, required this.output, required this.reasoning, required this.cache});
   factory _StepFinishPartTokens.fromJson(Map<String, dynamic> json) => _$StepFinishPartTokensFromJson(json);
 
 @override final  num input;
 @override final  num output;
 @override final  num reasoning;
-@override@JsonKey(name: 'StepFinishPartTokensCache') final  StepFinishPartTokensCache stepFinishPartTokensCache;
+@override final  StepFinishPartTokensCache cache;
 
 /// Create a copy of StepFinishPartTokens
 /// with the given fields replaced by the non-null parameter values.
@@ -242,16 +242,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StepFinishPartTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.stepFinishPartTokensCache, stepFinishPartTokensCache) || other.stepFinishPartTokensCache == stepFinishPartTokensCache));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _StepFinishPartTokens&&(identical(other.input, input) || other.input == input)&&(identical(other.output, output) || other.output == output)&&(identical(other.reasoning, reasoning) || other.reasoning == reasoning)&&(identical(other.cache, cache) || other.cache == cache));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,input,output,reasoning,stepFinishPartTokensCache);
+int get hashCode => Object.hash(runtimeType,input,output,reasoning,cache);
 
 @override
 String toString() {
-  return 'StepFinishPartTokens(input: $input, output: $output, reasoning: $reasoning, stepFinishPartTokensCache: $stepFinishPartTokensCache)';
+  return 'StepFinishPartTokens(input: $input, output: $output, reasoning: $reasoning, cache: $cache)';
 }
 
 
@@ -262,11 +262,11 @@ abstract mixin class _$StepFinishPartTokensCopyWith<$Res> implements $StepFinish
   factory _$StepFinishPartTokensCopyWith(_StepFinishPartTokens value, $Res Function(_StepFinishPartTokens) _then) = __$StepFinishPartTokensCopyWithImpl;
 @override @useResult
 $Res call({
- num input, num output, num reasoning,@JsonKey(name: 'StepFinishPartTokensCache') StepFinishPartTokensCache stepFinishPartTokensCache
+ num input, num output, num reasoning, StepFinishPartTokensCache cache
 });
 
 
-@override $StepFinishPartTokensCacheCopyWith<$Res> get stepFinishPartTokensCache;
+@override $StepFinishPartTokensCacheCopyWith<$Res> get cache;
 
 }
 /// @nodoc
@@ -279,12 +279,12 @@ class __$StepFinishPartTokensCopyWithImpl<$Res>
 
 /// Create a copy of StepFinishPartTokens
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? stepFinishPartTokensCache = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? input = null,Object? output = null,Object? reasoning = null,Object? cache = null,}) {
   return _then(_StepFinishPartTokens(
 input: null == input ? _self.input : input // ignore: cast_nullable_to_non_nullable
 as num,output: null == output ? _self.output : output // ignore: cast_nullable_to_non_nullable
 as num,reasoning: null == reasoning ? _self.reasoning : reasoning // ignore: cast_nullable_to_non_nullable
-as num,stepFinishPartTokensCache: null == stepFinishPartTokensCache ? _self.stepFinishPartTokensCache : stepFinishPartTokensCache // ignore: cast_nullable_to_non_nullable
+as num,cache: null == cache ? _self.cache : cache // ignore: cast_nullable_to_non_nullable
 as StepFinishPartTokensCache,
   ));
 }
@@ -293,10 +293,10 @@ as StepFinishPartTokensCache,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$StepFinishPartTokensCacheCopyWith<$Res> get stepFinishPartTokensCache {
+$StepFinishPartTokensCacheCopyWith<$Res> get cache {
   
-  return $StepFinishPartTokensCacheCopyWith<$Res>(_self.stepFinishPartTokensCache, (value) {
-    return _then(_self.copyWith(stepFinishPartTokensCache: value));
+  return $StepFinishPartTokensCacheCopyWith<$Res>(_self.cache, (value) {
+    return _then(_self.copyWith(cache: value));
   });
 }
 }

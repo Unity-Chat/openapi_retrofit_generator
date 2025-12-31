@@ -38,15 +38,9 @@ class ClassWithNullableTypesMapper
   static List<dynamic>? _$p2NullAll(ClassWithNullableTypes v) => v.p2NullAll;
   static const Field<ClassWithNullableTypes, List<dynamic>> _f$p2NullAll =
       Field('p2NullAll', _$p2NullAll, key: r'p2_null_all');
-  static ClassWithNullableTypesP3 _$classWithNullableTypesP3(
-    ClassWithNullableTypes v,
-  ) => v.classWithNullableTypesP3;
-  static const Field<ClassWithNullableTypes, ClassWithNullableTypesP3>
-  _f$classWithNullableTypesP3 = Field(
-    'classWithNullableTypesP3',
-    _$classWithNullableTypesP3,
-    key: r'ClassWithNullableTypesP3',
-  );
+  static ClassWithNullableTypesP3 _$p3(ClassWithNullableTypes v) => v.p3;
+  static const Field<ClassWithNullableTypes, ClassWithNullableTypesP3> _f$p3 =
+      Field('p3', _$p3);
   static dynamic _$requiredNullAnyOf(ClassWithNullableTypes v) =>
       v.requiredNullAnyOf;
   static const Field<ClassWithNullableTypes, dynamic> _f$requiredNullAnyOf =
@@ -147,16 +141,9 @@ class ClassWithNullableTypesMapper
     key: r'p2_n',
     opt: true,
   );
-  static ClassWithNullableTypesP3N? _$classWithNullableTypesP3N(
-    ClassWithNullableTypes v,
-  ) => v.classWithNullableTypesP3N;
-  static const Field<ClassWithNullableTypes, ClassWithNullableTypesP3N>
-  _f$classWithNullableTypesP3N = Field(
-    'classWithNullableTypesP3N',
-    _$classWithNullableTypesP3N,
-    key: r'ClassWithNullableTypesP3N',
-    opt: true,
-  );
+  static ClassWithNullableTypesP3N? _$p3N(ClassWithNullableTypes v) => v.p3N;
+  static const Field<ClassWithNullableTypes, ClassWithNullableTypesP3N> _f$p3N =
+      Field('p3N', _$p3N, key: r'p3_n', opt: true);
   static String? _$p1List(ClassWithNullableTypes v) => v.p1List;
   static const Field<ClassWithNullableTypes, String> _f$p1List = Field(
     'p1List',
@@ -201,7 +188,7 @@ class ClassWithNullableTypesMapper
     #p2: _f$p2,
     #p2NullItem: _f$p2NullItem,
     #p2NullAll: _f$p2NullAll,
-    #classWithNullableTypesP3: _f$classWithNullableTypesP3,
+    #p3: _f$p3,
     #requiredNullAnyOf: _f$requiredNullAnyOf,
     #p1AnyOf: _f$p1AnyOf,
     #p2AnyOf: _f$p2AnyOf,
@@ -218,7 +205,7 @@ class ClassWithNullableTypesMapper
     #p2Null: _f$p2Null,
     #p1N: _f$p1N,
     #p2N: _f$p2N,
-    #classWithNullableTypesP3N: _f$classWithNullableTypesP3N,
+    #p3N: _f$p3N,
     #p1List: _f$p1List,
     #p2List: _f$p2List,
     #p3List: _f$p3List,
@@ -232,7 +219,7 @@ class ClassWithNullableTypesMapper
       p2: data.dec(_f$p2),
       p2NullItem: data.dec(_f$p2NullItem),
       p2NullAll: data.dec(_f$p2NullAll),
-      classWithNullableTypesP3: data.dec(_f$classWithNullableTypesP3),
+      p3: data.dec(_f$p3),
       requiredNullAnyOf: data.dec(_f$requiredNullAnyOf),
       p1AnyOf: data.dec(_f$p1AnyOf),
       p2AnyOf: data.dec(_f$p2AnyOf),
@@ -249,7 +236,7 @@ class ClassWithNullableTypesMapper
       p2Null: data.dec(_f$p2Null),
       p1N: data.dec(_f$p1N),
       p2N: data.dec(_f$p2N),
-      classWithNullableTypesP3N: data.dec(_f$classWithNullableTypesP3N),
+      p3N: data.dec(_f$p3N),
       p1List: data.dec(_f$p1List),
       p2List: data.dec(_f$p2List),
       p3List: data.dec(_f$p3List),
@@ -342,7 +329,7 @@ abstract class ClassWithNullableTypesCopyWith<
     ClassWithNullableTypesP3,
     ClassWithNullableTypesP3
   >
-  get classWithNullableTypesP3;
+  get p3;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>? get validArray;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>? get p2Null;
   ListCopyWith<$R, String?, ObjectCopyWith<$R, String?, String?>?>? get p2N;
@@ -351,14 +338,14 @@ abstract class ClassWithNullableTypesCopyWith<
     ClassWithNullableTypesP3N,
     ClassWithNullableTypesP3N
   >?
-  get classWithNullableTypesP3N;
+  get p3N;
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>? get p2List;
   $R call({
     String? p1,
     List<String>? p2,
     List<List<String?>>? p2NullItem,
     List<dynamic>? p2NullAll,
-    ClassWithNullableTypesP3? classWithNullableTypesP3,
+    ClassWithNullableTypesP3? p3,
     dynamic requiredNullAnyOf,
     dynamic p1AnyOf,
     dynamic p2AnyOf,
@@ -375,7 +362,7 @@ abstract class ClassWithNullableTypesCopyWith<
     List<dynamic>? p2Null,
     String? p1N,
     List<String?>? p2N,
-    ClassWithNullableTypesP3N? classWithNullableTypesP3N,
+    ClassWithNullableTypesP3N? p3N,
     String? p1List,
     List<dynamic>? p2List,
     dynamic p3List,
@@ -429,8 +416,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
     ClassWithNullableTypesP3,
     ClassWithNullableTypesP3
   >
-  get classWithNullableTypesP3 => $value.classWithNullableTypesP3.copyWith
-      .$chain((v) => call(classWithNullableTypesP3: v));
+  get p3 => $value.p3.copyWith.$chain((v) => call(p3: v));
   @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>>?
   get validArray => $value.validArray != null
@@ -464,8 +450,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
     ClassWithNullableTypesP3N,
     ClassWithNullableTypesP3N
   >?
-  get classWithNullableTypesP3N => $value.classWithNullableTypesP3N?.copyWith
-      .$chain((v) => call(classWithNullableTypesP3N: v));
+  get p3N => $value.p3N?.copyWith.$chain((v) => call(p3N: v));
   @override
   ListCopyWith<$R, dynamic, ObjectCopyWith<$R, dynamic, dynamic>>? get p2List =>
       $value.p2List != null
@@ -481,7 +466,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
     List<String>? p2,
     List<List<String?>>? p2NullItem,
     Object? p2NullAll = $none,
-    ClassWithNullableTypesP3? classWithNullableTypesP3,
+    ClassWithNullableTypesP3? p3,
     Object? requiredNullAnyOf = $none,
     Object? p1AnyOf = $none,
     Object? p2AnyOf = $none,
@@ -498,7 +483,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
     Object? p2Null = $none,
     Object? p1N = $none,
     Object? p2N = $none,
-    Object? classWithNullableTypesP3N = $none,
+    Object? p3N = $none,
     Object? p1List = $none,
     Object? p2List = $none,
     Object? p3List = $none,
@@ -510,8 +495,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
       if (p2 != null) #p2: p2,
       if (p2NullItem != null) #p2NullItem: p2NullItem,
       if (p2NullAll != $none) #p2NullAll: p2NullAll,
-      if (classWithNullableTypesP3 != null)
-        #classWithNullableTypesP3: classWithNullableTypesP3,
+      if (p3 != null) #p3: p3,
       if (requiredNullAnyOf != $none) #requiredNullAnyOf: requiredNullAnyOf,
       if (p1AnyOf != $none) #p1AnyOf: p1AnyOf,
       if (p2AnyOf != $none) #p2AnyOf: p2AnyOf,
@@ -528,8 +512,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
       if (p2Null != $none) #p2Null: p2Null,
       if (p1N != $none) #p1N: p1N,
       if (p2N != $none) #p2N: p2N,
-      if (classWithNullableTypesP3N != $none)
-        #classWithNullableTypesP3N: classWithNullableTypesP3N,
+      if (p3N != $none) #p3N: p3N,
       if (p1List != $none) #p1List: p1List,
       if (p2List != $none) #p2List: p2List,
       if (p3List != $none) #p3List: p3List,
@@ -543,10 +526,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
     p2: data.get(#p2, or: $value.p2),
     p2NullItem: data.get(#p2NullItem, or: $value.p2NullItem),
     p2NullAll: data.get(#p2NullAll, or: $value.p2NullAll),
-    classWithNullableTypesP3: data.get(
-      #classWithNullableTypesP3,
-      or: $value.classWithNullableTypesP3,
-    ),
+    p3: data.get(#p3, or: $value.p3),
     requiredNullAnyOf: data.get(
       #requiredNullAnyOf,
       or: $value.requiredNullAnyOf,
@@ -566,10 +546,7 @@ class _ClassWithNullableTypesCopyWithImpl<$R, $Out>
     p2Null: data.get(#p2Null, or: $value.p2Null),
     p1N: data.get(#p1N, or: $value.p1N),
     p2N: data.get(#p2N, or: $value.p2N),
-    classWithNullableTypesP3N: data.get(
-      #classWithNullableTypesP3N,
-      or: $value.classWithNullableTypesP3N,
-    ),
+    p3N: data.get(#p3N, or: $value.p3N),
     p1List: data.get(#p1List, or: $value.p1List),
     p2List: data.get(#p2List, or: $value.p2List),
     p3List: data.get(#p3List, or: $value.p3List),

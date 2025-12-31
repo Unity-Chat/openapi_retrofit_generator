@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventIdeInstalled {
 
- String get type;@JsonKey(name: 'EventIdeInstalledProperties') EventIdeInstalledProperties get eventIdeInstalledProperties;
+ String get type; EventIdeInstalledProperties get properties;
 /// Create a copy of EventIdeInstalled
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventIdeInstalledCopyWith<EventIdeInstalled> get copyWith => _$EventIdeInstalle
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventIdeInstalled&&(identical(other.type, type) || other.type == type)&&(identical(other.eventIdeInstalledProperties, eventIdeInstalledProperties) || other.eventIdeInstalledProperties == eventIdeInstalledProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventIdeInstalled&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventIdeInstalledProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventIdeInstalled(type: $type, eventIdeInstalledProperties: $eventIdeInstalledProperties)';
+  return 'EventIdeInstalled(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventIdeInstalledCopyWith<$Res>  {
   factory $EventIdeInstalledCopyWith(EventIdeInstalled value, $Res Function(EventIdeInstalled) _then) = _$EventIdeInstalledCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventIdeInstalledProperties') EventIdeInstalledProperties eventIdeInstalledProperties
+ String type, EventIdeInstalledProperties properties
 });
 
 
-$EventIdeInstalledPropertiesCopyWith<$Res> get eventIdeInstalledProperties;
+$EventIdeInstalledPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventIdeInstalledCopyWithImpl<$Res>
 
 /// Create a copy of EventIdeInstalled
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventIdeInstalledProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventIdeInstalledProperties: null == eventIdeInstalledProperties ? _self.eventIdeInstalledProperties : eventIdeInstalledProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventIdeInstalledProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventIdeInstalledProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventIdeInstalledPropertiesCopyWith<$Res> get eventIdeInstalledProperties {
+$EventIdeInstalledPropertiesCopyWith<$Res> get properties {
   
-  return $EventIdeInstalledPropertiesCopyWith<$Res>(_self.eventIdeInstalledProperties, (value) {
-    return _then(_self.copyWith(eventIdeInstalledProperties: value));
+  return $EventIdeInstalledPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventIdeInstalledProperties')  EventIdeInstalledProperties eventIdeInstalledProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventIdeInstalledProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventIdeInstalled() when $default != null:
-return $default(_that.type,_that.eventIdeInstalledProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventIdeInstalledProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventIdeInstalledProperties')  EventIdeInstalledProperties eventIdeInstalledProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventIdeInstalledProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventIdeInstalled():
-return $default(_that.type,_that.eventIdeInstalledProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventIdeInstalledProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventIdeInstalledProperties')  EventIdeInstalledProperties eventIdeInstalledProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventIdeInstalledProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventIdeInstalled() when $default != null:
-return $default(_that.type,_that.eventIdeInstalledProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventIdeInstalledProperties);case _:
 @JsonSerializable()
 
 class _EventIdeInstalled implements EventIdeInstalled {
-  const _EventIdeInstalled({required this.type, @JsonKey(name: 'EventIdeInstalledProperties') required this.eventIdeInstalledProperties});
+  const _EventIdeInstalled({required this.type, required this.properties});
   factory _EventIdeInstalled.fromJson(Map<String, dynamic> json) => _$EventIdeInstalledFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventIdeInstalledProperties') final  EventIdeInstalledProperties eventIdeInstalledProperties;
+@override final  EventIdeInstalledProperties properties;
 
 /// Create a copy of EventIdeInstalled
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventIdeInstalled&&(identical(other.type, type) || other.type == type)&&(identical(other.eventIdeInstalledProperties, eventIdeInstalledProperties) || other.eventIdeInstalledProperties == eventIdeInstalledProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventIdeInstalled&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventIdeInstalledProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventIdeInstalled(type: $type, eventIdeInstalledProperties: $eventIdeInstalledProperties)';
+  return 'EventIdeInstalled(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventIdeInstalledCopyWith<$Res> implements $EventIdeInsta
   factory _$EventIdeInstalledCopyWith(_EventIdeInstalled value, $Res Function(_EventIdeInstalled) _then) = __$EventIdeInstalledCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventIdeInstalledProperties') EventIdeInstalledProperties eventIdeInstalledProperties
+ String type, EventIdeInstalledProperties properties
 });
 
 
-@override $EventIdeInstalledPropertiesCopyWith<$Res> get eventIdeInstalledProperties;
+@override $EventIdeInstalledPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventIdeInstalledCopyWithImpl<$Res>
 
 /// Create a copy of EventIdeInstalled
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventIdeInstalledProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventIdeInstalled(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventIdeInstalledProperties: null == eventIdeInstalledProperties ? _self.eventIdeInstalledProperties : eventIdeInstalledProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventIdeInstalledProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventIdeInstalledProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventIdeInstalledPropertiesCopyWith<$Res> get eventIdeInstalledProperties {
+$EventIdeInstalledPropertiesCopyWith<$Res> get properties {
   
-  return $EventIdeInstalledPropertiesCopyWith<$Res>(_self.eventIdeInstalledProperties, (value) {
-    return _then(_self.copyWith(eventIdeInstalledProperties: value));
+  return $EventIdeInstalledPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

@@ -16,7 +16,7 @@ class AgentPart {
     required this.messageId,
     required this.type,
     required this.name,
-    this.agentPartSource,
+    this.source,
   });
 
   factory AgentPart.fromJson(Map<String, Object?> json) =>
@@ -29,8 +29,7 @@ class AgentPart {
   final String messageId;
   final String type;
   final String name;
-  @JsonKey(name: 'AgentPartSource')
-  final AgentPartSource? agentPartSource;
+  final AgentPartSource? source;
 
   Map<String, Object?> toJson() => _$AgentPartToJson(this);
 }

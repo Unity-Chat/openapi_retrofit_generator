@@ -15,7 +15,7 @@ class TextPartInput with TextPartInputMappable {
     required this.text,
     this.id,
     this.synthetic,
-    this.textPartInputTime,
+    this.time,
     this.metadata,
   });
 
@@ -23,8 +23,7 @@ class TextPartInput with TextPartInputMappable {
   final String text;
   final String? id;
   final bool? synthetic;
-  @MappableField(key: 'TextPartInputTime')
-  final TextPartInputTime? textPartInputTime;
+  final TextPartInputTime? time;
   final Map<String, dynamic>? metadata;
 
   static TextPartInput fromJson(Map<String, dynamic> json) =>

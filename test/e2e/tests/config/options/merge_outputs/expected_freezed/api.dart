@@ -389,10 +389,8 @@ enum UserStatus {
 @Freezed()
 abstract class UserSettings with _$UserSettings {
   const factory UserSettings({
-    @JsonKey(name: 'UserSettingsNotifications')
-    UserSettingsNotifications? userSettingsNotifications,
-    @JsonKey(name: 'UserSettingsPrivacy')
-    UserSettingsPrivacy? userSettingsPrivacy,
+    UserSettingsNotifications? notifications,
+    UserSettingsPrivacy? privacy,
     @Default(UserSettingsThemeTheme.auto) UserSettingsThemeTheme theme,
     @Default('en') String language,
   }) = _UserSettings;
@@ -812,7 +810,7 @@ abstract class Data with _$Data {
   const factory Data({
     required String id,
     required String value,
-    @JsonKey(name: 'DataNested') DataNested? dataNested,
+    DataNested? nested,
   }) = _Data;
 
   factory Data.fromJson(Map<String, Object?> json) => _$DataFromJson(json);
@@ -882,8 +880,7 @@ abstract class ListPostsResponsePagination with _$ListPostsResponsePagination {
 abstract class ListPostsResponse with _$ListPostsResponse {
   const factory ListPostsResponse({
     List<PostModel>? posts,
-    @JsonKey(name: 'ListPostsResponsePagination')
-    ListPostsResponsePagination? listPostsResponsePagination,
+    ListPostsResponsePagination? pagination,
     Map<String, String>? metadata,
   }) = _ListPostsResponse;
 
@@ -905,7 +902,7 @@ abstract class Filters with _$Filters {
   const factory Filters({
     String? authorId,
     List<String>? tags,
-    @JsonKey(name: 'FiltersDateRange') FiltersDateRange? filtersDateRange,
+    FiltersDateRange? dateRange,
   }) = _Filters;
 
   factory Filters.fromJson(Map<String, Object?> json) =>
@@ -994,8 +991,7 @@ abstract class GetDuplicateResponseMetadataData
 abstract class GetDuplicateResponseMetadata
     with _$GetDuplicateResponseMetadata {
   const factory GetDuplicateResponseMetadata({
-    @JsonKey(name: 'GetDuplicateResponseMetadataData')
-    GetDuplicateResponseMetadataData? getDuplicateResponseMetadataData,
+    GetDuplicateResponseMetadataData? data,
   }) = _GetDuplicateResponseMetadata;
 
   factory GetDuplicateResponseMetadata.fromJson(Map<String, Object?> json) =>
@@ -1006,8 +1002,7 @@ abstract class GetDuplicateResponseMetadata
 abstract class GetDuplicateResponse with _$GetDuplicateResponse {
   const factory GetDuplicateResponse({
     Data? data,
-    @JsonKey(name: 'GetDuplicateResponseMetadata')
-    GetDuplicateResponseMetadata? getDuplicateResponseMetadata,
+    GetDuplicateResponseMetadata? metadata,
   }) = _GetDuplicateResponse;
 
   factory GetDuplicateResponse.fromJson(Map<String, Object?> json) =>

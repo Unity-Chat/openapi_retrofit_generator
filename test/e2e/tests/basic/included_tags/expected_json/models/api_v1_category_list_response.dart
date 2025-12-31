@@ -12,16 +12,15 @@ part 'api_v1_category_list_response.g.dart';
 class ApiV1CategoryListResponse {
   const ApiV1CategoryListResponse({
     required this.includedResponse,
-    this.apiV1CategoryListResponseIncludedData,
+    this.includedData,
   });
 
   factory ApiV1CategoryListResponse.fromJson(Map<String, Object?> json) =>
       _$ApiV1CategoryListResponseFromJson(json);
 
   final String includedResponse;
-  @JsonKey(includeIfNull: false, name: 'ApiV1CategoryListResponseIncludedData')
-  final ApiV1CategoryListResponseIncludedData?
-  apiV1CategoryListResponseIncludedData;
+  @JsonKey(includeIfNull: false)
+  final ApiV1CategoryListResponseIncludedData? includedData;
 
   Map<String, Object?> toJson() => _$ApiV1CategoryListResponseToJson(this);
 }

@@ -13,8 +13,7 @@ part 'event_file_edited.g.dart';
 abstract class EventFileEdited with _$EventFileEdited {
   const factory EventFileEdited({
     required String type,
-    @JsonKey(name: 'EventFileEditedProperties')
-    required EventFileEditedProperties eventFileEditedProperties,
+    required EventFileEditedProperties properties,
   }) = _EventFileEdited;
 
   factory EventFileEdited.fromJson(Map<String, Object?> json) =>

@@ -9,13 +9,10 @@ part of 'event_file_edited.dart';
 _EventFileEdited _$EventFileEditedFromJson(Map<String, dynamic> json) =>
     _EventFileEdited(
       type: json['type'] as String,
-      eventFileEditedProperties: EventFileEditedProperties.fromJson(
-        json['EventFileEditedProperties'] as Map<String, dynamic>,
+      properties: EventFileEditedProperties.fromJson(
+        json['properties'] as Map<String, dynamic>,
       ),
     );
 
 Map<String, dynamic> _$EventFileEditedToJson(_EventFileEdited instance) =>
-    <String, dynamic>{
-      'type': instance.type,
-      'EventFileEditedProperties': instance.eventFileEditedProperties,
-    };
+    <String, dynamic>{'type': instance.type, 'properties': instance.properties};

@@ -17,8 +17,7 @@ abstract class ReasoningPart with _$ReasoningPart {
     @JsonKey(name: 'messageID') required String messageId,
     required String type,
     required String text,
-    @JsonKey(name: 'ReasoningPartTime')
-    required ReasoningPartTime reasoningPartTime,
+    required ReasoningPartTime time,
     Map<String, dynamic>? metadata,
   }) = _ReasoningPart;
 

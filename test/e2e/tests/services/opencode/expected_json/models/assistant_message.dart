@@ -17,14 +17,14 @@ class AssistantMessage {
     required this.id,
     required this.sessionId,
     required this.role,
-    required this.assistantMessageTime,
+    required this.time,
     required this.system,
     required this.modelId,
     required this.providerId,
     required this.mode,
-    required this.assistantMessagePath,
+    required this.path,
     required this.cost,
-    required this.assistantMessageTokens,
+    required this.tokens,
     this.error,
     this.summary,
   });
@@ -36,8 +36,7 @@ class AssistantMessage {
   @JsonKey(name: 'sessionID')
   final String sessionId;
   final String role;
-  @JsonKey(name: 'AssistantMessageTime')
-  final AssistantMessageTime assistantMessageTime;
+  final AssistantMessageTime time;
   final AssistantMessageErrorError? error;
   final List<String> system;
   @JsonKey(name: 'modelID')
@@ -45,12 +44,10 @@ class AssistantMessage {
   @JsonKey(name: 'providerID')
   final String providerId;
   final String mode;
-  @JsonKey(name: 'AssistantMessagePath')
-  final AssistantMessagePath assistantMessagePath;
+  final AssistantMessagePath path;
   final bool? summary;
   final num cost;
-  @JsonKey(name: 'AssistantMessageTokens')
-  final AssistantMessageTokens assistantMessageTokens;
+  final AssistantMessageTokens tokens;
 
   Map<String, Object?> toJson() => _$AssistantMessageToJson(this);
 }

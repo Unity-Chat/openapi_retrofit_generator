@@ -12,11 +12,9 @@ _AgentPart _$AgentPartFromJson(Map<String, dynamic> json) => _AgentPart(
   messageId: json['messageID'] as String,
   type: json['type'] as String,
   name: json['name'] as String,
-  agentPartSource: json['AgentPartSource'] == null
+  source: json['source'] == null
       ? null
-      : AgentPartSource.fromJson(
-          json['AgentPartSource'] as Map<String, dynamic>,
-        ),
+      : AgentPartSource.fromJson(json['source'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$AgentPartToJson(_AgentPart instance) =>
@@ -26,5 +24,5 @@ Map<String, dynamic> _$AgentPartToJson(_AgentPart instance) =>
       'messageID': instance.messageId,
       'type': instance.type,
       'name': instance.name,
-      'AgentPartSource': instance.agentPartSource,
+      'source': instance.source,
     };

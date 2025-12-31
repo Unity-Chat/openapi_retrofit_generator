@@ -9,8 +9,8 @@ part of 'event_message_removed.dart';
 _EventMessageRemoved _$EventMessageRemovedFromJson(Map<String, dynamic> json) =>
     _EventMessageRemoved(
       type: json['type'] as String,
-      eventMessageRemovedProperties: EventMessageRemovedProperties.fromJson(
-        json['EventMessageRemovedProperties'] as Map<String, dynamic>,
+      properties: EventMessageRemovedProperties.fromJson(
+        json['properties'] as Map<String, dynamic>,
       ),
     );
 
@@ -18,5 +18,5 @@ Map<String, dynamic> _$EventMessageRemovedToJson(
   _EventMessageRemoved instance,
 ) => <String, dynamic>{
   'type': instance.type,
-  'EventMessageRemovedProperties': instance.eventMessageRemovedProperties,
+  'properties': instance.properties,
 };

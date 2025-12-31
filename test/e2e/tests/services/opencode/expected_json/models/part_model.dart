@@ -40,12 +40,14 @@ class PartModel {
 @JsonSerializable()
 class PartModelTextPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String text;
   final bool? synthetic;
-  final TextPartTime? textPartTime;
+  final TextPartTime? time;
   final Map<String, dynamic>? metadata;
 
   const PartModelTextPart({
@@ -55,7 +57,7 @@ class PartModelTextPart {
     required this.type,
     required this.text,
     required this.synthetic,
-    required this.textPartTime,
+    required this.time,
     required this.metadata,
   });
 
@@ -68,12 +70,14 @@ class PartModelTextPart {
 @JsonSerializable()
 class PartModelReasoningPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String text;
   final Map<String, dynamic>? metadata;
-  final ReasoningPartTime reasoningPartTime;
+  final ReasoningPartTime time;
 
   const PartModelReasoningPart({
     required this.id,
@@ -82,7 +86,7 @@ class PartModelReasoningPart {
     required this.type,
     required this.text,
     required this.metadata,
-    required this.reasoningPartTime,
+    required this.time,
   });
 
   factory PartModelReasoningPart.fromJson(Map<String, dynamic> json) =>
@@ -94,7 +98,9 @@ class PartModelReasoningPart {
 @JsonSerializable()
 class PartModelFilePart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String mime;
@@ -122,9 +128,12 @@ class PartModelFilePart {
 @JsonSerializable()
 class PartModelToolPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
+  @JsonKey(name: 'callID')
   final String callId;
   final String tool;
   final ToolState state;
@@ -150,7 +159,9 @@ class PartModelToolPart {
 @JsonSerializable()
 class PartModelStepStartPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String? snapshot;
@@ -172,12 +183,14 @@ class PartModelStepStartPart {
 @JsonSerializable()
 class PartModelStepFinishPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String? snapshot;
   final num cost;
-  final StepFinishPartTokens stepFinishPartTokens;
+  final StepFinishPartTokens tokens;
 
   const PartModelStepFinishPart({
     required this.id,
@@ -186,7 +199,7 @@ class PartModelStepFinishPart {
     required this.type,
     required this.snapshot,
     required this.cost,
-    required this.stepFinishPartTokens,
+    required this.tokens,
   });
 
   factory PartModelStepFinishPart.fromJson(Map<String, dynamic> json) =>
@@ -198,7 +211,9 @@ class PartModelStepFinishPart {
 @JsonSerializable()
 class PartModelSnapshotPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String snapshot;
@@ -220,7 +235,9 @@ class PartModelSnapshotPart {
 @JsonSerializable()
 class PartModelPatchPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String hash;
@@ -244,11 +261,13 @@ class PartModelPatchPart {
 @JsonSerializable()
 class PartModelAgentPart {
   final String id;
+  @JsonKey(name: 'sessionID')
   final String sessionId;
+  @JsonKey(name: 'messageID')
   final String messageId;
   final String type;
   final String name;
-  final AgentPartSource? agentPartSource;
+  final AgentPartSource? source;
 
   const PartModelAgentPart({
     required this.id,
@@ -256,7 +275,7 @@ class PartModelAgentPart {
     required this.messageId,
     required this.type,
     required this.name,
-    required this.agentPartSource,
+    required this.source,
   });
 
   factory PartModelAgentPart.fromJson(Map<String, dynamic> json) =>

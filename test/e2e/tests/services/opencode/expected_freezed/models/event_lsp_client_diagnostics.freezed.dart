@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$EventLspClientDiagnostics {
 
- String get type;@JsonKey(name: 'EventLspClientDiagnosticsProperties') EventLspClientDiagnosticsProperties get eventLspClientDiagnosticsProperties;
+ String get type; EventLspClientDiagnosticsProperties get properties;
 /// Create a copy of EventLspClientDiagnostics
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $EventLspClientDiagnosticsCopyWith<EventLspClientDiagnostics> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventLspClientDiagnostics&&(identical(other.type, type) || other.type == type)&&(identical(other.eventLspClientDiagnosticsProperties, eventLspClientDiagnosticsProperties) || other.eventLspClientDiagnosticsProperties == eventLspClientDiagnosticsProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is EventLspClientDiagnostics&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventLspClientDiagnosticsProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventLspClientDiagnostics(type: $type, eventLspClientDiagnosticsProperties: $eventLspClientDiagnosticsProperties)';
+  return 'EventLspClientDiagnostics(type: $type, properties: $properties)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $EventLspClientDiagnosticsCopyWith<$Res>  {
   factory $EventLspClientDiagnosticsCopyWith(EventLspClientDiagnostics value, $Res Function(EventLspClientDiagnostics) _then) = _$EventLspClientDiagnosticsCopyWithImpl;
 @useResult
 $Res call({
- String type,@JsonKey(name: 'EventLspClientDiagnosticsProperties') EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties
+ String type, EventLspClientDiagnosticsProperties properties
 });
 
 
-$EventLspClientDiagnosticsPropertiesCopyWith<$Res> get eventLspClientDiagnosticsProperties;
+$EventLspClientDiagnosticsPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -65,10 +65,10 @@ class _$EventLspClientDiagnosticsCopyWithImpl<$Res>
 
 /// Create a copy of EventLspClientDiagnostics
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? eventLspClientDiagnosticsProperties = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_self.copyWith(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventLspClientDiagnosticsProperties: null == eventLspClientDiagnosticsProperties ? _self.eventLspClientDiagnosticsProperties : eventLspClientDiagnosticsProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventLspClientDiagnosticsProperties,
   ));
 }
@@ -76,10 +76,10 @@ as EventLspClientDiagnosticsProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventLspClientDiagnosticsPropertiesCopyWith<$Res> get eventLspClientDiagnosticsProperties {
+$EventLspClientDiagnosticsPropertiesCopyWith<$Res> get properties {
   
-  return $EventLspClientDiagnosticsPropertiesCopyWith<$Res>(_self.eventLspClientDiagnosticsProperties, (value) {
-    return _then(_self.copyWith(eventLspClientDiagnosticsProperties: value));
+  return $EventLspClientDiagnosticsPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }
@@ -163,10 +163,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventLspClientDiagnosticsProperties')  EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String type,  EventLspClientDiagnosticsProperties properties)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _EventLspClientDiagnostics() when $default != null:
-return $default(_that.type,_that.eventLspClientDiagnosticsProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return orElse();
 
 }
@@ -184,10 +184,10 @@ return $default(_that.type,_that.eventLspClientDiagnosticsProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type, @JsonKey(name: 'EventLspClientDiagnosticsProperties')  EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String type,  EventLspClientDiagnosticsProperties properties)  $default,) {final _that = this;
 switch (_that) {
 case _EventLspClientDiagnostics():
-return $default(_that.type,_that.eventLspClientDiagnosticsProperties);case _:
+return $default(_that.type,_that.properties);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +204,10 @@ return $default(_that.type,_that.eventLspClientDiagnosticsProperties);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type, @JsonKey(name: 'EventLspClientDiagnosticsProperties')  EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String type,  EventLspClientDiagnosticsProperties properties)?  $default,) {final _that = this;
 switch (_that) {
 case _EventLspClientDiagnostics() when $default != null:
-return $default(_that.type,_that.eventLspClientDiagnosticsProperties);case _:
+return $default(_that.type,_that.properties);case _:
   return null;
 
 }
@@ -219,11 +219,11 @@ return $default(_that.type,_that.eventLspClientDiagnosticsProperties);case _:
 @JsonSerializable()
 
 class _EventLspClientDiagnostics implements EventLspClientDiagnostics {
-  const _EventLspClientDiagnostics({required this.type, @JsonKey(name: 'EventLspClientDiagnosticsProperties') required this.eventLspClientDiagnosticsProperties});
+  const _EventLspClientDiagnostics({required this.type, required this.properties});
   factory _EventLspClientDiagnostics.fromJson(Map<String, dynamic> json) => _$EventLspClientDiagnosticsFromJson(json);
 
 @override final  String type;
-@override@JsonKey(name: 'EventLspClientDiagnosticsProperties') final  EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties;
+@override final  EventLspClientDiagnosticsProperties properties;
 
 /// Create a copy of EventLspClientDiagnostics
 /// with the given fields replaced by the non-null parameter values.
@@ -238,16 +238,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventLspClientDiagnostics&&(identical(other.type, type) || other.type == type)&&(identical(other.eventLspClientDiagnosticsProperties, eventLspClientDiagnosticsProperties) || other.eventLspClientDiagnosticsProperties == eventLspClientDiagnosticsProperties));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EventLspClientDiagnostics&&(identical(other.type, type) || other.type == type)&&(identical(other.properties, properties) || other.properties == properties));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,type,eventLspClientDiagnosticsProperties);
+int get hashCode => Object.hash(runtimeType,type,properties);
 
 @override
 String toString() {
-  return 'EventLspClientDiagnostics(type: $type, eventLspClientDiagnosticsProperties: $eventLspClientDiagnosticsProperties)';
+  return 'EventLspClientDiagnostics(type: $type, properties: $properties)';
 }
 
 
@@ -258,11 +258,11 @@ abstract mixin class _$EventLspClientDiagnosticsCopyWith<$Res> implements $Event
   factory _$EventLspClientDiagnosticsCopyWith(_EventLspClientDiagnostics value, $Res Function(_EventLspClientDiagnostics) _then) = __$EventLspClientDiagnosticsCopyWithImpl;
 @override @useResult
 $Res call({
- String type,@JsonKey(name: 'EventLspClientDiagnosticsProperties') EventLspClientDiagnosticsProperties eventLspClientDiagnosticsProperties
+ String type, EventLspClientDiagnosticsProperties properties
 });
 
 
-@override $EventLspClientDiagnosticsPropertiesCopyWith<$Res> get eventLspClientDiagnosticsProperties;
+@override $EventLspClientDiagnosticsPropertiesCopyWith<$Res> get properties;
 
 }
 /// @nodoc
@@ -275,10 +275,10 @@ class __$EventLspClientDiagnosticsCopyWithImpl<$Res>
 
 /// Create a copy of EventLspClientDiagnostics
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? eventLspClientDiagnosticsProperties = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? type = null,Object? properties = null,}) {
   return _then(_EventLspClientDiagnostics(
 type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
-as String,eventLspClientDiagnosticsProperties: null == eventLspClientDiagnosticsProperties ? _self.eventLspClientDiagnosticsProperties : eventLspClientDiagnosticsProperties // ignore: cast_nullable_to_non_nullable
+as String,properties: null == properties ? _self.properties : properties // ignore: cast_nullable_to_non_nullable
 as EventLspClientDiagnosticsProperties,
   ));
 }
@@ -287,10 +287,10 @@ as EventLspClientDiagnosticsProperties,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$EventLspClientDiagnosticsPropertiesCopyWith<$Res> get eventLspClientDiagnosticsProperties {
+$EventLspClientDiagnosticsPropertiesCopyWith<$Res> get properties {
   
-  return $EventLspClientDiagnosticsPropertiesCopyWith<$Res>(_self.eventLspClientDiagnosticsProperties, (value) {
-    return _then(_self.copyWith(eventLspClientDiagnosticsProperties: value));
+  return $EventLspClientDiagnosticsPropertiesCopyWith<$Res>(_self.properties, (value) {
+    return _then(_self.copyWith(properties: value));
   });
 }
 }

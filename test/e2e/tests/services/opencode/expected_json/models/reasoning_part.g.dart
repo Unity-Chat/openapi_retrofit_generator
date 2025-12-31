@@ -13,9 +13,7 @@ ReasoningPart _$ReasoningPartFromJson(Map<String, dynamic> json) =>
       messageId: json['messageID'] as String,
       type: json['type'] as String,
       text: json['text'] as String,
-      reasoningPartTime: ReasoningPartTime.fromJson(
-        json['ReasoningPartTime'] as Map<String, dynamic>,
-      ),
+      time: ReasoningPartTime.fromJson(json['time'] as Map<String, dynamic>),
       metadata: json['metadata'] as Map<String, dynamic>?,
     );
 
@@ -27,5 +25,5 @@ Map<String, dynamic> _$ReasoningPartToJson(ReasoningPart instance) =>
       'type': instance.type,
       'text': instance.text,
       'metadata': instance.metadata,
-      'ReasoningPartTime': instance.reasoningPartTime,
+      'time': instance.time,
     };
