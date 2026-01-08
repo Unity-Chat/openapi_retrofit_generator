@@ -4,13 +4,10 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-echo "Running E2E tests..."
+echo "Running Unit tests..."
 echo ""
 
 rm -rf test/builders
 rm -rf test/generated
 
-dart test test/e2e
-
-rm -rf test/builders
-rm -rf test/generated
+dart test test/unit

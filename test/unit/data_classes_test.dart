@@ -2277,31 +2277,21 @@ import 'dog.dart';
 
 part 'animal_union.mapper.dart';
 
-@MappableClass(includeSubClasses: [AnimalUnionCat, AnimalUnionDog])
-sealed class AnimalUnion with AnimalUnionMappable {
-  const AnimalUnion();
+class AnimalUnion {
+  final Map<String, dynamic> _json;
 
-  static AnimalUnion fromJson(Map<String, dynamic> json) {
-    return AnimalUnionDeserializer.tryDeserialize(json);
-  }
-}
+  const AnimalUnion(this._json);
 
-extension AnimalUnionDeserializer on AnimalUnion {
-  static AnimalUnion tryDeserialize(Map<String, dynamic> json) {
-    try {
-      return AnimalUnionCatMapper.fromJson(json);
-    } catch (_) {}
-    try {
-      return AnimalUnionDogMapper.fromJson(json);
-    } catch (_) {}
+  factory AnimalUnion.fromJson(Map<String, dynamic> json) => AnimalUnion(json);
 
+  Map<String, dynamic> toJson() => _json;
 
-    throw FormatException('Could not determine the correct type for AnimalUnion from: $json');
-  }
+  AnimalUnionCat toCat() => AnimalUnionCatMapper.fromJson(_json);
+  AnimalUnionDog toDog() => AnimalUnionDogMapper.fromJson(_json);
 }
 
 @MappableClass()
-class AnimalUnionCat extends AnimalUnion with AnimalUnionCatMappable {
+class AnimalUnionCat with AnimalUnionCatMappable {
   final int mewCount;
 
   const AnimalUnionCat({
@@ -2310,7 +2300,7 @@ class AnimalUnionCat extends AnimalUnion with AnimalUnionCatMappable {
 }
 
 @MappableClass()
-class AnimalUnionDog extends AnimalUnion with AnimalUnionDogMappable {
+class AnimalUnionDog with AnimalUnionDogMappable {
   final String barkSound;
 
   const AnimalUnionDog({

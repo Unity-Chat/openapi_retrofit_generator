@@ -1,7 +1,7 @@
 name: openapi_retrofit_generator
 description: Package that generates REST clients and data classes from OpenApi definition file
 
-version: 2.0.3
+version: 2.0.4
 
 repository: https://github.com/westito/openapi_retrofit_generator
 
