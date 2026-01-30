@@ -1245,7 +1245,22 @@ class OpenApiParser {
       resolveAllOf(allOfClass);
     }
 
-    // check for discriminated oneOf
+    // Process discriminated oneOf/anyOf unions to resolve variant properties and imports.
+    //
+    // Discriminated unions (e.g., sealed classes with @Freezed(unionKey: 'type')) can have
+    // recursive self-references. Example:
+    //
+    //   Schema: AI (discriminated union)
+    //   Variants: Model, Agent, CustomAI
+    //   CustomAI has property: baseAi?: AI  ← Self-reference!
+    //
+    // When processing imports, we must filter out self-imports to prevent circular
+    // dependencies. Without this filter, ai.dart would import ai.dart, causing:
+    //   - Circular dependency: ai.dart → custom_ai.dart → ai.dart
+    //   - Build failures in build_runner and freezed code generators
+    //   - Linter warnings about circular imports
+    //
+    // The fix: Filter variant imports to exclude the discriminated union class itself.
     final discriminatedOneOfClasses = dataClasses.where(
       (dc) => dc is UniversalComponentClass && dc.discriminator != null,
     );
@@ -1254,7 +1269,10 @@ class OpenApiParser {
         continue;
       }
       final discriminator = discriminatedOneOfClass.discriminator!;
-      // for each ref, we lookup the matching dataclass and add its properties to the discriminator mapping, its imports are added to the discriminatedOneOfClass's imports
+      // For each variant ref, lookup the matching dataclass and:
+      // 1. Add its properties to the discriminator mapping (for code generation)
+      // 2. Add its imports to the discriminated union class (for dependency resolution)
+      // 3. Filter out self-imports to prevent circular dependencies (CRITICAL FIX)
       for (final ref in discriminator.discriminatorValueToRefMapping.values) {
         final refedClassIndex = dataClasses.indexWhere((dc) => dc.name == ref);
         if (refedClassIndex == -1) {
@@ -1264,9 +1282,20 @@ class OpenApiParser {
         if (refedClass is! UniversalComponentClass) {
           continue;
         }
+        // Store variant properties for template generation
         discriminator.refProperties[ref] = refedClass.parameters;
-        discriminatedOneOfClass.imports.addAll(refedClass.imports);
-        discriminatedOneOfClass.imports.add(refedClass.import);
+
+        // Add variant's imports to the union, but EXCLUDE self-imports.
+        // This is crucial to prevent circular dependencies when a variant
+        // references the discriminated union itself (e.g., CustomAI has baseAi?: AI).
+        discriminatedOneOfClass.imports.addAll(
+          refedClass.imports
+              .where((it) => it != discriminatedOneOfClass.name.toPascal),
+        );
+        // Similarly, only add the variant import if it's not self-referential
+        if (refedClass.import != discriminatedOneOfClass.name.toPascal) {
+          discriminatedOneOfClass.imports.add(refedClass.import);
+        }
 
         // Only set discriminatorValue if this is NOT a top-level component schema
         // Top-level schemas should remain independent; wrapper classes will handle the union

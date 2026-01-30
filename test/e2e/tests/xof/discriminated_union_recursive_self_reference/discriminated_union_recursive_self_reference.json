@@ -1,0 +1,126 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Recursive Discriminated Union Test",
+    "version": "1.0.0",
+    "description": "Test case for discriminated unions with self-references (e.g., AI can have a baseAi which is also an AI)"
+  },
+  "paths": {},
+  "components": {
+    "schemas": {
+      "AI": {
+        "title": "AI",
+        "description": "Discriminated union representing different AI types (Model, Agent, CustomAI)",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Model"
+          },
+          {
+            "$ref": "#/components/schemas/Agent"
+          },
+          {
+            "$ref": "#/components/schemas/CustomAI"
+          }
+        ],
+        "discriminator": {
+          "propertyName": "type",
+          "mapping": {
+            "model": "#/components/schemas/Model",
+            "agent": "#/components/schemas/Agent",
+            "custom": "#/components/schemas/CustomAI"
+          }
+        }
+      },
+      "Model": {
+        "type": "object",
+        "title": "Model",
+        "description": "AI model variant",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "model"
+            ],
+            "description": "Discriminator value for Model"
+          },
+          "id": {
+            "type": "string",
+            "description": "Model ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Model name"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "name"
+        ]
+      },
+      "Agent": {
+        "type": "object",
+        "title": "Agent",
+        "description": "AI agent variant",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "agent"
+            ],
+            "description": "Discriminator value for Agent"
+          },
+          "id": {
+            "type": "string",
+            "description": "Agent ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "Agent name"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "name"
+        ]
+      },
+      "CustomAI": {
+        "type": "object",
+        "title": "CustomAI",
+        "description": "Custom AI variant with recursive self-reference (baseAi can be any AI type)",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "custom"
+            ],
+            "description": "Discriminator value for CustomAI"
+          },
+          "id": {
+            "type": "string",
+            "description": "CustomAI ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "CustomAI name"
+          },
+          "baseAiId": {
+            "type": "string",
+            "description": "Reference to base AI model/agent ID"
+          },
+          "baseAi": {
+            "$ref": "#/components/schemas/AI",
+            "description": "Recursive reference: CustomAI can have a baseAi which is also an AI (SELF-REFERENCE TEST)"
+          }
+        },
+        "required": [
+          "type",
+          "id",
+          "name",
+          "baseAiId"
+        ]
+      }
+    }
+  }
+}

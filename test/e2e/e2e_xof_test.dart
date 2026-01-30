@@ -186,5 +186,20 @@ void main() {
         buildFolder: buildFolder,
       );
     });
+
+    test('discriminated_union_recursive_self_reference', () async {
+      await e2eTest(
+        'xof/discriminated_union_recursive_self_reference',
+        (outputDirectory, schemaPath, serializer) => OpenApiConfig(
+          outputDirectory: outputDirectory,
+          schemaPath: schemaPath,
+          jsonSerializer: serializer,
+          putClientsInFolder: true,
+          includeIfNull: true,
+        ),
+        schemaFileName: 'discriminated_union_recursive_self_reference.json',
+        buildFolder: buildFolder,
+      );
+    });
   });
 }
