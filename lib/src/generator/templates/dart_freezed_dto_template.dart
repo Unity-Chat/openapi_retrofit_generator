@@ -117,12 +117,33 @@ ${_classModifier(isUnion: isUnion)}class $className with _\$$className {
 ${_factories(dataClass, className, includeIfNull, fallbackUnion, customMetadata, isUnion: isUnion, wrapOptional: wrapOptional)}
 ${_unionDefaultConstants(dataClass, className)}
 ${_jsonFactories(className, dataClass.undiscriminatedUnionVariants, isUnion: isUnion)}
-${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}}
+${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_immutableFieldsConst(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension$patchExtension$base64ConverterClass''';
 }
 
 String _classModifier({required bool isUnion}) {
   return isUnion ? 'sealed ' : 'abstract ';
+}
+
+/// A `static const Set<String> immutableFields` naming the JSON keys of this
+/// model's write-once (`@dbImmutable`) fields. Immutability is a property of the
+/// model (it sits with the `@dbImmutable` annotations), and Dart has no runtime
+/// annotation reflection, so the persistence layer reads this constant to build
+/// its write guard without hand-listing anything. Emitted only when non-empty;
+/// the keys are sorted for deterministic output.
+String _immutableFieldsConst(UniversalComponentClass dataClass) {
+  final keys =
+      dataClass.parameters
+          .where((p) => p.customMetadata['immutable'] == true)
+          .map((p) => p.jsonKey ?? p.name)
+          .toList()
+        ..sort();
+  if (keys.isEmpty) {
+    return '';
+  }
+  final quoted = keys.map((k) => "'$k'").join(', ');
+  return "\n  /// JSON keys of this model's write-once (`@dbImmutable`) fields.\n"
+      '  static const Set<String> immutableFields = {$quoted};\n';
 }
 
 /// Provides template for generating one sealed-ref-union family file.
@@ -309,7 +330,7 @@ ${descriptionComment(dataClass.description)}@Freezed()
 abstract class $className with _\$$className$implementsClause {
 ${_factories(dataClass, className, includeIfNull, null, customMetadata, isUnion: false)}
 ${_jsonFactories(className, null, isUnion: false)}
-${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}}
+${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_immutableFieldsConst(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension''';
 }
 
@@ -1441,11 +1462,14 @@ String _customAnnotations(
 
 /// Schema-name rule for the partial-update request types whose value fields
 /// carry presence tracking (`Optional<T>`) — the client mass-assignment boundary.
-/// Matches `update_*_request` but NOT full-replace bodies (e.g.
-/// `update_message_request_full` ends in `_full`, not `_request`) or nested
+/// Matches `update_*_request` AND its managed twin `managed_update_*_request`
+/// (G1.6 — APPLICATION_MANAGED, non-immutable fields), but NOT full-replace bodies
+/// (e.g. `update_message_request_full` ends in `_full`, not `_request`) or nested
 /// value objects (`update_message_partial_request_content` ends in `_content`).
-/// See docs/plans/client-write-path-enforcement.md G1.1.
-final RegExp _partialUpdateRequestName = RegExp(r'^update_.*_request$');
+/// The `managed_` qualifier is a single optional prefix, so "is an update-shaped
+/// request" stays the one predicate.
+/// See docs/plans/client-write-path-enforcement.md G1.1 / G1.6.
+final RegExp _partialUpdateRequestName = RegExp(r'^(managed_)?update_.*_request$');
 
 bool _isPartialUpdateRequest(UniversalComponentClass dataClass) =>
     _partialUpdateRequestName.hasMatch(dataClass.name.toSnake);
