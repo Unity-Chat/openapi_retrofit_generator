@@ -117,12 +117,33 @@ ${_classModifier(isUnion: isUnion)}class $className with _\$$className {
 ${_factories(dataClass, className, includeIfNull, fallbackUnion, customMetadata, isUnion: isUnion, wrapOptional: wrapOptional)}
 ${_unionDefaultConstants(dataClass, className)}
 ${_jsonFactories(className, dataClass.undiscriminatedUnionVariants, isUnion: isUnion)}
-${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}}
+${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_immutableFieldsConst(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension$patchExtension$base64ConverterClass''';
 }
 
 String _classModifier({required bool isUnion}) {
   return isUnion ? 'sealed ' : 'abstract ';
+}
+
+/// A `static const Set<String> immutableFields` naming the JSON keys of this
+/// model's write-once (`@dbImmutable`) fields. Immutability is a property of the
+/// model (it sits with the `@dbImmutable` annotations), and Dart has no runtime
+/// annotation reflection, so the persistence layer reads this constant to build
+/// its write guard without hand-listing anything. Emitted only when non-empty;
+/// the keys are sorted for deterministic output.
+String _immutableFieldsConst(UniversalComponentClass dataClass) {
+  final keys =
+      dataClass.parameters
+          .where((p) => p.customMetadata['immutable'] == true)
+          .map((p) => p.jsonKey ?? p.name)
+          .toList()
+        ..sort();
+  if (keys.isEmpty) {
+    return '';
+  }
+  final quoted = keys.map((k) => "'$k'").join(', ');
+  return "\n  /// JSON keys of this model's write-once (`@dbImmutable`) fields.\n"
+      '  static const Set<String> immutableFields = {$quoted};\n';
 }
 
 /// Provides template for generating one sealed-ref-union family file.
@@ -309,7 +330,7 @@ ${descriptionComment(dataClass.description)}@Freezed()
 abstract class $className with _\$$className$implementsClause {
 ${_factories(dataClass, className, includeIfNull, null, customMetadata, isUnion: false)}
 ${_jsonFactories(className, null, isUnion: false)}
-${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}}
+${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_immutableFieldsConst(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension''';
 }
 
