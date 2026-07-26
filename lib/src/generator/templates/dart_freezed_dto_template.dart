@@ -1508,6 +1508,45 @@ String _optionalImportDirective(String? importPath) {
   return "import '${importPath.trim()}' show Optional;\n";
 }
 
+/// The expression that turns a present `Optional<T>`'s value into a **storable**
+/// JSON value for `toPatch()`.
+///
+/// A patch is handed straight to the persistence layer, which stores raw JSON. A
+/// primitive passes through, but a generated **enum** or **model** must be converted
+/// via its `toJson()` first: Couchbase Lite's `CblConversions.convertToCblObject`
+/// accepts only `String | num | bool | null | Map | Iterable | DateTime | Uint8List`
+/// and throws `ArgumentError('cannot be stored in a Couchbase Lite Document')` on
+/// anything else. Emitting the raw object (the behaviour before 2026-07-25) made every
+/// managed/update write carrying a nested typed value or an enum a runtime crash — see
+/// `docs/plans/managed-request-superset.md` D5.
+///
+/// `DateTime` is deliberately treated as a primitive: CBL converts it itself
+/// (`toIso8601String()`), and `DateTime` has no `toJson()`.
+String _patchValueExpression(UniversalType t) {
+  final value = 'this.${t.name}!.value';
+  // `UniversalType.type` is the RAW OpenAPI type ("string", "integer", …), not the
+  // Dart one — map it first, or every primitive is mistaken for a model and gets a
+  // `.toJson()` that does not compile.
+  if (isPrimitiveTypeName(t.type.toDartType(format: t.format))) return value;
+
+  // Collections wrap the element type; convert element-wise. Only the innermost
+  // (last) wrapper matters here — nested collections of models do not occur in the
+  // generated request surface, and a Map's values are converted the same way.
+  //
+  // `Optional<T>.value` is always `T?` (null = clear), so the OUTER access is always
+  // null-aware. The ELEMENT access must not be unless the collection actually holds
+  // nullable items, or the analyzer flags `invalid_null_aware_operator`.
+  final collection = t.wrappingCollections.isEmpty
+      ? null
+      : t.wrappingCollections.last;
+  if (collection == null) return '$value?.toJson()';
+  final item = collection.itemIsNullable ? '?.' : '.';
+  if (collection.isMap) {
+    return '$value?.map((key, value) => MapEntry(key, value${item}toJson()))';
+  }
+  return '$value?.map((e) => e${item}toJson()).toList()';
+}
+
 /// Generates a `toPatch()` extension: the sparse presence patch built from the
 /// *present* Optionals only (keeping an explicit null as a clear) — the Dart
 /// analogue of `model_dump(exclude_unset=True)`, consumed by
@@ -1524,7 +1563,7 @@ String _generateToPatchExtension(
       .where(_isWrappableOptionalField)
       .map(
         (p) =>
-            "    if (this.${p.name} != null) { patch['${_wireKey(p)}'] = this.${p.name}!.value; }",
+            "    if (this.${p.name} != null) { patch['${_wireKey(p)}'] = ${_patchValueExpression(p)}; }",
       )
       .join('\n');
   return '''
