@@ -14,6 +14,13 @@ const _primitiveTypes = {
   'Uint8List',
 };
 
+/// Whether [typeName] is a Dart primitive that needs no `toJson()` conversion.
+///
+/// Anything else — a generated enum or a generated model — carries a `toJson()`
+/// and MUST be converted before the value is handed to a consumer that stores
+/// raw JSON values (see the `toPatch()` serializer).
+bool isPrimitiveTypeName(String typeName) => _primitiveTypes.contains(typeName);
+
 /// Provides imports as String from list of imports
 ///
 /// [fileOverrides] remaps snake-case file base names for classes whose file
