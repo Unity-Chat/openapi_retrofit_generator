@@ -1532,14 +1532,19 @@ String _patchValueExpression(UniversalType t) {
   // Collections wrap the element type; convert element-wise. Only the innermost
   // (last) wrapper matters here — nested collections of models do not occur in the
   // generated request surface, and a Map's values are converted the same way.
+  //
+  // `Optional<T>.value` is always `T?` (null = clear), so the OUTER access is always
+  // null-aware. The ELEMENT access must not be unless the collection actually holds
+  // nullable items, or the analyzer flags `invalid_null_aware_operator`.
   final collection = t.wrappingCollections.isEmpty
       ? null
       : t.wrappingCollections.last;
   if (collection == null) return '$value?.toJson()';
+  final item = collection.itemIsNullable ? '?.' : '.';
   if (collection.isMap) {
-    return '$value?.map((key, value) => MapEntry(key, value?.toJson()))';
+    return '$value?.map((key, value) => MapEntry(key, value${item}toJson()))';
   }
-  return '$value?.map((e) => e?.toJson()).toList()';
+  return '$value?.map((e) => e${item}toJson()).toList()';
 }
 
 /// Generates a `toPatch()` extension: the sparse presence patch built from the

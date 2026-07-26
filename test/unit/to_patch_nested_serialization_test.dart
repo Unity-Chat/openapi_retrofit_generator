@@ -43,6 +43,15 @@ void main() {
           "history": {
             "type": "array",
             "items": {"$ref": "#/components/schemas/RequestState"}
+          },
+          "maybe_history": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {"$ref": "#/components/schemas/RequestState"},
+                {"type": "null"}
+              ]
+            }
           }
         }
       }
@@ -106,9 +115,19 @@ void main() {
   });
 
   test('a list of nested models is converted element-wise', () {
+    // `Optional<T>.value` is always `T?` so the OUTER access is null-aware, but the
+    // element is not nullable here — a `?.` on it would trip
+    // `invalid_null_aware_operator` in every generated file.
     expect(
       patchLine('history'),
-      contains('this.history!.value?.map((e) => e?.toJson()).toList()'),
+      contains('this.history!.value?.map((e) => e.toJson()).toList()'),
+    );
+  });
+
+  test('a list of NULLABLE nested models keeps the element null-aware', () {
+    expect(
+      patchLine('maybe_history'),
+      contains('this.maybeHistory!.value?.map((e) => e?.toJson()).toList()'),
     );
   });
 
@@ -122,6 +141,7 @@ void main() {
       'tone',
       'request_state',
       'history',
+      'maybe_history',
     ]) {
       expect(
         patchLine(key),
