@@ -12,16 +12,19 @@ import 'package:test/test.dart';
 /// way persistence code can read a model's provenance metadata without
 /// hand-listing it — which is exactly the drift they exist to prevent.
 ///
-/// The two families have deliberately DIFFERENT emission rules, and most of the
-/// cases below pin that difference:
+/// ONE rule gates every const here: emit nothing unless EVERY field declares a
+/// `value_source`. Several cases below exist purely to pin that.
 ///
-/// - `immutableFields` is a per-field boolean, trustworthy regardless of how
-///   completely the model declares `value_source`, so it is emitted for any
-///   model carrying custom metadata — including when empty.
-/// - The value_source consts are a PARTITION, meaningful only if complete, so
-///   they are emitted only when EVERY field declares a `value_source`. A
-///   partially annotated model gets none rather than sets that silently omit
-///   real fields while presenting themselves as exhaustive.
+/// For the partition the reason is obvious — a partition is meaningful only if
+/// complete. For `immutableFields` it is less obvious, and was originally got
+/// wrong: `immutable` and `value_source` travel together in the same
+/// `json_schema_extra`, so whatever drops one drops the other. A hydrated model
+/// that redeclares an inherited field to widen its type loses BOTH, and its
+/// `immutableFields` then under-reports while still looking authoritative —
+/// strictly worse than no const, because a caller reaching for it gets a write
+/// guard missing real fields. Completeness of `value_source` is therefore the
+/// proxy for "this model's field metadata survived intact", and it gates
+/// everything.
 void main() {
   const spec = r'''
 {
@@ -305,47 +308,34 @@ void main() {
   });
 
   group('the completeness precondition', () {
-    test('a partially annotated model gets NO category consts', () {
+    test('a partially annotated model gets NO consts — not even '
+        'immutableFields', () {
       final g = generated['PartiallyAnnotated']!;
-      for (final name in [
-        'clientProvidedFields',
-        'systemGeneratedFields',
-        'authFields',
-        'applicationManagedFields',
-        'writableFields',
-      ]) {
-        expect(
-          g,
-          isNot(contains('static const Set<String> $name')),
-          reason:
-              'one unannotated field ("hydrated_only") means the sets would '
-              'silently omit a real field while presenting themselves as '
-              'exhaustive',
-        );
-      }
-    });
-
-    test('...but it still gets immutableFields', () {
       expect(
-        generated['PartiallyAnnotated'],
-        contains("static const Set<String> immutableFields = {'id'};"),
+        g,
+        isNot(contains('static const Set<String>')),
         reason:
-            'immutable is a per-field boolean — trustworthy regardless of '
-            'value_source coverage',
+            'one unannotated field ("hydrated_only") makes ALL the field '
+            'metadata untrustworthy: `immutable` and `value_source` travel '
+            'together in the same json_schema_extra, so whatever dropped one '
+            'dropped the other. An immutableFields that silently under-reports '
+            'is worse than none — a caller gets a write guard missing real '
+            'fields. This is the real OwnUser bug: its hydrated twin declared '
+            "{'created_at'} while the storage model declares "
+            "{'created_at', 'id', 'sign_up_date'}.",
       );
     });
 
-    test(
-      'metadata with no value_source at all yields only immutableFields',
-      () {
-        final g = generated['ImmutableOnly']!;
-        expect(
-          g,
-          contains("static const Set<String> immutableFields = {'id'};"),
-        );
-        expect(g, isNot(contains('clientProvidedFields')));
-      },
-    );
+    test('a model with immutable but no value_source gets no consts', () {
+      final g = generated['ImmutableOnly']!;
+      expect(
+        g,
+        isNot(contains('static const Set<String>')),
+        reason:
+            'no value_source anywhere means nothing vouches for the metadata '
+            'having survived',
+      );
+    });
 
     test('a model with no custom metadata gets no consts at all', () {
       final g = generated['NoMetadata']!;
