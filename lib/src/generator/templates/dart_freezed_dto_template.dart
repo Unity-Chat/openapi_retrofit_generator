@@ -117,7 +117,7 @@ ${_classModifier(isUnion: isUnion)}class $className with _\$$className {
 ${_factories(dataClass, className, includeIfNull, fallbackUnion, customMetadata, isUnion: isUnion, wrapOptional: wrapOptional)}
 ${_unionDefaultConstants(dataClass, className)}
 ${_jsonFactories(className, dataClass.undiscriminatedUnionVariants, isUnion: isUnion)}
-${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_immutableFieldsConst(dataClass)}}
+${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_fieldMetadataConsts(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension$patchExtension$base64ConverterClass''';
 }
 
@@ -125,25 +125,152 @@ String _classModifier({required bool isUnion}) {
   return isUnion ? 'sealed ' : 'abstract ';
 }
 
+/// One `static const Set<String> [name]` of JSON wire keys, documented by [doc].
+///
+/// Keys come from [_wireKey] — `jsonKey` when the field was renamed on the wire,
+/// else the field name — so they are what the stored document and the patch
+/// actually use, escaped for the single-quoted literal emitted here (a raw `$`
+/// would otherwise interpolate). Sorted, so output never depends on parameter
+/// iteration order.
+String _wireKeySetConst(
+  Iterable<UniversalType> fields, {
+  required String name,
+  required String doc,
+}) {
+  final keys = fields.map(_wireKey).toList()..sort();
+  final quoted = keys.map((key) => "'$key'").join(', ');
+  return '\n  /// $doc\n'
+      '  static const Set<String> $name = {$quoted};\n';
+}
+
 /// A `static const Set<String> immutableFields` naming the JSON keys of this
 /// model's write-once (`@dbImmutable`) fields. Immutability is a property of the
 /// model (it sits with the `@dbImmutable` annotations), and Dart has no runtime
 /// annotation reflection, so the persistence layer reads this constant to build
-/// its write guard without hand-listing anything. Emitted only when non-empty;
-/// the keys are sorted for deterministic output.
-String _immutableFieldsConst(UniversalComponentClass dataClass) {
-  final keys =
-      dataClass.parameters
-          .where((p) => p.customMetadata['immutable'] == true)
-          .map((p) => p.jsonKey ?? p.name)
-          .toList()
-        ..sort();
-  if (keys.isEmpty) {
-    return '';
+/// its write guard without hand-listing anything.
+///
+/// Emitted for every model carrying custom metadata, INCLUDING when empty:
+/// `immutable` is a per-field boolean, so "this model has no write-once field"
+/// is itself a fact worth stating, and an absent const would force consumers to
+/// distinguish it from "this generator predates the feature". Unlike the
+/// value_source partition below it needs no completeness precondition — a field
+/// either carries the flag or does not.
+String _immutableFieldsConst(UniversalComponentClass dataClass) =>
+    _wireKeySetConst(
+      dataClass.parameters.where((p) => p.customMetadata['immutable'] == true),
+      name: 'immutableFields',
+      doc: "JSON keys of this model's write-once (`@dbImmutable`) fields.",
+    );
+
+/// The custom-metadata key the field-provenance taxonomy arrives under.
+///
+/// Must match the `name:` of the consumer's `value_source` custom_metadata
+/// field: the parser keys its map by CONFIG name, not by schema key, so a
+/// rename on either side silently empties these consts rather than failing.
+const _valueSourceKey = 'value_source';
+
+/// The "no information" member of the taxonomy. The backend never emits it (its
+/// codegen hard-errors on an omitted value_source), but it is a legal enum
+/// value, so it is recognized-but-uncategorized: the consts still emit and the
+/// field simply belongs to no category. Contrast an UNRECOGNIZED string, which
+/// throws.
+const _valueSourceUnspecified = 'VALUE_SOURCE_UNSPECIFIED';
+
+/// The `value_source` wire values, mapped to the const each one collects into.
+///
+/// Four DISJOINT categories, in the order the proto declares them — which is
+/// also the emission order, so output never depends on parameter iteration.
+/// The orthogonal `immutable` flag cross-cuts all four and is NOT a fifth
+/// category; it has its own const. Adding a category appends here.
+const _valueSourceConstNames = <String, String>{
+  'VALUE_SOURCE_CLIENT_PROVIDED': 'clientProvidedFields',
+  'VALUE_SOURCE_SYSTEM_GENERATED': 'systemGeneratedFields',
+  'VALUE_SOURCE_AUTH': 'authFields',
+  'VALUE_SOURCE_APPLICATION_MANAGED': 'applicationManagedFields',
+};
+
+/// The categories whose union is `writableFields` — everything a trusted or
+/// admin writer may set. Excludes SYSTEM_GENERATED and AUTH, which no writer
+/// supplies. Mirrors the backend's `get_writable_fields`.
+const _writableValueSources = <String>[
+  'VALUE_SOURCE_CLIENT_PROVIDED',
+  'VALUE_SOURCE_APPLICATION_MANAGED',
+];
+
+/// The `value_source` partition: one `static const Set<String>` per category of
+/// the backend's field-provenance taxonomy, plus the derived `writableFields`.
+///
+/// Emitted ONLY when EVERY parameter declares a `value_source`. A partition is
+/// meaningful only if it is complete: on a partially-annotated model the sets
+/// would silently omit real fields while presenting themselves as exhaustive,
+/// which is worse than emitting nothing. (This is not hypothetical — a hydrated
+/// model that redeclares an inherited field to widen its type drops the
+/// annotation, so its categories would under-report.) Emitting nothing keeps the
+/// rule self-maintaining: complete the annotations and the consts appear, with
+/// no change here.
+///
+/// Empty categories ARE emitted for a qualifying model, so consumers get a
+/// complete partition and never need a null check.
+String _valueSourceFieldConsts(UniversalComponentClass dataClass) {
+  final byCategory = <String, List<UniversalType>>{
+    for (final category in _valueSourceConstNames.keys) category: [],
+  };
+
+  for (final parameter in dataClass.parameters) {
+    final value = parameter.customMetadata[_valueSourceKey];
+    // Any unannotated field means the partition would be incomplete.
+    if (value == null) return '';
+    if (value == _valueSourceUnspecified) continue;
+    final bucket = byCategory[value];
+    if (bucket == null) {
+      throw GeneratorException(
+        "Unrecognized $_valueSourceKey '$value' on "
+        "'${dataClass.name}.${parameter.name}'. Add it to "
+        '_valueSourceConstNames: dropping it would leave the emitted '
+        'value_source consts claiming a partition that no longer covers '
+        'every annotated field of this model.',
+      );
+    }
+    bucket.add(parameter);
   }
-  final quoted = keys.map((k) => "'$k'").join(', ');
-  return "\n  /// JSON keys of this model's write-once (`@dbImmutable`) fields.\n"
-      '  static const Set<String> immutableFields = {$quoted};\n';
+
+  // A model with no parameters at all (e.g. a sealed-union parent) partitions
+  // nothing; `byCategory` being all-empty here is vacuous, not informative.
+  if (dataClass.parameters.isEmpty) return '';
+
+  final consts = _valueSourceConstNames.entries
+      .map(
+        (entry) => _wireKeySetConst(
+          byCategory[entry.key]!,
+          name: entry.value,
+          doc: "JSON keys of this model's `${entry.key}` fields.",
+        ),
+      )
+      .join();
+
+  return '$consts'
+      '${_wireKeySetConst([for (final source in _writableValueSources) ...byCategory[source]!], name: 'writableFields', doc: 'JSON keys a trusted or admin writer may set: '
+          '`clientProvidedFields` ∪ `applicationManagedFields`. Derived, so NOT '
+          'a value_source category and NOT disjoint from them; a plain client may '
+          'still set only `clientProvidedFields`.')}';
+}
+
+/// The field-metadata consts a model class carries at the end of its body: the
+/// write-once flag set, then the value_source partition.
+///
+/// A single seam because there are TWO emission sites — the standalone class
+/// body and the family-file leaf — which must stay identical. They are identical
+/// today only by hand, which is how `immutableFields` reached both while nothing
+/// else did.
+String _fieldMetadataConsts(UniversalComponentClass dataClass) {
+  // No custom metadata at all (every request body, and any model generated
+  // without the feature configured) means there is nothing to describe.
+  final hasMetadata = dataClass.parameters.any(
+    (p) => p.customMetadata.isNotEmpty,
+  );
+  if (!hasMetadata) return '';
+  return '${_immutableFieldsConst(dataClass)}'
+      '${_valueSourceFieldConsts(dataClass)}';
 }
 
 /// Provides template for generating one sealed-ref-union family file.
@@ -334,7 +461,7 @@ ${descriptionComment(dataClass.description)}@Freezed()
 abstract class $className with _\$$className$implementsClause {
 ${_factories(dataClass, className, includeIfNull, null, customMetadata, isUnion: false)}
 ${_jsonFactories(className, null, isUnion: false)}
-${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_immutableFieldsConst(dataClass)}}
+${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_fieldMetadataConsts(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension''';
 }
 
