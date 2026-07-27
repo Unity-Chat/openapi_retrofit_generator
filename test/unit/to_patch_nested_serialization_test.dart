@@ -30,6 +30,18 @@ void main() {
         "type": "string",
         "enum": ["calm", "urgent"]
       },
+      "UpdateBadgeRequest": {
+        "type": "object",
+        "properties": {"label": {"type": "string"}}
+      },
+      "ManagedUpdateBadgeRequest": {
+        "type": "object",
+        "properties": {"label": {"type": "string"}}
+      },
+      "UpdateThingRequestState": {
+        "type": "object",
+        "properties": {"phase": {"type": "string"}}
+      },
       "UpdateThingRequest": {
         "type": "object",
         "properties": {
@@ -52,6 +64,17 @@ void main() {
                 {"type": "null"}
               ]
             }
+          },
+          "badge": {"$ref": "#/components/schemas/UpdateBadgeRequest"},
+          "managed_badge": {
+            "$ref": "#/components/schemas/ManagedUpdateBadgeRequest"
+          },
+          "badges": {
+            "type": "array",
+            "items": {"$ref": "#/components/schemas/UpdateBadgeRequest"}
+          },
+          "nested_state": {
+            "$ref": "#/components/schemas/UpdateThingRequestState"
           }
         }
       }
@@ -131,6 +154,50 @@ void main() {
     );
   });
 
+  // ---------------------------------------------------------------------------
+  // A nested partial-update request must be serialised with toPatch(), NOT toJson().
+  //
+  // Such a type is presence-tracked exactly like the request enclosing it: every
+  // value field is `Optional<T>` with `includeToJson: false`, so json_serializable
+  // emits `_$XToJson(...) => <String, dynamic>{}` — a literal empty map. Using
+  // toJson() therefore wrote `{}` and BLANKED the nested field rather than patching
+  // it: silent, and with no analyzer complaint. Affected 23 fields across the
+  // generated novus surface (`request_state`, `brand_assets`, `privacy_settings`,
+  // `push_preferences`, `options`, `grants`, …).
+  // ---------------------------------------------------------------------------
+
+  test('a nested update_*_request is converted via toPatch()', () {
+    expect(patchLine('badge'), contains('this.badge!.value?.toPatch()'));
+    expect(patchLine('badge'), isNot(contains('toJson')));
+  });
+
+  test('a nested managed_update_*_request is converted via toPatch()', () {
+    expect(
+      patchLine('managed_badge'),
+      contains('this.managedBadge!.value?.toPatch()'),
+    );
+    expect(patchLine('managed_badge'), isNot(contains('toJson')));
+  });
+
+  test('a list of nested update requests is toPatch()-ed element-wise', () {
+    expect(
+      patchLine('badges'),
+      contains('this.badges!.value?.map((e) => e.toPatch()).toList()'),
+    );
+  });
+
+  test('a nested value object keeps toJson() — it is not a request', () {
+    // `UpdateThingRequestState` ends in `_state`, not `_request`, so it never gets a
+    // `toPatch()`. Serialising it with one would not compile. This is the same
+    // partition `_partialUpdateRequestName` draws for the classes that GET a
+    // toPatch(), which is why the two can't disagree.
+    expect(
+      patchLine('nested_state'),
+      contains('this.nestedState!.value?.toJson()'),
+    );
+    expect(patchLine('nested_state'), isNot(contains('toPatch')));
+  });
+
   test('every present-Optional field still produces a patch line', () {
     for (final key in [
       'title',
@@ -142,6 +209,10 @@ void main() {
       'request_state',
       'history',
       'maybe_history',
+      'badge',
+      'managed_badge',
+      'badges',
+      'nested_state',
     ]) {
       expect(
         patchLine(key),

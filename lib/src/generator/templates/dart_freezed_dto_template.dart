@@ -1549,12 +1549,17 @@ String _optionalImportDirective(String? importPath) {
 ///
 /// A patch is handed straight to the persistence layer, which stores raw JSON. A
 /// primitive passes through, but a generated **enum** or **model** must be converted
-/// via its `toJson()` first: Couchbase Lite's `CblConversions.convertToCblObject`
-/// accepts only `String | num | bool | null | Map | Iterable | DateTime | Uint8List`
+/// first: Couchbase Lite's `CblConversions.convertToCblObject` accepts only
+/// `String | num | bool | null | Map | Iterable | DateTime | Uint8List`
 /// and throws `ArgumentError('cannot be stored in a Couchbase Lite Document')` on
 /// anything else. Emitting the raw object (the behaviour before 2026-07-25) made every
 /// managed/update write carrying a nested typed value or an enum a runtime crash — see
 /// `docs/plans/managed-request-superset.md` D5.
+///
+/// *Which* converter depends on the type — see [_patchSerializer]. A nested
+/// partial-update request patches with `toPatch()`; everything else uses `toJson()`.
+/// Using `toJson()` for both (the behaviour before 2026-07-26) silently wrote `{}` for
+/// the former — `docs/plans/managed-request-superset.md` D5a.
 ///
 /// `DateTime` is deliberately treated as a primitive: CBL converts it itself
 /// (`toIso8601String()`), and `DateTime` has no `toJson()`.
@@ -1562,8 +1567,12 @@ String _patchValueExpression(UniversalType t) {
   final value = 'this.${t.name}!.value';
   // `UniversalType.type` is the RAW OpenAPI type ("string", "integer", …), not the
   // Dart one — map it first, or every primitive is mistaken for a model and gets a
-  // `.toJson()` that does not compile.
-  if (isPrimitiveTypeName(t.type.toDartType(format: t.format))) return value;
+  // `.toJson()` that does not compile. For a `$ref` this is the schema/class name,
+  // which is what `_patchSerializer` needs.
+  final dartType = t.type.toDartType(format: t.format);
+  if (isPrimitiveTypeName(dartType)) return value;
+
+  final serializer = _patchSerializer(dartType);
 
   // Collections wrap the element type; convert element-wise. Only the innermost
   // (last) wrapper matters here — nested collections of models do not occur in the
@@ -1575,13 +1584,33 @@ String _patchValueExpression(UniversalType t) {
   final collection = t.wrappingCollections.isEmpty
       ? null
       : t.wrappingCollections.last;
-  if (collection == null) return '$value?.toJson()';
+  if (collection == null) return '$value?.$serializer()';
   final item = collection.itemIsNullable ? '?.' : '.';
   if (collection.isMap) {
-    return '$value?.map((key, value) => MapEntry(key, value${item}toJson()))';
+    return '$value?.map((key, value) => MapEntry(key, value$item$serializer()))';
   }
-  return '$value?.map((e) => e${item}toJson()).toList()';
+  return '$value?.map((e) => e$item$serializer()).toList()';
 }
+
+/// The serializer that converts a nested value into its patch representation.
+///
+/// A nested **partial-update request** is presence-tracked exactly like the request
+/// enclosing it: every one of its value fields is `Optional<T>` and carries
+/// `includeToJson: false`, so json_serializable emits
+/// `Map<String, dynamic> _$XToJson(...) => <String, dynamic>{};` — a literal empty map.
+/// Calling `toJson()` on it therefore writes `{}` and BLANKS the nested field instead
+/// of patching it, silently and with no analyzer complaint. `toPatch()` is its
+/// authoritative serializer, for the same reason it is the enclosing request's.
+///
+/// Everything else — a generated enum, a plain model — has a real `toJson()`.
+///
+/// The rule keys off [_partialUpdateRequestName], the same predicate that decides
+/// which classes GET a `toPatch()`, so the two can never disagree: a type is
+/// serialized with `toPatch()` iff the generator gave it one. Nested value objects are
+/// correctly excluded — `ManagedUpdateMessageRequestState` ends in `_state`, not
+/// `_request`, and keeps its real `toJson()`.
+String _patchSerializer(String dartType) =>
+    _partialUpdateRequestName.hasMatch(dartType.toSnake) ? 'toPatch' : 'toJson';
 
 /// Generates a `toPatch()` extension: the sparse presence patch built from the
 /// *present* Optionals only (keeping an explicit null as a clear) — the Dart
