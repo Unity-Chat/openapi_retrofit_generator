@@ -340,6 +340,12 @@ String dartFreezedUnionFamilyTemplate(
         )
       : '';
 
+  // Any request leaf now carries `Optional<T>` fields, so the family file needs the
+  // same import the single-class path adds.
+  final familyOptionalImport = family.leaves.any(_isPartialUpdateRequest)
+      ? _optionalImportDirective(customMetadataImportPath)
+      : '';
+
   final modelImports = _familyModelImports(family, classFileOverrides);
 
   final commonFieldsByUnion = <String, List<UniversalType>>{
@@ -373,7 +379,33 @@ String dartFreezedUnionFamilyTemplate(
         ),
       )
       .join('\n');
+  // A leaf folded into a family file still needs its `toPatch()`: the single-class
+  // template emits this extension, and before this the family path did not — so a
+  // request type silently lost `toPatch()` merely by joining a discriminated union.
+  final leafPatchExtensions = family.leaves
+      .where(_isPartialUpdateRequest)
+      .map(
+        (leaf) =>
+            _generateToPatchExtension(leaf.name.toPascal, leaf.parameters),
+      )
+      .join();
+
+  // And the union itself dispatches to whichever leaf it holds, so a caller can
+  // patch through the union without switching on the variant.
+  //
+  // An EXTENSION, not an abstract member on the sealed class: `toPatch()` is an
+  // extension on every leaf, and a Dart extension can never satisfy an abstract
+  // interface member — declaring it on the supertype makes every freezed impl class
+  // fail with `non_abstract_class_inherits_abstract_member`.
+  final unionPatchExtensions = family.unions
+      .where(_isPartialUpdateRequest)
+      .map((union) => _unionToPatchExtension(union))
+      .join();
+
+  // Same reasoning as the factories/getters: `copyWith`/`map` over a patch union
+  // assume plain data-model field types, and you would copyWith the LEAF anyway.
   final compatExtensions = family.unions
+      .where((union) => !_isPartialUpdateRequest(union))
       .map(
         (union) =>
             _unionCompatExtensions(union, commonFieldsByUnion[union.name]!),
@@ -382,14 +414,14 @@ String dartFreezedUnionFamilyTemplate(
 
   return '''
 import 'package:freezed_annotation/freezed_annotation.dart';
-$dartCoreImports$customMetadataImport$modelImports
+$dartCoreImports$customMetadataImport$familyOptionalImport$modelImports
 part '${family.fileBaseName}.freezed.dart';
 part '${family.fileBaseName}.g.dart';
 
 $sealedClasses
 $unknownClasses
 $leafClasses
-$compatExtensions$base64ConverterClass''';
+$compatExtensions$leafPatchExtensions$unionPatchExtensions$base64ConverterClass''';
 }
 
 /// The `import` directives a family file needs: every member's imports minus
@@ -475,7 +507,7 @@ String _leafClassChunk(
   return '''
 ${descriptionComment(dataClass.description)}@Freezed()
 abstract class $className with _\$$className$implementsClause {
-${_factories(dataClass, className, includeIfNull, null, customMetadata, isUnion: false)}
+${_factories(dataClass, className, includeIfNull, null, customMetadata, isUnion: false, wrapOptional: _isPartialUpdateRequest(dataClass))}
 ${_jsonFactories(className, null, isUnion: false)}
 ${generateValidator ? dataClass.parameters.map(_validationString).nonNulls.join() : ''}${_fieldMetadataConsts(dataClass)}}
 ${generateValidator ? _validateMethod(className, dataClass.parameters) : ''}$mergeExtension''';
@@ -491,14 +523,15 @@ String _sealedUnionClass(
   final discriminator = union.discriminator!;
   final discriminatorPropertyName = discriminator.propertyName;
 
+  // See the note below _sealedUnionClass's return: a patch-request union is a
+  // DISPATCH type, so it emits no factories, constants, or shared getters.
+  final isPatchUnion = _isPartialUpdateRequest(union);
+
   // A union OVER update-request leaves is itself an update request: every leaf
   // already emits `toPatch()`, so declaring it here is what lets a caller hold
   // the union and patch through it without switching on the variant. Without
   // this the union is useless as a DAO seam parameter — which is why consumers
   // were hand-writing sealed wrappers over the generated leaves.
-  final patchDeclaration = _isPartialUpdateRequest(union)
-      ? '\n  Map<String, dynamic> toPatch();'
-      : '';
 
   final factories = <String>[];
   final constants = <String>[];
@@ -541,7 +574,9 @@ String _sealedUnionClass(
     '        _ => ${className}Unknown(Map<String, dynamic>.from(json)),',
   );
 
-  final constantsBlock = constants.isEmpty ? '' : '\n${constants.join('\n')}\n';
+  final constantsBlock = (constants.isEmpty || isPatchUnion)
+      ? ''
+      : '\n${constants.join('\n')}\n';
 
   final commonGetters = commonFields
       .map((param) {
@@ -549,6 +584,18 @@ String _sealedUnionClass(
         return '${descriptionComment(description, tab: '  ')}  ${_freezedSuitableType(param)} get ${param.name};';
       })
       .join('\n');
+  // A union over update-request leaves is a DISPATCH type: you build a patch by
+  // constructing the leaf, and you consume it by calling `toPatch()`. It therefore
+  // emits neither redirecting factories nor shared getters —
+  //
+  //   * a redirecting factory must restate the leaf's constructor signature exactly,
+  //     and a request leaf's fields are `Optional<T>?` while a data model's are plain;
+  //   * a shared getter would have to declare `Optional<T>? get id`, which is not a
+  //     useful thing to read off a patch.
+  //
+  // Emitting either is what made request unions and `Optional` irreconcilable.
+  final factoriesBlock = isPatchUnion ? '' : factories.join('\n');
+
   final commonGettersBlock = commonFields.isEmpty
       ? ''
       : '''
@@ -557,17 +604,19 @@ String _sealedUnionClass(
 $commonGetters
 ''';
 
+  final gettersBlock = isPatchUnion ? '' : commonGettersBlock;
+
   return '''
 ${descriptionComment(union.description)}sealed class $className {
-${factories.join('\n')}$constantsBlock
+$factoriesBlock$constantsBlock
   /// Deserializes by switching on `$discriminatorPropertyName`; unrecognized values yield a
   /// [${className}Unknown] carrying the raw JSON instead of throwing.
   factory $className.fromJson(Map<String, dynamic> json) =>
       switch (json['${protectJsonKey(discriminatorPropertyName)}']) {
 ${fromJsonArms.join('\n')}
       };
-$commonGettersBlock
-  Map<String, dynamic> toJson();$patchDeclaration
+$gettersBlock
+  Map<String, dynamic> toJson();
 }
 ''';
 }
@@ -596,6 +645,32 @@ String? _showableDescription(UniversalType e) {
   return shouldShowDescription ? e.description : null;
 }
 
+/// A `toPatch()` extension on a union over update-request leaves, dispatching to
+/// whichever variant it holds.
+///
+/// Inside each `switch` arm the static type is the leaf, so `toPatch()` resolves to
+/// that leaf's own extension. `<Union>Unknown` declares `toPatch()` as a real instance
+/// member, and an instance member wins over an extension, so its arm resolves there.
+String _unionToPatchExtension(UniversalComponentClass union) {
+  final className = union.name.toPascal;
+  final arms = [
+    for (final leafName
+        in union.discriminator!.discriminatorValueToRefMapping.values)
+      '        ${leafName.toPascal}() => (this as ${leafName.toPascal}).toPatch(),',
+    '        ${className}Unknown() => (this as ${className}Unknown).toPatch(),',
+  ].join('\n');
+
+  return '''
+
+/// Builds the sparse presence patch for whichever variant this union holds.
+extension ${className}PatchX on $className {
+  Map<String, dynamic> toPatch() => switch (this) {
+$arms
+      };
+}
+''';
+}
+
 /// The `final class <Union>Unknown` fallback: wraps the raw JSON losslessly
 /// and decodes the union's common fields lazily from it.
 String _unknownVariantClass(
@@ -610,16 +685,22 @@ String _unknownVariantClass(
   // Mirrors [toJson]: an unrecognized variant round-trips its raw payload rather
   // than silently patching nothing.
   final patchImpl = _isPartialUpdateRequest(union)
-      ? '\n  @override\n  Map<String, dynamic> toPatch() => json;\n'
+      ? '\n  /// No `@override`: the sealed supertype deliberately does NOT declare\n'
+            '  /// `toPatch()` (an extension cannot satisfy an abstract member), so this\n'
+            '  /// is a plain instance member the union extension dispatches to.\n'
+            '  Map<String, dynamic> toPatch() => json;\n'
       : '';
 
-  final getters = commonFields
-      .map(
-        (param) =>
-            '  @override\n'
-            '  ${_freezedSuitableType(param)} get ${param.name} => ${_unknownGetterBody(param, unknownClassName, unknownEnumValue: unknownEnumValue, enumWireTypes: enumWireTypes)};\n',
-      )
-      .join('\n');
+  // The parent declares no shared getters for a patch union (see _sealedUnionClass),
+  // so Unknown must not emit `@override` versions of them either.
+  final getters =
+      (_isPartialUpdateRequest(union) ? const <UniversalType>[] : commonFields)
+          .map(
+            (param) =>
+                '  @override\n'
+                '  ${_freezedSuitableType(param)} get ${param.name} => ${_unknownGetterBody(param, unknownClassName, unknownEnumValue: unknownEnumValue, enumWireTypes: enumWireTypes)};\n',
+          )
+          .join('\n');
   final gettersBlock = getters.isEmpty ? '' : '\n$getters';
 
   return '''
