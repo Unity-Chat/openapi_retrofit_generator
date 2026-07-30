@@ -491,6 +491,15 @@ String _sealedUnionClass(
   final discriminator = union.discriminator!;
   final discriminatorPropertyName = discriminator.propertyName;
 
+  // A union OVER update-request leaves is itself an update request: every leaf
+  // already emits `toPatch()`, so declaring it here is what lets a caller hold
+  // the union and patch through it without switching on the variant. Without
+  // this the union is useless as a DAO seam parameter — which is why consumers
+  // were hand-writing sealed wrappers over the generated leaves.
+  final patchDeclaration = _isPartialUpdateRequest(union)
+      ? '\n  Map<String, dynamic> toPatch();'
+      : '';
+
   final factories = <String>[];
   final constants = <String>[];
   final fromJsonArms = <String>[];
@@ -558,7 +567,7 @@ ${factories.join('\n')}$constantsBlock
 ${fromJsonArms.join('\n')}
       };
 $commonGettersBlock
-  Map<String, dynamic> toJson();
+  Map<String, dynamic> toJson();$patchDeclaration
 }
 ''';
 }
@@ -598,6 +607,12 @@ String _unknownVariantClass(
   final className = union.name.toPascal;
   final unknownClassName = '${className}Unknown';
 
+  // Mirrors [toJson]: an unrecognized variant round-trips its raw payload rather
+  // than silently patching nothing.
+  final patchImpl = _isPartialUpdateRequest(union)
+      ? '\n  @override\n  Map<String, dynamic> toPatch() => json;\n'
+      : '';
+
   final getters = commonFields
       .map(
         (param) =>
@@ -621,6 +636,7 @@ final class $unknownClassName implements $className {
 
   @override
   Map<String, dynamic> toJson() => json;
+$patchImpl
 $gettersBlock
   @override
   bool operator ==(Object other) =>
