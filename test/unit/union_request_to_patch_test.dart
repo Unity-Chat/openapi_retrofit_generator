@@ -122,9 +122,40 @@ void main() {
       ]);
     });
 
-    test('declares toPatch() on the sealed supertype', () {
+    test('does NOT declare toPatch() as an abstract member', () {
+      // A Dart extension can never satisfy an abstract interface member, and
+      // toPatch() IS an extension on every leaf — declaring it on the sealed class
+      // makes every freezed impl class fail with
+      // `non_abstract_class_inherits_abstract_member`.
       expect(generated, contains('sealed class UpdateThingRequest {'));
-      expect(generated, contains('Map<String, dynamic> toPatch();'));
+      expect(generated, isNot(contains('Map<String, dynamic> toPatch();')));
+    });
+
+    test('dispatches toPatch() through an extension on the union', () {
+      expect(
+        generated,
+        contains('extension UpdateThingRequestPatchX on UpdateThingRequest {'),
+      );
+      expect(
+        generated,
+        contains(
+          'UpdateAlphaRequest() => (this as UpdateAlphaRequest).toPatch(),',
+        ),
+      );
+      expect(
+        generated,
+        contains(
+          'UpdateThingRequestUnknown() => '
+          '(this as UpdateThingRequestUnknown).toPatch(),',
+        ),
+      );
+    });
+
+    test('each leaf gets its own toPatch() extension', () {
+      // Regression: the family path never emitted these, so a request type lost
+      // toPatch() merely by joining a discriminated union.
+      expect(generated, contains('extension UpdateAlphaRequestPatchX'));
+      expect(generated, contains('extension UpdateBetaRequestPatchX'));
     });
 
     test('still declares toJson() — toPatch is additive', () {
